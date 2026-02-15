@@ -70,8 +70,7 @@
 
 // Global site container
 .site-container {
-    // Retaining mixin as requested
-    @include site-container;
+    @apply w-full max-w-site mx-auto px-[24px] md:px-[96px] xl:px-0;
 }
 
 // Section spacing

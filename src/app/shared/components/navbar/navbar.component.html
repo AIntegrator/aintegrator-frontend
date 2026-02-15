@@ -1,5 +1,5 @@
 <header class="w-full bg-bg-primary sticky top-0 z-50">
-  <div class="mx-auto flex h-[42px] max-w-[1144px] items-center justify-between mt-12 px-6 lg:px-0">
+  <div class="relative z-50 mx-auto flex h-[42px] max-w-[1144px] items-center justify-between mt-12 px-6 lg:px-0">
     <a routerLink="/" class="flex flex-shrink-0 items-center transition-opacity duration-300 hover:opacity-80"
       aria-label="AIntegrator Home">
       <img [src]="logoSrc" alt="AIntegrator" width="152" height="29" class="h-[29.083px] w-[152px] object-contain" />
@@ -30,38 +30,72 @@
     </a>
 
     <button
-      class="flex md:hidden flex-col justify-center gap-[5px] w-8 h-8 p-1 bg-transparent border-none cursor-pointer"
+      class="flex md:hidden items-center justify-center w-8 h-8 p-1 bg-transparent border-none cursor-pointer z-50 relative"
       type="button" [attr.aria-expanded]="mobileMenuOpen" aria-controls="mobile-menu"
       aria-label="Toggle navigation menu" (click)="toggleMobileMenu()">
-      <span class="block w-full h-[2px] bg-text-primary rounded-sm transition-all duration-300"></span>
-      <span class="block w-full h-[2px] bg-text-primary rounded-sm transition-all duration-300"></span>
-      <span class="block w-full h-[2px] bg-text-primary rounded-sm transition-all duration-300"></span>
+      @if (!mobileMenuOpen) {
+      <div class="flex flex-col gap-[5px] w-full">
+        <span class="block w-full h-[2px] bg-text-primary rounded-sm transition-all duration-300"></span>
+        <span class="block w-full h-[2px] bg-text-primary rounded-sm transition-all duration-300"></span>
+        <span class="block w-full h-[2px] bg-text-primary rounded-sm transition-all duration-300"></span>
+      </div>
+      } @else {
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18 6L6 18" stroke="#303030" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M6 6L18 18" stroke="#303030" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      }
     </button>
   </div>
 
-  <div id="mobile-menu" class="hidden md:hidden block max-h-0 overflow-hidden transition-all duration-300"
-    [class.max-h-[400px]]="mobileMenuOpen">
-    <nav aria-label="Mobile navigation" class="bg-bg-primary px-6 pb-6">
-      <ul class="flex flex-col gap-4 list-none m-0 py-6">
-        <li><a routerLink="/product"
-            class="block text-lg font-normal text-text-body no-underline py-2 transition-colors duration-300 hover:text-text-primary"
-            (click)="closeMobileMenu()">LiaSuite</a></li>
-        <li><a routerLink="/about"
-            class="block text-lg font-normal text-text-body no-underline py-2 transition-colors duration-300 hover:text-text-primary"
-            (click)="closeMobileMenu()">Über uns</a></li>
-        <li><a routerLink="/careers"
-            class="block text-lg font-normal text-text-body no-underline py-2 transition-colors duration-300 hover:text-text-primary"
-            (click)="closeMobileMenu()">Karriere</a></li>
-        <li><a routerLink="/contact"
-            class="block text-lg font-normal text-text-body no-underline py-2 transition-colors duration-300 hover:text-text-primary"
-            (click)="closeMobileMenu()">Kontakt</a></li>
-      </ul>
-      <a routerLink="/contact"
-        class="inline-flex items-center p-0 mb-6 bg-transparent text-cta no-underline text-base font-medium transition-opacity duration-300 hover:opacity-80"
-        (click)="closeMobileMenu()">
-        <span>Termin vereinbaren</span>
-        <img [src]="arrowIconSrc" alt="" aria-hidden="true" />
-      </a>
-    </nav>
+  <div id="mobile-menu" class="fixed inset-0 z-40 bg-bg-primary md:hidden transition-all duration-300"
+    [class.opacity-0]="!mobileMenuOpen" [class.invisible]="!mobileMenuOpen" [class.opacity-100]="mobileMenuOpen"
+    [class.visible]="mobileMenuOpen">
+    <div class="flex flex-col mt-[90px]">
+      <div class="flex flex-col mt-[44px] px-[24px]">
+        <!-- Menu Links -->
+        <ul class="flex flex-col gap-[40px] text-left list-none m-0 p-0">
+          <li>
+            <a routerLink="/product" routerLinkActive="font-medium"
+              class="text-text-body font-sans text-[24px] font-normal leading-normal no-underline block"
+              (click)="closeMobileMenu()">
+              Produkte
+            </a>
+          </li>
+          <li>
+            <a routerLink="/about" routerLinkActive="font-medium"
+              class="text-text-body font-sans text-[24px] font-normal leading-normal no-underline block"
+              (click)="closeMobileMenu()">
+              Über uns
+            </a>
+          </li>
+          <li>
+            <a routerLink="/careers" routerLinkActive="font-medium"
+              class="text-text-body font-sans text-[24px] font-normal leading-normal no-underline block"
+              (click)="closeMobileMenu()">
+              Karriere
+            </a>
+          </li>
+          <li>
+            <a routerLink="/contact" routerLinkActive="font-medium"
+              class="text-text-body font-sans text-[24px] font-normal leading-normal no-underline block"
+              (click)="closeMobileMenu()">
+              Kontakt
+            </a>
+          </li>
+        </ul>
+
+        <!-- Divider -->
+        <div class="w-full h-px bg-[#E5E5E5] my-[60px]"></div>
+
+        <!-- CTA -->
+        <a routerLink="/contact"
+          class="flex items-center gap-[4px] text-cta font-sans text-[24px] font-medium hover:opacity-80 transition-opacity no-underline"
+          (click)="closeMobileMenu()">
+          <span>Termin vereinbaren</span>
+          <img src="assets/icons/Frame.svg" class="flex-shrink-0" alt="" aria-hidden="true" />
+        </a>
+      </div>
+    </div>
   </div>
 </header>

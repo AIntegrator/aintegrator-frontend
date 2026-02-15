@@ -35,3 +35,59 @@
         transform: translateX(-50%);
     }
 }
+
+// Mobile Responsive Styles
+@media (max-width: 767px) {
+    .logo-track {
+        gap: 48.51px;
+        padding-right: 48.51px;
+        animation: scroll-mobile 20s linear infinite;
+    }
+
+
+
+    .logo-img {
+
+        // Pixel-perfect mobile sizing
+        &.logo-1 {
+            width: 84.76px;
+            height: 21.19px;
+        }
+
+        &.logo-2 {
+            width: 85.333px;
+            height: 12.629px;
+        }
+
+        &.logo-3 {
+            width: 55.016px;
+            height: 23.767px;
+        }
+
+        &.logo-4 {
+            width: 97.721px;
+            height: 40.261px;
+        }
+
+        &.logo-5 {
+            width: 85px;
+            height: auto;
+            max-height: 28px;
+        }
+    }
+
+    .logo-fade-left,
+    .logo-fade-right {
+        display: none;
+    }
+}
+
+@keyframes scroll-mobile {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}

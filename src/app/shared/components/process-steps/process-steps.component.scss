@@ -1,0 +1,40 @@
+.process-divider-vertical {
+    width: 3px;
+    height: 48px;
+    background: #ECEFF2;
+    border-radius: 24px;
+    margin: 24px auto;
+    flex-shrink: 0;
+}
+
+.process-step-1 {
+    width: 289px;
+    height: 196px;
+}
+
+.process-step-2 {
+    width: 310px;
+    height: 196px;
+}
+
+.process-step-3 {
+    width: 262px;
+    height: 196px;
+}
+
+@media (max-width: 768px) {
+    .process-step-1 {
+        width: 289px;
+        height: 169px;
+    }
+
+    .process-step-2 {
+        width: 310px;
+        height: 169px;
+    }
+
+    .process-step-3 {
+        width: 289px;
+        height: 169px;
+    }
+}

@@ -5,6 +5,8 @@ import { LogoCarouselComponent } from '../../shared/components/logo-carousel/log
 import { CaseStudyComponent } from './case-study/case-study.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 import { CtaCardComponent } from './cta-card/cta-card.component';
+import { ProcessStepsComponent } from '../../shared/components/process-steps/process-steps.component';
+import { SecurityCardComponent } from '../../shared/components/security-card/security-card.component';
 
 @Component({
     selector: 'app-home',
@@ -15,7 +17,10 @@ import { CtaCardComponent } from './cta-card/cta-card.component';
         LogoCarouselComponent,
         CaseStudyComponent,
         TestimonialComponent,
-        CtaCardComponent
+
+        CtaCardComponent,
+        ProcessStepsComponent,
+        SecurityCardComponent
     ],
     templateUrl: './home.component.html',
     styleUrl: './home.component.scss',
