@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeroComponent } from './components/hero/hero.component';
+import { HeroComponent } from '../../shared/components/hero/hero.component';
 import { LogoCarouselComponent } from './components/logo-carousel/logo-carousel.component';
 import { CaseStudyComponent } from './components/case-study/case-study.component';
 import { TestimonialSectionComponent } from '../../shared/components/testimonial-section/testimonial-section.component';

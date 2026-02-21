@@ -14,14 +14,14 @@
 
         <div class="flex flex-col sm:flex-row gap-[16px] md:gap-[24px] justify-center items-center">
             <a *ngIf="secondaryBtnText" [routerLink]="secondaryBtnLink"
-                class="flex items-center gap-[8px] text-[#000] no-underline font-sans text-[16px] md:text-[20px] xl:text-[24px] font-normal leading-normal transition-opacity duration-200 hover:opacity-80 hover:underline">
+                class="flex items-center text-[#000] no-underline font-sans text-[16px] md:text-[20px] xl:text-[24px] font-normal leading-normal transition-opacity duration-200 hover:opacity-80 hover:underline">
                 <span>{{ secondaryBtnText }}</span>
                 <img *ngIf="secondaryBtnIcon" [src]="secondaryBtnIcon" alt="" aria-hidden="true"
                     class="w-[24px] h-[24px] xl:w-[34px] xl:h-[34px] object-contain" />
             </a>
 
             <a *ngIf="primaryBtnText" [routerLink]="primaryBtnLink"
-                class="flex items-center gap-[8px] text-[#D32F2F] font-sans text-[16px] md:text-[20px] xl:text-[24px] font-medium leading-normal no-underline transition-opacity duration-200 hover:opacity-80 hover:underline">
+                class="flex items-center text-[#D32F2F] font-sans text-[16px] md:text-[20px] xl:text-[24px] font-medium leading-normal no-underline transition-opacity duration-200 hover:opacity-80 hover:underline">
                 <span>{{ primaryBtnText }}</span>
                 <img *ngIf="primaryBtnIcon" [src]="primaryBtnIcon" alt="" aria-hidden="true"
                     class="object-contain w-[28px] h-[28px] xl:w-auto xl:h-auto" />

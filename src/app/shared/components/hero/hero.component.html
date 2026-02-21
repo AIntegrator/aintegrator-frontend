@@ -1,0 +1,26 @@
+<section class="relative w-full overflow-hidden mt-[150px] xl:mt-[224px] min-h-auto xl:min-h-[608px]">
+    <div class="site-container flex justify-center relative z-20">
+        <div class="flex flex-col items-center relative">
+            <h1 class="w-full max-w-[354px] text-primary text-center font-medium mb-6 tracking-normal font-sans text-[32px] md:text-[48px] xl:text-[64px] leading-tight"
+                [ngClass]="titleMaxWidthClass" [innerHTML]="title">
+            </h1>
+            <p
+                class="w-full max-w-[333px] md:max-w-[633px] h-auto md:h-auto text-text-muted text-center font-normal tracking-normal font-sans text-[16px] md:text-[20px] xl:text-[24px] leading-normal">
+                {{ description }}
+            </p>
+
+            @if (showButton) {
+            <button
+                class="mt-[32px] hidden xl:flex items-center border-none bg-transparent cursor-pointer p-0 text-cta font-sans font-medium text-[24px] leading-normal">
+                <span>{{ buttonLabel }}</span>
+                <img src="assets/icons/Frame.svg" alt="" class="block">
+            </button>
+            }
+
+            <div
+                class="absolute left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-[900px] md:w-[1100px] xl:w-[1344px] h-[416px] mt-[60px] md:mt-[80px] xl:mt-[108px] hidden xl:block">
+                <img [src]="backgroundImage" alt="" class="block w-full h-full object-contain">
+            </div>
+        </div>
+    </div>
+</section>
