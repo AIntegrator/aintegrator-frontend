@@ -1,0 +1,25 @@
+<section class="mt-[96px] xl:mt-[196px] w-full site-container">
+    <div class="flex flex-col xl:flex-row items-center justify-between gap-[40px] xl:gap-0">
+
+        <div
+            class="w-full max-w-[323px] md:max-w-none xl:w-[361px] xl:h-[180.5px] flex flex-col gap-[24px] xl:gap-[24.5px] items-center xl:items-start">
+            <h2
+                class="text-[#000] text-center xl:text-left font-['Poppins',_sans-serif] text-[24px] min-[768px]:text-[28px] min-[1024px]:text-[30px] xl:text-[32px] font-medium leading-normal">
+                Meeting-Transkription
+            </h2>
+
+            <div class="relative flex flex-col items-center xl:items-start">
+                <p
+                    class="text-[#636970] text-center xl:text-left font-['Poppins',_sans-serif] text-[14px] min-[768px]:text-[18px] min-[1024px]:text-[20px] xl:text-[24px] font-normal leading-normal">
+                    Automatische Erfassung und Strukturierung von Gesprächen.
+                </p>
+
+            </div>
+        </div>
+
+        <div
+            class="w-full xl:w-[567px] xl:h-[567px] bg-[#F9F9F9] rounded-[24px] p-[32px] md:p-[60px] lg:p-[80px] flex items-center justify-center">
+            <app-transcript-panel [transcriptData]="transcriptData" class="w-full"></app-transcript-panel>
+        </div>
+    </div>
+</section>
