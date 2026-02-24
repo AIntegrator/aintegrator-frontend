@@ -1,43 +1,42 @@
 <header class="w-full bg-bg-primary sticky top-0 z-50">
   <div class="site-container relative z-50 flex h-[42px] items-center justify-between mt-12">
-    <a routerLink="/" class="flex flex-shrink-0 items-center transition-opacity duration-300 hover:opacity-80"
-      aria-label="AIntegrator Home">
+    <a routerLink="/" class="flex flex-shrink-0 items-center" aria-label="AIntegrator Home">
       <img [src]="logoSrc" alt="AIntegrator" width="152" height="29" class="h-[29.083px] w-[152px] object-contain" />
     </a>
 
     <nav class="hidden min-[1100px]:inline-flex items-center" aria-label="Main navigation">
       <ul class="flex items-center gap-[28px] w-[340px] h-[26px] flex-shrink-0 list-none m-0 p-0">
         <li><a routerLink="/product" routerLinkActive="font-medium text-text-primary"
-            class="text-text-body font-sans text-[16px] font-normal leading-[26px] no-underline whitespace-nowrap transition-colors duration-300 hover:text-text-primary">LiaSuite</a>
+            class="text-text-body font-sans text-[16px] font-normal leading-[26px] no-underline whitespace-nowrap">LiaSuite</a>
         </li>
         <li><a routerLink="/about" routerLinkActive="font-medium text-text-primary"
-            class="text-text-body font-sans text-[16px] font-normal leading-[26px] no-underline whitespace-nowrap transition-colors duration-300 hover:text-text-primary">Über
+            class="text-text-body font-sans text-[16px] font-normal leading-[26px] no-underline whitespace-nowrap">Über
             uns</a></li>
         <li><a routerLink="/careers" routerLinkActive="font-medium text-text-primary"
-            class="text-text-body font-sans text-[16px] font-normal leading-[26px] no-underline whitespace-nowrap transition-colors duration-300 hover:text-text-primary">Karriere</a>
+            class="text-text-body font-sans text-[16px] font-normal leading-[26px] no-underline whitespace-nowrap">Karriere</a>
         </li>
         <li><a routerLink="/contact" routerLinkActive="font-medium text-text-primary"
-            class="text-text-body font-sans text-[16px] font-normal leading-[26px] no-underline whitespace-nowrap transition-colors duration-300 hover:text-text-primary">Kontakt</a>
+            class="text-text-body font-sans text-[16px] font-normal leading-[26px] no-underline whitespace-nowrap">Kontakt</a>
         </li>
       </ul>
     </nav>
 
     <a routerLink="/contact"
-      class="hidden min-[1100px]:inline-flex items-center no-underline whitespace-nowrap cursor-pointer transition-opacity duration-300 hover:opacity-80"
+      class="hidden min-[1100px]:inline-flex items-center no-underline whitespace-nowrap cursor-pointer"
       aria-label="Termin vereinbaren">
       <span class="text-cta font-sans text-[14px] font-medium w-[139px] text-right truncate">Termin vereinbaren</span>
       <img [src]="arrowIconSrc" alt="" aria-hidden="true" />
     </a>
 
     <button
-      class="flex min-[1100px]:hidden items-center justify-center w-8 h-8 p-1 bg-transparent border-none cursor-pointer z-50 relative"
+      class="flex min-[1100px]:hidden items-center justify-center w-8 h-8 p-1 bg-transparent border-none z-50 relative"
       type="button" [attr.aria-expanded]="mobileMenuOpen" aria-controls="mobile-menu"
       aria-label="Toggle navigation menu" (click)="toggleMobileMenu()">
       @if (!mobileMenuOpen) {
       <div class="flex flex-col gap-[5px] w-full">
-        <span class="block w-full h-[2px] bg-text-primary rounded-sm transition-all duration-300"></span>
-        <span class="block w-full h-[2px] bg-text-primary rounded-sm transition-all duration-300"></span>
-        <span class="block w-full h-[2px] bg-text-primary rounded-sm transition-all duration-300"></span>
+        <span class="block w-full h-[2px] bg-text-primary rounded-sm"></span>
+        <span class="block w-full h-[2px] bg-text-primary rounded-sm"></span>
+        <span class="block w-full h-[2px] bg-text-primary rounded-sm"></span>
       </div>
       } @else {
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -48,9 +47,8 @@
     </button>
   </div>
 
-  <div id="mobile-menu" class="fixed inset-0 z-40 bg-bg-primary min-[1100px]:hidden transition-all duration-300"
-    [class.opacity-0]="!mobileMenuOpen" [class.invisible]="!mobileMenuOpen" [class.opacity-100]="mobileMenuOpen"
-    [class.visible]="mobileMenuOpen">
+  <div id="mobile-menu" class="fixed inset-0 z-40 bg-bg-primary min-[1100px]:hidden" [class.opacity-0]="!mobileMenuOpen"
+    [class.invisible]="!mobileMenuOpen" [class.opacity-100]="mobileMenuOpen" [class.visible]="mobileMenuOpen">
     <div class="flex flex-col mt-[90px]">
       <div class="site-container flex flex-col mt-[44px]">
         <ul class="flex flex-col gap-[40px] text-left list-none m-0 p-0">
@@ -87,7 +85,7 @@
         <div class="w-full h-px bg-[#E5E5E5] my-[60px]"></div>
 
         <a routerLink="/contact"
-          class="flex items-center gap-[4px] text-cta font-sans text-[24px] font-medium hover:opacity-80 transition-opacity no-underline"
+          class="flex items-center gap-[4px] text-cta font-sans text-[24px] font-medium no-underline"
           (click)="closeMobileMenu()">
           <span>Termin vereinbaren</span>
           <img src="assets/icons/Frame.svg" class="flex-shrink-0" alt="" aria-hidden="true" />
