@@ -35,9 +35,11 @@
   }
   } @else {
   <app-testimonial-section alignment="center"
-    quote="Endlich jemand, der nicht nur Technik verkauft, sondern unsere Arbeit ernst nimmt. AIntegrator hat uns zugehört und dann passende Lösungen entwickelt."
-    author="Danièle Bovier" role="Kommunikation, Kanton Wallis" avatarUrl="assets/images/image 16.png"
-    mobileMaxWidth="max-sm:max-w-[354px]" mobileGap="gap-[32px]" mobileAuthorAlignment="items-start text-left">
+    [quote]="homeData()?.fallbackTestimonialQuote | localizedText"
+    [author]="homeData()?.fallbackTestimonialAuthor || 'Danièle Bovier'"
+    [role]="homeData()?.fallbackTestimonialRole | localizedText"
+    avatarUrl="assets/images/image 16.png" mobileMaxWidth="max-sm:max-w-[354px]" mobileGap="gap-[32px]"
+    mobileAuthorAlignment="items-start text-left">
   </app-testimonial-section>
   }
 
