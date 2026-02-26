@@ -34,7 +34,7 @@
         @for (item of transcriptData; track item.name) {
         <div class="flex gap-[14px] xl:gap-[16px]">
             <div
-                class="w-[36px] h-[36px] xl:w-[40px] xl:h-[40px] rounded-full bg-ai-gray-300 flex-shrink-0 flex items-center justify-center text-ai-gray-1000 font-['Poppins'] xl:font-sans text-[16px] xl:text-[20px] font-medium leading-none">
+                class="w-[36px] h-[36px] xl:w-[40px] xl:h-[40px] rounded-full bg-ai-gray-300 border border-ai-gray-400 flex-shrink-0 flex items-center justify-center text-ai-gray-800 font-['Poppins'] xl:font-sans text-[16px] xl:text-[20px] font-medium leading-none">
                 {{ item.initial }}
             </div>
             <div class="flex flex-col xl:gap-[9px]">
@@ -42,7 +42,7 @@
                     <span class="text-ai-gray-1000 font-['Poppins'] xl:font-sans text-[16px] font-medium leading-none">{{
                         item.name }}</span>
                     <div
-                        class="w-[70px] h-[28px] rounded-[4.371px] border-[1.093px] border-ai-gray-700 flex items-center justify-center flex-shrink-0 xl:p-0 xl:w-auto xl:h-auto xl:border-none xl:rounded-none">
+                        class="w-[70px] h-[28px] rounded-[4.371px] flex items-center justify-center flex-shrink-0 xl:p-0 xl:w-auto xl:h-auto xl:border-none xl:rounded-none">
                         <span
                             class="text-ai-gray-875 xl:text-ai-gray-850 font-['Poppins'] xl:font-sans text-[14px] xl:text-[16px] font-normal leading-none">{{
                             item.time }}</span>
