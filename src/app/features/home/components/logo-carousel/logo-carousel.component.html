@@ -3,7 +3,7 @@
         <div
             class="logo-track flex items-center w-max justify-start pr-[48.51px] md:gap-[60px] md:pr-[60px] md:animate-[scroll-left_35s_linear_infinite] lg:gap-[80px] lg:pr-[80px] lg:animate-[scroll-left_25s_linear_infinite]">
             @for (logo of logos; track $index) {
-            <div class="logo-item flex-shrink-0 flex items-center justify-center opacity-80 md:opacity-60 mix-blend-luminosity">
+            <div class="logo-item flex-shrink-0 flex items-center justify-center">
                 <img [src]="logo.src" [alt]="logo.alt" class="logo-img object-contain block max-h-[80px] w-auto"
                     [ngClass]="'logo-' + (($index % 5) + 1)" />
             </div>

@@ -1,3 +1,9 @@
+.logo-img {
+    filter: grayscale(100%);
+    opacity: 0.6;
+    mix-blend-mode: luminosity;
+}
+
 .logo-fade-left {
     position: absolute;
     left: 0;
