@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,4 +8,9 @@ import { CommonModule } from '@angular/common';
     templateUrl: './security-grid.component.html',
     styleUrl: './security-grid.component.scss'
 })
-export class SecurityGridComponent { }
+export class SecurityGridComponent {
+    @Input() cards: Array<{ title?: string; description?: string }> = [];
+    @Input() footerCardTitle = '';
+    @Input() footerCardDescription = '';
+    @Input() badgeLabels: string[] = [];
+}

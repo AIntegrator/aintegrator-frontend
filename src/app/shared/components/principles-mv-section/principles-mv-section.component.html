@@ -36,6 +36,20 @@
         </div>
 
         <div *ngIf="isPrinciplesDesktop" class="flex flex-col gap-[32px] xl:gap-[80px] items-start max-w-[1144px]">
+            @if (values && values.length > 0) {
+            @for (value of values; track $index) {
+            <div class="flex flex-col gap-[24px] xl:gap-[32px] w-full">
+                <div class="block text-left">
+                    <span class="text-[#000] text-[24px] xl:text-[32px] font-medium">{{ value.title | localizedText
+                        }}</span>
+                </div>
+                <div
+                    class="text-[#4D4D4D] font-['Poppins'] text-[16px] leading-[26px] xl:text-[24px] xl:leading-normal font-normal text-left">
+                    {{ value.description | localizedText }}
+                </div>
+            </div>
+            }
+            } @else {
             @for (principle of principles; track principle.title) {
             <div class="flex flex-col gap-[24px] xl:gap-[32px] w-full">
                 <div class="block text-left">
@@ -47,6 +61,7 @@
                     <p *ngFor="let p of principle.description" class="mb-[16px] last:mb-0" [innerHTML]="p"></p>
                 </div>
             </div>
+            }
             }
         </div>
     </div>

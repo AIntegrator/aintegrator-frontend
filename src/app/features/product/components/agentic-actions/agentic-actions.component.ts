@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -10,18 +10,10 @@ import { CommonModule } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AgenticActionsComponent {
-  readonly actionItems = [
-    {
-      text: 'Followup with the client about the new feature request',
-      date: '12th June 2025'
-    },
-    {
-      text: 'Summarize the key meetings takeaways',
-      date: '11th June 2025'
-    },
-    {
-      text: 'Prepare proposal draft for next review',
-      date: '05th June 2025'
-    }
-  ];
+  @Input() badgeLabel = '';
+  @Input() title = '';
+  @Input() description = '';
+  @Input() mobileCards: Array<{ title?: string; description?: string }> = [];
+  @Input() actionItemsTitle = '';
+  @Input() actionItems: Array<{ text?: string; date?: string }> = [];
 }

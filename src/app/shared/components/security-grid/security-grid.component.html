@@ -10,12 +10,11 @@
                 <div class="flex flex-col items-start text-left gap-[16px]">
                     <h3
                         class="text-black font-['Poppins'] font-medium text-[24px] lg:text-[28px] xl:text-[32px] mb-0 leading-normal">
-                        Hosted in Switzerland
+                        {{ cards[0]?.title || '' }}
                     </h3>
                     <p
                         class="text-[#4D4D4D] font-['Poppins'] font-normal text-[14px] md:text-[16px] md:leading-[26px] leading-normal xl:w-[396px]">
-                        Ihre Daten bleiben unter Ihrer Kontrolle. Datensouveränität und
-                        Datensicherheit haben für uns höchste Priorität.
+                        {{ cards[0]?.description || '' }}
                     </p>
                 </div>
             </div>
@@ -29,12 +28,11 @@
                 <div class="flex flex-col items-start text-left gap-[16px]">
                     <h3
                         class="text-black font-['Poppins'] font-medium text-[24px] lg:text-[28px] xl:text-[32px] mb-0 leading-normal">
-                        Einfach Sicher
+                        {{ cards[1]?.title || '' }}
                     </h3>
                     <p
                         class="text-[#4D4D4D] font-['Poppins'] font-normal text-[14px] md:text-[16px] md:leading-[26px] leading-normal xl:w-[396px]">
-                        Vertraut von Teams in Regierung, Finanzen, Recht und Gesundheitswesen – LiaSuite bietet
-                        Schweizer Sicherheit.
+                        {{ cards[1]?.description || '' }}
                     </p>
                 </div>
             </div>
@@ -44,12 +42,11 @@
                 <div class="flex flex-col items-start text-left gap-[16px]">
                     <h3
                         class="text-black font-['Poppins'] font-medium text-[24px] lg:text-[28px] xl:text-[32px] mb-0 leading-normal">
-                        Privat. Punkt.
+                        {{ footerCardTitle }}
                     </h3>
                     <p
                         class="text-[#4D4D4D] font-['Poppins'] font-normal text-[14px] md:text-[16px] md:leading-[26px] leading-normal xl:w-[637px]">
-                        Ihre Daten bleiben jederzeit vollständig unter Ihrer Kontrolle. LiaSuite ist DSG- und
-                        DSGVO-konform, wird in der Schweiz betrieben. Punkt.
+                        {{ footerCardDescription }}
                     </p>
                 </div>
                 <div class="flex items-center gap-[21px] xl:gap-[24px] w-full max-w-[133px] xl:max-w-none">
@@ -57,13 +54,15 @@
                         <img src="assets/icons/gdpr.png" alt="GDPR"
                             class="w-[56px] h-[56px] xl:w-[60px] xl:h-[60px] object-contain" />
                         <span
-                            class="text-black xl:text-[#4D4D4D] font-['Poppins'] text-[10.691px] xl:text-[12px] font-medium leading-normal">GDPR</span>
+                            class="text-black xl:text-[#4D4D4D] font-['Poppins'] text-[10.691px] xl:text-[12px] font-medium leading-normal">{{
+                            badgeLabels[0] || '' }}</span>
                     </div>
                     <div class="flex flex-col items-center gap-[9.164px] w-[56px] xl:w-auto">
                         <img src="assets/icons/dsg.png" alt="DSG"
                             class="w-[56px] h-[56px] xl:w-[60px] xl:h-[60px] object-contain" />
                         <span
-                            class="text-black xl:text-[#4D4D4D] font-['Poppins'] text-[10.691px] xl:text-[12px] font-medium leading-normal">DSG</span>
+                            class="text-black xl:text-[#4D4D4D] font-['Poppins'] text-[10.691px] xl:text-[12px] font-medium leading-normal">{{
+                            badgeLabels[1] || '' }}</span>
                     </div>
                 </div>
             </div>

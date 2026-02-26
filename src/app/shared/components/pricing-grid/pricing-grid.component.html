@@ -1,7 +1,7 @@
 <section class="w-full section-spacing flex flex-col items-center">
     <div class="site-container flex flex-col items-center gap-[60px] lg:gap-[80px] max-w-[1144px]">
         <h2 class="text-black text-center font-['Poppins'] font-medium text-[28px] md:text-[56px] leading-normal">
-            Preise & Pläne
+            {{ title }}
         </h2>
 
         <div class="grid grid-cols-1 xl:grid-cols-3 gap-[24px] w-full items-stretch">
@@ -10,26 +10,30 @@
                     <div class="flex flex-col gap-[24px] md:min-h-[110px]">
                         <div class="flex items-baseline">
                             <span
-                                class="text-[#171717] font-neue-haas font-semibold text-[24px] leading-[150%] tracking-[-0.02em]">Lia</span><span
-                                class="text-[#171717] font-['Lora',serif] font-medium text-[24px] leading-[150%]">Transcript</span>
+                                class="text-[#171717] font-neue-haas font-semibold text-[24px] leading-[150%] tracking-[-0.02em]">{{
+                                plans[0]?.namePrefix || '' }}</span><span
+                                class="text-[#171717] font-['Lora',serif] font-medium text-[24px] leading-[150%]">{{
+                                plans[0]?.nameSuffix || '' }}</span>
                         </div>
                         <p
                             class="text-[#636970] font-['Poppins'] font-normal text-[14px] md:text-[16px] leading-[150%]">
-                            Besprechungen transkribiert und zusammengefasst
+                            {{ plans[0]?.description || '' }}
                         </p>
                     </div>
 
                     <div class="flex flex-col gap-[22px] lg:gap-[24px] mt-[20px] md:mt-8">
                         <div class="flex items-baseline">
                             <span
-                                class="text-[#1A1818] font-['Poppins'] font-medium text-[28px] md:text-[32px] leading-normal mr-[4px]">CHF
-                                35.–</span><span
+                                class="text-[#1A1818] font-['Poppins'] font-medium text-[28px] md:text-[32px] leading-normal mr-[4px]">{{
+                                plans[0]?.price || '' }}</span><span
                                 class="text-[#1A1818] font-['Inter'] font-medium text-[16px] leading-normal">/</span><span
-                                class="text-[#1A1818] font-['Poppins'] font-normal text-[16px] leading-normal">Monat</span>
+                                class="text-[#1A1818] font-['Poppins'] font-normal text-[16px] leading-normal">{{
+                                plans[0]?.period || '' }}</span>
                         </div>
                         <button
                             class="inline-flex items-center text-black font-['Poppins'] font-medium text-[14px] leading-normal hover:opacity-80 transition-opacity">
-                            Transcript testen <img src="assets/icons/Frame.png" alt="" class="w-[26px] h-[26px]" />
+                            {{ plans[0]?.ctaLabel || '' }} <img src="assets/icons/Frame.png" alt=""
+                                class="w-[26px] h-[26px]" />
                         </button>
                     </div>
                 </div>
@@ -39,21 +43,21 @@
                         <img src="assets/icons/circletick.png" alt=""
                             class="w-[17.967px] h-[17.967px] object-contain" />
                         <span class="text-[#4D4D4D] font-['Poppins'] font-normal text-[16px] leading-normal">Schweizer
-                            Server</span>
+                            {{ plans[0]?.features?.[0]?.text || '' }}</span>
                     </div>
                     <div class="flex items-center gap-[12px]">
                         <img src="assets/icons/circletick.png" alt=""
                             class="w-[17.967px] h-[17.967px] object-contain" />
                         <span
                             class="text-[#4D4D4D] font-['Poppins'] font-normal text-[16px] leading-normal">Enterprise-grade
-                            Sicherheit</span>
+                            {{ plans[0]?.features?.[1]?.text || '' }}</span>
                     </div>
                     <div class="flex items-center gap-[12px]">
                         <img src="assets/icons/circletick.png" alt=""
                             class="w-[17.967px] h-[17.967px] object-contain" />
                         <span
                             class="text-[#4D4D4D] font-['Poppins'] font-normal text-[16px] leading-normal">Unlimitierte
-                            Transcripts</span>
+                            {{ plans[0]?.features?.[2]?.text || '' }}</span>
                     </div>
                 </div>
             </div>
@@ -65,31 +69,36 @@
                         <div class="flex items-center justify-between">
                             <div class="flex items-baseline">
                                 <span
-                                    class="text-[#171717] font-neue-haas font-semibold text-[24px] leading-[150%] tracking-[-0.02em]">Lia</span><span
-                                    class="text-[#171717] font-['Lora',serif] font-medium text-[24px] leading-[150%]">Chat</span>
+                                    class="text-[#171717] font-neue-haas font-semibold text-[24px] leading-[150%] tracking-[-0.02em]">{{
+                                    plans[1]?.namePrefix || '' }}</span><span
+                                    class="text-[#171717] font-['Lora',serif] font-medium text-[24px] leading-[150%]">{{
+                                    plans[1]?.nameSuffix || '' }}</span>
                             </div>
                             <div
                                 class="flex items-center justify-center bg-[#FDF2F1] rounded-[36px] px-[12px] py-[6px] h-[28px] box-border">
                                 <span
-                                    class="text-[#ED2915] font-['Inter',sans-serif] font-medium text-[14px] leading-[150%]">Beliebt</span>
+                                    class="text-[#ED2915] font-['Inter',sans-serif] font-medium text-[14px] leading-[150%]">{{
+                                    plans[1]?.highlightLabel || '' }}</span>
                             </div>
                         </div>
                         <p class="text-[#636970] font-['Poppins'] font-normal text-[16px] leading-[150%]">
-                            Ihre sichere ChatGPT Alternative
+                            {{ plans[1]?.description || '' }}
                         </p>
                     </div>
 
                     <div class="flex flex-col gap-[22px] lg:gap-[24px] mt-[20px] md:mt-8">
                         <div class="flex items-baseline">
                             <span
-                                class="text-[#1A1818] font-['Poppins'] font-medium text-[28px] md:text-[32px] leading-normal mr-[4px]">CHF
-                                45.–</span><span
+                                class="text-[#1A1818] font-['Poppins'] font-medium text-[28px] md:text-[32px] leading-normal mr-[4px]">{{
+                                plans[1]?.price || '' }}</span><span
                                 class="text-[#1A1818] font-['Inter'] font-medium text-[16px] leading-normal">/</span><span
-                                class="text-[#1A1818] font-['Poppins'] font-normal text-[16px] leading-normal">Monat</span>
+                                class="text-[#1A1818] font-['Poppins'] font-normal text-[16px] leading-normal">{{
+                                plans[1]?.period || '' }}</span>
                         </div>
                         <button
                             class="inline-flex items-center text-[#ED2915] font-['Poppins'] font-medium text-[14px] leading-normal hover:opacity-80 transition-opacity">
-                            Chat testen <img src="assets/icons/Frame.svg" alt="" class="w-[26px] h-[26px]" />
+                            {{ plans[1]?.ctaLabel || '' }} <img src="assets/icons/Frame.svg" alt=""
+                                class="w-[26px] h-[26px]" />
                         </button>
                     </div>
                 </div>
@@ -99,21 +108,21 @@
                         <img src="assets/icons/circletick.png" alt=""
                             class="w-[17.967px] h-[17.967px] object-contain" />
                         <span class="text-[#4D4D4D] font-['Poppins'] font-normal text-[16px] leading-normal">Schweizer
-                            Server</span>
+                            {{ plans[1]?.features?.[0]?.text || '' }}</span>
                     </div>
                     <div class="flex items-center gap-[12px]">
                         <img src="assets/icons/circletick.png" alt=""
                             class="w-[17.967px] h-[17.967px] object-contain" />
                         <span
                             class="text-[#4D4D4D] font-['Poppins'] font-normal text-[16px] leading-normal">Enterprise-grade
-                            Sicherheit</span>
+                            {{ plans[1]?.features?.[1]?.text || '' }}</span>
                     </div>
                     <div class="flex items-center gap-[12px]">
                         <img src="assets/icons/circletick.png" alt=""
                             class="w-[17.967px] h-[17.967px] object-contain" />
                         <span
                             class="text-[#4D4D4D] font-['Poppins'] font-normal text-[16px] leading-normal">Unlimitierte
-                            Nachrichten</span>
+                            {{ plans[1]?.features?.[2]?.text || '' }}</span>
                     </div>
                 </div>
             </div>
@@ -123,25 +132,29 @@
                     <div class="flex flex-col gap-[24px] md:min-h-[110px]">
                         <div class="flex items-baseline">
                             <span
-                                class="text-[#171717] font-neue-haas font-semibold text-[24px] leading-[150%] tracking-[-0.02em]">Lia</span><span
-                                class="text-[#171717] font-['Lora',serif] font-medium text-[24px] leading-[150%]">Suite</span>
+                                class="text-[#171717] font-neue-haas font-semibold text-[24px] leading-[150%] tracking-[-0.02em]">{{
+                                plans[2]?.namePrefix || '' }}</span><span
+                                class="text-[#171717] font-['Lora',serif] font-medium text-[24px] leading-[150%]">{{
+                                plans[2]?.nameSuffix || '' }}</span>
                         </div>
                         <p class="text-[#636970] font-['Poppins'] font-normal text-[16px] leading-[150%]">
-                            Alle AI-Tools, welche Ihr Business braucht
+                            {{ plans[2]?.description || '' }}
                         </p>
                     </div>
 
                     <div class="flex flex-col gap-[22px] lg:gap-[24px] mt-[20px] md:mt-8">
                         <div class="flex items-baseline">
                             <span
-                                class="text-[#1A1818] font-['Poppins'] font-medium text-[28px] md:text-[32px] leading-normal mr-[4px]">CHF
-                                70.–</span><span
+                                class="text-[#1A1818] font-['Poppins'] font-medium text-[28px] md:text-[32px] leading-normal mr-[4px]">{{
+                                plans[2]?.price || '' }}</span><span
                                 class="text-[#1A1818] font-['Inter'] font-medium text-[16px] leading-normal">/</span><span
-                                class="text-[#1A1818] font-['Poppins'] font-normal text-[16px] leading-normal">Monat</span>
+                                class="text-[#1A1818] font-['Poppins'] font-normal text-[16px] leading-normal">{{
+                                plans[2]?.period || '' }}</span>
                         </div>
                         <button
                             class="inline-flex items-center text-black font-['Poppins'] font-medium text-[14px] leading-normal hover:opacity-80 transition-opacity">
-                            LiaSuite testen <img src="assets/icons/Frame.png" alt="" class="w-[26px] h-[26px]" />
+                            {{ plans[2]?.ctaLabel || '' }} <img src="assets/icons/Frame.png" alt=""
+                                class="w-[26px] h-[26px]" />
                         </button>
                     </div>
                 </div>
@@ -150,15 +163,14 @@
                     <div class="flex items-center gap-[12px]">
                         <img src="assets/icons/circletick.png" alt=""
                             class="w-[17.967px] h-[17.967px] object-contain" />
-                        <span class="text-[#4D4D4D] font-['Poppins'] font-normal text-[16px] leading-normal">Access to
-                            everything</span>
+                        <span class="text-[#4D4D4D] font-['Poppins'] font-normal text-[16px] leading-normal">{{
+                            plans[2]?.features?.[0]?.text || '' }}</span>
                     </div>
                     <div class="flex items-center gap-[12px]">
                         <img src="assets/icons/circletick.png" alt=""
                             class="w-[17.967px] h-[17.967px] object-contain" />
-                        <span class="text-[#4D4D4D] font-['Poppins'] font-normal text-[16px] leading-normal">On-premises
-                            or
-                            Cloud</span>
+                        <span class="text-[#4D4D4D] font-['Poppins'] font-normal text-[16px] leading-normal">{{
+                            plans[2]?.features?.[1]?.text || '' }}</span>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -10,14 +10,15 @@ import { CommonModule } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MeetingSummaryComponent {
-  readonly discussionPoints = [
-    {
-      title: 'API-Integration:',
-      description: 'Welche Alternativen gibt es, falls der externe Partner nicht rechtzeitig liefert?'
-    },
-    {
-      title: 'Ressourcen-Engpass:',
-      description: 'Sollten wir temporär externe Entwickler einbinden, um den Zeitplan einzuhalten?'
-    }
-  ];
+  @Input() title = '';
+  @Input() description = '';
+  @Input() descriptionHighlight = '';
+  @Input() uploadButtonLabel = '';
+  @Input() recordButtonLabel = '';
+  @Input() summaryTabLabel = '';
+  @Input() transcriptTabLabel = '';
+  @Input() summaryTitle = '';
+  @Input() summaryText = '';
+  @Input() discussionTitle = '';
+  @Input() discussionPoints: Array<{ title?: string; description?: string }> = [];
 }

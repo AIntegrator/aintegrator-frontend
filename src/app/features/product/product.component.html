@@ -1,30 +1,110 @@
 <main>
+    @if (productData(); as data) {
+    <app-hero [title]="data.heroTitle | localizedText" [description]="data.heroDescription | localizedText"
+        [showButton]="data.heroShowButton ?? true" [buttonLabel]="data.heroButtonLabel | localizedText"
+        titleMaxWidthClass="md:max-w-[865px]">
+    </app-hero>
+    } @else {
     <app-hero title="Sicherer AI-Vorsprung für Schweizer Unternehmen"
         description="Maximale Produktivität bei 100% Datensouveränität. Chat und Meeting-Intelligence – Sofort einsatzbereit."
         [showButton]="true" buttonLabel="LiaSuite testen" titleMaxWidthClass="md:max-w-[865px]">
     </app-hero>
+    }
 
-    <app-info-section></app-info-section>
+    @if (productData(); as data) {
+    <app-info-section [highlightText]="data.infoBanner?.highlightText | localizedText"
+        [bodyText]="data.infoBanner?.bodyText | localizedText">
+    </app-info-section>
 
-    <app-meeting-analysis></app-meeting-analysis>
-    <app-integrations-section></app-integrations-section>
-    <app-meeting-transcription></app-meeting-transcription>
-    <app-meeting-summary></app-meeting-summary>
-    <app-agentic-actions></app-agentic-actions>
-    <app-lia-chat></app-lia-chat>
-    <app-bolts-section></app-bolts-section>
-    <app-security-grid></app-security-grid>
-    <app-pricing-grid></app-pricing-grid>
-    <app-final-cta [title]="'LiaSuite Gratis testen'"
-        [description]="'Testen Sie LiaSuite 14 Tage kostenlos. In wenigen Klicks einsatzbereit'"
+    <app-meeting-analysis [title]="data.meetingAnalysis?.title | localizedText"
+        [subtitle]="data.meetingAnalysis?.subtitle | localizedText"
+        [participants]="getParticipantNames(data.meetingAnalysis?.participants)"
+        [transcriptData]="getTranscriptEntries(data.meetingAnalysis?.transcriptEntries)"
+        [uploadButtonLabel]="data.meetingSummary?.uploadButtonLabel || ''"
+        [recordButtonLabel]="data.meetingSummary?.recordButtonLabel || ''"
+        [summaryTabLabel]="data.meetingSummary?.summaryTabLabel || ''"
+        [transcriptTabLabel]="data.meetingSummary?.transcriptTabLabel || ''">
+    </app-meeting-analysis>
+
+    <app-integrations-section [title]="data.integrations?.title | localizedText"
+        [description]="data.integrations?.description | localizedText"
+        [calendarDayLabel]="data.integrations?.calendarDayLabel || ''"
+        [calendarDayNumber]="data.integrations?.calendarDayNumber || ''"
+        [meetingTitle]="data.integrations?.meetingTitle || ''" [timeRange]="data.integrations?.timeRange || ''"
+        [durationLabel]="data.integrations?.durationLabel || ''" [participants]="data.integrations?.participants || []"
+        [cards]="data.integrations?.cards || []">
+    </app-integrations-section>
+
+    <app-meeting-transcription [title]="data.meetingTranscription?.title | localizedText"
+        [description]="data.meetingTranscription?.description | localizedText"
+        [transcriptData]="getTranscriptEntries(data.meetingTranscription?.transcriptEntries)"
+        [uploadButtonLabel]="data.meetingSummary?.uploadButtonLabel || ''"
+        [recordButtonLabel]="data.meetingSummary?.recordButtonLabel || ''"
+        [summaryTabLabel]="data.meetingSummary?.summaryTabLabel || ''"
+        [transcriptTabLabel]="data.meetingSummary?.transcriptTabLabel || ''">
+    </app-meeting-transcription>
+
+    <app-meeting-summary [title]="data.meetingSummary?.title | localizedText"
+        [description]="data.meetingSummary?.description | localizedText"
+        [descriptionHighlight]="data.meetingSummary?.descriptionHighlight | localizedText"
+        [uploadButtonLabel]="data.meetingSummary?.uploadButtonLabel || ''"
+        [recordButtonLabel]="data.meetingSummary?.recordButtonLabel || ''"
+        [summaryTabLabel]="data.meetingSummary?.summaryTabLabel || ''"
+        [transcriptTabLabel]="data.meetingSummary?.transcriptTabLabel || ''"
+        [summaryTitle]="data.meetingSummary?.summaryTitle || ''"
+        [summaryText]="data.meetingSummary?.summaryText | localizedText"
+        [discussionTitle]="data.meetingSummary?.discussionTitle || ''"
+        [discussionPoints]="getDiscussionPoints(data.meetingSummary?.discussionPoints)">
+    </app-meeting-summary>
+
+    <app-agentic-actions [badgeLabel]="data.agenticActions?.badgeLabel || ''"
+        [title]="data.agenticActions?.title | localizedText"
+        [description]="data.agenticActions?.description | localizedText"
+        [mobileCards]="data.agenticActions?.mobileCards || []"
+        [actionItemsTitle]="data.agenticActions?.actionItemsTitle || ''"
+        [actionItems]="data.agenticActions?.actionItems || []">
+    </app-agentic-actions>
+
+    <app-lia-chat [title]="data.liaChat?.title || ''" [subtitle]="data.liaChat?.subtitle | localizedText"
+        [promptMobile]="data.liaChat?.promptMobile || ''" [promptDesktop]="data.liaChat?.promptDesktop || ''"
+        [inputPlaceholder]="data.liaChat?.inputPlaceholder || ''" [quickActions]="data.liaChat?.quickActions || []">
+    </app-lia-chat>
+
+    <app-bolts-section [title]="data.bolts?.title | localizedText"
+        [description]="data.bolts?.description | localizedText" [formTitleDesktop]="data.bolts?.formTitleDesktop || ''"
+        [formTitleMobile]="data.bolts?.formTitleMobile || ''" [nameLabel]="data.bolts?.nameLabel || ''"
+        [namePlaceholderDesktop]="data.bolts?.namePlaceholderDesktop || ''"
+        [namePlaceholderMobile]="data.bolts?.namePlaceholderMobile || ''"
+        [promptLabelDesktop]="data.bolts?.promptLabelDesktop || ''"
+        [promptLabelMobile]="data.bolts?.promptLabelMobile || ''"
+        [promptPlaceholderDesktop]="data.bolts?.promptPlaceholderDesktop || ''"
+        [promptPlaceholderMobile]="data.bolts?.promptPlaceholderMobile || ''"
+        [submitLabel]="data.bolts?.submitLabel || ''" [carouselItems]="data.bolts?.carouselItems || []">
+    </app-bolts-section>
+
+    <app-security-grid [cards]="getSecurityCards(data.securityGrid?.cards)"
+        [footerCardTitle]="data.securityGrid?.footerCardTitle || ''"
+        [footerCardDescription]="data.securityGrid?.footerCardDescription | localizedText"
+        [badgeLabels]="data.securityGrid?.badgeLabels || []">
+    </app-security-grid>
+
+    <app-pricing-grid [title]="data.pricingGrid?.title | localizedText"
+        [plans]="getPricingPlans(data.pricingGrid?.plans)">
+    </app-pricing-grid>
+
+    <app-final-cta [title]="data.finalCta?.title | localizedText"
+        [description]="data.finalCta?.description | localizedText"
+        [primaryBtnText]="data.finalCta?.primaryBtnText || ''" [primaryBtnLink]="data.finalCta?.primaryBtnLink || ''"
+        [secondaryBtnText]="data.finalCta?.secondaryBtnText || ''"
+        [secondaryBtnLink]="data.finalCta?.secondaryBtnLink || ''"
+        [mobilePrimaryBtnText]="data.finalCta?.mobilePrimaryBtnText || ''"
         [descriptionMaxWidthClass]="'max-w-[323px] md:max-w-[528px]'"
-        [decorationPositionClass]="'top-[158px] md:top-[120px]'" [secondaryBtnText]="'Termin vereinbaren'"
-        [secondaryBtnLink]="'/contact'" [secondaryBtnIcon]="'assets/icons/Frame.png'"
-        [primaryBtnText]="'LiaSuite testen'" [primaryBtnLink]="'/contact'" [primaryBtnIcon]="'assets/icons/Frame.svg'"
-        [showMobileDecoration]="true" [mobilePrimaryBtnText]="'Jetzt starten'"
+        [decorationPositionClass]="'top-[158px] md:top-[120px]'" [secondaryBtnIcon]="'assets/icons/Frame.png'"
+        [primaryBtnIcon]="'assets/icons/Frame.svg'" [showMobileDecoration]="true"
         [buttonContainerClass]="'flex-col md:flex-row'" [titleDescriptionGapClass]="'mb-[19px] md:mb-0'"
         [descriptionButtonsGapClass]="'mb-[23px] md:mb-0'"
         [mobileDecorationClass]="'w-[195px] h-auto top-[248px] left-[-35px] md:w-[260px] md:top-[185px] md:left-[-25px] lg:top-[185px] opacity-100'"
         class="block section-spacing">
     </app-final-cta>
+    }
 </main>

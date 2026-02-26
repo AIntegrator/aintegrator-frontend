@@ -7,9 +7,9 @@
                     <h3 class="text-black text-[24px] md:text-[32px] font-medium leading-normal m-0 w-full">
                         Email
                     </h3>
-                    <a href="mailto:support@aintegrator.ch"
+                    <a [href]="'mailto:' + (email | localizedText)"
                         class="w-auto md:w-[346px] text-black text-[18px] md:text-[24px] font-medium leading-normal underline break-all">
-                        support@aintegrator.ch
+                        {{ email | localizedText }}
                     </a>
                 </div>
 
@@ -17,9 +17,9 @@
                     <h3 class="text-black text-[24px] md:text-[32px] font-medium leading-normal m-0 w-full">
                         Notfall-Support
                     </h3>
-                    <a href="tel:+41783074040"
+                    <a [href]="'tel:' + (phone | localizedText)"
                         class="w-auto md:w-[346px] text-black text-[18px] md:text-[24px] font-medium leading-normal underline break-all">
-                        +41 78 307 40 40
+                        {{ phone | localizedText }}
                     </a>
                 </div>
             </div>
@@ -37,13 +37,8 @@
                     </h3>
                     <div class="flex flex-col w-auto md:w-[200px]">
                         <p class="text-[#4D4D4D] text-[18px] md:text-[24px] font-medium leading-normal m-0">
-                            Alntegrator</p>
-                        <p class="text-[#4D4D4D] text-[18px] md:text-[24px] font-medium leading-normal m-0">
-                            Musterstrasse 12</p>
-                        <p class="text-[#4D4D4D] text-[18px] md:text-[24px] font-medium leading-normal m-0">8000
-                            Zürich</p>
-                        <p class="text-[#4D4D4D] text-[18px] md:text-[24px] font-medium leading-normal m-0">
-                            Schweiz</p>
+                            {{ address | localizedText }}
+                        </p>
                     </div>
                 </div>
             </div>

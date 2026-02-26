@@ -3,12 +3,11 @@
         <div class="max-w-[781px] w-full flex flex-col items-center gap-[24px] md:mb-[80px]">
             <h2
                 class="text-[#000] text-center font-['Poppins',_sans-serif] text-[32px] min-[768px]:text-[40px] min-[1024px]:text-[48px] xl:text-[56px] font-medium leading-tight xl:whitespace-nowrap">
-                Lia arbeitet, wo du arbeitest
+                {{ title }}
             </h2>
             <p
                 class="text-[#4D4D4D] text-center font-['Poppins',_sans-serif] text-[18px] min-[768px]:text-[20px] min-[1024px]:text-[22px] xl:text-[24px] font-normal leading-[148%]">
-                Synchronisiert sich mit Ihrem Microsoft oder Google Kalendar um automatisch alle Ihre Meetings zu
-                transkribieren.
+                {{ description }}
             </p>
         </div>
 
@@ -18,8 +17,8 @@
                 <img src="assets/icons/left.png" alt="Previous"
                     class="w-[36px] h-[36px] max-[767px]:!w-[24px] max-[767px]:!h-[24px] max-[767px]:aspect-square cursor-pointer">
                 <h3 class="font-['Poppins',_sans-serif] text-[24px] md:text-[40px] font-medium leading-none">
-                    <span class="text-[#000]">Freitag, </span>
-                    <span class="text-[#4D4D4D]">12.</span>
+                    <span class="text-[#000]">{{ calendarDayLabel }}</span>
+                    <span class="text-[#4D4D4D]">{{ calendarDayNumber }}</span>
                 </h3>
                 <img src="assets/icons/right.png" alt="Next"
                     class="w-[36px] h-[36px] max-[767px]:!w-[24px] max-[767px]:!h-[24px] max-[767px]:aspect-square cursor-pointer">
@@ -65,7 +64,7 @@
                         <div class="flex items-center justify-between">
                             <h4
                                 class="text-[#000] font-['Poppins',_sans-serif] text-[20px] min-[1024px]:text-[24px] max-[767px]:!text-[14px] max-[767px]:!leading-normal font-medium">
-                                Projektupdate Meeting</h4>
+                                {{ meetingTitle }}</h4>
                             <img src="assets/icons/dots.png" alt="Options"
                                 class="w-[36px] h-[36px] max-[767px]:!w-[16px] max-[767px]:!h-[16px] max-[767px]:!ml-[17px] cursor-pointer">
                         </div>
@@ -73,13 +72,13 @@
                         <div
                             class="flex items-center gap-[7px] min-[1024px]:inline-flex min-[1024px]:gap-[4px] mt-[8px] lg:mt-[12px]">
                             <span
-                                class="text-[#4D4D4D] font-['Poppins',_sans-serif] text-[12px] min-[1024px]:text-[16px] font-normal leading-[100%]">09:30
-                                - 11:30 Uhr</span>
+                                class="text-[#4D4D4D] font-['Poppins',_sans-serif] text-[12px] min-[1024px]:text-[16px] font-normal leading-[100%]">{{
+                                timeRange }}</span>
                             <div
                                 class="flex h-[20px] min-[1024px]:h-auto p-[8px] min-[1024px]:p-[8px_12px] justify-center items-center gap-[10px] rounded-[356px] bg-[rgba(211,47,47,0.03)]">
                                 <span
-                                    class="text-[#ED2915] font-['Poppins',_sans-serif] text-[12px] min-[1024px]:text-[16px] font-medium leading-[100%] text-center">2
-                                    Stunden</span>
+                                    class="text-[#ED2915] font-['Poppins',_sans-serif] text-[12px] min-[1024px]:text-[16px] font-medium leading-[100%] text-center">{{
+                                    durationLabel }}</span>
                             </div>
                         </div>
 
@@ -89,20 +88,23 @@
                                     class="w-[36px] h-[36px] max-[767px]:!w-[24px] max-[767px]:!h-[24px] rounded-full bg-[#FAFAFA] flex items-center justify-center font-medium max-[767px]:text-[10px]">
                                     M</div>
                                 <span
-                                    class="text-[#000] font-['Poppins',_sans-serif] text-[16px] max-[767px]:!text-[12px] max-[767px]:!leading-normal font-medium">Monica</span>
+                                    class="text-[#000] font-['Poppins',_sans-serif] text-[16px] max-[767px]:!text-[12px] max-[767px]:!leading-normal font-medium">{{
+                                    participants[0] || '' }}</span>
                             </div>
                             <div class="flex items-center gap-[8px] lg:gap-[16px]">
                                 <div
                                     class="w-[36px] h-[36px] max-[767px]:!w-[24px] max-[767px]:!h-[24px] rounded-full bg-[#FAFAFA] flex items-center justify-center font-medium max-[767px]:text-[10px]">
                                     S</div>
                                 <span
-                                    class="text-[#000] font-['Poppins',_sans-serif] text-[16px] max-[767px]:!text-[12px] max-[767px]:!leading-normal font-medium">Stephane</span>
+                                    class="text-[#000] font-['Poppins',_sans-serif] text-[16px] max-[767px]:!text-[12px] max-[767px]:!leading-normal font-medium">{{
+                                    participants[1] || '' }}</span>
                             </div>
                             <div class="flex items-center gap-[8px] lg:gap-[16px]">
                                 <img src="assets/images/Group 2969.png" alt="Lia"
                                     class="w-[36px] h-[36px] max-[767px]:!w-[24px] max-[767px]:!h-[24px] rounded-full bg-[#FAFAFA] flex items-center justify-center font-medium">
                                 <span
-                                    class="text-[#000] font-['Poppins',_sans-serif] text-[16px] max-[767px]:!text-[12px] max-[767px]:!leading-normal font-medium">Lia</span>
+                                    class="text-[#000] font-['Poppins',_sans-serif] text-[16px] max-[767px]:!text-[12px] max-[767px]:!leading-normal font-medium">{{
+                                    participants[2] || '' }}</span>
                             </div>
                         </div>
                     </div>
@@ -118,7 +120,7 @@
                     class="w-[32px] h-[35px] min-[768px]:max-[1279px]:!w-[28px] min-[768px]:max-[1279px]:!h-[30px] max-[767px]:!w-[32px] max-[767px]:!h-[35px] max-[767px]:!aspect-[32/35] object-contain">
                 <h5
                     class="text-[#000] font-['Poppins',_sans-serif] text-[22px] lg:text-[26px] min-[1280px]:!text-[22px] min-[768px]:max-[1279px]:!text-[18px] max-[767px]:!text-[16px] max-[767px]:!font-medium max-[767px]:!leading-[26px] font-medium leading-[125%]">
-                    Microsoft 365
+                    {{ cards[0]?.title || '' }}
                 </h5>
             </div>
             <div
@@ -127,7 +129,7 @@
                     class="w-[36px] h-[35px] min-[768px]:max-[1279px]:!w-[31px] min-[768px]:max-[1279px]:!h-[30px] max-[767px]:!w-[36px] max-[767px]:!h-[35px] max-[767px]:!aspect-[36/35] object-contain">
                 <h5
                     class="text-[#000] font-['Poppins',_sans-serif] text-[22px] lg:text-[26px] min-[1280px]:!text-[22px] min-[768px]:max-[1279px]:!text-[18px] max-[767px]:!text-[16px] max-[767px]:!font-medium max-[767px]:!leading-[26px] font-medium leading-[125%]">
-                    Google Workspace
+                    {{ cards[1]?.title || '' }}
                 </h5>
             </div>
             <div
@@ -138,12 +140,13 @@
                     <div
                         class="flex items-center justify-center px-[16px] h-[35px] min-[768px]:max-[1279px]:!h-[30px] min-[768px]:max-[1279px]:!px-[12px] max-[767px]:!flex max-[767px]:!w-auto max-[767px]:!min-w-[65px] max-[767px]:!h-[35px] max-[767px]:!px-[14px] max-[767px]:!rounded-[27.059px] max-[767px]:!border-[1.353px] rounded-[27px] border-[1.35px] border-[#ED2915]">
                         <span
-                            class="text-[#ED2915] font-['Poppins',_sans-serif] text-[18px] min-[768px]:max-[1279px]:!text-[14px] max-[767px]:!text-[16px] max-[767px]:!leading-[100%] font-medium leading-[1]">Beta</span>
+                            class="text-[#ED2915] font-['Poppins',_sans-serif] text-[18px] min-[768px]:max-[1279px]:!text-[14px] max-[767px]:!text-[16px] max-[767px]:!leading-[100%] font-medium leading-[1]">{{
+                            cards[2]?.badge || '' }}</span>
                     </div>
                 </div>
                 <h5
                     class="text-[#000] font-['Poppins',_sans-serif] text-[22px] lg:text-[26px] min-[1280px]:!text-[22px] min-[768px]:max-[1279px]:!text-[18px] max-[767px]:!text-[16px] max-[767px]:!font-medium max-[767px]:!leading-[26px] font-medium leading-[125%]">
-                    Cisco Webex</h5>
+                    {{ cards[2]?.title || '' }}</h5>
             </div>
         </div>
     </div>

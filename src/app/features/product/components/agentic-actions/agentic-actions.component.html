@@ -8,17 +8,18 @@
             <div
                 class="flex w-[60px] h-[32px] xl:w-[92px] xl:h-[41px] justify-center items-center rounded-[27.059px] border-[1.353px] border-solid border-[#ED2915]">
                 <span
-                    class="text-[#ED2915] font-['Poppins',_sans-serif] text-[16px] xl:text-[24px] font-medium leading-[100%]">Beta</span>
+                    class="text-[#ED2915] font-['Poppins',_sans-serif] text-[16px] xl:text-[24px] font-medium leading-[100%]">{{
+                    badgeLabel }}</span>
             </div>
 
             <h2
                 class="text-[#000] text-left font-['Poppins',_sans-serif] text-[24px] min-[768px]:text-[28px] min-[1024px]:text-[30px] xl:text-[32px] font-medium leading-normal">
-                Wandelt Meetings in konkrete Taten – mit Agentic AI
+                {{ title }}
             </h2>
 
             <p
                 class="text-[rgba(77,77,77,0.70)] text-left font-['Poppins',_sans-serif] text-[16px] min-[768px]:text-[18px] min-[1024px]:text-[20px] xl:text-[24px] font-normal leading-normal">
-                KI-Agenten analysieren Gespräche und handeln selbstständig.
+                {{ description }}
             </p>
         </div>
 
@@ -26,31 +27,31 @@
 
             <div class="flex items-center gap-[7px]">
                 <img src="assets/icons/Search.png" alt="" class="w-[18px] h-[18px] object-contain">
-                <span
-                    class="text-[#4D4D4D] font-['Poppins',_sans-serif] text-[16px] font-medium leading-normal">Research</span>
+                <span class="text-[#4D4D4D] font-['Poppins',_sans-serif] text-[16px] font-medium leading-normal">{{
+                    mobileCards[0]?.title || '' }}</span>
             </div>
             <p class="mt-[8px] text-[#636970] font-['Poppins',_sans-serif] text-[12px] font-normal leading-normal">
-                Analyzes discussions and extracts insights
+                {{ mobileCards[0]?.description || '' }}
             </p>
             <div class="mt-[8px] w-full h-[8px] rounded-[60px] bg-[#E9ECF0]"></div>
 
             <div class="flex items-center gap-[7px] mt-[16px]">
                 <img src="assets/icons/Find.png" alt="" class="w-[18px] h-[18px] object-contain">
-                <span
-                    class="text-[#4D4D4D] font-['Poppins',_sans-serif] text-[16px] font-medium leading-normal">Hiring</span>
+                <span class="text-[#4D4D4D] font-['Poppins',_sans-serif] text-[16px] font-medium leading-normal">{{
+                    mobileCards[1]?.title || '' }}</span>
             </div>
             <p class="mt-[8px] text-[#636970] font-['Poppins',_sans-serif] text-[12px] font-normal leading-normal">
-                Evaluates interviews and structures feedback
+                {{ mobileCards[1]?.description || '' }}
             </p>
             <div class="mt-[8px] w-[55%] h-[8px] rounded-[60px] bg-[#EFF1F3]"></div>
 
             <div class="flex items-center gap-[7px] mt-[16px]">
                 <img src="assets/icons/Find.png" alt="" class="w-[18px] h-[18px] object-contain">
-                <span
-                    class="text-[#4D4D4D] font-['Poppins',_sans-serif] text-[16px] font-medium leading-normal">Action</span>
+                <span class="text-[#4D4D4D] font-['Poppins',_sans-serif] text-[16px] font-medium leading-normal">{{
+                    mobileCards[2]?.title || '' }}</span>
             </div>
             <p class="mt-[8px] text-[#636970] font-['Poppins',_sans-serif] text-[12px] font-normal leading-normal">
-                Detects tasks and prepares follow-ups
+                {{ mobileCards[2]?.description || '' }}
             </p>
             <div class="mt-[8px] w-[23%] h-[8px] rounded-[60px] bg-[#F5F7F9]"></div>
         </div>
@@ -60,9 +61,8 @@
             <div class="flex items-center justify-between pb-[16px] border-b border-[#DADEE4]">
                 <div class="flex items-center gap-[12px]">
                     <img src="assets/icons/checklist.png" alt="" class="w-[24px] h-[24px] object-contain">
-                    <span
-                        class="text-[#4D4D4D] font-['Poppins',_sans-serif] text-[20px] font-medium leading-normal">Action
-                        Items</span>
+                    <span class="text-[#4D4D4D] font-['Poppins',_sans-serif] text-[20px] font-medium leading-normal">{{
+                        actionItemsTitle }}</span>
                 </div>
                 <img src="assets/icons/dots.png" alt="" class="w-[24px] h-[24px] object-contain cursor-pointer">
             </div>

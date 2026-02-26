@@ -1,7 +1,7 @@
 <section class="site-container section-spacing">
     <div class="max-w-[1144px] mx-auto flex flex-col items-center gap-[40px] md:gap-[60px] xl:gap-[80px]">
         <h2 class="text-[28px] md:text-[40px] xl:text-[56px] font-medium text-center text-[#000] m-0">
-            Open Roles
+            {{ openRolesTitle ? (openRolesTitle | localizedText) : 'Open Roles' }}
         </h2>
 
         <div class="flex gap-[6px] md:gap-[24px] justify-center flex-wrap w-full">
@@ -23,16 +23,16 @@
             <div
                 class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-[#DADEE4] pb-[32px] md:pb-[40px] gap-[24px] md:gap-0 last:border-b-0 last:pb-0">
                 <span class="text-[20px] md:text-[20px] xl:text-[24px] font-medium text-[#000]">
-                    {{ role.title }}
+                    {{ role.title | localizedText }}
                 </span>
                 <div
                     class="flex flex-col md:flex-row items-start md:items-center gap-[24px] md:gap-[48px] xl:gap-[120px] w-full md:w-auto">
                     <span class="text-[16px] md:text-[18px] xl:text-[24px] text-[#4D4D4D] font-medium">
-                        {{ role.location }}
+                        {{ role.location | localizedText }}
                     </span>
                     <a [href]="role.link"
                         class="text-[#D32F2F] md:text-[#ED2915] text-[16px] md:text-[18px] xl:text-[24px] font-medium flex items-center no-underline hover:underline hover:opacity-80 leading-[26px]">
-                        Jetzt bewerben
+                        {{ applyButtonLabel ? (applyButtonLabel | localizedText) : 'Jetzt bewerben' }}
                         <img src="assets/icons/Frame.svg" alt="Apply" class="max-md:w-[28px] max-md:h-[28px]">
                     </a>
                 </div>

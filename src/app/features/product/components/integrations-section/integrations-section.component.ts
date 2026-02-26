@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,4 +8,14 @@ import { CommonModule } from '@angular/common';
     templateUrl: './integrations-section.component.html',
     styleUrl: './integrations-section.component.scss'
 })
-export class IntegrationsSectionComponent { }
+export class IntegrationsSectionComponent {
+    @Input() title = '';
+    @Input() description = '';
+    @Input() calendarDayLabel = '';
+    @Input() calendarDayNumber = '';
+    @Input() meetingTitle = '';
+    @Input() timeRange = '';
+    @Input() durationLabel = '';
+    @Input() participants: string[] = [];
+    @Input() cards: Array<{ title?: string; badge?: string }> = [];
+}

@@ -5,11 +5,11 @@
             <div class="flex items-center gap-[6px] xl:gap-[8px]">
                 <button
                     class="flex items-center justify-center px-2 sm:px-3 py-1.5 !rounded-[6.242px] !border-[0.712px] !border-solid !border-[#EBEBEB] text-[#000] text-[10px] font-semibold whitespace-nowrap cursor-pointer hover:bg-gray-50 transition-colors mobile-wrap-btn">
-                    Datei hochladen
+                    {{ uploadButtonLabel }}
                 </button>
                 <button
                     class="flex items-center justify-center px-2 sm:px-3 py-1.5 rounded-[6px] border-none bg-[#121212] text-white text-[10px] font-semibold whitespace-nowrap cursor-pointer hover:bg-black transition-colors mobile-wrap-btn">
-                    Live Aufnehmen
+                    {{ recordButtonLabel }}
                 </button>
             </div>
             <div
@@ -20,9 +20,10 @@
 
     <div class="relative border-b-2 border-[#F3F4F7] pb-[2px]">
         <div class="flex gap-[32px] px-[25px] xl:px-[24px]">
-            <span class="text-[#4D4D4D] font-sans text-[14px] font-normal cursor-pointer">Zusammenfassung</span>
+            <span class="text-[#4D4D4D] font-sans text-[14px] font-normal cursor-pointer">{{ summaryTabLabel }}</span>
             <div class="relative">
-                <span class="text-[#000] font-sans text-[14px] font-medium cursor-pointer">Transkript</span>
+                <span class="text-[#000] font-sans text-[14px] font-medium cursor-pointer">{{ transcriptTabLabel
+                    }}</span>
                 <div class="absolute -bottom-[4px] left-1/2 -translate-x-1/2 w-[101px] h-[2px] bg-[#000]">
                 </div>
             </div>

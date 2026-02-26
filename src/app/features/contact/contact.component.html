@@ -1,7 +1,10 @@
 <div class="w-full bg-white section-spacing">
     <div class="site-container">
-        <app-contact-hero></app-contact-hero>
-        <app-contact-cards></app-contact-cards>
+        <app-contact-hero [title]="contactData()?.heroTitle">
+        </app-contact-hero>
+        <app-contact-cards [email]="contactData()?.email" [phone]="contactData()?.phone"
+            [address]="contactData()?.officeAddress">
+        </app-contact-cards>
     </div>
 
     <app-final-cta [showDecoration]="false" class="block pt-0">

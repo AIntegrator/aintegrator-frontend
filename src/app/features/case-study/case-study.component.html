@@ -10,13 +10,13 @@
             </a>
         </div>
 
-        <app-case-study-hero></app-case-study-hero>
+        <app-case-study-hero [caseStudyData]="caseStudyData()"></app-case-study-hero>
 
-        <app-case-study-stats [stats]="upperStats"></app-case-study-stats>
+        <app-case-study-stats [stats]="caseStudyUpperStats()"></app-case-study-stats>
 
-        <app-case-study-content></app-case-study-content>
+        <app-case-study-content [caseStudyData]="caseStudyData()"></app-case-study-content>
 
-        <app-case-study-stats [stats]="lowerStats" size="small"></app-case-study-stats>
+        <app-case-study-stats [stats]="caseStudyLowerStats()" size="small"></app-case-study-stats>
     </div>
     <div class="section-spacing"></div>
     <app-final-cta [showDecoration]="false" class="block pt-0"></app-final-cta>

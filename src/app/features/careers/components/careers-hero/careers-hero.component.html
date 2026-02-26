@@ -1,6 +1,11 @@
 <section class="site-container section-spacing">
     <h1
         class="text-[#000] font-['Poppins'] text-[32px] md:text-[48px] xl:text-[64px] font-medium text-center m-0 md:whitespace-nowrap">
-        Arbeiten bei AIntegrator
+        {{ heroTitle ? (heroTitle | localizedText) : 'Arbeiten bei AIntegrator' }}
     </h1>
+    @if (heroDescription) {
+    <p class="text-center text-[16px] md:text-[18px] text-gray-600 mt-[16px] mx-auto max-w-[600px]">
+        {{ heroDescription | localizedText }}
+    </p>
+    }
 </section>

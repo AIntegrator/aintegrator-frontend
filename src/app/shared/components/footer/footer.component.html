@@ -27,7 +27,9 @@
                 </div>
             </div>
 
-            <p class="font-sans text-[14px] font-medium text-[#4D4D4D] mb-[20px] lg:mb-6">Mitglied von</p>
+            <p class="font-sans text-[14px] font-medium text-[#4D4D4D] mb-[20px] lg:mb-6">{{
+                getLocalizedText(settings()?.footerMembershipLabel)
+                }}</p>
 
             <div class="flex items-center gap-[12px] mb-[60px] lg:mb-[245px]">
                 <img src="assets/images/image 44.png" alt="Swiss AI"
@@ -42,35 +44,44 @@
             class="grid grid-cols-3 gap-x-[48px] w-full lg:w-auto mb-[40px] lg:mb-0 lg:flex lg:gap-[80px] xl:gap-[120px]">
 
             <div class="flex flex-col gap-[24px] lg:gap-0">
-                <h4 class="font-sans text-[14px] font-medium text-[#4D4D4D] lg:mb-[32px]">Firma</h4>
+                <h4 class="font-sans text-[14px] font-medium text-[#4D4D4D] lg:mb-[32px]">{{
+                    getLocalizedText(settings()?.footerCompanyTitle)
+                    }}</h4>
                 <div class="flex flex-col gap-[24px] lg:block">
-                    <a routerLink="/about"
-                        class="font-sans text-[14px] font-medium text-[#000000] cursor-pointer transition-colors duration-200 hover:text-[#D32F2F] lg:mb-[33px] block">Über
-                        uns</a>
-                    <a routerLink="/careers"
-                        class="font-sans text-[14px] font-medium text-[#000000] cursor-pointer transition-colors duration-200 hover:text-[#D32F2F] lg:mb-[33px] block">Karriere</a>
-                    <a routerLink="/contact"
-                        class="font-sans text-[14px] font-medium text-[#000000] cursor-pointer transition-colors duration-200 hover:text-[#D32F2F] lg:mb-[33px] block">Kontakt</a>
+                    @for (link of settings()?.footerCompanyLinks || []; track link.url) {
+                    <a [routerLink]="link.url"
+                        class="font-sans text-[14px] font-medium text-[#000000] cursor-pointer transition-colors duration-200 hover:text-[#D32F2F] lg:mb-[33px] block">{{
+                        getLocalizedText(link.label)
+                        }}</a>
+                    }
                 </div>
             </div>
 
             <div class="flex flex-col gap-[24px] lg:gap-0">
-                <h4 class="font-sans text-[14px] font-medium text-[#4D4D4D] lg:mb-[32px]">Produkte</h4>
+                <h4 class="font-sans text-[14px] font-medium text-[#4D4D4D] lg:mb-[32px]">{{
+                    getLocalizedText(settings()?.footerProductsTitle)
+                    }}</h4>
                 <div class="flex flex-col gap-[24px] lg:block">
-                    <a routerLink="/"
-                        class="font-sans text-[14px] font-medium text-[#000000] cursor-pointer transition-colors duration-200 hover:text-[#D32F2F] lg:mb-[33px] block">Home</a>
-                    <a routerLink="/product"
-                        class="font-sans text-[14px] font-medium text-[#000000] cursor-pointer transition-colors duration-200 hover:text-[#D32F2F] lg:mb-[33px] block">LiaSuite</a>
-                    <a routerLink="/case-study/staatliche-agenten"
-                        class="font-sans text-[14px] font-medium text-[#000000] cursor-pointer transition-colors duration-200 hover:text-[#D32F2F] lg:mb-[33px] block">Education</a>
+                    @for (link of settings()?.footerProductsLinks || []; track link.url) {
+                    <a [routerLink]="link.url"
+                        class="font-sans text-[14px] font-medium text-[#000000] cursor-pointer transition-colors duration-200 hover:text-[#D32F2F] lg:mb-[33px] block">{{
+                        getLocalizedText(link.label)
+                        }}</a>
+                    }
                 </div>
             </div>
 
             <div class="flex flex-col gap-[24px] lg:gap-0">
-                <h4 class="font-sans text-[14px] font-medium text-[#4D4D4D] lg:mb-[32px]">Social</h4>
+                <h4 class="font-sans text-[14px] font-medium text-[#4D4D4D] lg:mb-[32px]">{{
+                    getLocalizedText(settings()?.footerSocialTitle)
+                    }}</h4>
                 <div class="flex flex-col gap-[24px] lg:block">
-                    <a href="https://linkedin.com" target="_blank"
-                        class="font-sans text-[14px] font-medium text-[#000000] cursor-pointer transition-colors duration-200 hover:text-[#D32F2F] lg:mb-[33px] block">LinkedIn</a>
+                    @for (link of settings()?.footerSocialLinks || []; track link.url) {
+                    <a [attr.href]="link.url" target="_blank"
+                        class="font-sans text-[14px] font-medium text-[#000000] cursor-pointer transition-colors duration-200 hover:text-[#D32F2F] lg:mb-[33px] block">{{
+                        link.label
+                        }}</a>
+                    }
                 </div>
             </div>
 
@@ -82,14 +93,17 @@
         <div class="w-full h-[1px] bg-[#DADEE4] mb-[17px] lg:mb-6"></div>
 
         <div class="flex flex-row justify-between items-center w-full gap-0">
-            <span class="font-sans text-[14px] md:text-[16px] font-normal text-[#4D4D4D] leading-[26px]">© 2025
-                AIntegrator</span>
+            <span class="font-sans text-[14px] md:text-[16px] font-normal text-[#4D4D4D] leading-[26px]">{{
+                getLocalizedText(settings()?.footerCopyright)
+                }}</span>
 
             <div class="flex gap-[16px] md:gap-9">
-                <a routerLink="/terms"
-                    class="font-sans text-[14px] md:text-[16px] font-normal text-[#4D4D4D] leading-[26px] cursor-pointer transition-colors duration-200 hover:text-[#D32F2F]">AGB</a>
-                <a routerLink="/privacy"
-                    class="font-sans text-[14px] md:text-[16px] font-normal text-[#4D4D4D] leading-[26px] cursor-pointer transition-colors duration-200 hover:text-[#D32F2F]">Datenschutz</a>
+                @for (link of settings()?.footerLegalLinks || []; track link.url) {
+                <a [routerLink]="link.url"
+                    class="font-sans text-[14px] md:text-[16px] font-normal text-[#4D4D4D] leading-[26px] cursor-pointer transition-colors duration-200 hover:text-[#D32F2F]">{{
+                    getLocalizedText(link.label)
+                    }}</a>
+                }
             </div>
         </div>
     </div>
