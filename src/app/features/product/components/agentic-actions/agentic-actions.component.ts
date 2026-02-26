@@ -1,15 +1,22 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LucideAngularModule, Search, ListTodo, Ellipsis, Check, Calendar } from 'lucide-angular';
 
 @Component({
   selector: 'app-agentic-actions',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, LucideAngularModule],
   templateUrl: './agentic-actions.component.html',
   styleUrl: './agentic-actions.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AgenticActionsComponent {
+  readonly searchIcon = Search;
+  readonly listTodoIcon = ListTodo;
+  readonly ellipsisIcon = Ellipsis;
+  readonly checkIcon = Check;
+  readonly calendarIcon = Calendar;
+
   readonly actionItems = [
     {
       text: 'Followup with the client about the new feature request',

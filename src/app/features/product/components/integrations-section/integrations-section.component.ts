@@ -1,14 +1,17 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LucideAngularModule, Ellipsis } from 'lucide-angular';
 
 @Component({
     selector: 'app-integrations-section',
     standalone: true,
-    imports: [CommonModule],
+    imports: [CommonModule, LucideAngularModule],
     templateUrl: './integrations-section.component.html',
     styleUrl: './integrations-section.component.scss'
 })
 export class IntegrationsSectionComponent {
+    readonly ellipsisIcon = Ellipsis;
+
     currentDayName: string;
     currentDayNumber: string;
 
