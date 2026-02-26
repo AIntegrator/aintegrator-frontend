@@ -40,7 +40,8 @@
             @for (value of values; track $index) {
             <div class="flex flex-col gap-[24px] xl:gap-[32px] w-full">
                 <div class="block text-left">
-                    <span class="text-[#000] text-[24px] xl:text-[32px] font-medium">{{ value.title | localizedText
+                    <span class="text-[#ED2915] text-[24px] xl:text-[32px] font-medium">{{ getValueIndex($index) }}</span>
+                    <span class="text-[#000] text-[24px] xl:text-[32px] font-medium"> {{ value.title | localizedText
                         }}</span>
                 </div>
                 <div

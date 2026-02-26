@@ -15,6 +15,11 @@ export class PrinciplesMvSectionComponent {
     @Input() isPrinciplesDesktop: boolean = false;
     @Input() values: Array<{ title: LocalizedText; description: LocalizedText }> | undefined;
 
+    getValueIndex(index: number): string {
+        const num = (index + 1).toString().padStart(3, '0');
+        return `${num} ·`;
+    }
+
     principles = [
         {
             index: '001 ·',

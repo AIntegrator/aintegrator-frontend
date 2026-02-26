@@ -36,12 +36,6 @@
     }
 }
 
-.logo-img {
-    opacity: 0.6;
-    mix-blend-mode: luminosity;
-    filter: grayscale(100%);
-}
-
 @media (max-width: 767px) {
     .logo-track {
         gap: 48.51px;
@@ -49,10 +43,7 @@
         animation: scroll-mobile 20s linear infinite;
     }
 
-
-
     .logo-img {
-
         &.logo-1 {
             width: 84.76px;
             height: 21.19px;

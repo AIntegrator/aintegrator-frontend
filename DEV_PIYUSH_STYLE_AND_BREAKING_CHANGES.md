@@ -2,6 +2,18 @@
 
 This checklist focuses on changes introduced in dev-piyush that differ from main. It highlights style/UX changes and other potential breaking behavior.
 
+## Status After Revert (2026-02-26)
+- [x] Logo carousel visuals restored to main styling
+- [x] Hero layout restored; mobile dots removed
+- [x] Hover/cursor affordances restored for interactive elements
+- [x] Bolts carousel hover-pause restored
+- [x] $color-cta-hover restored in tokens
+- [x] Assets check: no references to Primary.png or Secondary.png in src/
+- [ ] Careers filter locale logic (verify behavior in non-EN locales)
+- [ ] Sanity image URL extension assumption (verify non-JPG assets)
+- [ ] Sanity helper throw risk (avoid usage or implement)
+- [ ] Sanity content completeness (verify in CMS)
+
 ## Style/UX Deltas (Dev vs Main)
 
 ### 1) Logo Carousel Visuals
@@ -111,3 +123,4 @@ This checklist focuses on changes introduced in dev-piyush that differ from main
   - Careers filters
   - Home and product localized text
   - Contact and legal pages
+
