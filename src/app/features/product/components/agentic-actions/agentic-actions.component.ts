@@ -19,7 +19,7 @@ export class AgenticActionsComponent {
 
   readonly actionItems = [
     {
-      text: 'Followup with the client about the new feature request',
+      text: 'Follow up with the client about the new feature request',
       date: '12th June 2025'
     },
     {
