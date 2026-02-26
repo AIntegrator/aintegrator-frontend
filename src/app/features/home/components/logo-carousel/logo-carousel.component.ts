@@ -1,6 +1,9 @@
 import { Component, ChangeDetectionStrategy, ViewEncapsulation, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Partner } from '../../../../shared/models/sanity.models';
+import { getImageUrl } from '../../../../core/services/sanity.helpers';
+import { environment } from '../../../../../environments/environment';
+import { createClient } from '@sanity/client';
 
 @Component({
     selector: 'app-logo-carousel',
@@ -25,8 +28,15 @@ export class LogoCarouselComponent {
     get logos() {
         if (this.partners && this.partners.length > 0) {
             // Convert Sanity partners to logo format and duplicate for carousel
+            const client = createClient({
+                projectId: environment.sanity.projectId,
+                dataset: environment.sanity.dataset,
+                apiVersion: environment.sanity.apiVersion,
+                useCdn: environment.sanity.useCdn,
+                perspective: (environment.sanity as any).perspective || 'published',
+            });
             const convertedLogos = this.partners.map(partner => ({
-                src: this.getLogoUrl(partner.logo),
+                src: partner.logo ? getImageUrl(client, partner.logo, 200, 80) : 'assets/images/image 11.png',
                 alt: partner.name,
                 link: partner.website
             }));
@@ -35,14 +45,5 @@ export class LogoCarouselComponent {
         // Fallback to hardcoded logos, duplicated for carousel
         return [...this.fallbackLogos, ...this.fallbackLogos];
     }
-
-    private getLogoUrl(sanityImage: any): string {
-        if (!sanityImage) return 'assets/images/image 11.png';
-        if (typeof sanityImage === 'string') return sanityImage;
-        if (sanityImage.asset?._ref) {
-            const assetId = sanityImage.asset._ref.replace('image-', '').split('-')[0];
-            return `https://cdn.sanity.io/images/4hvlh78z/production/${assetId}.jpg`;
-        }
-        return 'assets/images/image 11.png';
-    }
+    // Removed getLogoUrl, now using getImageUrl from helpers
 }

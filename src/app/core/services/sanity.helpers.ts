@@ -1,4 +1,5 @@
 import { createClient, type SanityClient } from '@sanity/client';
+import imageUrlBuilder from '@sanity/image-url';
 
 /**
  * Helper to build image URLs from Sanity image references
@@ -9,7 +10,7 @@ import { createClient, type SanityClient } from '@sanity/client';
  * return imageUrlBuilder(client);
  */
 export function getImageBuilder(client: SanityClient) {
-    throw new Error('Install @sanity/image-url package to use this function');
+    return imageUrlBuilder(client);
 }
 
 /**
@@ -24,13 +25,10 @@ export function getImageUrl(
     width?: number,
     height?: number
 ): string {
-    // Uncomment after installing @sanity/image-url:
-    // const builder = getImageBuilder(client).image(source);
-    // if (width) builder.width(width);
-    // if (height) builder.height(height);
-    // return builder.auto('format').quality(80).url();
-
-    throw new Error('Install @sanity/image-url package to use this function');
+    const builder = getImageBuilder(client).image(source);
+    if (width) builder.width(width);
+    if (height) builder.height(height);
+    return builder.auto('format').quality(80).url();
 }
 
 /**
@@ -52,6 +50,12 @@ export const SanityQueries = {
     // Singleton pages
     HOME_PAGE: `*[_type == "homePage"][0] {
         ...,
+        partners[]-> {
+            _id,
+            name,
+            logo,
+            website
+        },
         featuredCaseStudy-> {
             _id,
             _type,
