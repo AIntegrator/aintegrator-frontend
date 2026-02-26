@@ -16,4 +16,7 @@ export class HeroComponent {
     @Input() showButton: boolean = false;
     @Input() buttonLabel: string = '';
     @Input() titleMaxWidthClass: string = 'md:max-w-[635px]';
+    @Input() showMobileHeroDots: boolean = false;
+    @Input() mobileMarginClass: string = 'mt-[77px]';
+    @Input() mobileDotsClass: string = 'top-[-15px] left-0 w-[400px]';
 }

@@ -36,6 +36,12 @@
     }
 }
 
+.logo-img {
+    opacity: 0.6;
+    mix-blend-mode: luminosity;
+    filter: grayscale(100%);
+}
+
 @media (max-width: 767px) {
     .logo-track {
         gap: 48.51px;

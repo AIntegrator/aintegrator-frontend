@@ -14,7 +14,7 @@
 
         <div class="flex justify-center items-center relative" [ngClass]="[buttonContainerClass, buttonsGapClass]">
             <a *ngIf="secondaryBtnText" [routerLink]="secondaryBtnLink"
-                class="flex items-center text-[#000] no-underline font-sans text-[16px] md:text-[20px] xl:text-[24px] font-normal leading-normal transition-opacity duration-200 hover:opacity-80 hover:underline">
+                class="flex items-center text-[#000] no-underline font-sans text-[16px] md:text-[20px] xl:text-[24px] font-normal leading-normal">
                 <span>{{ secondaryBtnText }}</span>
                 <img *ngIf="secondaryBtnIcon" [src]="secondaryBtnIcon" alt="" aria-hidden="true"
                     class="w-[24px] h-[24px] xl:w-[34px] xl:h-[34px] object-contain" />

@@ -1,17 +1,18 @@
-<section class="relative w-full overflow-hidden mt-[77px] xl:mt-[224px] min-h-auto xl:min-h-[608px]">
+<section class="relative w-full overflow-visible xl:overflow-hidden xl:mt-[224px] min-h-auto xl:min-h-[608px]"
+    [ngClass]="mobileMarginClass">
     <div class="site-container flex justify-center relative z-20">
         <div class="flex flex-col items-center relative">
-            <h1 class="w-full max-w-[354px] text-primary text-center font-medium mb-6 tracking-normal font-sans text-[32px] md:text-[48px] xl:text-[64px] leading-tight"
+            <h1 class="w-full max-w-[354px] text-primary text-center font-medium mb-6 tracking-normal font-sans text-[32px] md:text-[48px] xl:text-[64px] leading-[48px] md:leading-tight"
                 [ngClass]="titleMaxWidthClass" [innerHTML]="title">
             </h1>
             <p
-                class="w-full max-w-[333px] md:max-w-[633px] h-auto md:h-auto text-text-muted text-center font-normal tracking-normal font-sans text-[16px] md:text-[20px] xl:text-[24px] leading-normal">
+                class="w-full max-w-[333px] md:max-w-[633px] h-auto md:h-auto text-text-muted text-center font-normal tracking-normal font-sans text-[16px] md:text-[20px] xl:text-[24px] leading-[27px] md:leading-normal">
                 {{ description }}
             </p>
 
             @if (showButton) {
             <button
-                class="mt-[32px] hidden xl:flex items-center border-none bg-transparent cursor-pointer p-0 text-cta font-sans font-medium text-[24px] leading-normal">
+                class="mt-[32px] hidden xl:flex items-center border-none bg-transparent p-0 text-cta font-sans font-medium text-[24px] leading-normal">
                 <span>{{ buttonLabel }}</span>
                 <img src="assets/icons/Frame.svg" alt="" class="block">
             </button>
@@ -23,4 +24,10 @@
             </div>
         </div>
     </div>
+
+    @if (showMobileHeroDots) {
+    <div class="absolute pointer-events-none z-10 md:left-[60px] lg:left-[100px] xl:hidden" [ngClass]="mobileDotsClass">
+        <img src="assets/images/Group 3011.png" alt="" class="w-full h-full object-cover object-left-top">
+    </div>
+    }
 </section>

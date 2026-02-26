@@ -1,7 +1,6 @@
 <header class="w-full bg-bg-primary sticky top-0 z-50">
   <div class="site-container relative z-50 flex h-[42px] items-center justify-between mt-12">
-    <a routerLink="/" class="flex flex-shrink-0 items-center transition-opacity duration-300 hover:opacity-80"
-      aria-label="AIntegrator Home">
+    <a routerLink="/" class="flex flex-shrink-0 items-center" aria-label="AIntegrator Home">
       <img [src]="logoSrc" alt="AIntegrator" width="152" height="29" class="h-[29.083px] w-[152px] object-contain" />
     </a>
 
@@ -62,98 +61,136 @@
         }
       </div>
 
-      <a routerLink="/contact"
-        class="inline-flex items-center no-underline whitespace-nowrap cursor-pointer transition-opacity duration-300 hover:opacity-80"
-        [attr.aria-label]="navLabels.cta">
-        <span class="text-cta font-sans text-[14px] font-medium text-right truncate">{{ navLabels.cta }}</span>
-        <img [src]="arrowIconSrc" alt="" aria-hidden="true" />
-      </a>
-    </div>
+      <div class="hidden min-[1100px]:flex items-center gap-4">
+        <!-- Language Switcher (Desktop) -->
+        <div class="flex items-center relative">
+          <button (click)="toggleLanguageDropdown()"
+            class="flex items-center gap-1 px-3 py-1.5 text-text-body font-sans text-[14px] font-medium border border-[#E5E5E5] rounded-md hover:border-text-body transition-colors duration-200 bg-transparent cursor-pointer"
+            type="button" aria-label="Select language" [attr.aria-expanded]="languageDropdownOpen()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+              </path>
+            </svg>
+            <span>{{ getLocaleShortCode(currentLocale) }}</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" [class.rotate-180]="languageDropdownOpen()"
+              class="transition-transform duration-200">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
 
-    <button
-      class="flex min-[1100px]:hidden items-center justify-center w-8 h-8 p-1 bg-transparent border-none cursor-pointer z-50 relative"
-      type="button" [attr.aria-expanded]="mobileMenuOpen" aria-controls="mobile-menu"
-      aria-label="Toggle navigation menu" (click)="toggleMobileMenu()">
-      @if (!mobileMenuOpen) {
-      <div class="flex flex-col gap-[5px] w-full">
-        <span class="block w-full h-[2px] bg-text-primary rounded-sm transition-all duration-300"></span>
-        <span class="block w-full h-[2px] bg-text-primary rounded-sm transition-all duration-300"></span>
-        <span class="block w-full h-[2px] bg-text-primary rounded-sm transition-all duration-300"></span>
-      </div>
-      } @else {
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M18 6L6 18" stroke="#303030" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-        <path d="M6 6L18 18" stroke="#303030" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-      </svg>
-      }
-    </button>
-  </div>
-
-  <div id="mobile-menu" class="fixed inset-0 z-40 bg-bg-primary min-[1100px]:hidden transition-all duration-300"
-    [class.opacity-0]="!mobileMenuOpen" [class.invisible]="!mobileMenuOpen" [class.opacity-100]="mobileMenuOpen"
-    [class.visible]="mobileMenuOpen">
-    <div class="flex flex-col mt-[90px]">
-      <div class="site-container flex flex-col mt-[44px]">
-        <ul class="flex flex-col gap-[40px] text-left list-none m-0 p-0">
-          <li>
-            <a routerLink="/product" routerLinkActive="font-medium"
-              class="text-text-body font-sans text-[24px] font-normal leading-normal no-underline block"
-              (click)="closeMobileMenu()">
-              {{ navLabels.product }}
-            </a>
-          </li>
-          <li>
-            <a routerLink="/about" routerLinkActive="font-medium"
-              class="text-text-body font-sans text-[24px] font-normal leading-normal no-underline block"
-              (click)="closeMobileMenu()">
-              {{ navLabels.about }}
-            </a>
-          </li>
-          <li>
-            <a routerLink="/careers" routerLinkActive="font-medium"
-              class="text-text-body font-sans text-[24px] font-normal leading-normal no-underline block"
-              (click)="closeMobileMenu()">
-              {{ navLabels.careers }}
-            </a>
-          </li>
-          <li>
-            <a routerLink="/contact" routerLinkActive="font-medium"
-              class="text-text-body font-sans text-[24px] font-normal leading-normal no-underline block"
-              (click)="closeMobileMenu()">
-              {{ navLabels.contact }}
-            </a>
-          </li>
-        </ul>
-
-        <div class="w-full h-px bg-[#E5E5E5] my-[60px]"></div>
-
-        <!-- Language Switcher (Mobile) -->
-        <div class="mb-8">
-          <p class="text-text-body font-sans text-[14px] font-medium mb-3 uppercase tracking-wide">
-            {{ currentLocale === 'de' ? 'Sprache / Language' : currentLocale === 'fr' ? 'Langue / Language' :
-            currentLocale === 'it' ? 'Lingua / Language' : 'Language' }}
-          </p>
-          <div class="flex flex-wrap gap-3">
+          <!-- Dropdown Menu -->
+          @if (languageDropdownOpen()) {
+          <div
+            class="absolute top-full mt-2 right-0 bg-white border border-[#E5E5E5] rounded-md shadow-lg min-w-[140px] py-1 z-50">
             @for (locale of supportedLocales; track locale) {
             <button (click)="changeLocale(locale)"
-              class="px-4 py-2 text-[16px] font-sans rounded-md border transition-all duration-200 bg-transparent cursor-pointer"
-              [class.border-cta]="locale === currentLocale" [class.text-cta]="locale === currentLocale"
-              [class.font-medium]="locale === currentLocale" [class.border-[#E5E5E5]]="locale !== currentLocale"
-              [class.text-text-body]="locale !== currentLocale"
-              [class.hover:border-text-body]="locale !== currentLocale" type="button">
+              class="w-full text-left px-4 py-2 text-[14px] font-sans transition-colors duration-200 bg-transparent border-none cursor-pointer"
+              [class.text-cta]="locale === currentLocale" [class.font-medium]="locale === currentLocale"
+              [class.text-text-body]="locale !== currentLocale" [class.hover:bg-bg-secondary]="locale !== currentLocale"
+              type="button">
               {{ localeLabels[locale] }}
             </button>
             }
           </div>
+          }
         </div>
 
         <a routerLink="/contact"
-          class="flex items-center gap-[4px] text-cta font-sans text-[24px] font-medium hover:opacity-80 transition-opacity no-underline"
-          (click)="closeMobileMenu()">
-          <span>{{ navLabels.cta }}</span>
-          <img src="assets/icons/Frame.svg" class="flex-shrink-0" alt="" aria-hidden="true" />
+          class="inline-flex items-center no-underline whitespace-nowrap cursor-pointer transition-opacity duration-300 hover:opacity-80"
+          [attr.aria-label]="navLabels.cta">
+          <span class="text-cta font-sans text-[14px] font-medium text-right truncate">{{ navLabels.cta }}</span>
+          <img [src]="arrowIconSrc" alt="" aria-hidden="true" />
         </a>
       </div>
+
+      <button
+        class="flex min-[1100px]:hidden items-center justify-center w-8 h-8 p-1 bg-transparent border-none z-50 relative"
+        type="button" [attr.aria-expanded]="mobileMenuOpen" aria-controls="mobile-menu"
+        aria-label="Toggle navigation menu" (click)="toggleMobileMenu()">
+        @if (!mobileMenuOpen) {
+        <div class="flex flex-col gap-[5px] w-full">
+          <span class="block w-full h-[2px] bg-text-primary rounded-sm"></span>
+          <span class="block w-full h-[2px] bg-text-primary rounded-sm"></span>
+          <span class="block w-full h-[2px] bg-text-primary rounded-sm"></span>
+        </div>
+        } @else {
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 6L6 18" stroke="#303030" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M6 6L18 18" stroke="#303030" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        }
+      </button>
     </div>
-  </div>
+
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-bg-primary min-[1100px]:hidden"
+      [class.opacity-0]="!mobileMenuOpen" [class.invisible]="!mobileMenuOpen" [class.opacity-100]="mobileMenuOpen"
+      [class.visible]="mobileMenuOpen">
+      <div class="flex flex-col mt-[90px]">
+        <div class="site-container flex flex-col mt-[44px]">
+          <ul class="flex flex-col gap-[40px] text-left list-none m-0 p-0">
+            <li>
+              <a routerLink="/product" routerLinkActive="font-medium"
+                class="text-text-body font-sans text-[24px] font-normal leading-normal no-underline block"
+                (click)="closeMobileMenu()">
+                {{ navLabels.product }}
+              </a>
+            </li>
+            <li>
+              <a routerLink="/about" routerLinkActive="font-medium"
+                class="text-text-body font-sans text-[24px] font-normal leading-normal no-underline block"
+                (click)="closeMobileMenu()">
+                {{ navLabels.about }}
+              </a>
+            </li>
+            <li>
+              <a routerLink="/careers" routerLinkActive="font-medium"
+                class="text-text-body font-sans text-[24px] font-normal leading-normal no-underline block"
+                (click)="closeMobileMenu()">
+                {{ navLabels.careers }}
+              </a>
+            </li>
+            <li>
+              <a routerLink="/contact" routerLinkActive="font-medium"
+                class="text-text-body font-sans text-[24px] font-normal leading-normal no-underline block"
+                (click)="closeMobileMenu()">
+                {{ navLabels.contact }}
+              </a>
+            </li>
+          </ul>
+
+          <div class="w-full h-px bg-[#E5E5E5] my-[60px]"></div>
+
+          <!-- Language Switcher (Mobile) -->
+          <div class="mb-8">
+            <p class="text-text-body font-sans text-[14px] font-medium mb-3 uppercase tracking-wide">
+              {{ currentLocale === 'de' ? 'Sprache / Language' : currentLocale === 'fr' ? 'Langue / Language' :
+              currentLocale === 'it' ? 'Lingua / Language' : 'Language' }}
+            </p>
+            <div class="flex flex-wrap gap-3">
+              @for (locale of supportedLocales; track locale) {
+              <button (click)="changeLocale(locale)"
+                class="px-4 py-2 text-[16px] font-sans rounded-md border transition-all duration-200 bg-transparent cursor-pointer"
+                [class.border-cta]="locale === currentLocale" [class.text-cta]="locale === currentLocale"
+                [class.font-medium]="locale === currentLocale" [class.border-[#E5E5E5]]="locale !== currentLocale"
+                [class.text-text-body]="locale !== currentLocale"
+                [class.hover:border-text-body]="locale !== currentLocale" type="button">
+                {{ localeLabels[locale] }}
+              </button>
+              }
+            </div>
+          </div>
+
+          <a routerLink="/contact"
+            class="flex items-center gap-[4px] text-cta font-sans text-[24px] font-medium no-underline"
+            (click)="closeMobileMenu()">
+            <span>{{ navLabels.cta }}</span>
+            <img src="assets/icons/Frame.svg" class="flex-shrink-0" alt="" aria-hidden="true" />
+          </a>
+        </div>
+      </div>
+    </div>
 </header>
