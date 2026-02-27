@@ -1,10 +1,11 @@
 <section class="site-container section-spacing">
     <div class="max-w-[1144px] mx-auto flex flex-col items-center gap-[40px] md:gap-[60px] xl:gap-[80px]">
         <h2 class="text-[28px] md:text-[40px] xl:text-[56px] font-medium text-center text-ai-gray-1000 m-0">
-            Open Roles
+            Offene Stellen
         </h2>
 
-        <div class="flex gap-[6px] md:gap-[24px] justify-center flex-wrap w-full">
+        <!-- TODO: Hidden until we implement the filters -->
+        <div class="gap-[6px] md:gap-[24px] justify-center flex-wrap w-full hidden">
             <div class="h-[48px] md:h-[50px] rounded-[24px] bg-ai-gray-100 flex items-center justify-center gap-[8px] px-[16px] md:px-[24px] w-[157px] md:w-[217px]"
                 (click)="setDepartment('Engineering')">
                 <span class="text-[18px] md:text-[24px] text-ai-gray-850">{{ selectedDepartment }}</span>
