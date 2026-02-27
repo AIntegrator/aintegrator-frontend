@@ -16,7 +16,7 @@ jobs:
   release:
     if: |
       github.event_name == 'workflow_dispatch' || 
-      (github.event.pull_request.merged == true && contains(github.event.pull_request.labels.*.name, 'ready-for-stg'))
+      (github.event.pull_request.merged == true && contains(github.event.pull_request.labels.*.name, 'ready-for-prd'))
     # uses: AIntegrator/github-workflows/.github/workflows/build-push-to-stg.yml@main
     uses: ./.github/workflows/build-push-to-stg.yml
     
