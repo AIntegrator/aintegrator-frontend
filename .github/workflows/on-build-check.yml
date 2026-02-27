@@ -12,7 +12,8 @@ permissions:
 jobs:
   check-label-and-build:
     if: github.event.label.name == 'build-check'
-    uses: AIntegrator/github-workflows/.github/workflows/build-check.yml@main
+    # uses: AIntegrator/github-workflows/.github/workflows/build-check.yml@main
+    uses: ./.github/workflows/build-check.yml
     with:
       image-name: azytaku/aintegrator-frontend
       dockerfile: Dockerfile
