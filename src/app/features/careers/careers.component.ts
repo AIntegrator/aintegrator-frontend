@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { CareersHeroComponent } from './components/careers-hero/careers-hero.component';
 import { PrinciplesMvSectionComponent } from '../../shared/components/principles-mv-section/principles-mv-section.component';
 import { OpenRolesComponent } from './components/open-roles/open-roles.component';
-import { InitiativeCtaComponent } from './components/initiative-cta/initiative-cta.component';
 
 @Component({
     selector: 'app-careers',
@@ -12,8 +11,7 @@ import { InitiativeCtaComponent } from './components/initiative-cta/initiative-c
         CommonModule,
         CareersHeroComponent,
         PrinciplesMvSectionComponent,
-        OpenRolesComponent,
-        InitiativeCtaComponent
+        OpenRolesComponent
     ],
     templateUrl: './careers.component.html',
     styleUrl: './careers.component.scss',
