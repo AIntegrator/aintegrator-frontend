@@ -105,6 +105,22 @@
     @apply text-center mx-auto max-w-[800px];
 }
 
+.btn {
+    @apply inline-flex items-center justify-center rounded-lg py-3 px-4 font-sans font-medium text-base leading-normal no-underline cursor-pointer;
+
+    &:focus-visible {
+        @include focus-ring;
+    }
+}
+
+.btn-neutral {
+    @apply bg-ai-gray-100 text-ai-gray-850;
+}
+
+.btn-danger-soft {
+    @apply bg-[#FDF2F1] text-[#ED2915];
+}
+
 .sr-only {
     @apply sr-only;
 }
