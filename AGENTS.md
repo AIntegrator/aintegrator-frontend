@@ -20,6 +20,10 @@
 - For external links, use `target="_blank"` with `rel="noopener noreferrer"`.
 - Ensure interactive elements have visible hover affordance and `cursor-pointer` when appropriate.
 
+## Angular Template Syntax
+- Prefer modern Angular control flow syntax (`@if`, `@for`, `@switch`) over legacy structural directives (`*ngIf`, `*ngFor`, `*ngSwitch`) when practical.
+- Keep template logic clear and minimal; move complex logic to the component class.
+
 ## Accessibility and UX
 - Preserve accessible labels (`aria-label`, meaningful alt text where required).
 - Keep tap targets usable on mobile and avoid regressions in keyboard/focus behavior.
