@@ -13,9 +13,9 @@
             @if (showButton) {
             <a [href]="buttonLink" [attr.target]="buttonLink.startsWith('http') ? '_blank' : null"
                 [attr.rel]="buttonLink.startsWith('http') ? 'noopener noreferrer' : null"
-                class="mt-[32px] hidden xl:flex items-center border-none bg-transparent p-0 text-cta font-sans font-medium text-[24px] leading-normal no-underline cursor-pointer">
+                class="mt-[32px] hidden xl:flex items-center border-none bg-transparent p-0 text-cta font-sans font-medium text-[24px] leading-normal no-underline cursor-pointer arrow-link">
                 <span>{{ buttonLabel }}</span>
-                <img src="assets/icons/Frame.svg" alt="" class="block">
+                <img src="assets/icons/Frame.svg" alt="" class="block arrow-link-icon">
             </a>
             }
 

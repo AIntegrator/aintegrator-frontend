@@ -14,35 +14,35 @@
 
         <div class="flex justify-center items-center relative" [ngClass]="[buttonContainerClass, buttonsGapClass]">
             <a *ngIf="secondaryBtnText && !secondaryBtnLink.startsWith('http')" [routerLink]="secondaryBtnLink"
-                class="flex items-center text-ai-gray-1000 no-underline font-medium font-sans text-base md:text-xl leading-normal">
+                class="flex items-center text-ai-gray-1000 no-underline font-medium font-sans text-base md:text-xl leading-normal arrow-link">
                 <span>{{ secondaryBtnText }}</span>
                 <img *ngIf="secondaryBtnIcon" [src]="secondaryBtnIcon" alt="" aria-hidden="true"
-                    class="w-[24px] h-[24px] xl:w-[34px] xl:h-[34px] object-contain" />
+                    class="w-[24px] h-[24px] xl:w-[34px] xl:h-[34px] object-contain arrow-link-icon" />
             </a>
             <a *ngIf="secondaryBtnText && secondaryBtnLink.startsWith('http')" [href]="secondaryBtnLink" target="_blank"
                 rel="noopener noreferrer"
-                class="flex items-center text-ai-gray-1000 no-underline font-medium font-sans text-base md:text-xl leading-normal cursor-pointer">
+                class="flex items-center text-ai-gray-1000 no-underline font-medium font-sans text-base md:text-xl leading-normal cursor-pointer arrow-link">
                 <span>{{ secondaryBtnText }}</span>
                 <img *ngIf="secondaryBtnIcon" [src]="secondaryBtnIcon" alt="" aria-hidden="true"
-                    class="w-[24px] h-[24px] xl:w-[34px] xl:h-[34px] object-contain" />
+                    class="w-[24px] h-[24px] xl:w-[34px] xl:h-[34px] object-contain arrow-link-icon" />
             </a>
 
             <a *ngIf="primaryBtnText && !primaryBtnLink.startsWith('http')" [routerLink]="primaryBtnLink"
-                class="flex items-center text-[#D32F2F] font-sans text-base md:text-xl font-medium leading-normal no-underline">
+                class="flex items-center text-[#D32F2F] font-sans text-base md:text-xl font-medium leading-normal no-underline arrow-link">
                 <span [class.hidden]="mobilePrimaryBtnText" [class.xl:block]="mobilePrimaryBtnText">{{ primaryBtnText
                     }}</span>
                 <span *ngIf="mobilePrimaryBtnText" class="xl:hidden">{{ mobilePrimaryBtnText }}</span>
                 <img *ngIf="primaryBtnIcon" [src]="primaryBtnIcon" alt="" aria-hidden="true"
-                    class="object-contain w-[28px] h-[28px] xl:w-auto xl:h-auto" />
+                    class="object-contain w-[28px] h-[28px] xl:w-auto xl:h-auto arrow-link-icon" />
             </a>
             <a *ngIf="primaryBtnText && primaryBtnLink.startsWith('http')" [href]="primaryBtnLink" target="_blank"
                 rel="noopener noreferrer"
-                class="flex items-center text-[#D32F2F] font-sans text-base md:text-xl font-medium leading-normal no-underline cursor-pointer">
+                class="flex items-center text-[#D32F2F] font-sans text-base md:text-xl font-medium leading-normal no-underline cursor-pointer arrow-link">
                 <span [class.hidden]="mobilePrimaryBtnText" [class.xl:block]="mobilePrimaryBtnText">{{ primaryBtnText
                     }}</span>
                 <span *ngIf="mobilePrimaryBtnText" class="xl:hidden">{{ mobilePrimaryBtnText }}</span>
                 <img *ngIf="primaryBtnIcon" [src]="primaryBtnIcon" alt="" aria-hidden="true"
-                    class="object-contain w-[28px] h-[28px] xl:w-auto xl:h-auto" />
+                    class="object-contain w-[28px] h-[28px] xl:w-auto xl:h-auto arrow-link-icon" />
             </a>
         </div>
 

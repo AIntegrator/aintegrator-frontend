@@ -121,6 +121,15 @@
     @apply bg-[#FDF2F1] text-[#ED2915];
 }
 
+.arrow-link-icon {
+    @apply transition-transform duration-200 ease-out will-change-transform;
+}
+
+.arrow-link:hover .arrow-link-icon,
+.arrow-link:focus-visible .arrow-link-icon {
+    transform: translate(2px, -2px);
+}
+
 .sr-only {
     @apply sr-only;
 }
