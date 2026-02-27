@@ -14,14 +14,14 @@
 
         <div class="flex justify-center items-center relative" [ngClass]="[buttonContainerClass, buttonsGapClass]">
             <a *ngIf="secondaryBtnText && !secondaryBtnLink.startsWith('http')" [routerLink]="secondaryBtnLink"
-                class="flex items-center text-ai-gray-1000 no-underline font-sans text-base md:text-xl font-normal leading-normal">
+                class="flex items-center text-ai-gray-1000 no-underline font-medium font-sans text-base md:text-xl leading-normal">
                 <span>{{ secondaryBtnText }}</span>
                 <img *ngIf="secondaryBtnIcon" [src]="secondaryBtnIcon" alt="" aria-hidden="true"
                     class="w-[24px] h-[24px] xl:w-[34px] xl:h-[34px] object-contain" />
             </a>
             <a *ngIf="secondaryBtnText && secondaryBtnLink.startsWith('http')" [href]="secondaryBtnLink" target="_blank"
                 rel="noopener noreferrer"
-                class="flex items-center text-ai-gray-1000 no-underline font-sans text-base md:text-xl font-normal leading-normal cursor-pointer">
+                class="flex items-center text-ai-gray-1000 no-underline font-medium font-sans text-base md:text-xl leading-normal cursor-pointer">
                 <span>{{ secondaryBtnText }}</span>
                 <img *ngIf="secondaryBtnIcon" [src]="secondaryBtnIcon" alt="" aria-hidden="true"
                     class="w-[24px] h-[24px] xl:w-[34px] xl:h-[34px] object-contain" />
