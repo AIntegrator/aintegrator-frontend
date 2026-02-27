@@ -25,13 +25,13 @@ export class AboutUsComponent {
             name: 'Stephane Bonnier',
             role: 'Founder & CEO',
             avatar: 'assets/images/image 17.png',
-            linkedin: '#'
+            linkedin: 'https://www.linkedin.com/in/stephane-bonnier/'
         },
         {
             name: 'Vanya Brucker',
             role: 'Founder & CTO',
             avatar: 'assets/images/image 18.png',
-            linkedin: '#'
+            linkedin: 'https://www.linkedin.com/in/vanyabrucker/'
         }
     ];
 }
