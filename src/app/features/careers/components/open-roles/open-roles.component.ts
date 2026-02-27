@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { InitiativeCtaComponent } from '../initiative-cta/initiative-cta.component';
 
 @Component({
     selector: 'app-open-roles',
     standalone: true,
-    imports: [CommonModule],
+    imports: [CommonModule, InitiativeCtaComponent],
     templateUrl: './open-roles.component.html',
     styleUrl: './open-roles.component.scss'
 })
