@@ -81,14 +81,14 @@
     margin-top: 96px;
     margin-bottom: 96px;
 
-    @media (min-width: 768px) {
-        margin-top: 148px;
-        margin-bottom: 148px;
-    }
-
-    @media (min-width: 1280px) {
+    @media (min-width: 1024px) {
         margin-top: 196px;
         margin-bottom: 196px;
+    }
+
+    @media (min-width: 1536px) {
+        margin-top: 256px;
+        margin-bottom: 256px;
     }
 }
 
