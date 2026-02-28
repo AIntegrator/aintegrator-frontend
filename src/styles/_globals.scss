@@ -106,7 +106,7 @@
 }
 
 .btn {
-    @apply inline-flex items-center justify-center rounded-lg py-3 px-4 font-sans font-medium text-base leading-normal no-underline cursor-pointer transition-colors duration-200;
+    @apply inline-flex items-center justify-center rounded-xl py-3 px-4 font-sans font-medium text-base leading-normal no-underline cursor-pointer transition-colors duration-200;
 
     &:focus-visible {
         @include focus-ring;

@@ -18,14 +18,12 @@ export class CaseStudyComponent {
     readonly slug = input.required<string>();
 
     readonly upperStats: CaseStudyStat[] = [
-        { value: '70', suffix: '%', description: 'Prozessbeschleunigung' },
-        { value: '45', suffix: '%', description: 'Kostenreduktion' },
-        { value: '3', suffix: 'X', description: 'Schnellere Umsetzung' }
+        { value: "150'000 CHF", description: 'Jährliche Kostenreduktion' },
+        { value: '6 Monate', description: 'Entwicklungszeit' }
     ];
 
     readonly lowerStats: CaseStudyStat[] = [
-        { value: '70', suffix: '%', description: 'Prozessbeschleunigung' },
-        { value: '45', suffix: '%', description: 'Kostenreduktion' },
-        { value: '3', suffix: 'X', description: 'Schnellere Umsetzung' },
+        { value: "150'000 CHF", description: 'Jährliche Kostenreduktion' },
+        { value: '6 Monate', description: 'Entwicklungszeit' },
     ];
 }
