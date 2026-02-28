@@ -7,12 +7,12 @@
                     class="w-[28.684px] h-[21.864px] lg:w-[44.173px] lg:h-[33.671px] object-contain">
                 <h2
                     class="text-[#000] font-['Poppins',_sans-serif] text-[36.364px] lg:text-[56px] font-medium leading-normal whitespace-nowrap">
-                    {{ title }}
+                    {{ title | localizedText }}
                 </h2>
             </div>
             <p
                 class="text-[#4D4D4D] text-center font-['Poppins',_sans-serif] text-[16px] lg:text-[24px] font-normal leading-[148%]">
-                {{ subtitle }}
+                {{ subtitle | localizedText }}
             </p>
         </div>
 
@@ -31,9 +31,9 @@
                         <h3
                             class="text-center font-['Poppins',_sans-serif] text-[16px] lg:text-[24px] font-medium leading-normal">
                             <span class="lg:hidden">
-                                <span class="text-[#171717]">{{ promptMobile }}</span>
+                                <span class="text-[#171717]">{{ promptMobile | localizedText }}</span>
                             </span>
-                            <span class="hidden lg:inline text-[#171717]">{{ promptDesktop }}</span>
+                            <span class="hidden lg:inline text-[#171717]">{{ promptDesktop | localizedText }}</span>
                         </h3>
                     </div>
 
@@ -41,7 +41,7 @@
                         class="w-full max-w-[514px] h-[40px] lg:h-[55px] max-h-[55px] rounded-[28px] border border-[#F3F4F7] bg-white shadow-[0_8px_24px_-5px_rgba(0,0,0,0.10)] flex items-center justify-between px-[20px] shrink-0">
                         <span
                             class="text-[#4D4D4D] font-['Poppins',_sans-serif] text-[12px] lg:text-[14px] font-normal leading-normal whitespace-nowrap overflow-hidden text-ellipsis">
-                            {{ inputPlaceholder }}
+                            {{ inputPlaceholder | localizedText }}
                         </span>
                         <img src="assets/icons/Group 2281.png" alt=""
                             class="w-[24px] h-[24px] lg:w-[31px] lg:h-[31px] object-contain cursor-pointer">
@@ -52,19 +52,19 @@
                             class="flex h-[24px] px-[12px] py-[8px] justify-center items-center gap-[2px] rounded-[24px] border border-[#DADEE4] cursor-pointer hover:bg-gray-50 transition-colors">
                             <span
                                 class="text-[#4D4D4D] text-center font-['Poppins',_sans-serif] text-[12px] font-normal leading-normal">{{
-                                quickActions[0] || '' }}</span>
+                                (quickActions[0] || '') | localizedText }}</span>
                         </div>
                         <div
                             class="flex h-[24px] px-[12px] py-[8px] justify-center items-center gap-[2px] rounded-[24px] border border-[#DADEE4] cursor-pointer hover:bg-gray-50 transition-colors">
                             <span
                                 class="text-[#4D4D4D] text-center font-['Poppins',_sans-serif] text-[12px] font-normal leading-normal">{{
-                                quickActions[1] || '' }}</span>
+                                (quickActions[1] || '') | localizedText }}</span>
                         </div>
                         <div
                             class="flex h-[24px] px-[12px] py-[8px] justify-center items-center gap-[2px] rounded-[24px] border border-[#DADEE4] cursor-pointer hover:bg-gray-50 transition-colors">
                             <span
                                 class="text-[#4D4D4D] text-center font-['Poppins',_sans-serif] text-[12px] font-normal leading-normal">{{
-                                quickActions[2] || '' }}</span>
+                                (quickActions[2] || '') | localizedText }}</span>
                         </div>
                     </div>
 

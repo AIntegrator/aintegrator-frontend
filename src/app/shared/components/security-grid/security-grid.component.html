@@ -10,11 +10,11 @@
                 <div class="flex flex-col items-start text-left gap-[16px]">
                     <h3
                         class="text-black font-['Poppins'] font-medium text-[24px] lg:text-[28px] xl:text-[32px] mb-0 leading-normal">
-                        {{ cards[0]?.title || '' }}
+                        {{ cards[0]?.title | localizedText }}
                     </h3>
                     <p
                         class="text-[#4D4D4D] font-['Poppins'] font-normal text-[14px] md:text-[16px] md:leading-[26px] leading-normal xl:w-[396px]">
-                        {{ cards[0]?.description || '' }}
+                        {{ cards[0]?.description | localizedText }}
                     </p>
                 </div>
             </div>
@@ -28,11 +28,11 @@
                 <div class="flex flex-col items-start text-left gap-[16px]">
                     <h3
                         class="text-black font-['Poppins'] font-medium text-[24px] lg:text-[28px] xl:text-[32px] mb-0 leading-normal">
-                        {{ cards[1]?.title || '' }}
+                        {{ cards[1]?.title | localizedText }}
                     </h3>
                     <p
                         class="text-[#4D4D4D] font-['Poppins'] font-normal text-[14px] md:text-[16px] md:leading-[26px] leading-normal xl:w-[396px]">
-                        {{ cards[1]?.description || '' }}
+                        {{ cards[1]?.description | localizedText }}
                     </p>
                 </div>
             </div>
@@ -42,11 +42,11 @@
                 <div class="flex flex-col items-start text-left gap-[16px]">
                     <h3
                         class="text-black font-['Poppins'] font-medium text-[24px] lg:text-[28px] xl:text-[32px] mb-0 leading-normal">
-                        {{ footerCardTitle }}
+                        {{ footerCardTitle | localizedText }}
                     </h3>
                     <p
                         class="text-[#4D4D4D] font-['Poppins'] font-normal text-[14px] md:text-[16px] md:leading-[26px] leading-normal xl:w-[637px]">
-                        {{ footerCardDescription }}
+                        {{ footerCardDescription | localizedText }}
                     </p>
                 </div>
                 <div class="flex items-center gap-[21px] xl:gap-[24px] w-full max-w-[133px] xl:max-w-none">
@@ -55,14 +55,14 @@
                             class="w-[56px] h-[56px] xl:w-[60px] xl:h-[60px] object-contain" />
                         <span
                             class="text-black xl:text-[#4D4D4D] font-['Poppins'] text-[10.691px] xl:text-[12px] font-medium leading-normal">{{
-                            badgeLabels[0] || '' }}</span>
+                            badgeLabels[0]?.text | localizedText }}</span>
                     </div>
                     <div class="flex flex-col items-center gap-[9.164px] w-[56px] xl:w-auto">
                         <img src="assets/icons/dsg.png" alt="DSG"
                             class="w-[56px] h-[56px] xl:w-[60px] xl:h-[60px] object-contain" />
                         <span
                             class="text-black xl:text-[#4D4D4D] font-['Poppins'] text-[10.691px] xl:text-[12px] font-medium leading-normal">{{
-                            badgeLabels[1] || '' }}</span>
+                            badgeLabels[1]?.text | localizedText }}</span>
                     </div>
                 </div>
             </div>

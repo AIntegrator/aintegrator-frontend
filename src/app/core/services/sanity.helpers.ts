@@ -40,7 +40,14 @@ export function getLocalizedValue<T>(
     fallbackLocale = 'en'
 ): T | undefined {
     if (!localizedObj) return undefined;
-    return localizedObj[locale] ?? localizedObj[fallbackLocale] ?? undefined;
+    // If the stored value is a plain string (not a localized object), return it as-is
+    if (typeof localizedObj === 'string') return localizedObj as unknown as T;
+    // If the stored value is an object with language keys, pick the requested locale or fallback
+    try {
+        return (localizedObj as Record<string, T>)[locale] ?? (localizedObj as Record<string, T>)[fallbackLocale] ?? undefined;
+    } catch (err) {
+        return undefined;
+    }
 }
 
 /**

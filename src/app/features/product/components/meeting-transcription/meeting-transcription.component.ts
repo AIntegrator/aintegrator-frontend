@@ -1,11 +1,12 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranscriptPanelComponent } from '../../../../shared/components/transcript-panel/transcript-panel.component';
+import { LocalizedTextPipe } from '../../../../shared/pipes/localized-text.pipe';
 
 @Component({
   selector: 'app-meeting-transcription',
   standalone: true,
-  imports: [CommonModule, TranscriptPanelComponent],
+  imports: [CommonModule, TranscriptPanelComponent, LocalizedTextPipe],
   templateUrl: './meeting-transcription.component.html',
   styleUrl: './meeting-transcription.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

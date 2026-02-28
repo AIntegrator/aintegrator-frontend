@@ -32,7 +32,7 @@ export class LocalizedTextPipe implements PipeTransform {
     transform(
         value: LocalizedText | string | null | undefined,
         overrideLocale?: string,
-        fallbackLocale: string = 'de'
+        fallbackLocale: string = 'en'
     ): string {
         if (!value) return '';
 

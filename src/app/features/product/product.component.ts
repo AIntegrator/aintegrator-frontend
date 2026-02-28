@@ -83,27 +83,69 @@ export class ProductComponent implements OnInit {
 
     getParticipantNames(participants: any[] | undefined): string[] {
         if (!participants || !Array.isArray(participants)) return [];
-        return participants.map(p => p.name || '');
+        return participants.map(p => this.getLocalizedText(p.name) || '');
     }
 
     getSecurityCards(cards: any[] | undefined): any[] {
         if (!cards || !Array.isArray(cards)) return [];
         return cards.map(card => ({
             ...card,
-            title: card.title, // Keep as static string
+            title: this.getLocalizedText(card.title),
             description: this.getLocalizedText(card.description)
         }));
+    }
+
+    getBadgeLabels(labels: any[] | undefined): Array<{ text?: any }> {
+        if (!labels || !Array.isArray(labels)) return [];
+        return labels.map(l => ({ text: l?.text ?? l }));
     }
 
     getPricingPlans(plans: any[] | undefined): any[] {
         if (!plans || !Array.isArray(plans)) return [];
         return plans.map(plan => ({
             ...plan,
+            namePrefix: this.getLocalizedText(plan.namePrefix),
+            nameSuffix: this.getLocalizedText(plan.nameSuffix),
             description: this.getLocalizedText(plan.description),
+            price: this.getLocalizedText(plan.price),
+            period: this.getLocalizedText(plan.period),
+            ctaLabel: this.getLocalizedText(plan.ctaLabel),
+            highlightLabel: this.getLocalizedText(plan.highlightLabel),
             features: plan.features?.map((feature: any) => ({
                 ...feature,
                 text: this.getLocalizedText(feature.text)
             })) || []
+        }));
+    }
+
+    getActionItems(items: any[] | undefined): any[] {
+        if (!items || !Array.isArray(items)) return [];
+        return items.map(item => ({
+            ...item,
+            text: this.getLocalizedText(item.text)
+        }));
+    }
+
+    getMobileCards(cards: any[] | undefined): any[] {
+        if (!cards || !Array.isArray(cards)) return [];
+        return cards.map(card => ({
+            ...card,
+            title: this.getLocalizedText(card.title),
+            description: this.getLocalizedText(card.description)
+        }));
+    }
+
+    getBoltsCarouselItems(items: any[] | undefined): string[] {
+        if (!items || !Array.isArray(items)) return [];
+        return items.map(i => this.getLocalizedText(i));
+    }
+
+    getIntegrationsCards(cards: any[] | undefined): any[] {
+        if (!cards || !Array.isArray(cards)) return [];
+        return cards.map(card => ({
+            ...card,
+            title: this.getLocalizedText(card.title),
+            badge: this.getLocalizedText(card.badge)
         }));
     }
 }

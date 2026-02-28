@@ -1,6 +1,7 @@
 import { Injectable, signal } from '@angular/core';
 import { SanityService } from './sanity.service';
 import { SanityQueries } from './sanity.helpers';
+import { getLocalized } from '../utils/localization';
 
 export interface FinalCTASettings {
     title: Record<string, string>;
@@ -23,6 +24,16 @@ export class SiteSettingsService {
 
     constructor(private sanityService: SanityService) {
         this.loadSettings();
+    }
+
+    getFinalCTAForLang(lang: string, fallbacks: string[] = ['en', 'de']) {
+        const cta = this.getFinalCTASettings();
+        if (!cta) return undefined;
+        return {
+            title: getLocalized(cta.title, lang, fallbacks),
+            description: getLocalized(cta.description, lang, fallbacks),
+            primaryBtnText: getLocalized(cta.primaryBtnText, lang, fallbacks),
+        };
     }
 
     private async loadSettings() {

@@ -1,12 +1,14 @@
 import { Component, Input, ChangeDetectionStrategy, effect, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { getLocalizedValue } from '../../../../core/services/sanity.helpers';
 import { LocalizedText } from '../../../../shared/models/sanity.models';
 import { LocaleService } from '../../../../core/services/locale.service';
+import { LocalizedTextPipe } from '../../../../shared/pipes/localized-text.pipe';
 
 @Component({
     selector: 'app-about-hero',
     standalone: true,
-    imports: [],
+    imports: [CommonModule, LocalizedTextPipe],
     templateUrl: './about-hero.component.html',
     styleUrl: './about-hero.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush

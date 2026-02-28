@@ -22,72 +22,78 @@
         [subtitle]="data.meetingAnalysis?.subtitle | localizedText"
         [participants]="getParticipantNames(data.meetingAnalysis?.participants)"
         [transcriptData]="getTranscriptEntries(data.meetingAnalysis?.transcriptEntries)"
-        [uploadButtonLabel]="data.meetingSummary?.uploadButtonLabel || ''"
-        [recordButtonLabel]="data.meetingSummary?.recordButtonLabel || ''"
-        [summaryTabLabel]="data.meetingSummary?.summaryTabLabel || ''"
-        [transcriptTabLabel]="data.meetingSummary?.transcriptTabLabel || ''">
+        [uploadButtonLabel]="getLocalizedText(data.meetingSummary?.uploadButtonLabel)"
+        [recordButtonLabel]="getLocalizedText(data.meetingSummary?.recordButtonLabel)"
+        [summaryTabLabel]="getLocalizedText(data.meetingSummary?.summaryTabLabel)"
+        [transcriptTabLabel]="getLocalizedText(data.meetingSummary?.transcriptTabLabel)">
     </app-meeting-analysis>
 
     <app-integrations-section [title]="data.integrations?.title | localizedText"
         [description]="data.integrations?.description | localizedText"
-        [calendarDayLabel]="data.integrations?.calendarDayLabel || ''"
-        [calendarDayNumber]="data.integrations?.calendarDayNumber || ''"
-        [meetingTitle]="data.integrations?.meetingTitle || ''" [timeRange]="data.integrations?.timeRange || ''"
-        [durationLabel]="data.integrations?.durationLabel || ''" [participants]="data.integrations?.participants || []"
-        [cards]="data.integrations?.cards || []">
+        [calendarDayLabel]="getLocalizedText(data.integrations?.calendarDayLabel)"
+        [calendarDayNumber]="getLocalizedText(data.integrations?.calendarDayNumber)"
+        [meetingTitle]="getLocalizedText(data.integrations?.meetingTitle)"
+        [timeRange]="getLocalizedText(data.integrations?.timeRange)"
+        [durationLabel]="getLocalizedText(data.integrations?.durationLabel)"
+        [participants]="data.integrations?.participants || []" [cards]="getIntegrationsCards(data.integrations?.cards)">
     </app-integrations-section>
 
     <app-meeting-transcription [title]="data.meetingTranscription?.title | localizedText"
         [description]="data.meetingTranscription?.description | localizedText"
         [transcriptData]="getTranscriptEntries(data.meetingTranscription?.transcriptEntries)"
-        [uploadButtonLabel]="data.meetingSummary?.uploadButtonLabel || ''"
-        [recordButtonLabel]="data.meetingSummary?.recordButtonLabel || ''"
-        [summaryTabLabel]="data.meetingSummary?.summaryTabLabel || ''"
-        [transcriptTabLabel]="data.meetingSummary?.transcriptTabLabel || ''">
+        [uploadButtonLabel]="getLocalizedText(data.meetingSummary?.uploadButtonLabel)"
+        [recordButtonLabel]="getLocalizedText(data.meetingSummary?.recordButtonLabel)"
+        [summaryTabLabel]="getLocalizedText(data.meetingSummary?.summaryTabLabel)"
+        [transcriptTabLabel]="getLocalizedText(data.meetingSummary?.transcriptTabLabel)">
     </app-meeting-transcription>
 
     <app-meeting-summary [title]="data.meetingSummary?.title | localizedText"
         [description]="data.meetingSummary?.description | localizedText"
         [descriptionHighlight]="data.meetingSummary?.descriptionHighlight | localizedText"
-        [uploadButtonLabel]="data.meetingSummary?.uploadButtonLabel || ''"
-        [recordButtonLabel]="data.meetingSummary?.recordButtonLabel || ''"
-        [summaryTabLabel]="data.meetingSummary?.summaryTabLabel || ''"
-        [transcriptTabLabel]="data.meetingSummary?.transcriptTabLabel || ''"
-        [summaryTitle]="data.meetingSummary?.summaryTitle || ''"
+        [uploadButtonLabel]="getLocalizedText(data.meetingSummary?.uploadButtonLabel)"
+        [recordButtonLabel]="getLocalizedText(data.meetingSummary?.recordButtonLabel)"
+        [summaryTabLabel]="getLocalizedText(data.meetingSummary?.summaryTabLabel)"
+        [transcriptTabLabel]="getLocalizedText(data.meetingSummary?.transcriptTabLabel)"
+        [summaryTitle]="getLocalizedText(data.meetingSummary?.summaryTitle)"
         [summaryText]="data.meetingSummary?.summaryText | localizedText"
-        [discussionTitle]="data.meetingSummary?.discussionTitle || ''"
+        [discussionTitle]="getLocalizedText(data.meetingSummary?.discussionTitle)"
         [discussionPoints]="getDiscussionPoints(data.meetingSummary?.discussionPoints)">
     </app-meeting-summary>
 
-    <app-agentic-actions [badgeLabel]="data.agenticActions?.badgeLabel || ''"
+    <app-agentic-actions [badgeLabel]="getLocalizedText(data.agenticActions?.badgeLabel)"
         [title]="data.agenticActions?.title | localizedText"
         [description]="data.agenticActions?.description | localizedText"
-        [mobileCards]="data.agenticActions?.mobileCards || []"
-        [actionItemsTitle]="data.agenticActions?.actionItemsTitle || ''"
-        [actionItems]="data.agenticActions?.actionItems || []">
+        [mobileCards]="getMobileCards(data.agenticActions?.mobileCards)"
+        [actionItemsTitle]="getLocalizedText(data.agenticActions?.actionItemsTitle)"
+        [actionItems]="getActionItems(data.agenticActions?.actionItems)">
     </app-agentic-actions>
 
-    <app-lia-chat [title]="data.liaChat?.title || ''" [subtitle]="data.liaChat?.subtitle | localizedText"
-        [promptMobile]="data.liaChat?.promptMobile || ''" [promptDesktop]="data.liaChat?.promptDesktop || ''"
-        [inputPlaceholder]="data.liaChat?.inputPlaceholder || ''" [quickActions]="data.liaChat?.quickActions || []">
+    <app-lia-chat [title]="getLocalizedText(data.liaChat?.title)" [subtitle]="data.liaChat?.subtitle | localizedText"
+        [promptMobile]="getLocalizedText(data.liaChat?.promptMobile)"
+        [promptDesktop]="getLocalizedText(data.liaChat?.promptDesktop)"
+        [inputPlaceholder]="getLocalizedText(data.liaChat?.inputPlaceholder)"
+        [quickActions]="getBoltsCarouselItems(data.liaChat?.quickActions)">
     </app-lia-chat>
 
     <app-bolts-section [title]="data.bolts?.title | localizedText"
-        [description]="data.bolts?.description | localizedText" [formTitleDesktop]="data.bolts?.formTitleDesktop || ''"
-        [formTitleMobile]="data.bolts?.formTitleMobile || ''" [nameLabel]="data.bolts?.nameLabel || ''"
-        [namePlaceholderDesktop]="data.bolts?.namePlaceholderDesktop || ''"
-        [namePlaceholderMobile]="data.bolts?.namePlaceholderMobile || ''"
-        [promptLabelDesktop]="data.bolts?.promptLabelDesktop || ''"
-        [promptLabelMobile]="data.bolts?.promptLabelMobile || ''"
-        [promptPlaceholderDesktop]="data.bolts?.promptPlaceholderDesktop || ''"
-        [promptPlaceholderMobile]="data.bolts?.promptPlaceholderMobile || ''"
-        [submitLabel]="data.bolts?.submitLabel || ''" [carouselItems]="data.bolts?.carouselItems || []">
+        [description]="data.bolts?.description | localizedText"
+        [formTitleDesktop]="getLocalizedText(data.bolts?.formTitleDesktop)"
+        [formTitleMobile]="getLocalizedText(data.bolts?.formTitleMobile)"
+        [nameLabel]="getLocalizedText(data.bolts?.nameLabel)"
+        [namePlaceholderDesktop]="getLocalizedText(data.bolts?.namePlaceholderDesktop)"
+        [namePlaceholderMobile]="getLocalizedText(data.bolts?.namePlaceholderMobile)"
+        [promptLabelDesktop]="getLocalizedText(data.bolts?.promptLabelDesktop)"
+        [promptLabelMobile]="getLocalizedText(data.bolts?.promptLabelMobile)"
+        [promptPlaceholderDesktop]="getLocalizedText(data.bolts?.promptPlaceholderDesktop)"
+        [promptPlaceholderMobile]="getLocalizedText(data.bolts?.promptPlaceholderMobile)"
+        [submitLabel]="getLocalizedText(data.bolts?.submitLabel)"
+        [carouselItems]="getBoltsCarouselItems(data.bolts?.carouselItems)">
     </app-bolts-section>
 
     <app-security-grid [cards]="getSecurityCards(data.securityGrid?.cards)"
         [footerCardTitle]="data.securityGrid?.footerCardTitle || ''"
         [footerCardDescription]="data.securityGrid?.footerCardDescription | localizedText"
-        [badgeLabels]="data.securityGrid?.badgeLabels || []">
+        [badgeLabels]="getBadgeLabels(data.securityGrid?.badgeLabels)">
     </app-security-grid>
 
     <app-pricing-grid [title]="data.pricingGrid?.title | localizedText"
@@ -96,10 +102,11 @@
 
     <app-final-cta [title]="data.finalCta?.title | localizedText"
         [description]="data.finalCta?.description | localizedText"
-        [primaryBtnText]="data.finalCta?.primaryBtnText || ''" [primaryBtnLink]="data.finalCta?.primaryBtnLink || ''"
-        [secondaryBtnText]="data.finalCta?.secondaryBtnText || ''"
+        [primaryBtnText]="getLocalizedText(data.finalCta?.primaryBtnText)"
+        [primaryBtnLink]="data.finalCta?.primaryBtnLink || ''"
+        [secondaryBtnText]="getLocalizedText(data.finalCta?.secondaryBtnText)"
         [secondaryBtnLink]="data.finalCta?.secondaryBtnLink || ''"
-        [mobilePrimaryBtnText]="data.finalCta?.mobilePrimaryBtnText || ''"
+        [mobilePrimaryBtnText]="getLocalizedText(data.finalCta?.mobilePrimaryBtnText)"
         [descriptionMaxWidthClass]="'max-w-[323px] md:max-w-[528px]'"
         [decorationPositionClass]="'top-[158px] md:top-[120px]'" [secondaryBtnIcon]="'assets/icons/Frame.png'"
         [primaryBtnIcon]="'assets/icons/Frame.svg'" [showMobileDecoration]="true"

@@ -10,11 +10,11 @@
                         <div class="flex items-center gap-[6px] xl:gap-[8px]">
                             <button
                                 class="flex items-center justify-center px-2 sm:px-3 py-1.5 !rounded-[6.242px] !border-[0.712px] !border-solid !border-[#EBEBEB] text-[#000] text-[10px] font-semibold whitespace-nowrap cursor-pointer hover:bg-gray-50 transition-colors mobile-wrap-btn">
-                                {{ uploadButtonLabel }}
+                                {{ uploadButtonLabel | localizedText }}
                             </button>
                             <button
                                 class="flex items-center justify-center px-2 sm:px-3 py-1.5 rounded-[6px] border-none bg-[#121212] text-white text-[10px] font-semibold whitespace-nowrap cursor-pointer hover:bg-black transition-colors mobile-wrap-btn">
-                                {{ recordButtonLabel }}
+                                {{ recordButtonLabel | localizedText }}
                             </button>
                         </div>
                         <div
@@ -27,28 +27,28 @@
                     <div class="flex gap-[41px] xl:gap-[53px] px-[25px] xl:px-[20px]">
                         <div class="relative">
                             <span class="text-[#000] font-sans text-[14px] font-medium cursor-pointer">{{
-                                summaryTabLabel }}</span>
+                                summaryTabLabel | localizedText }}</span>
                             <div class="absolute -bottom-[4px] left-1/2 -translate-x-1/2 w-[188px] h-[2px] bg-[#000]">
                             </div>
                         </div>
                         <span class="text-[#4D4D4D] font-sans text-[14px] font-normal cursor-pointer">{{
-                            transcriptTabLabel }}</span>
+                            transcriptTabLabel | localizedText }}</span>
                     </div>
                 </div>
 
                 <div class="flex flex-col px-[24px] py-[24px] xl:pb-[35px] xl:pr-[29px] overflow-hidden xl:flex-1">
 
                     <h4 class="text-[#000] font-['Poppins'] xl:font-sans text-[14px] font-medium leading-normal">
-                        {{ summaryTitle }}
+                        {{ summaryTitle | localizedText }}
                     </h4>
                     <p
                         class="mt-[12px] text-[#636970] font-['Poppins'] xl:font-sans text-[12px] xl:text-[12px] font-normal leading-normal xl:max-w-[334px]">
-                        {{ summaryText }}
+                        {{ summaryText | localizedText }}
                     </p>
 
                     <h4
                         class="mt-[24px] text-[#000] font-['Poppins'] xl:font-sans text-[14px] font-medium leading-normal">
-                        {{ discussionTitle }}
+                        {{ discussionTitle | localizedText }}
                     </h4>
 
                     <div class="flex flex-col gap-[12px] mt-[12px] xl:max-w-[339px]">
@@ -57,8 +57,8 @@
                             <div class="w-[3px] h-[3px] rounded-full bg-[#000] flex-shrink-0 mt-[7px] ml-[4px]"></div>
                             <p
                                 class="font-['Poppins'] xl:font-sans text-[12px] xl:text-[12px] font-normal leading-normal">
-                                <span class="text-[#000]">{{ point.title }}</span>
-                                <span class="text-[#636970]"> {{ point.description }}</span>
+                                <span class="text-[#000]">{{ point.title | localizedText }}</span>
+                                <span class="text-[#636970]"> {{ point.description | localizedText }}</span>
                             </p>
                         </div>
                         }
@@ -72,12 +72,12 @@
             class="w-full max-w-[323px] md:max-w-[781px] xl:max-w-none xl:w-[445px] flex flex-col gap-[24px] items-center xl:items-start order-1 xl:order-2">
             <h2
                 class="text-[#000] text-center xl:text-left font-['Poppins',_sans-serif] text-[24px] min-[768px]:text-[28px] min-[1024px]:text-[30px] xl:text-[32px] font-medium leading-normal">
-                {{ title }}
+                {{ title | localizedText }}
             </h2>
             <p
                 class="text-center xl:text-left font-['Poppins',_sans-serif] text-[14px] min-[768px]:text-[18px] min-[1024px]:text-[20px] xl:text-[24px] font-normal leading-[148%]">
-                <span class="text-[#636970]">{{ description }}</span>
-                <span class="text-[#000]">{{ descriptionHighlight }}</span>
+                <span class="text-[#636970]">{{ description | localizedText }}</span>
+                <span class="text-[#000]">{{ descriptionHighlight | localizedText }}</span>
             </p>
         </div>
 

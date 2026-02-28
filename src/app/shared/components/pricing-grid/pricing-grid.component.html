@@ -1,7 +1,7 @@
 <section class="w-full section-spacing flex flex-col items-center">
     <div class="site-container flex flex-col items-center gap-[60px] lg:gap-[80px] max-w-[1144px]">
         <h2 class="text-black text-center font-['Poppins'] font-medium text-[28px] md:text-[56px] leading-normal">
-            {{ title }}
+            {{ title | localizedText }}
         </h2>
 
         <div class="grid grid-cols-1 xl:grid-cols-3 gap-[24px] w-full items-stretch">
@@ -17,7 +17,7 @@
                         </div>
                         <p
                             class="text-[#636970] font-['Poppins'] font-normal text-[14px] md:text-[16px] leading-[150%]">
-                            {{ plans[0]?.description || '' }}
+                            {{ (plans[0]?.description || '') | localizedText }}
                         </p>
                     </div>
 
@@ -25,14 +25,14 @@
                         <div class="flex items-baseline">
                             <span
                                 class="text-[#1A1818] font-['Poppins'] font-medium text-[28px] md:text-[32px] leading-normal mr-[4px]">{{
-                                plans[0]?.price || '' }}</span><span
+                                (plans[0]?.price || '') | localizedText }}</span><span
                                 class="text-[#1A1818] font-['Inter'] font-medium text-[16px] leading-normal">/</span><span
                                 class="text-[#1A1818] font-['Poppins'] font-normal text-[16px] leading-normal">{{
-                                plans[0]?.period || '' }}</span>
+                                (plans[0]?.period || '') | localizedText }}</span>
                         </div>
                         <button
                             class="inline-flex items-center text-black font-['Poppins'] font-medium text-[14px] leading-normal hover:opacity-80 transition-opacity">
-                            {{ plans[0]?.ctaLabel || '' }} <img src="assets/icons/Frame.png" alt=""
+                            {{ (plans[0]?.ctaLabel || '') | localizedText }} <img src="assets/icons/Frame.png" alt=""
                                 class="w-[26px] h-[26px]" />
                         </button>
                     </div>
@@ -43,21 +43,21 @@
                         <img src="assets/icons/circletick.png" alt=""
                             class="w-[17.967px] h-[17.967px] object-contain" />
                         <span class="text-[#4D4D4D] font-['Poppins'] font-normal text-[16px] leading-normal">Schweizer
-                            {{ plans[0]?.features?.[0]?.text || '' }}</span>
+                            {{ (plans[0]?.features?.[0]?.text || '') | localizedText }}</span>
                     </div>
                     <div class="flex items-center gap-[12px]">
                         <img src="assets/icons/circletick.png" alt=""
                             class="w-[17.967px] h-[17.967px] object-contain" />
                         <span
                             class="text-[#4D4D4D] font-['Poppins'] font-normal text-[16px] leading-normal">Enterprise-grade
-                            {{ plans[0]?.features?.[1]?.text || '' }}</span>
+                            {{ (plans[0]?.features?.[1]?.text || '') | localizedText }}</span>
                     </div>
                     <div class="flex items-center gap-[12px]">
                         <img src="assets/icons/circletick.png" alt=""
                             class="w-[17.967px] h-[17.967px] object-contain" />
                         <span
                             class="text-[#4D4D4D] font-['Poppins'] font-normal text-[16px] leading-normal">Unlimitierte
-                            {{ plans[0]?.features?.[2]?.text || '' }}</span>
+                            {{ (plans[0]?.features?.[2]?.text || '') | localizedText }}</span>
                     </div>
                 </div>
             </div>
@@ -78,11 +78,11 @@
                                 class="flex items-center justify-center bg-[#FDF2F1] rounded-[36px] px-[12px] py-[6px] h-[28px] box-border">
                                 <span
                                     class="text-[#ED2915] font-['Inter',sans-serif] font-medium text-[14px] leading-[150%]">{{
-                                    plans[1]?.highlightLabel || '' }}</span>
+                                    (plans[1]?.highlightLabel || '') | localizedText }}</span>
                             </div>
                         </div>
                         <p class="text-[#636970] font-['Poppins'] font-normal text-[16px] leading-[150%]">
-                            {{ plans[1]?.description || '' }}
+                            {{ (plans[1]?.description || '') | localizedText }}
                         </p>
                     </div>
 
@@ -90,14 +90,14 @@
                         <div class="flex items-baseline">
                             <span
                                 class="text-[#1A1818] font-['Poppins'] font-medium text-[28px] md:text-[32px] leading-normal mr-[4px]">{{
-                                plans[1]?.price || '' }}</span><span
+                                (plans[1]?.price || '') | localizedText }}</span><span
                                 class="text-[#1A1818] font-['Inter'] font-medium text-[16px] leading-normal">/</span><span
                                 class="text-[#1A1818] font-['Poppins'] font-normal text-[16px] leading-normal">{{
-                                plans[1]?.period || '' }}</span>
+                                (plans[1]?.period || '') | localizedText }}</span>
                         </div>
                         <button
                             class="inline-flex items-center text-[#ED2915] font-['Poppins'] font-medium text-[14px] leading-normal hover:opacity-80 transition-opacity">
-                            {{ plans[1]?.ctaLabel || '' }} <img src="assets/icons/Frame.svg" alt=""
+                            {{ (plans[1]?.ctaLabel || '') | localizedText }} <img src="assets/icons/Frame.svg" alt=""
                                 class="w-[26px] h-[26px]" />
                         </button>
                     </div>
@@ -108,21 +108,21 @@
                         <img src="assets/icons/circletick.png" alt=""
                             class="w-[17.967px] h-[17.967px] object-contain" />
                         <span class="text-[#4D4D4D] font-['Poppins'] font-normal text-[16px] leading-normal">Schweizer
-                            {{ plans[1]?.features?.[0]?.text || '' }}</span>
+                            {{ (plans[1]?.features?.[0]?.text || '') | localizedText }}</span>
                     </div>
                     <div class="flex items-center gap-[12px]">
                         <img src="assets/icons/circletick.png" alt=""
                             class="w-[17.967px] h-[17.967px] object-contain" />
                         <span
                             class="text-[#4D4D4D] font-['Poppins'] font-normal text-[16px] leading-normal">Enterprise-grade
-                            {{ plans[1]?.features?.[1]?.text || '' }}</span>
+                            {{ (plans[1]?.features?.[1]?.text || '') | localizedText }}</span>
                     </div>
                     <div class="flex items-center gap-[12px]">
                         <img src="assets/icons/circletick.png" alt=""
                             class="w-[17.967px] h-[17.967px] object-contain" />
                         <span
                             class="text-[#4D4D4D] font-['Poppins'] font-normal text-[16px] leading-normal">Unlimitierte
-                            {{ plans[1]?.features?.[2]?.text || '' }}</span>
+                            {{ (plans[1]?.features?.[2]?.text || '') | localizedText }}</span>
                     </div>
                 </div>
             </div>
@@ -138,7 +138,7 @@
                                 plans[2]?.nameSuffix || '' }}</span>
                         </div>
                         <p class="text-[#636970] font-['Poppins'] font-normal text-[16px] leading-[150%]">
-                            {{ plans[2]?.description || '' }}
+                            {{ (plans[2]?.description || '') | localizedText }}
                         </p>
                     </div>
 
@@ -146,14 +146,14 @@
                         <div class="flex items-baseline">
                             <span
                                 class="text-[#1A1818] font-['Poppins'] font-medium text-[28px] md:text-[32px] leading-normal mr-[4px]">{{
-                                plans[2]?.price || '' }}</span><span
+                                (plans[2]?.price || '') | localizedText }}</span><span
                                 class="text-[#1A1818] font-['Inter'] font-medium text-[16px] leading-normal">/</span><span
                                 class="text-[#1A1818] font-['Poppins'] font-normal text-[16px] leading-normal">{{
-                                plans[2]?.period || '' }}</span>
+                                (plans[2]?.period || '') | localizedText }}</span>
                         </div>
                         <button
                             class="inline-flex items-center text-black font-['Poppins'] font-medium text-[14px] leading-normal hover:opacity-80 transition-opacity">
-                            {{ plans[2]?.ctaLabel || '' }} <img src="assets/icons/Frame.png" alt=""
+                            {{ (plans[2]?.ctaLabel || '') | localizedText }} <img src="assets/icons/Frame.png" alt=""
                                 class="w-[26px] h-[26px]" />
                         </button>
                     </div>
@@ -164,13 +164,13 @@
                         <img src="assets/icons/circletick.png" alt=""
                             class="w-[17.967px] h-[17.967px] object-contain" />
                         <span class="text-[#4D4D4D] font-['Poppins'] font-normal text-[16px] leading-normal">{{
-                            plans[2]?.features?.[0]?.text || '' }}</span>
+                            (plans[2]?.features?.[0]?.text || '') | localizedText }}</span>
                     </div>
                     <div class="flex items-center gap-[12px]">
                         <img src="assets/icons/circletick.png" alt=""
                             class="w-[17.967px] h-[17.967px] object-contain" />
                         <span class="text-[#4D4D4D] font-['Poppins'] font-normal text-[16px] leading-normal">{{
-                            plans[2]?.features?.[1]?.text || '' }}</span>
+                            (plans[2]?.features?.[1]?.text || '') | localizedText }}</span>
                     </div>
                 </div>
             </div>

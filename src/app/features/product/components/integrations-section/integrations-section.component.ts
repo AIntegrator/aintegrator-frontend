@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LocalizedTextPipe } from '../../../../shared/pipes/localized-text.pipe';
 
 @Component({
     selector: 'app-integrations-section',
     standalone: true,
-    imports: [CommonModule],
+    imports: [CommonModule, LocalizedTextPipe],
     templateUrl: './integrations-section.component.html',
     styleUrl: './integrations-section.component.scss'
 })

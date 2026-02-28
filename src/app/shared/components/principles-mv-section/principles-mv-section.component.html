@@ -1,35 +1,35 @@
 <section class="site-container section-spacing">
     <div class="max-w-[1144px] mx-auto">
-        <div *ngIf="showMv" class="hidden xl:flex flex-col gap-[48px] xl:gap-[80px] text-left">
-            <div class="flex flex-col gap-[32px]">
-                <h2 class="text-[#ED2915] font-['Poppins'] text-[24px] md:text-[28px] xl:text-[32px] font-medium m-0">
+        <div *ngIf="showMv" class="hidden xl:flex flex-col gap-12 xl:gap-20 text-left">
+            <div class="flex flex-col gap-8">
+                <h2 class="text-brand-red font-sans text-2xl md:text-3xl xl:text-3xl font-medium m-0">
                     Mission</h2>
                 <div
-                    class="font-['Poppins'] text-[16px] md:text-[20px] xl:text-[24px] text-[#4D4D4D] leading-[1.62] m-0 flex flex-col gap-[32px]">
+                    class="font-sans text-base md:text-lg xl:text-2xl text-muted-gray leading-7 m-0 flex flex-col gap-8">
                     <ng-content select="[mission]"></ng-content>
                 </div>
             </div>
-            <div class="flex flex-col gap-[32px]">
-                <h2 class="text-[#ED2915] font-['Poppins'] text-[32px] font-medium m-0">Vision</h2>
+            <div class="flex flex-col gap-8">
+                <h2 class="text-brand-red font-sans text-3xl font-medium m-0">Vision</h2>
                 <div
-                    class="font-['Poppins'] text-[16px] md:text-[20px] xl:text-[24px] text-[#4D4D4D] leading-[1.62] m-0 flex flex-col gap-[32px]">
+                    class="font-sans text-base md:text-lg xl:text-2xl text-muted-gray leading-7 m-0 flex flex-col gap-8">
                     <ng-content select="[vision]"></ng-content>
                 </div>
             </div>
         </div>
 
-        <div *ngIf="!isPrinciplesDesktop" class="flex flex-col gap-[32px] xl:hidden">
+        <div *ngIf="!isPrinciplesDesktop" class="flex flex-col gap-8 xl:hidden">
             @for (principle of principles; track principle.title) {
             <div class="flex flex-col gap-[24px]">
                 <div class="block text-left">
-                    <span
-                        class="text-[#ED2915] font-['Poppins'] text-[24px] font-medium leading-normal whitespace-nowrap">{{
+                    <span class="text-brand-red font-sans text-2xl font-medium leading-normal whitespace-nowrap">{{
                         principle.index }}</span>
-                    <span class="text-[#000] font-['Poppins'] text-[24px] font-medium leading-normal"> {{
-                        principle.title }}</span>
+                    <span class="text-brand-black font-sans text-2xl font-medium leading-normal"> {{ principle.title |
+                        localizedText
+                        }}</span>
                 </div>
-                <div class="text-[#4D4D4D] font-['Poppins'] text-[16px] font-normal leading-[26px] text-left">
-                    <p *ngFor="let p of principle.description" class="mb-[16px] last:mb-0" [innerHTML]="p"></p>
+                <div class="text-muted-gray font-sans text-base font-normal leading-7 text-left">
+                    <p *ngFor="let p of principle.description" class="mb-4 last:mb-0" [innerHTML]="p"></p>
                 </div>
             </div>
             }
@@ -38,14 +38,13 @@
         <div *ngIf="isPrinciplesDesktop" class="flex flex-col gap-[32px] xl:gap-[80px] items-start max-w-[1144px]">
             @if (values && values.length > 0) {
             @for (value of values; track $index) {
-            <div class="flex flex-col gap-[24px] xl:gap-[32px] w-full">
+            <div class="flex flex-col gap-6 xl:gap-8 w-full">
                 <div class="block text-left">
-                    <span class="text-[#ED2915] text-[24px] xl:text-[32px] font-medium">{{ getValueIndex($index) }}</span>
-                    <span class="text-[#000] text-[24px] xl:text-[32px] font-medium"> {{ value.title | localizedText
+                    <span class="text-brand-red text-2xl xl:text-3xl font-medium">{{ getValueIndex($index) }}</span>
+                    <span class="text-brand-black text-2xl xl:text-3xl font-medium"> {{ value.title | localizedText
                         }}</span>
                 </div>
-                <div
-                    class="text-[#4D4D4D] font-['Poppins'] text-[16px] leading-[26px] xl:text-[24px] xl:leading-normal font-normal text-left">
+                <div class="text-muted-gray font-sans text-base leading-7 xl:text-2xl font-normal text-left">
                     {{ value.description | localizedText }}
                 </div>
             </div>
@@ -55,7 +54,8 @@
             <div class="flex flex-col gap-[24px] xl:gap-[32px] w-full">
                 <div class="block text-left">
                     <span class="text-[#ED2915] text-[24px] xl:text-[32px] font-medium">{{ principle.index }}</span>
-                    <span class="text-[#000] text-[24px] xl:text-[32px] font-medium"> {{ principle.title }}</span>
+                    <span class="text-[#000] text-[24px] xl:text-[32px] font-medium"> {{ principle.title | localizedText
+                        }}</span>
                 </div>
                 <div
                     class="text-[#4D4D4D] font-['Poppins'] text-[16px] leading-[26px] xl:text-[24px] xl:leading-normal font-normal text-left">

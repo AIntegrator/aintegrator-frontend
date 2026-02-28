@@ -5,12 +5,12 @@
             class="w-full max-w-[323px] md:max-w-[781px] xl:max-w-none xl:w-[445px] flex flex-col gap-[24px] items-center xl:items-start order-1 xl:order-1">
             <h2
                 class="text-[#000] text-center xl:text-left font-['Poppins',_sans-serif] text-[24px] min-[768px]:text-[28px] min-[1024px]:text-[30px] xl:text-[32px] font-medium leading-normal">
-                {{ title }}
+                {{ title | localizedText }}
             </h2>
 
             <p
                 class="text-center xl:text-left font-['Poppins',_sans-serif] text-[14px] min-[768px]:text-[18px] min-[1024px]:text-[20px] xl:text-[24px] font-normal leading-[148%]">
-                <span class="text-[#636970]">{{ description }}</span>
+                <span class="text-[#636970]">{{ description | localizedText }}</span>
             </p>
         </div>
 

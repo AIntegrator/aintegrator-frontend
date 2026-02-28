@@ -3,11 +3,11 @@
         <div class="max-w-[781px] w-full flex flex-col items-center gap-[24px] md:mb-[80px]">
             <h2
                 class="text-[#000] text-center font-['Poppins',_sans-serif] text-[32px] min-[768px]:text-[40px] min-[1024px]:text-[48px] xl:text-[56px] font-medium leading-tight xl:whitespace-nowrap">
-                {{ title }}
+                {{ title | localizedText }}
             </h2>
             <p
                 class="text-[#4D4D4D] text-center font-['Poppins',_sans-serif] text-[18px] min-[768px]:text-[20px] min-[1024px]:text-[22px] xl:text-[24px] font-normal leading-[148%]">
-                {{ description }}
+                {{ description | localizedText }}
             </p>
         </div>
 
@@ -120,7 +120,7 @@
                     class="w-[32px] h-[35px] min-[768px]:max-[1279px]:!w-[28px] min-[768px]:max-[1279px]:!h-[30px] max-[767px]:!w-[32px] max-[767px]:!h-[35px] max-[767px]:!aspect-[32/35] object-contain">
                 <h5
                     class="text-[#000] font-['Poppins',_sans-serif] text-[22px] lg:text-[26px] min-[1280px]:!text-[22px] min-[768px]:max-[1279px]:!text-[18px] max-[767px]:!text-[16px] max-[767px]:!font-medium max-[767px]:!leading-[26px] font-medium leading-[125%]">
-                    {{ cards[0]?.title || '' }}
+                    {{ (cards[0]?.title | localizedText) || '' }}
                 </h5>
             </div>
             <div
@@ -129,7 +129,7 @@
                     class="w-[36px] h-[35px] min-[768px]:max-[1279px]:!w-[31px] min-[768px]:max-[1279px]:!h-[30px] max-[767px]:!w-[36px] max-[767px]:!h-[35px] max-[767px]:!aspect-[36/35] object-contain">
                 <h5
                     class="text-[#000] font-['Poppins',_sans-serif] text-[22px] lg:text-[26px] min-[1280px]:!text-[22px] min-[768px]:max-[1279px]:!text-[18px] max-[767px]:!text-[16px] max-[767px]:!font-medium max-[767px]:!leading-[26px] font-medium leading-[125%]">
-                    {{ cards[1]?.title || '' }}
+                    {{ (cards[1]?.title | localizedText) || '' }}
                 </h5>
             </div>
             <div
@@ -141,12 +141,12 @@
                         class="flex items-center justify-center px-[16px] h-[35px] min-[768px]:max-[1279px]:!h-[30px] min-[768px]:max-[1279px]:!px-[12px] max-[767px]:!flex max-[767px]:!w-auto max-[767px]:!min-w-[65px] max-[767px]:!h-[35px] max-[767px]:!px-[14px] max-[767px]:!rounded-[27.059px] max-[767px]:!border-[1.353px] rounded-[27px] border-[1.35px] border-[#ED2915]">
                         <span
                             class="text-[#ED2915] font-['Poppins',_sans-serif] text-[18px] min-[768px]:max-[1279px]:!text-[14px] max-[767px]:!text-[16px] max-[767px]:!leading-[100%] font-medium leading-[1]">{{
-                            cards[2]?.badge || '' }}</span>
+                            (cards[2]?.badge | localizedText) || '' }}</span>
                     </div>
                 </div>
                 <h5
                     class="text-[#000] font-['Poppins',_sans-serif] text-[22px] lg:text-[26px] min-[1280px]:!text-[22px] min-[768px]:max-[1279px]:!text-[18px] max-[767px]:!text-[16px] max-[767px]:!font-medium max-[767px]:!leading-[26px] font-medium leading-[125%]">
-                    {{ cards[2]?.title || '' }}</h5>
+                    {{ (cards[2]?.title | localizedText) || '' }}</h5>
             </div>
         </div>
     </div>

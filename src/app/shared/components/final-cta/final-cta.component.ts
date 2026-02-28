@@ -1,13 +1,14 @@
 import { Component, Input, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { LocalizedTextPipe } from '../../pipes/localized-text.pipe';
 import { LocaleService } from '../../../core/services/locale.service';
 import { SiteSettingsService } from '../../../core/services/site-settings.service';
 
 @Component({
     selector: 'app-final-cta',
     standalone: true,
-    imports: [CommonModule, RouterModule],
+    imports: [CommonModule, RouterModule, LocalizedTextPipe],
     templateUrl: './final-cta.component.html',
     styleUrl: './final-cta.component.scss'
 })

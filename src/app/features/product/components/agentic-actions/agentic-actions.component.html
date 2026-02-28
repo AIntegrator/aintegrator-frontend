@@ -9,17 +9,17 @@
                 class="flex w-[60px] h-[32px] xl:w-[92px] xl:h-[41px] justify-center items-center rounded-[27.059px] border-[1.353px] border-solid border-[#ED2915]">
                 <span
                     class="text-[#ED2915] font-['Poppins',_sans-serif] text-[16px] xl:text-[24px] font-medium leading-[100%]">{{
-                    badgeLabel }}</span>
+                    badgeLabel | localizedText }}</span>
             </div>
 
             <h2
                 class="text-[#000] text-left font-['Poppins',_sans-serif] text-[24px] min-[768px]:text-[28px] min-[1024px]:text-[30px] xl:text-[32px] font-medium leading-normal">
-                {{ title }}
+                {{ title | localizedText }}
             </h2>
 
             <p
                 class="text-[rgba(77,77,77,0.70)] text-left font-['Poppins',_sans-serif] text-[16px] min-[768px]:text-[18px] min-[1024px]:text-[20px] xl:text-[24px] font-normal leading-normal">
-                {{ description }}
+                {{ description | localizedText }}
             </p>
         </div>
 
@@ -28,30 +28,30 @@
             <div class="flex items-center gap-[7px]">
                 <img src="assets/icons/Search.png" alt="" class="w-[18px] h-[18px] object-contain">
                 <span class="text-[#4D4D4D] font-['Poppins',_sans-serif] text-[16px] font-medium leading-normal">{{
-                    mobileCards[0]?.title || '' }}</span>
+                    (mobileCards[0]?.title | localizedText) || '' }}</span>
             </div>
             <p class="mt-[8px] text-[#636970] font-['Poppins',_sans-serif] text-[12px] font-normal leading-normal">
-                {{ mobileCards[0]?.description || '' }}
+                {{ (mobileCards[0]?.description | localizedText) || '' }}
             </p>
             <div class="mt-[8px] w-full h-[8px] rounded-[60px] bg-[#E9ECF0]"></div>
 
             <div class="flex items-center gap-[7px] mt-[16px]">
                 <img src="assets/icons/Find.png" alt="" class="w-[18px] h-[18px] object-contain">
                 <span class="text-[#4D4D4D] font-['Poppins',_sans-serif] text-[16px] font-medium leading-normal">{{
-                    mobileCards[1]?.title || '' }}</span>
+                    (mobileCards[1]?.title | localizedText) || '' }}</span>
             </div>
             <p class="mt-[8px] text-[#636970] font-['Poppins',_sans-serif] text-[12px] font-normal leading-normal">
-                {{ mobileCards[1]?.description || '' }}
+                {{ (mobileCards[1]?.description | localizedText) || '' }}
             </p>
             <div class="mt-[8px] w-[55%] h-[8px] rounded-[60px] bg-[#EFF1F3]"></div>
 
             <div class="flex items-center gap-[7px] mt-[16px]">
                 <img src="assets/icons/Find.png" alt="" class="w-[18px] h-[18px] object-contain">
                 <span class="text-[#4D4D4D] font-['Poppins',_sans-serif] text-[16px] font-medium leading-normal">{{
-                    mobileCards[2]?.title || '' }}</span>
+                    (mobileCards[2]?.title | localizedText) || '' }}</span>
             </div>
             <p class="mt-[8px] text-[#636970] font-['Poppins',_sans-serif] text-[12px] font-normal leading-normal">
-                {{ mobileCards[2]?.description || '' }}
+                {{ (mobileCards[2]?.description | localizedText) || '' }}
             </p>
             <div class="mt-[8px] w-[23%] h-[8px] rounded-[60px] bg-[#F5F7F9]"></div>
         </div>
@@ -77,12 +77,12 @@
                     <div class="flex flex-col">
                         <span
                             class="text-[#000] font-['Poppins',_sans-serif] text-[14px] font-normal leading-normal max-w-[229px]">{{
-                            item.text }}</span>
+                            item.text | localizedText }}</span>
                         <div class="flex items-center gap-[4px] mt-[6px]">
                             <img src="assets/icons/calendar.png" alt="" class="w-[16px] h-[16px] object-contain">
                             <span
                                 class="text-[#4D4D4D] font-['Poppins',_sans-serif] text-[12px] font-normal leading-normal">{{
-                                item.date }}</span>
+                                item.date | localizedText }}</span>
                         </div>
                     </div>
                 </div>

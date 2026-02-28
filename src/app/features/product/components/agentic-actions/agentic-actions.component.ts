@@ -1,10 +1,11 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LocalizedTextPipe } from '../../../../shared/pipes/localized-text.pipe';
 
 @Component({
   selector: 'app-agentic-actions',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, LocalizedTextPipe],
   templateUrl: './agentic-actions.component.html',
   styleUrl: './agentic-actions.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
