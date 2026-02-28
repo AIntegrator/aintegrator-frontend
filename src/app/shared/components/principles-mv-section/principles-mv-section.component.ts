@@ -1,16 +1,24 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LocalizedTextPipe } from '../../pipes/localized-text.pipe';
+import { LocalizedText } from '../../../shared/models/sanity.models';
 
 @Component({
     selector: 'app-principles-mv-section',
     standalone: true,
-    imports: [CommonModule],
+    imports: [CommonModule, LocalizedTextPipe],
     templateUrl: './principles-mv-section.component.html',
     styleUrl: './principles-mv-section.component.scss'
 })
 export class PrinciplesMvSectionComponent {
     @Input() showMv: boolean = true;
     @Input() isPrinciplesDesktop: boolean = false;
+    @Input() values: Array<{ title: LocalizedText; description: LocalizedText }> | undefined;
+
+    getValueIndex(index: number): string {
+        const num = (index + 1).toString().padStart(3, '0');
+        return `${num} ·`;
+    }
 
     principles = [
         {
@@ -38,3 +46,4 @@ export class PrinciplesMvSectionComponent {
         }
     ];
 }
+

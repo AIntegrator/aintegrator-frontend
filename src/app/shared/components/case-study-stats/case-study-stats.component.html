@@ -10,9 +10,9 @@
                     class="font-medium font-sans text-[20px] xl:text-[36px] leading-normal ml-[2px]">{{
                     stat.suffix }}</span>
             </div>
-            <p
+            <p [ngClass]="size() === 'small' ? 'text-[14px]' : 'text-[14px] xl:text-[16px]'"
                 class="text-[rgba(77,77,77,0.7)] font-normal font-sans leading-normal m-0 text-md md:text-xl">
-                {{ stat.description }}
+                {{ stat.description | localizedText }}
             </p>
         </div>
     </div>

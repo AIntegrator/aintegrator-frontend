@@ -3,7 +3,7 @@
         <h2 class="font-sans font-medium text-text-primary text-center
                    text-[28px] mb-[60px]
                    md:text-[56px] md:mb-[80px] md:font-medium">
-            Unser Ansatz
+            {{ getTitle() }}
         </h2>
 
         <div
@@ -28,12 +28,12 @@
                     <div class="font-sans font-medium text-ai-gray-1000 text-center
                                 text-[24px] mb-[15px]
                                 md:text-[32px] md:mb-[16px]">
-                        {{ step.title }}
+                        {{ getLocalizedText(step.title) }}
                     </div>
 
                     <p class="font-sans text-base md:text-xl font-normal leading-[26px] text-ai-gray-850 text-center mx-auto"
                         [class.max-w-[310px]]="i === 1">
-                        {{ step.desc }}
+                        {{ getStepDescription(step) }}
                     </p>
 
                 </div>

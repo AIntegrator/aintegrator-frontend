@@ -3,16 +3,14 @@
 
         <div class="flex flex-col items-center gap-[16px] lg:gap-[24px] w-full max-w-[342px] lg:max-w-none">
             <div class="flex items-start gap-[7.792px] lg:gap-[12px] h-[50px] lg:h-[77px] justify-center w-full">
-                <img src="assets/icons/Group 244.png" alt=""
-                    class="w-[28.684px] h-[21.864px] lg:w-[44.173px] lg:h-[33.671px] object-contain">
-                <h2
-                    class="text-ai-gray-1000 font-['Poppins',_sans-serif] text-[36.364px] lg:text-[56px] font-medium leading-normal whitespace-nowrap">
-                    LiaChat
-                </h2>
+                <div class="flex items-center justify-center">
+                    <img src="assets/images/products/lia-chat.svg" [attr.alt]="title || 'LiaChat'"
+                        class="h-[36px] lg:h-[56px] object-contain" />
+                </div>
             </div>
             <p
                 class="text-ai-gray-850 text-center font-['Poppins',_sans-serif] text-base md:text-xl font-normal leading-[148%]">
-                Sichere ChatGPT-Alternative
+                {{ subtitle | localizedText }}
             </p>
         </div>
 
@@ -31,10 +29,9 @@
                         <h3
                             class="text-center font-['Poppins',_sans-serif] text-[16px] lg:text-[24px] font-medium leading-normal">
                             <span class="lg:hidden">
-                                <span class="text-ai-gray-950">What can I </span>
-                                <span class="text-ai-gray-850">help you with today?</span>
+                                <span class="text-ai-gray-950">{{ promptMobile | localizedText }}</span>
                             </span>
-                            <span class="hidden lg:inline text-ai-gray-950">Hey, ich bin Lia. Wie kann ich helfen?</span>
+                            <span class="hidden lg:inline text-ai-gray-950">{{ promptDesktop | localizedText }}</span>
                         </h3>
                     </div>
 
@@ -42,29 +39,30 @@
                         class="w-full max-w-[514px] h-[40px] lg:h-[55px] max-h-[55px] rounded-[28px] border border-ai-gray-300 bg-white shadow-[0_8px_24px_-5px_rgba(0,0,0,0.10)] flex items-center justify-between px-[20px] shrink-0">
                         <span
                             class="text-ai-gray-850 font-['Poppins',_sans-serif] text-[12px] lg:text-[14px] font-normal leading-normal whitespace-nowrap overflow-hidden text-ellipsis">{{
-                            displayedText }}</span>
+                            inputPlaceholder | localizedText }}</span>
                         <img src="assets/icons/Group 2281.png" alt=""
-                            class="w-[24px] h-[24px] lg:w-[31px] lg:h-[31px] object-contain">
+                            class="w-[24px] h-[24px] lg:w-[31px] lg:h-[31px] object-contain cursor-pointer">
                     </div>
 
                     <div class="flex flex-col items-center lg:items-start gap-[12px] w-full lg:hidden">
                         <div
                             class="flex h-[24px] px-[12px] py-[8px] justify-center items-center gap-[2px] rounded-[24px] border border-ai-gray-650">
                             <span
-                                class="text-ai-gray-850 text-center font-['Poppins',_sans-serif] text-[12px] font-normal leading-normal">Polish
-                                This Message</span>
+                                class="text-ai-gray-850 text-center font-['Poppins',_sans-serif] text-[12px] font-normal leading-normal">{{
+                                (quickActions[0] || '') | localizedText }}</span>
                         </div>
                         <div
                             class="flex h-[24px] px-[12px] py-[8px] justify-center items-center gap-[2px] rounded-[24px] border border-ai-gray-650">
                             <span
                                 class="text-ai-gray-850 text-center font-['Poppins',_sans-serif] text-[12px] font-normal leading-normal">Create
-                                Action Items</span>
+                                {{
+                                (quickActions[1] || '') | localizedText }}</span>
                         </div>
                         <div
                             class="flex h-[24px] px-[12px] py-[8px] justify-center items-center gap-[2px] rounded-[24px] border border-ai-gray-650">
                             <span
-                                class="text-ai-gray-850 text-center font-['Poppins',_sans-serif] text-[12px] font-normal leading-normal">Draft
-                                an Email Reply</span>
+                                class="text-ai-gray-850 text-center font-['Poppins',_sans-serif] text-[12px] font-normal leading-normal">{{
+                                (quickActions[2] || '') | localizedText }}</span>
                         </div>
                     </div>
 

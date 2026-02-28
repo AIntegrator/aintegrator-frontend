@@ -1,29 +1,65 @@
 <div class="about-us-page flex flex-col">
 
+    @if (aboutData(); as data) {
+    <app-about-hero [title]="data.heroTitle | localizedText" [description]="data.heroDescription || ''"
+        [currentLocale]="currentLocale()"></app-about-hero>
+    } @else {
     <app-about-hero></app-about-hero>
+    }
 
     <app-founders-grid-section [founders]="founders"></app-founders-grid-section>
 
     <app-principles-mv-section [isPrinciplesDesktop]="false">
         <div mission>
-            <p>Außergewöhnliche Produkte entstehen durch harte Arbeit – oft an unsichtbaren, wenig glamourösen
-                Themen.<br>Wir handeln mit Klarheit und Dringlichkeit und konzentrieren uns auf das, was wirklich zählt.
-            </p><br>
-            <p>Wir bleiben bodenständig und tun, was funktioniert. Gute Ideen zählen – unabhängig davon, woher sie
-                kommen.</p>
+            @if (aboutData(); as data) {
+            <!-- <h3 class="text-2xl md:text-3xl font-bold mb-4">{{ data.missionTitle | localizedText }}</h3> -->
+            <p>{{ data.missionText | localizedText }}</p>
+            } @else {
+            <h3 class="text-2xl md:text-3xl font-bold mb-4">Our Mission</h3>
+            <p>Exceptional products are created through hard work – often on invisible, not very glamorous topics. We
+                act with clarity and urgency, focusing on what really matters. We stay grounded and do what works. Good
+                ideas count – regardless of where they come from.</p>
+            }
         </div>
         <div vision>
-            <p>Unsere Technologie soll einen echten, positiven Unterschied im Alltag der Menschen machen.</p>
-            <p>Nicht durch Versprechen, sondern durch Wirkung.</p>
+            @if (aboutData(); as data) {
+            <!-- <h3 class="text-2xl md:text-3xl font-bold mb-4">{{ data.visionTitle | localizedText }}</h3> -->
+            <p>{{ data.visionText | localizedText }}</p>
+            } @else {
+            <h3 class="text-2xl md:text-3xl font-bold mb-4">Our Vision</h3>
+            <p>Our technology should make a real, positive difference in people's daily lives. Not through promises, but
+                through impact.</p>
+            }
         </div>
     </app-principles-mv-section>
 
-    <app-final-cta [title]="'Lassen Sie uns ins Gespräch kommen'"
-        [description]="'Investieren Sie 30 Minuten in die Zukunft Ihres Unternehmens: Wir zeigen Ihnen konkrete Erfolgsbeispiele und wie Ihre AI-Transformation reibungslos gelingt.'"
-        [secondaryBtnText]="'Karriere'" [secondaryBtnLink]="'/careers'"
-        [secondaryBtnIcon]="'assets/icons/Frame.png'" [primaryBtnText]="'Termin vereinbaren'"
+    @if (homeData(); as home) {
+    <app-process-steps [title]="home.processStepsTitle || 'Our Approach'" [steps]="home.processSteps || []"
+        [currentLocale]="currentLocale()" class="block"></app-process-steps>
+    <app-security-card [title]="home.securityCardTitle || 'Hosted in Switzerland'"
+        [description]="home.securityCardDescription || ''" [currentLocale]="currentLocale()"
+        class="block"></app-security-card>
+    } @else {
+    <app-process-steps class="block"></app-process-steps>
+    <app-security-card class="block"></app-security-card>
+    }
+
+    @if (aboutData(); as data) {
+    <app-final-cta [title]="data.finalCtaTitle | localizedText" [description]="data.finalCtaDescription | localizedText"
+        [secondaryBtnText]="data.finalCtaSecondaryBtnText | localizedText"
+        [secondaryBtnLink]="data.finalCtaSecondaryBtnLink || '/careers'" [secondaryBtnIcon]="'assets/icons/Frame.png'"
+        [primaryBtnText]="data.finalCtaPrimaryBtnText | localizedText"
+        [primaryBtnLink]="data.finalCtaPrimaryBtnLink || '/contact'" [primaryBtnIcon]="'assets/icons/Frame.svg'"
+        [showDecoration]="false" class="block section-spacing">
+    </app-final-cta>
+    } @else {
+    <app-final-cta [title]="'Let\'s Start a Conversation'"
+        [description]="'Invest 30 minutes in your company\'s future. We\'ll show you concrete examples of success and how your AI transformation can proceed smoothly.'"
+        [secondaryBtnText]="'Explore Careers'" [secondaryBtnLink]="'/careers'"
+        [secondaryBtnIcon]="'assets/icons/Frame.png'" [primaryBtnText]="'Schedule Appointment'"
         [primaryBtnLink]="'/contact'" [primaryBtnIcon]="'assets/icons/Frame.svg'" [showDecoration]="false"
         class="block section-spacing">
     </app-final-cta>
+    }
 
 </div>
