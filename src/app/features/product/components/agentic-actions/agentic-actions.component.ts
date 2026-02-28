@@ -18,4 +18,10 @@ export class AgenticActionsComponent {
   @Input() mobileCards: Array<{ title?: string; description?: string }> = [];
   @Input() actionItemsTitle = '';
   @Input() actionItems: Array<{ text?: string; date?: string }> = [];
+
+  readonly searchIcon = Search;
+  readonly findIcon = ListTodo;
+  readonly ellipsisIcon = Ellipsis;
+  readonly checkIcon = Check;
+  readonly calendarIcon = Calendar;
 }

@@ -23,7 +23,8 @@ interface Role {
         CommonModule,
         CareersHeroComponent,
         PrinciplesMvSectionComponent,
-        OpenRolesComponent
+        OpenRolesComponent,
+        InitiativeCtaComponent
     ],
     templateUrl: './careers.component.html',
     styleUrl: './careers.component.scss',

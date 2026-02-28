@@ -1,41 +1,37 @@
 <section class="w-full section-spacing flex flex-col items-center">
-    <div class="site-container flex flex-col items-center gap-[60px] lg:gap-[80px] max-w-[1144px]">
-        <h2 class="text-black text-center font-['Poppins'] font-medium text-3xl md:text-5xl xl:text-5xl leading-normal">
+    <div class="site-container flex flex-col items-center gap-16 lg:gap-20 max-w-[theme('maxWidth.4xl')]"><!-- Use theme spacing -->
+        <h2 class="text-text-primary text-center font-sans font-semibold text-3xl md:text-5xl xl:text-5xl leading-normal">
             {{ title | localizedText }}
         </h2>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-[24px] w-full items-stretch">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 w-full items-stretch"><!-- Use theme gap -->
             <div
-                class="w-full h-full rounded-[12px] border border-ai-gray-650 p-8 md:p-10 xl:p-12 grid grid-rows-[40px_minmax(0,6em)_minmax(0,72px)_1fr_auto] gap-y-6 box-border overflow-hidden order-2">
+                class="w-full h-full rounded-xl border border-bg-muted p-8 md:p-10 xl:p-12 grid grid-rows-[40px_minmax(0,6em)_minmax(0,72px)_1fr_auto] gap-y-6 box-border overflow-hidden order-2">
                 <img src="assets/images/products/lia-transcript.svg"
                     alt="{{ (plans[0]?.namePrefix || '') + ' ' + (plans[0]?.nameSuffix || '') }}"
-                    class="h-[36px] lg:h-[56px] object-contain" />
-                <p class="text-ai-gray-800 font-['Poppins'] font-normal text-base md:text-xl leading-[150%]">
+                    class="h-9 lg:h-14 object-contain" />
+                <p class="text-text-body font-sans font-normal text-base md:text-xl leading-relaxed">
                     {{ (plans[0]?.description || '') | localizedText }}
                 </p>
 
-                <div class="flex flex-col gap-[22px] lg:gap-[24px]">
+                <div class="flex flex-col gap-5 lg:gap-6">
                     <div class="flex items-baseline">
-                        <span
-                            class="text-ai-gray-925 font-['Poppins'] font-medium text-[28px] md:text-[32px] leading-normal mr-[4px]">{{
-                            (plans[0]?.price || '') | localizedText }}</span><span
-                            class="text-ai-gray-925 font-['Inter'] font-medium text-[16px] leading-normal">/</span><span
-                            class="text-ai-gray-925 font-['Poppins'] font-normal text-[16px] leading-normal">{{
-                            (plans[0]?.period || '') | localizedText }}</span>
+                        <span class="text-text-primary font-sans font-semibold text-2xl md:text-3xl leading-normal mr-1">{{ (plans[0]?.price || '') | localizedText }}</span>
+                        <span class="text-text-primary font-sans font-medium text-base leading-normal">/</span>
+                        <span class="text-text-primary font-sans font-normal text-base leading-normal">{{ (plans[0]?.period || '') | localizedText }}</span>
                     </div>
                     <button
-                        class="inline-flex items-center text-black font-['Poppins'] font-medium text-[14px] leading-normal hover:opacity-80 transition-opacity">
+                        class="inline-flex items-center text-text-primary font-sans font-medium text-sm leading-normal hover:opacity-80 transition-opacity">
                         {{ (plans[0]?.ctaLabel || '') | localizedText }} <img src="assets/icons/Frame.png" alt=""
-                            class="w-[26px] h-[26px]" />
+                            class="w-6 h-6" />
                     </button>
                 </div>
 
-                <div class="flex flex-col gap-[11px]">
-                    <div class="flex items-center gap-[12px]">
+                <div class="flex flex-col gap-3">
+                    <div class="flex items-center gap-3">
                         <img src="assets/icons/circletick.png" alt=""
-                            class="w-[17.967px] h-[17.967px] object-contain" />
-                        <span class="text-ai-gray-850 font-['Poppins'] font-normal text-[16px] leading-normal">Schweizer
-                            {{ (plans[0]?.features?.[0]?.text || '') | localizedText }}</span>
+                            class="w-4.5 h-4.5 object-contain" />
+                        <span class="text-text-body font-sans font-normal text-base leading-normal">{{ (plans[0]?.features?.[0]?.text || '') | localizedText }}</span>
                     </div>
                     <div class="flex items-center gap-[12px]">
                         <img src="assets/icons/circletick.png" alt=""
@@ -95,19 +91,6 @@
                             {{ (plans[1]?.ctaLabel || '') | localizedText }} <img src="assets/icons/Frame.svg" alt=""
                                 class="w-[26px] h-[26px]" />
                         </button>
-                    </div>
-                </div>
-                <p class="text-ai-gray-800 font-['Poppins'] font-normal text-base md:text-xl leading-[150%]">
-                    Ihre sichere ChatGPT Alternative
-                </p>
-
-                <div class="flex flex-col gap-[22px] lg:gap-[24px]">
-                    <div class="flex items-baseline">
-                        <span
-                            class="text-ai-gray-925 font-['Poppins'] font-medium text-[28px] md:text-[32px] leading-normal mr-[4px]">CHF
-                            45.–</span><span
-                            class="text-ai-gray-925 font-['Inter'] font-medium text-[16px] leading-normal">/</span><span
-                            class="text-ai-gray-925 font-['Poppins'] font-normal text-[16px] leading-normal">Monat</span>
                     </div>
                 </div>
 
@@ -193,4 +176,6 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 </section>

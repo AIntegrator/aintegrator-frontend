@@ -9,6 +9,8 @@ import { LocaleService } from '../../core/services/locale.service';
 import { AboutPage, HomePage, TeamMember, LocalizedText } from '../../shared/models/sanity.models';
 import { SanityQueries } from '../../core/services/sanity.helpers';
 import { LocalizedTextPipe } from '../../shared/pipes/localized-text.pipe';
+import { ProcessStepsComponent } from '../../shared/components/process-steps/process-steps.component';
+import { SecurityCardComponent } from '../../shared/components/security-card/security-card.component';
 
 @Component({
     selector: 'app-about-us',

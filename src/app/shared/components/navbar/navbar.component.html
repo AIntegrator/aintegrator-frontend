@@ -81,11 +81,13 @@
         class="absolute left-1/2 top-1/2 block h-[2px] w-[22px] -translate-x-1/2 rounded-full bg-[#303030] origin-center transition-transform duration-[320ms] ease-out"
         [ngClass]="mobileMenuOpen ? 'translate-y-0 -rotate-45' : 'translate-y-[6px]'"></span>
     </button>
-
-    <<<<<<< HEAD <div id="mobile-menu" class="fixed inset-0 z-40 bg-bg-primary min-[1100px]:hidden"
-      [class.opacity-0]="!mobileMenuOpen" [class.invisible]="!mobileMenuOpen" [class.opacity-100]="mobileMenuOpen"
-      [class.visible]="mobileMenuOpen">
-      <div class="flex flex-col mt-[90px]">
+    <div id="mobile-menu"
+      class="fixed inset-0 z-40 min-[1100px]:hidden transition-opacity duration-[400ms] ease-out"
+      [class.opacity-0]="!mobileMenuOpen" [class.opacity-100]="mobileMenuOpen" [class.invisible]="!mobileMenuOpen"
+      [class.pointer-events-none]="!mobileMenuOpen" [class.visible]="mobileMenuOpen">
+      <div
+        class="flex flex-col mt-[90px] bg-bg-primary h-full transform transition-transform duration-[400ms] ease-out"
+        [class.translate-x-full]="!mobileMenuOpen" [class.translate-x-0]="mobileMenuOpen">
         <div class="site-container flex flex-col mt-[44px]">
           <ul class="flex flex-col gap-[40px] text-left list-none m-0 p-0">
             <li>
@@ -120,7 +122,6 @@
 
           <div class="w-full h-px bg-[#E5E5E5] my-[60px]"></div>
 
-          <!-- Language Switcher (Mobile) -->
           <div class="mb-8">
             <p class="text-text-body font-sans text-[14px] font-medium mb-3 uppercase tracking-wide">
               {{ currentLocale === 'de' ? 'Sprache / Language' : currentLocale === 'fr' ? 'Langue / Language' :
@@ -147,56 +148,7 @@
             <img src="assets/icons/Frame.svg" class="flex-shrink-0" alt="" aria-hidden="true" />
           </a>
         </div>
-        =======
-        <div id="mobile-menu"
-          class="fixed inset-0 z-40 min-[1100px]:hidden transition-opacity duration-[400ms] ease-out"
-          [class.opacity-0]="!mobileMenuOpen" [class.opacity-100]="mobileMenuOpen" [class.invisible]="!mobileMenuOpen"
-          [class.pointer-events-none]="!mobileMenuOpen" [class.visible]="mobileMenuOpen">
-          <div
-            class="flex flex-col mt-[90px] bg-bg-primary h-full transform transition-transform duration-[400ms] ease-out"
-            [class.translate-x-full]="!mobileMenuOpen" [class.translate-x-0]="mobileMenuOpen">
-            <div class="site-container flex flex-col mt-[44px]">
-              <ul class="flex flex-col gap-[40px] text-left list-none m-0 p-0">
-                <li>
-                  <a routerLink="/product" routerLinkActive="font-medium"
-                    class="text-text-body font-sans text-[24px] font-normal leading-normal no-underline block"
-                    (click)="closeMobileMenu()">
-                    LiaSuite
-                  </a>
-                </li>
-                <li>
-                  <a routerLink="/about" routerLinkActive="font-medium"
-                    class="text-text-body font-sans text-[24px] font-normal leading-normal no-underline block"
-                    (click)="closeMobileMenu()">
-                    Über uns
-                  </a>
-                </li>
-                <li>
-                  <a routerLink="/careers" routerLinkActive="font-medium"
-                    class="text-text-body font-sans text-[24px] font-normal leading-normal no-underline block"
-                    (click)="closeMobileMenu()">
-                    Karriere
-                  </a>
-                </li>
-                <li>
-                  <a routerLink="/contact" routerLinkActive="font-medium"
-                    class="text-text-body font-sans text-[24px] font-normal leading-normal no-underline block"
-                    (click)="closeMobileMenu()">
-                    Kontakt
-                  </a>
-                </li>
-              </ul>
-
-              <div class="w-full h-px bg-ai-gray-600 my-[60px]"></div>
-
-              <a routerLink="/contact"
-                class="flex items-center gap-[4px] text-cta font-sans text-[24px] font-medium no-underline arrow-link"
-                (click)="closeMobileMenu()">
-                <span>Termin vereinbaren</span>
-                <img src="assets/icons/Frame.svg" class="flex-shrink-0 arrow-link-icon" alt="" aria-hidden="true" />
-              </a>
-              >>>>>>> main
-            </div>
-          </div>
-        </div>
+      </div>
+    </div>
+  </div>
 </header>
