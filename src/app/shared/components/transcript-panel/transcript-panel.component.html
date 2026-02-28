@@ -1,30 +1,30 @@
-<div class="w-full h-auto xl:h-full bg-white rounded-[12px] flex flex-col overflow-hidden">
+<div class="w-full max-w-[420px] mx-auto h-auto md:h-full bg-white rounded-[12px] flex flex-col overflow-hidden">
     <div class="pt-[29px] px-[24px] xl:px-[29px] mb-[36px] w-full flex items-center justify-between">
-        <img src="assets/icons/Union.png" alt="" class="w-[28px] h-[23px] object-contain flex-shrink-0">
+        <img src="assets/icons/Union.png" alt="" class="w-[28px] h-[23px] object-contain flex-shrink-0 mr-[8px]">
         <div class="flex items-center gap-[12px] xl:gap-[16px] flex-shrink-0">
             <div class="flex items-center gap-[6px] xl:gap-[8px]">
                 <button
-                    class="flex items-center justify-center px-2 sm:px-3 py-1.5 !rounded-[6.242px] !border-[0.712px] !border-solid !border-[#EBEBEB] text-[#000] text-[10px] font-semibold whitespace-nowrap cursor-pointer hover:bg-gray-50 transition-colors mobile-wrap-btn">
+                    class="flex items-center justify-center px-2 sm:px-3 py-1.5 !rounded-[6.242px] !border-[0.712px] !border-solid !border-ai-gray-500 text-ai-gray-1000 text-[10px] font-medium whitespace-nowrap cursor-default mobile-wrap-btn">
                     {{ uploadButtonLabel }}
                 </button>
                 <button
-                    class="flex items-center justify-center px-2 sm:px-3 py-1.5 rounded-[6px] border-none bg-[#121212] text-white text-[10px] font-semibold whitespace-nowrap cursor-pointer hover:bg-black transition-colors mobile-wrap-btn">
+                    class="flex items-center justify-center px-2 sm:px-3 py-1.5 rounded-[6px] border-none bg-ai-gray-975 text-white text-[10px] font-medium whitespace-nowrap cursor-default mobile-wrap-btn">
                     {{ recordButtonLabel }}
                 </button>
             </div>
             <div
-                class="w-[32px] h-[32px] rounded-full bg-[#f3f4f7] flex-shrink-0 flex items-center justify-center text-[#000] font-sans text-[14px] font-medium">
+                class="w-[32px] h-[32px] border border-ai-gray-400 rounded-full bg-ai-gray-100 flex-shrink-0 flex items-center justify-center text-ai-gray-900 font-sans text-[14px] font-medium">
                 S</div>
         </div>
     </div>
 
-    <div class="relative border-b-2 border-[#F3F4F7] pb-[2px]">
+    <div class="relative border-b-2 border-ai-gray-300 pb-[2px]">
         <div class="flex gap-[32px] px-[25px] xl:px-[24px]">
-            <span class="text-[#4D4D4D] font-sans text-[14px] font-normal cursor-pointer">{{ summaryTabLabel }}</span>
+            <span class="text-ai-gray-850 font-sans text-[14px] font-normal">{{ summaryTabLabel }}</span>
             <div class="relative">
-                <span class="text-[#000] font-sans text-[14px] font-medium cursor-pointer">{{ transcriptTabLabel
+                <span class="text-ai-gray-1000 font-sans text-[14px] font-medium">{{ transcriptTabLabel
                     }}</span>
-                <div class="absolute -bottom-[4px] left-1/2 -translate-x-1/2 w-[101px] h-[2px] bg-[#000]">
+                <div class="absolute -bottom-[4px] left-1/2 -translate-x-1/2 w-[101px] h-[2px] bg-ai-gray-1000">
                 </div>
             </div>
         </div>
@@ -35,22 +35,23 @@
         @for (item of transcriptData; track item.name) {
         <div class="flex gap-[14px] xl:gap-[16px]">
             <div
-                class="w-[36px] h-[36px] xl:w-[40px] xl:h-[40px] rounded-full bg-[#f3f4f7] flex-shrink-0 flex items-center justify-center text-[#000] font-['Poppins'] xl:font-sans text-[16px] xl:text-[20px] font-medium leading-none">
+                class="w-[36px] h-[36px] xl:w-[40px] xl:h-[40px] rounded-full bg-ai-gray-100 border border-ai-gray-400 flex-shrink-0 flex items-center justify-center text-ai-gray-900 font-['Poppins'] xl:font-sans text-[16px] xl:text-[20px] font-medium leading-none">
                 {{ item.initial }}
             </div>
             <div class="flex flex-col xl:gap-[9px]">
                 <div class="flex items-center gap-[8px] h-[28px] xl:h-auto mt-[4px]">
-                    <span class="text-[#000] font-['Poppins'] xl:font-sans text-[16px] font-medium leading-none">{{
+                    <span
+                        class="text-ai-gray-1000 font-['Poppins'] xl:font-sans text-[16px] font-medium leading-none">{{
                         item.name }}</span>
                     <div
-                        class="w-[70px] h-[28px] rounded-[4.371px] border-[1.093px] border-[#D5DEE8] flex items-center justify-center flex-shrink-0 xl:p-0 xl:w-auto xl:h-auto xl:border-none xl:rounded-none">
+                        class="w-[70px] h-[28px] rounded-[4.371px] flex items-center justify-center flex-shrink-0 xl:p-0 xl:w-auto xl:h-auto xl:border-none xl:rounded-none">
                         <span
-                            class="text-[#282B2E] xl:text-[#4D4D4D] font-['Poppins'] xl:font-sans text-[14px] xl:text-[16px] font-normal leading-none">{{
+                            class="text-ai-gray-875 xl:text-ai-gray-850 font-['Poppins'] xl:font-sans text-[14px] xl:text-[16px] font-normal leading-none">{{
                             item.time }}</span>
                     </div>
                 </div>
                 <p
-                    class="mt-[7px] xl:mt-0 text-[#4D4D4D] font-['Poppins'] xl:font-sans text-[12px] xl:text-[14px] font-normal leading-normal xl:w-full">
+                    class="mt-[7px] xl:mt-0 text-ai-gray-850 font-['Poppins'] xl:font-sans text-[12px] xl:text-[14px] font-normal leading-normal xl:w-full">
                     {{ item.text }}
                 </p>
             </div>

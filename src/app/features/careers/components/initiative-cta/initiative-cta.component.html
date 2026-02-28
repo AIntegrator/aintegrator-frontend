@@ -1,4 +1,4 @@
-<section class="site-container section-spacing">
+<section class="site-container">
     <div class="max-w-[758px] mx-auto text-center">
         @if (initiativeCTATitle || initiativeCTADescription) {
         <h3 class="text-[24px] md:text-[32px] xl:text-[40px] font-medium text-[#000] mb-[16px]">
@@ -10,10 +10,10 @@
         </p>
         }
         }
-        <p
-            class="text-[24px] md:text-[28px] xl:text-[32px] font-medium md:font-normal text-[#4D4D4D] leading-[1.5] m-0">
+        <p class="text-[16px] md:text-[20px] font-medium md:font-normal text-ai-gray-850 leading-[1.5] m-0">
+            Wir freuen uns über Initiativbewerbungen an <br>
             <a [href]="'mailto:' + (initiativeEmail || 'careers@aintegrator.ch')"
-                class="text-[24px] md:text-[28px] xl:text-[32px] font-medium text-[#1A1A1A] underline transition-colors duration-200 hover:text-[#ED2915]">
+                class="text-[16px] md:text-[20px] font-medium text-ai-gray-900 underline">
                 {{ initiativeEmail || 'careers@aintegrator.ch' }}
             </a>
         </p>

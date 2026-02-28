@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import { AboutHeroComponent } from './components/about-hero/about-hero.component';
 import { FoundersGridSectionComponent } from './components/founders-grid-section/founders-grid-section.component';
 import { PrinciplesMvSectionComponent } from '../../shared/components/principles-mv-section/principles-mv-section.component';
-import { ProcessStepsComponent } from '../../shared/components/process-steps/process-steps.component';
-import { SecurityCardComponent } from '../../shared/components/security-card/security-card.component';
 import { FinalCtaComponent } from '../../shared/components/final-cta/final-cta.component';
 import { SanityService } from '../../core/services/sanity.service';
 import { LocaleService } from '../../core/services/locale.service';

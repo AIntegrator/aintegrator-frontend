@@ -19,33 +19,33 @@
                     <div class="flex items-center justify-center rounded-full transition-colors duration-300 border border-transparent mx-auto
                                 w-[48px] h-[48px] min-w-[48px] min-h-[48px] mb-[18px]
                                 md:w-[56px] md:h-[56px] md:min-w-[56px] md:min-h-[56px] md:mb-[24px]"
-                        [ngClass]="step.active ? 'bg-[#ED2915] text-white' : 'bg-[#F2F4F7] text-[#4D4D4D]'">
+                        [ngClass]="step.active ? 'bg-[#ED2915] text-white' : 'bg-ai-gray-350 text-ai-gray-850'">
                         <span class="font-sans font-medium leading-none text-[24px]">
                             {{ step.number }}
                         </span>
                     </div>
 
-                    <div class="font-sans font-medium text-[#000] text-center
+                    <div class="font-sans font-medium text-ai-gray-1000 text-center
                                 text-[24px] mb-[15px]
                                 md:text-[32px] md:mb-[16px]">
                         {{ getLocalizedText(step.title) }}
                     </div>
 
-                    <p class="font-sans text-[16px] font-normal leading-[26px] text-[#4D4D4D] text-center mx-auto"
+                    <p class="font-sans text-base md:text-xl font-normal leading-[26px] text-ai-gray-850 text-center mx-auto"
                         [class.max-w-[310px]]="i === 1">
                         {{ getStepDescription(step) }}
                     </p>
 
                 </div>
 
-                <div *ngIf="!last" class="hidden md:block h-[3px] bg-[#ECEFF2] rounded-[24px] self-start mt-[28px] z-0
+                <div *ngIf="!last" class="hidden md:block h-[3px] bg-ai-gray-450 rounded-[24px] self-start mt-[28px] z-0
                             md:flex-none md:w-[140px] md:-mx-[40px]
                             lg:w-[240px] lg:-mx-[60px]
                             xl:w-[315px] xl:-mx-[87px]">
                 </div>
 
                 <div *ngIf="!last"
-                    class="md:hidden w-[3px] h-[48px] bg-[#ECEFF2] rounded-[24px] my-[24px] mx-auto flex-shrink-0">
+                    class="md:hidden w-[3px] h-[48px] bg-ai-gray-450 rounded-[24px] my-[24px] mx-auto flex-shrink-0">
                 </div>
 
             </ng-container>

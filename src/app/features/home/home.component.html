@@ -1,4 +1,4 @@
-<div class="w-full">
+<div class="w-full flex flex-col">
 
   @if (homeData(); as data) {
   <app-hero [title]="data.heroTitle | localizedText" [description]="data.heroDescription | localizedText"
@@ -34,12 +34,10 @@
   }
   }
   } @else {
-  <app-testimonial-section alignment="center"
-    [quote]="homeData()?.fallbackTestimonialQuote | localizedText"
+  <app-testimonial-section alignment="center" [quote]="homeData()?.fallbackTestimonialQuote | localizedText"
     [author]="homeData()?.fallbackTestimonialAuthor || 'Danièle Bovier'"
-    [role]="homeData()?.fallbackTestimonialRole | localizedText"
-    avatarUrl="assets/images/image 16.png" mobileMaxWidth="max-sm:max-w-[354px]" mobileGap="gap-[32px]"
-    mobileAuthorAlignment="items-start text-left">
+    [role]="homeData()?.fallbackTestimonialRole | localizedText" avatarUrl="assets/images/image 16.png"
+    mobileMaxWidth="max-sm:max-w-[354px]" mobileGap="gap-[32px]" mobileAuthorAlignment="items-start text-left">
   </app-testimonial-section>
   }
 

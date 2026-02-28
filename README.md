@@ -57,3 +57,13 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+# Deployment
+```bash
+docker build --platform=linux/amd64 -t azytaku/aintegrator-frontend:testing.0.0.1 -f Dockerfile .
+```
+
+```bash
+docker push azytaku/aintegrator-frontend:testing.0.0.1
+```
+

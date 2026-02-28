@@ -1,18 +1,30 @@
 <section class="site-container section-spacing">
     <div class="max-w-[1144px] mx-auto flex flex-col items-center gap-[40px] md:gap-[60px] xl:gap-[80px]">
-        <h2 class="text-[28px] md:text-[40px] xl:text-[56px] font-medium text-center text-[#000] m-0">
+        <h2 class="text-[28px] md:text-[40px] xl:text-[56px] font-medium text-center text-ai-gray-1000 m-0">
             {{ openRolesTitle ? (openRolesTitle | localizedText) : 'Open Roles' }}
+
         </h2>
 
-        <div class="flex gap-[6px] md:gap-[24px] justify-center flex-wrap w-full">
-            <div class="h-[48px] md:h-[50px] rounded-[24px] bg-[#FAFAFA] flex items-center justify-center gap-[8px] px-[16px] md:px-[24px] w-[157px] md:w-[217px]"
+        <div class="max-w-[758px] mx-auto text-center">
+            <p class="text-base md:text-xl font-medium md:font-normal text-ai-gray-850 leading-[1.5] m-0">
+                Wir freuen uns über Initiativbewerbungen an <br>
+                <a href="mailto:careers@aintegrator.ch"
+                    class="text-[16px] md:text-[20px] font-medium text-ai-gray-900 underline">
+                    careers@aintegrator.ch
+                </a>
+            </p>
+        </div>
+
+        <!-- TODO: Hidden until we implement the filters -->
+        <div class="gap-[6px] md:gap-[24px] justify-center flex-wrap w-full hidden">
+            <div class="h-[48px] md:h-[50px] rounded-[24px] bg-ai-gray-100 flex items-center justify-center gap-[8px] px-[16px] md:px-[24px] w-[157px] md:w-[217px]"
                 (click)="setDepartment('Engineering')">
-                <span class="text-[18px] md:text-[24px] text-[#4D4D4D]">{{ selectedDepartment }}</span>
+                <span class="text-[18px] md:text-[24px] text-ai-gray-850">{{ selectedDepartment }}</span>
                 <img src="assets/icons/Arrow.png" alt="Dropdown" class="w-6 h-6">
             </div>
-            <div class="h-[48px] md:h-[50px] rounded-[24px] bg-[#FAFAFA] flex items-center justify-center gap-[8px] px-[16px] md:px-[24px] w-[123px] md:w-[163px]"
+            <div class="h-[48px] md:h-[50px] rounded-[24px] bg-ai-gray-100 flex items-center justify-center gap-[8px] px-[16px] md:px-[24px] w-[123px] md:w-[163px]"
                 (click)="setLocation('Remote')">
-                <span class="text-[18px] md:text-[24px] text-[#4D4D4D]">{{ selectedLocation }}</span>
+                <span class="text-[18px] md:text-[24px] text-ai-gray-850">{{ selectedLocation }}</span>
                 <img src="assets/icons/Arrow.png" alt="Dropdown" class="w-6 h-6">
             </div>
         </div>
@@ -21,19 +33,21 @@
             *ngIf="filteredRoles.length > 0; else emptyState">
             @for (role of filteredRoles; track role.title) {
             <div
-                class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-[#DADEE4] pb-[32px] md:pb-[40px] gap-[24px] md:gap-0 last:border-b-0 last:pb-0">
-                <span class="text-[20px] md:text-[20px] xl:text-[24px] font-medium text-[#000]">
+                class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-ai-gray-650 pb-[32px] md:pb-[40px] gap-[24px] md:gap-0 last:border-b-0 last:pb-0">
+                <span class="text-[20px] md:text-[20px] xl:text-[24px] font-medium text-ai-gray-1000">
                     {{ role.title | localizedText }}
+
                 </span>
                 <div
                     class="flex flex-col md:flex-row items-start md:items-center gap-[24px] md:gap-[48px] xl:gap-[120px] w-full md:w-auto">
-                    <span class="text-[16px] md:text-[18px] xl:text-[24px] text-[#4D4D4D] font-medium">
+                    <span class="text-[16px] md:text-[18px] xl:text-[24px] text-ai-gray-850 font-medium">
                         {{ role.location | localizedText }}
                     </span>
                     <a [href]="role.link"
-                        class="text-[#D32F2F] md:text-[#ED2915] text-[16px] md:text-[18px] xl:text-[24px] font-medium flex items-center no-underline hover:underline hover:opacity-80 leading-[26px]">
+                        class="text-[#D32F2F] md:text-[#ED2915] text-[16px] md:text-[18px] xl:text-[24px] font-medium flex items-center no-underline leading-[26px] arrow-link">
                         {{ applyButtonLabel ? (applyButtonLabel | localizedText) : 'Jetzt bewerben' }}
-                        <img src="assets/icons/Frame.svg" alt="Apply" class="max-md:w-[28px] max-md:h-[28px]">
+                        <img src="assets/icons/Frame.svg" alt="Apply"
+                            class="max-md:w-[28px] max-md:h-[28px] arrow-link-icon">
                     </a>
                 </div>
             </div>
@@ -41,7 +55,7 @@
         </div>
 
         <ng-template #emptyState>
-            <p class="text-[18px] md:text-[24px] font-medium text-[#000] text-center mt-[80px]">
+            <p class="text-[18px] md:text-[24px] font-medium text-ai-gray-1000 text-center mt-[80px]">
                 Aktuell keine offenen Positionen.
             </p>
         </ng-template>

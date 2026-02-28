@@ -1,9 +1,8 @@
 <section class="flex flex-col items-start md:items-center w-full max-w-[1144px] mx-auto gap-[24px]">
     <div class="flex flex-col items-start md:items-center gap-[12px]">
-        @if (caseStudyData?.client) {
-        <div class="flex items-center gap-[8px] bg-[#FAFAFA] w-auto px-[12px] md:px-[16px] h-[36px] rounded-[12px]">
-            <img src="assets/icons/Group 2831.png" alt=""
-                class="w-[16px] h-[17.728px] aspect-[16/17.73] object-contain">
+        <div
+            class="flex items-center gap-[8px] bg-ai-gray-100 w-[167px] h-[36px] px-[12px] md:px-[16px] rounded-[12px]">
+            <lucide-icon [img]="landmarkIcon" [size]="14" class="text-text-muted"></lucide-icon>
             <span class="text-text-muted font-medium text-[16px]">{{ caseStudyData?.client }}</span>
         </div>
         }

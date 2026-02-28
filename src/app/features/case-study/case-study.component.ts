@@ -34,7 +34,6 @@ export class CaseStudyComponent implements OnInit {
         { value: '70', suffix: '%', description: 'Prozessbeschleunigung' },
         { value: '45', suffix: '%', description: 'Kostenreduktion' },
         { value: '3', suffix: 'X', description: 'Schnellere Umsetzung' },
-        { value: '70', suffix: '%', description: 'Kundenbindung', color: '#ED2915' }
     ];
 
     // Computed stats from case study results

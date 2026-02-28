@@ -1,0 +1,51 @@
+name: Reusable Build Check 
+
+on:
+  workflow_call:
+    inputs:
+      image-name:
+        required: true
+        type: string
+      dockerfile:
+        required: false
+        default: './Dockerfile'
+        type: string
+      platform:
+        required: false
+        default: 'linux/amd64'
+        type: string
+      manual-tag:
+        description: 'Tag for the local build'
+        required: false
+        type: string
+        default: 'check'
+
+jobs:
+  build-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Extract Docker metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ inputs.image-name }}
+          tags: |
+            type=raw,value=${{ inputs.manual-tag }}
+
+      - name: Build only
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ${{ inputs.dockerfile }}
+          platforms: ${{ inputs.platform }}
+          push: false # Discards the image after verifying the build
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max

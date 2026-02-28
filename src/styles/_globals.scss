@@ -78,18 +78,7 @@
 }
 
 .section-spacing {
-    margin-top: 96px;
-    margin-bottom: 96px;
-
-    @media (min-width: 768px) {
-        margin-top: 148px;
-        margin-bottom: 148px;
-    }
-
-    @media (min-width: 1280px) {
-        margin-top: 196px;
-        margin-bottom: 196px;
-    }
+    @apply my-16 lg:my-24 2xl:my-32;
 }
 
 .block-spacing {
@@ -114,6 +103,31 @@
 
 .cta-centered {
     @apply text-center mx-auto max-w-[800px];
+}
+
+.btn {
+    @apply inline-flex items-center justify-center rounded-lg py-3 px-4 font-sans font-medium text-base leading-normal no-underline cursor-pointer;
+
+    &:focus-visible {
+        @include focus-ring;
+    }
+}
+
+.btn-neutral {
+    @apply bg-ai-gray-100 text-ai-gray-850;
+}
+
+.btn-danger-soft {
+    @apply bg-[#FDF2F1] text-[#ED2915];
+}
+
+.arrow-link-icon {
+    @apply transition-transform duration-200 ease-out will-change-transform;
+}
+
+.arrow-link:hover .arrow-link-icon,
+.arrow-link:focus-visible .arrow-link-icon {
+    transform: translate(2px, -2px);
 }
 
 .sr-only {

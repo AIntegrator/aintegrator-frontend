@@ -1,6 +1,9 @@
-<div class="flex flex-col gap-[48px] md:gap-[96px] w-full max-w-[1144px] items-start self-stretch mx-auto">
-    <section class="flex flex-col gap-[24px] items-start w-full">
-        <h3 class="text-black font-medium text-[24px] md:text-[32px] font-sans leading-normal m-0">Executive Summary
+<div
+    class="flex flex-col gap-[48px] md:gap-[96px] lg:gap-[148px] w-full max-w-[1144px] items-start self-stretch mx-auto">
+    <section
+        class="flex flex-col gap-[24px] items-start w-full lg:grid lg:grid-cols-[minmax(0,calc(50%-48px))_minmax(0,50%)] lg:gap-x-24 lg:gap-y-[24px]">
+        <h3 class="text-black font-medium text-[24px] md:text-[32px] font-sans leading-normal m-0 lg:col-start-1">
+            Executive Summary
         </h3>
         @if (caseStudyData?.solution) {
         <p class="text-text-secondary font-normal text-[16px] md:text-[24px] font-sans leading-normal m-0">
@@ -32,113 +35,105 @@
             </h3>
             }
         </div>
-        <p class="text-text-secondary font-normal text-[16px] md:text-[24px] font-sans leading-normal m-0">
+        <p class="text-text-secondary font-normal text-[16px] md:text-xl font-sans leading-normal m-0 lg:col-start-2">
             Public sector entities like Kanton Wallis often face a unique challenge, the need to modernize while
             maintaining stability of proven, rigid administrative processes. Prior to the intervention:
         </p>
-        <div class="flex flex-col gap-[24px] w-full max-w-[762px] mt-[8px]">
-            <div class="flex items-center gap-[12px] md:gap-[20px]">
-                <img src="assets/icons/Tick.png" alt="tick"
-                    class="w-[24px] h-[24px] md:w-[36px] md:h-[36px] aspect-square object-contain">
-                <span class="text-black font-normal text-[16px] md:text-[24px] font-sans leading-normal">Increase the
+        <div class="flex flex-col gap-[24px] w-full max-w-[762px] mt-[8px] lg:col-start-2">
+            <div class="grid grid-cols-[20px_1fr] gap-x-[12px] md:gap-x-[20px] items-start">
+                <lucide-icon [img]="checkIcon" [size]="20"
+                    class="w-[20px] h-[20px] text-black self-start pt-1"></lucide-icon>
+                <span class="text-black font-normal text-[16px] md:text-xl font-sans leading-normal">Increase the
                     speed of internal
                     processes.</span>
             </div>
-            <div class="flex items-center gap-[12px] md:gap-[20px]">
-                <img src="assets/icons/Tick.png" alt="tick"
-                    class="w-[24px] h-[24px] md:w-[36px] md:h-[36px] aspect-square object-contain">
-                <span class="text-black font-normal text-[16px] md:text-[24px] font-sans leading-normal">Substantially
+            <div class="grid grid-cols-[20px_1fr] gap-x-[12px] md:gap-x-[20px] items-start">
+                <lucide-icon [img]="checkIcon" [size]="20"
+                    class="w-[20px] h-[20px] text-black self-start pt-1"></lucide-icon>
+                <span class="text-black font-normal text-[16px] md:text-xl font-sans leading-normal">Substantially
                     reduce
                     operational overhead.</span>
             </div>
-            <div class="flex items-center gap-[12px] md:gap-[20px]">
-                <img src="assets/icons/Tick.png" alt="tick"
-                    class="w-[24px] h-[24px] md:w-[36px] md:h-[36px] aspect-square object-contain">
-                <span class="text-black font-normal text-[16px] md:text-[24px] font-sans leading-normal">Ensure the
+            <div class="grid grid-cols-[20px_1fr] gap-x-[12px] md:gap-x-[20px] items-start">
+                <lucide-icon [img]="checkIcon" [size]="20"
+                    class="w-[20px] h-[20px] text-black self-start pt-1"></lucide-icon>
+                <span class="text-black font-normal text-[16px] md:text-xl font-sans leading-normal">Ensure the
                     technology adapted
                     to the people, rather than forcing the people to adapt to the technology.</span>
             </div>
         </div>
     </section>
 
-    <section class="flex flex-col gap-[24px] items-start w-full">
-        <div class="flex flex-col gap-0 items-start">
-            <span
-                class="text-text-secondary font-medium text-[20px] md:text-[24px] font-sans leading-normal">Action</span>
+    <section
+        class="flex flex-col gap-[24px] items-start w-full lg:grid lg:grid-cols-[minmax(0,calc(50%-48px))_minmax(0,50%)] lg:gap-x-24 lg:gap-y-[24px]">
+        <div class="flex flex-col gap-0 items-start lg:col-start-1">
             <h3 class="text-black font-medium text-[24px] md:text-[32px] font-sans leading-normal m-0">Bespoke AI
                 Integration</h3>
         </div>
-        <p class="text-text-secondary font-normal text-[16px] md:text-[24px] font-sans leading-normal m-0">
+        <p class="text-text-secondary font-normal text-[16px] md:text-xl font-sans leading-normal m-0 lg:col-start-2">
             Aintegrator moved away from "off-the-shelf" software, opting for a consultancy-first implementation
         </p>
-        <div class="flex flex-col gap-[24px] w-full mt-[8px]">
-            <div class="flex flex-col items-start w-full max-w-[1085px]">
-                <div class="flex items-center gap-[12px] md:gap-[20px]">
-                    <img src="assets/icons/Tick.png" alt="tick"
-                        class="w-[24px] h-[24px] md:w-[36px] md:h-[36px] aspect-square object-contain">
-                    <span class="text-black font-medium text-[16px] md:text-[24px] font-sans leading-normal">Empathetic
+        <div class="flex flex-col gap-[24px] w-full mt-[8px] lg:col-start-2">
+            <div class="grid grid-cols-[20px_1fr] gap-x-[12px] md:gap-x-[20px] items-start w-full max-w-[1085px]">
+                <lucide-icon [img]="checkIcon" [size]="20"
+                    class="w-[20px] h-[20px] text-black self-start pt-1"></lucide-icon>
+                <div class="flex flex-col items-start gap-[8px]">
+                    <span class="text-black font-medium text-[16px] md:text-xl font-sans leading-normal">Empathetic
                         Analysis</span>
+                    <p class="text-text-secondary font-normal text-[16px] md:text-xl font-sans leading-normal m-0">
+                        The team spent time understanding the specific nuances of the Canton’s communication and
+                        administrative needs.
+                    </p>
                 </div>
-                <p
-                    class="text-text-secondary font-normal text-[16px] md:text-[24px] font-sans leading-normal ml-[36px] md:ml-[56px] m-0">
-                    The team spent time understanding the specific nuances of the Canton’s communication and
-                    administrative needs.
-                </p>
             </div>
-            <div class="flex flex-col items-start w-full max-w-[1085px]">
-                <div class="flex items-center gap-[12px] md:gap-[20px]">
-                    <img src="assets/icons/Tick.png" alt="tick"
-                        class="w-[24px] h-[24px] md:w-[36px] md:h-[36px] aspect-square object-contain">
-                    <span class="text-black font-medium text-[16px] md:text-[24px] font-sans leading-normal">Deployment
+            <div class="grid grid-cols-[20px_1fr] gap-x-[12px] md:gap-x-[20px] items-start w-full max-w-[1085px]">
+                <lucide-icon [img]="checkIcon" [size]="20"
+                    class="w-[20px] h-[20px] text-black self-start pt-1"></lucide-icon>
+                <div class="flex flex-col items-start gap-[8px]">
+                    <span class="text-black font-medium text-[16px] md:text-xl font-sans leading-normal">Deployment
                         of "State
                         Agents"</span>
+                    <p class="text-text-secondary font-normal text-[16px] md:text-xl font-sans leading-normal m-0">
+                        We developed specialized AI agents that function within the Canton’s existing software
+                        environment.
+                        These agents handle repetitive data processing and communication tasks autonomously.
+                    </p>
                 </div>
-                <p
-                    class="text-text-secondary font-normal text-[16px] md:text-[24px] font-sans leading-normal ml-[36px] md:ml-[56px] m-0">
-                    We developed specialized AI agents that function within the Canton’s existing software environment.
-                    These agents handle repetitive data processing and communication tasks autonomously.
-                </p>
             </div>
-            <div class="flex flex-col items-start w-full max-w-[1144px]">
-                <div class="flex items-center gap-[12px] md:gap-[20px]">
-                    <img src="assets/icons/Tick.png" alt="tick"
-                        class="w-[24px] h-[24px] md:w-[36px] md:h-[36px] aspect-square object-contain">
-                    <span class="text-black font-medium text-[16px] md:text-[24px] font-sans leading-normal">Seamless
+            <div class="grid grid-cols-[20px_1fr] gap-x-[12px] md:gap-x-[20px] items-start w-full max-w-[1144px]">
+                <lucide-icon [img]="checkIcon" [size]="20"
+                    class="w-[20px] h-[20px] text-black self-start pt-1"></lucide-icon>
+                <div class="flex flex-col items-start gap-[8px]">
+                    <span class="text-black font-medium text-[16px] md:text-xl font-sans leading-normal">Seamless
                         Weaving</span>
+                    <p class="text-text-secondary font-normal text-[16px] md:text-xl font-sans leading-normal m-0">
+                        By focusing on "harmonious integration," the agents were designed to work alongside employees,
+                        acting as a force multiplier rather than a replacement for human oversight.
+                    </p>
                 </div>
-                <p
-                    class="text-text-secondary font-normal text-[16px] md:text-[24px] font-sans leading-normal ml-[36px] md:ml-[56px] m-0">
-                    By focusing on "harmonious integration," the agents were designed to work alongside employees,
-                    acting as a force multiplier rather than a replacement for human oversight.
-                </p>
             </div>
         </div>
     </section>
 
-    <app-testimonial-section alignment="left" class="w-full" [fullWidth]="true" sectionSpacingClass=""
+    <app-testimonial-section alignment="center" class="w-full" [fullWidth]="true" sectionSpacingClass=""
         quote="Endlich jemand, der nicht nur Technik verkauft, sondern unsere Arbeit ernst nimmt. AIntegrator hat uns zugehört und dann passende Lösungen entwickelt."
-        author="Danièle Bovier" role="Kommunikation, Kanton Wallis" avatarUrl="assets/images/image 16.png">
+        author="Dominique Bréa" role="CEO, Maffioli & Cie" avatarUrl="assets/images/dominique_brea_portrait.png"
+        mobileMaxWidth="max-sm:max-w-[354px]" mobileGap="gap-[32px]" mobileAuthorAlignment="items-start text-left">
     </app-testimonial-section>
 
-    <section class="flex flex-col gap-[24px] items-start w-full">
-        <div class="flex flex-col gap-0 items-start">
-            <span
-                class="text-text-secondary font-medium text-[20px] md:text-[24px] font-sans leading-normal">Results</span>
+    <section
+        class="flex flex-col gap-[24px] items-start w-full lg:grid lg:grid-cols-[minmax(0,calc(50%-48px))_minmax(0,50%)] lg:gap-x-24 lg:gap-y-[24px]">
+        <div class="flex flex-col gap-0 items-start lg:col-start-1">
             <h3 class="text-black font-medium text-[24px] md:text-[32px] font-sans leading-normal m-0">A New Standard
                 for Public
                 Service</h3>
         </div>
-        <p class="text-text-secondary font-normal text-[16px] md:text-[24px] font-sans leading-normal m-0">
-            The collaboration transformed the Canton’s operational capacity. As noted by Danièle Bovier, the success was
+        <p class="text-text-secondary font-normal text-[16px] md:text-xl font-sans leading-normal m-0 lg:col-start-2">
+            The collaboration transformed the Canton’s operational capacity. As noted by Dominique Bréa, the success was
             rooted in AIintegrator’s ability to <span class="text-black font-medium">"listen first"</span> and build
             solutions that respected the existing work culture. This human-centric approach led to rapid adoption and
             immediate, quantifiable gains in productivity.
-        </p>
-    </section>
 
-    <section class="flex flex-col gap-[24px] items-start w-full">
-        <h3 class="text-black font-medium text-[24px] md:text-[32px] font-sans leading-normal m-0">Impact</h3>
-        <p class="text-text-secondary font-normal text-[16px] md:text-[24px] font-sans leading-normal m-0">
             At Aintegrator, our philosophy is rooted in measurable impact. The following metrics represent the verified
             outcomes for Kanton Wallis:
         </p>

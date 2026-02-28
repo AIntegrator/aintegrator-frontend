@@ -18,6 +18,6 @@ export interface CaseStudyStat {
 })
 export class CaseStudyStatsComponent {
     readonly stats = input.required<CaseStudyStat[]>();
-    readonly backgroundClass = input<string>('bg-[#FAFAFA]');
+    readonly backgroundClass = input<string>('bg-ai-gray-100');
     readonly size = input<'default' | 'small'>('default');
 }

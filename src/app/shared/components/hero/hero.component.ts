@@ -16,6 +16,7 @@ export class HeroComponent {
     @Input() backgroundImage: string = 'assets/images/Group 3007.png';
     @Input() showButton: boolean = false;
     @Input() buttonLabel: string = '';
+    @Input() buttonLink: string = '/contact';
     @Input() titleMaxWidthClass: string = 'md:max-w-[635px]';
     @Input() showMobileHeroDots: boolean = false;
     @Input() mobileMarginClass: string = 'mt-[77px]';

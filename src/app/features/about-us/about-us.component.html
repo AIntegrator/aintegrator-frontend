@@ -1,4 +1,4 @@
-<div class="about-us-page">
+<div class="about-us-page flex flex-col">
 
     @if (aboutData(); as data) {
     <app-about-hero [title]="data.heroTitle | localizedText" [description]="data.heroDescription || ''"

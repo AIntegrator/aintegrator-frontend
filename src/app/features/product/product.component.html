@@ -1,4 +1,4 @@
-<main>
+<main class="flex flex-col">
     @if (productData(); as data) {
     <app-hero [title]="data.heroTitle | localizedText" [description]="data.heroDescription | localizedText"
         [showButton]="data.heroShowButton ?? true" [buttonLabel]="data.heroButtonLabel | localizedText"
@@ -7,9 +7,10 @@
     } @else {
     <app-hero title="Sicherer AI-Vorsprung für Schweizer Unternehmen"
         description="Maximale Produktivität bei 100% Datensouveränität. Chat und Meeting-Intelligence – Sofort einsatzbereit."
-        [showButton]="true" buttonLabel="LiaSuite testen" titleMaxWidthClass="md:max-w-[865px]"
-        [showMobileHeroDots]="true" mobileMarginClass="mt-[77px] mb-[125px] xl:mt-[224px] xl:mb-0"
-        mobileDotsClass="top-[40px] left-0 w-[400px]">
+        [showButton]="true" buttonLabel="LiaSuite testen"
+        buttonLink="https://aintegrator.notion.site/314a7ccd21c380549a39dec535c388a4"
+        titleMaxWidthClass="md:max-w-[865px]" [showMobileHeroDots]="true"
+        mobileMarginClass="mt-[125px] mb-[125px] xl:mt-[224px] xl:mb-0" mobileDotsClass="top-[40px] left-0 w-[400px]">
     </app-hero>
     }
 
@@ -108,10 +109,13 @@
         [secondaryBtnLink]="data.finalCta?.secondaryBtnLink || ''"
         [mobilePrimaryBtnText]="getLocalizedText(data.finalCta?.mobilePrimaryBtnText)"
         [descriptionMaxWidthClass]="'max-w-[323px] md:max-w-[528px]'"
-        [decorationPositionClass]="'top-[158px] md:top-[120px]'" [secondaryBtnIcon]="'assets/icons/Frame.png'"
+        [decorationPositionClass]="'top-[158px] md:top-[120px]'" [secondaryBtnText]="'Termin vereinbaren'"
+        [secondaryBtnLink]="'/contact'" [secondaryBtnIcon]="'assets/icons/Frame.png'"
+        [primaryBtnText]="'LiaSuite testen'"
+        [primaryBtnLink]="'https://aintegrator.notion.site/314a7ccd21c380549a39dec535c388a4'"
         [primaryBtnIcon]="'assets/icons/Frame.svg'" [showMobileDecoration]="true"
-        [buttonContainerClass]="'flex-col md:flex-row'" [titleDescriptionGapClass]="'mb-[19px] md:mb-0'"
-        [descriptionButtonsGapClass]="'mb-[23px] md:mb-0'"
+        [mobilePrimaryBtnText]="'Jetzt starten'" [buttonContainerClass]="'flex-col md:flex-row'"
+        [titleDescriptionGapClass]="'mb-[19px] md:mb-0'" [descriptionButtonsGapClass]="'mb-[23px] md:mb-0'"
         [mobileDecorationClass]="'w-[195px] h-auto top-[248px] left-[-35px] md:w-[260px] md:top-[185px] md:left-[-25px] lg:top-[185px] opacity-100'"
         class="block section-spacing">
     </app-final-cta>
