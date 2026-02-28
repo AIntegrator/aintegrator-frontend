@@ -4,19 +4,25 @@
 
     <app-founders-grid-section [founders]="founders"></app-founders-grid-section>
 
-    <app-principles-mv-section [isPrinciplesDesktop]="false">
-        <div mission>
-            <p>Außergewöhnliche Produkte entstehen durch harte Arbeit – oft an unsichtbaren, wenig glamourösen
-                Themen.<br>Wir handeln mit Klarheit und Dringlichkeit und konzentrieren uns auf das, was wirklich zählt.
-            </p><br>
-            <p>Wir bleiben bodenständig und tun, was funktioniert. Gute Ideen zählen – unabhängig davon, woher sie
-                kommen.</p>
-        </div>
-        <div vision>
-            <p>Unsere Technologie soll einen echten, positiven Unterschied im Alltag der Menschen machen.</p>
-            <p>Nicht durch Versprechen, sondern durch Wirkung.</p>
-        </div>
-    </app-principles-mv-section>
+    <section class="site-container w-full max-w-[1144px] mx-auto mb-16 lg:mb-32 flex flex-col gap-[48px] md:gap-[96px]">
+        <section class="flex flex-col gap-[24px] items-start w-full lg:grid lg:grid-cols-[minmax(0,calc(50%-48px))_minmax(0,50%)] lg:gap-x-24 lg:gap-y-[24px]">
+            <h3 class="text-black font-medium text-[24px] md:text-[32px] font-sans leading-normal m-0 lg:col-start-1">
+                Mission
+            </h3>
+            <p class="text-text-secondary font-normal text-[16px] md:text-xl font-sans leading-normal m-0 lg:col-start-2">
+                Wir unterstützen etablierte Institutionen in den Bereichen Gesundheitswesen, Finanzen und Verwaltung dabei, die Komplexität von AI zu meistern. Unser Fokus liegt auf der pragmatischen Automatisierung von Geschäftsprozessen: Wir analysieren bestehende Abläufe und überführen sie in effiziente, automatisierte Systeme. So erzielen wir nachhaltige Kosteneinsparungen und eine messbare Steigerung der Qualität.
+            </p>
+        </section>
+
+        <section class="flex flex-col gap-[24px] items-start w-full lg:grid lg:grid-cols-[minmax(0,calc(50%-48px))_minmax(0,50%)] lg:gap-x-24 lg:gap-y-[24px]">
+            <h3 class="text-black font-medium text-[24px] md:text-[32px] font-sans leading-normal m-0 lg:col-start-1">
+                Philosophie
+            </h3>
+            <p class="text-text-secondary font-normal text-[16px] md:text-xl font-sans leading-normal m-0 lg:col-start-2">
+                Unsere Zusammenarbeit basiert auf Bodenständigkeit und einem fundierten Verständnis für unsere Kunden. Wir verstehen Softwareentwicklung als Handwerk, bei dem Präzision und die Sorgfalt im Detail die Grundlage für Lösungen bilden, die Bestand haben. Dabei agieren wir pragmatisch: Anstatt abstrakter Konzepte realisieren wir Automatisierungen, die dort ansetzen, wo sie unmittelbar Nutzen stiften.
+            </p>
+        </section>
+    </section>
 
     <app-final-cta [title]="'Lassen Sie uns ins Gespräch kommen'"
         [description]="'Investieren Sie 30 Minuten in die Zukunft Ihres Unternehmens: Wir zeigen Ihnen konkrete Erfolgsbeispiele und wie Ihre AI-Transformation reibungslos gelingt.'"

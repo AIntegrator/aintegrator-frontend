@@ -2,7 +2,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AboutHeroComponent } from './components/about-hero/about-hero.component';
 import { FoundersGridSectionComponent } from './components/founders-grid-section/founders-grid-section.component';
-import { PrinciplesMvSectionComponent } from '../../shared/components/principles-mv-section/principles-mv-section.component';
 import { FinalCtaComponent } from '../../shared/components/final-cta/final-cta.component';
 
 @Component({
@@ -12,7 +11,6 @@ import { FinalCtaComponent } from '../../shared/components/final-cta/final-cta.c
         CommonModule,
         AboutHeroComponent,
         FoundersGridSectionComponent,
-        PrinciplesMvSectionComponent,
         FinalCtaComponent
     ],
     templateUrl: './about-us.component.html',
