@@ -8,12 +8,10 @@
             <div class="w-full h-full rounded-[12px] bg-[#FAFAFA] p-[32px] flex flex-col box-border overflow-hidden">
                 <div class="flex flex-col">
                     <div class="flex flex-col gap-[24px] md:min-h-[110px]">
-                        <div class="flex items-baseline">
-                            <span
-                                class="text-[#171717] font-neue-haas font-semibold text-[24px] leading-[150%] tracking-[-0.02em]">{{
-                                plans[0]?.namePrefix || '' }}</span><span
-                                class="text-[#171717] font-['Lora',serif] font-medium text-[24px] leading-[150%]">{{
-                                plans[0]?.nameSuffix || '' }}</span>
+                        <div class="flex items-center">
+                            <img src="assets/images/products/lia-transcript.svg"
+                                alt="{{ (plans[0]?.namePrefix || '') + ' ' + (plans[0]?.nameSuffix || '') }}"
+                                class="h-[36px] lg:h-[56px] object-contain" />
                         </div>
                         <p
                             class="text-[#636970] font-['Poppins'] font-normal text-[14px] md:text-[16px] leading-[150%]">
@@ -68,11 +66,9 @@
                     <div class="flex flex-col gap-[24px] md:min-h-[110px]">
                         <div class="flex items-center justify-between">
                             <div class="flex items-baseline">
-                                <span
-                                    class="text-[#171717] font-neue-haas font-semibold text-[24px] leading-[150%] tracking-[-0.02em]">{{
-                                    plans[1]?.namePrefix || '' }}</span><span
-                                    class="text-[#171717] font-['Lora',serif] font-medium text-[24px] leading-[150%]">{{
-                                    plans[1]?.nameSuffix || '' }}</span>
+                                <img src="assets/images/products/lia-chat.svg"
+                                    alt="{{ (plans[1]?.namePrefix || '') + ' ' + (plans[1]?.nameSuffix || '') }}"
+                                    class="h-[36px] lg:h-[56px] object-contain" />
                             </div>
                             <div
                                 class="flex items-center justify-center bg-[#FDF2F1] rounded-[36px] px-[12px] py-[6px] h-[28px] box-border">
@@ -130,12 +126,10 @@
             <div class="w-full h-full rounded-[12px] bg-[#FAFAFA] p-[32px] flex flex-col box-border overflow-hidden">
                 <div class="flex flex-col">
                     <div class="flex flex-col gap-[24px] md:min-h-[110px]">
-                        <div class="flex items-baseline">
-                            <span
-                                class="text-[#171717] font-neue-haas font-semibold text-[24px] leading-[150%] tracking-[-0.02em]">{{
-                                plans[2]?.namePrefix || '' }}</span><span
-                                class="text-[#171717] font-['Lora',serif] font-medium text-[24px] leading-[150%]">{{
-                                plans[2]?.nameSuffix || '' }}</span>
+                        <div class="flex items-center">
+                            <img src="assets/images/products/lia-suite.svg"
+                                alt="{{ (plans[2]?.namePrefix || '') + ' ' + (plans[2]?.nameSuffix || '') }}"
+                                class="h-[36px] lg:h-[56px] object-contain" />
                         </div>
                         <p class="text-[#636970] font-['Poppins'] font-normal text-[16px] leading-[150%]">
                             {{ (plans[2]?.description || '') | localizedText }}

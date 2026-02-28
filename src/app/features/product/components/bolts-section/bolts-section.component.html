@@ -2,9 +2,10 @@
     <div class="flex flex-col lg:flex-row items-center justify-between gap-[40px] lg:gap-0 self-stretch">
 
         <div class="w-full lg:flex-1 lg:max-w-[445px] flex flex-col items-center lg:items-start gap-[24px]">
-            <h2 class="text-[#000] font-['Poppins',_sans-serif] text-[24px] lg:text-[32px] font-medium leading-normal">
-                {{ title | localizedText }}
-            </h2>
+            <div class="flex items-center justify-center lg:justify-start">
+                <img src="assets/images/products/lia-suite.svg" [attr.alt]="title || 'LiaSuite'"
+                    class="h-[24px] lg:h-[32px] object-contain" />
+            </div>
             <p
                 class="text-[#636970] text-center lg:text-left font-['Poppins',_sans-serif] text-[14px] lg:text-[16px] font-normal leading-normal max-w-[323px] lg:max-w-none">
                 {{ description | localizedText }}
