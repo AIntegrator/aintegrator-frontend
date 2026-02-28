@@ -14,4 +14,5 @@ export class InitiativeCtaComponent {
     @Input() initiativeCTATitle: LocalizedText | undefined;
     @Input() initiativeCTADescription: LocalizedText | undefined;
     @Input() initiativeEmail: string | undefined;
+    @Input() initiativeText: LocalizedText | string | undefined;
 }

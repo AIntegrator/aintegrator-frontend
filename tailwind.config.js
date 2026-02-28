@@ -84,12 +84,15 @@ module.exports = {
 
                 border: '#dadee4',
                 'border-light': '#f3f4f6',
+                'brand-red-tint': '#FDF2F1',
+                'text-body-color': '#303030',
             },
             maxWidth: {
                 'site': '1144px',
             },
             screens: {
                 'xs': '375px',
+                'nav': '1100px',
                 '3xl': '1920px',
             },
             keyframes: {

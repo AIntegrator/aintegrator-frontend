@@ -28,7 +28,7 @@
             </a>
 
             <a *ngIf="getPrimaryBtnText()" [routerLink]="primaryBtnLink"
-                class="flex items-center text-[#D32F2F] font-sans text-base md:text-xl font-medium leading-normal no-underline arrow-link">
+                class="flex items-center text-cta font-sans text-base md:text-xl font-medium leading-normal no-underline arrow-link">
                 <span [class.hidden]="mobilePrimaryBtnText" [class.xl:block]="mobilePrimaryBtnText">{{
                     getPrimaryBtnText()
                     }}</span>
@@ -38,7 +38,7 @@
             </a>
             <a *ngIf="getPrimaryBtnText() && primaryBtnLink.startsWith('http')" [href]="primaryBtnLink" target="_blank"
                 rel="noopener noreferrer"
-                class="flex items-center text-[#D32F2F] font-sans text-base md:text-xl font-medium leading-normal no-underline cursor-pointer arrow-link">
+                class="flex items-center text-cta font-sans text-base md:text-xl font-medium leading-normal no-underline cursor-pointer arrow-link">
                 <span [class.hidden]="mobilePrimaryBtnText" [class.xl:block]="mobilePrimaryBtnText">{{
                     getPrimaryBtnText()
                     }}</span>

@@ -8,11 +8,13 @@
     <app-open-roles [roles]="roles" [openRolesTitle]="careersPageData()?.openRolesTitle"
         [departmentFilterLabel]="careersPageData()?.departmentFilterLabel"
         [locationFilterLabel]="careersPageData()?.locationFilterLabel"
-        [applyButtonLabel]="careersPageData()?.applyButtonLabel">
+        [applyButtonLabel]="careersPageData()?.applyButtonLabel" [initiativeText]="careersPageData()?.initiativeText"
+        [noRolesText]="careersPageData()?.noRolesText">
     </app-open-roles>
 
     <app-initiative-cta [initiativeCTATitle]="careersPageData()?.initiativeCTATitle"
         [initiativeCTADescription]="careersPageData()?.initiativeCTADescription"
-        [initiativeEmail]="careersPageData()?.initiativeEmail" class="block section-spacing">
+        [initiativeEmail]="careersPageData()?.initiativeEmail" [initiativeText]="careersPageData()?.initiativeText"
+        class="block section-spacing">
     </app-initiative-cta>
 </div>

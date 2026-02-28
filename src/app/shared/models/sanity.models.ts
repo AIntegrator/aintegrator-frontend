@@ -281,6 +281,8 @@ export interface CareersPage {
   initiativeCTATitle?: LocalizedText;
   initiativeCTADescription?: LocalizedText;
   initiativeEmail?: string;
+  initiativeText?: LocalizedText;
+  noRolesText?: LocalizedText;
 }
 
 // Product Page
