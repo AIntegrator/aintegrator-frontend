@@ -1,7 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CareersHeroComponent } from './components/careers-hero/careers-hero.component';
-import { PrinciplesMvSectionComponent } from '../../shared/components/principles-mv-section/principles-mv-section.component';
 import { OpenRolesComponent } from './components/open-roles/open-roles.component';
 
 @Component({
@@ -10,7 +9,6 @@ import { OpenRolesComponent } from './components/open-roles/open-roles.component
     imports: [
         CommonModule,
         CareersHeroComponent,
-        PrinciplesMvSectionComponent,
         OpenRolesComponent
     ],
     templateUrl: './careers.component.html',
@@ -20,34 +18,11 @@ import { OpenRolesComponent } from './components/open-roles/open-roles.component
 export class CareersComponent {
     roles = [
         {
-            title: 'Intern Software Engineer',
+            title: 'Software Engineer – Intern',
             department: 'Engineering',
             location: 'Remote',
-            link: '#'
+            link: 'https://aintegrator.notion.site/Software-Engineer-Intern-315a7ccd21c380c095f7dfadeac4e6e4?source=copy_link'
         },
-        {
-            title: 'QA Engineer',
-            department: 'Engineering',
-            location: 'Remote',
-            link: '#'
-        },
-        {
-            title: 'Frontend Engineer',
-            department: 'Engineering',
-            location: 'Remote',
-            link: '#'
-        },
-        {
-            title: 'Backend Engineer',
-            department: 'Engineering',
-            location: 'Remote',
-            link: '#'
-        },
-        {
-            title: 'AI/ML Engineer',
-            department: 'Engineering',
-            location: 'Remote',
-            link: '#'
-        }
+    
     ];
 }
