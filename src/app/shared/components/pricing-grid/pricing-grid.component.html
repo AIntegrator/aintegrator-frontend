@@ -1,13 +1,20 @@
 <section class="w-full section-spacing flex flex-col items-center">
     <div class="site-container flex flex-col items-center gap-[60px] lg:gap-[80px] max-w-[1144px]">
-        <h2 class="text-black text-center font-['Poppins'] font-medium text-3xl md:text-5xl xl:text-5xl leading-normal">
-            Preise & Pläne
-        </h2>
+        <div class="flex flex-col items-center gap-[24px]">
+            <h2 class="text-black text-center font-['Poppins'] font-medium text-3xl md:text-5xl xl:text-5xl leading-normal">
+                LiaSuite Gratis testen
+            </h2>
+            <p class="text-ai-gray-800 font-['Poppins'] font-normal text-base md:text-xl">Testen Sie LiaSuite 14 Tage kostenlos. In wenigen Klicks einsatzbereit</p>
+    
+        </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-[24px] w-full items-stretch">
             <div class="w-full h-full rounded-[12px] border border-ai-gray-650 p-8 md:p-10 xl:p-12 grid grid-rows-[40px_minmax(0,6em)_minmax(0,72px)_1fr_auto] gap-y-6 box-border overflow-hidden order-2">
-                <img src="assets/images/transcript_logo.svg" alt="LiaTranscript"
-                    class="h-10 w-auto object-contain self-start" />
+                <div class="flex items-center gap-[8px] md:gap-[16px] xl:gap-[16px]">
+                    <img src="assets/images/liatranscript_logo.svg" alt="LiaTranscript"
+                    class="h-8 w-auto object-contain" />
+                </div>
+            
                 <p
                     class="text-ai-gray-800 font-['Poppins'] font-normal text-base md:text-xl leading-[150%]">
                     Besprechungen transkribiert und zusammengefasst
@@ -31,13 +38,6 @@
                             Server</span>
                     </div>
                     <div class="flex items-center gap-[12px]">
-                        <lucide-icon [img]="circleCheckIcon" [size]="18"
-                            class="text-ai-gray-850 flex-shrink-0"></lucide-icon>
-                        <span
-                            class="text-ai-gray-850 font-['Poppins'] font-normal text-[16px] leading-normal">Enterprise-grade
-                            Sicherheit</span>
-                    </div>
-                    <div class="flex items-center gap-[12px]">
                         <img src="assets/icons/circletick.png" alt=""
                             class="w-[17.967px] h-[17.967px] object-contain" />
                         <span
@@ -56,8 +56,10 @@
             <div
                 class="w-full h-full rounded-[12px] border border-ai-gray-650 p-8 md:p-10 xl:p-12 grid grid-rows-[40px_minmax(0,6em)_minmax(0,72px)_1fr_auto] gap-y-6 box-border overflow-hidden relative order-1">
                 <div class="flex items-center justify-between h-10">
-                    <img src="assets/images/chat_logo.svg" alt="LiaChat"
-                        class="h-10 w-auto object-contain self-start" />
+                    <div class="flex items-end">
+                        <img src="assets/images/liachat_logo.svg" alt="LiaChat"
+                            class="h-10 w-auto object-contain" />
+                    </div>
                     <div
                         class="flex items-center justify-center bg-[#FDF2F1] rounded-[36px] px-[12px] py-[6px] h-[28px] box-border">
                         <span
@@ -86,15 +88,8 @@
                             Server</span>
                     </div>
                     <div class="flex items-center gap-[12px]">
-                        <img src="assets/icons/circletick.png" alt=""
-                            class="w-[17.967px] h-[17.967px] object-contain" />
-                        <span
-                            class="text-ai-gray-850 font-['Poppins'] font-normal text-[16px] leading-normal">Enterprise-grade
-                            Sicherheit</span>
-                    </div>
-                    <div class="flex items-center gap-[12px]">
-                        <img src="assets/icons/circletick.png" alt=""
-                            class="w-[17.967px] h-[17.967px] object-contain" />
+                        <lucide-icon [img]="circleCheckIcon" [size]="18"
+                            class="text-ai-gray-850 flex-shrink-0"></lucide-icon>
                         <span
                             class="text-ai-gray-850 font-['Poppins'] font-normal text-[16px] leading-normal">Unlimitierte
                             Chats</span>
@@ -109,8 +104,10 @@
             </div>
 
             <div class="w-full h-full rounded-[12px] border border-black p-8 md:p-10 xl:p-12 grid grid-rows-[40px_minmax(0,6em)_minmax(0,72px)_1fr_auto] gap-y-6 box-border overflow-hidden order-3">
-                <img src="assets/images/liasuite_logo.svg" alt="LiaSuite"
-                    class="h-10 w-auto object-contain self-start" />
+                <div class="flex items-end">
+                    <img src="assets/images/liasuite_logo.svg" alt="LiaSuite"
+                        class="h4 w-auto object-contain self-start" />
+                </div>
                 <p class="text-ai-gray-800 font-['Poppins'] font-normal text-base md:text-xl leading-[150%]">
                     Alle AI-Tools, welche Ihr Business braucht
                 </p>
