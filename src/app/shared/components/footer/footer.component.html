@@ -92,18 +92,15 @@
                 getLocalizedText(settings()?.footerCopyright)
                 }}</span>
 
-            <div class="flex flex-row justify-between items-center w-full gap-4">
-                <p class="font-sans text-[14px] md:text-[16px] font-normal text-ai-gray-850 leading-[26px]">
-                    © {{ currentYear }} AIntegrator
-                </p>
-                <div class="flex gap-[16px] md:gap-9">
-                    @for (link of settings()?.footerLegalLinks || []; track link.url) {
-                    <a [routerLink]="link.url"
-                        class="font-sans text-[14px] md:text-[16px] font-normal text-text-muted leading-[26px] cursor-pointer transition-colors duration-200 hover:text-cta">{{
-                        getLocalizedText(link.label)
-                        }}</a>
-                    }
-                </div>
+            <div class="flex gap-[16px] md:gap-9">
+                @for (link of settings()?.footerLegalLinks || []; track link.url) {
+                <a [routerLink]="link.url"
+                    class="font-sans text-[14px] md:text-[16px] font-normal text-text-muted leading-[26px] cursor-pointer transition-colors duration-200 hover:text-cta">{{
+                    getLocalizedText(link.label)
+                    }}</a>
+                }
             </div>
         </div>
+
+    </div>
 </footer>
