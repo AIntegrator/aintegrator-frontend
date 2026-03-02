@@ -21,17 +21,6 @@ export class FinalCtaComponent {
     @Input() secondaryBtnText: string = '';
     @Input() secondaryBtnLink: string = '';
     @Input() secondaryBtnIcon: string = '';
-
-    @Input() showDecoration: boolean = true;
-    @Input() descriptionMaxWidthClass: string = 'max-w-[323px] md:max-w-[520px] xl:max-w-none xl:w-[694px]';
-    @Input() decorationPositionClass: string = 'top-[258px]';
     @Input() buttonContainerClass: string = 'flex-col sm:flex-row';
 
-    @Input() showMobileDecoration: boolean = false;
-    @Input() mobileDecoration: string = 'assets/images/bird_simulation.png';
-    @Input() mobileDecorationClass: string = '';
-
-    @Input() titleDescriptionGapClass: string = 'mb-[24px] md:mb-0';
-    @Input() descriptionButtonsGapClass: string = 'mb-[33px] md:mb-0';
-    @Input() buttonsGapClass: string = 'gap-[26px] md:gap-[24px]';
 }
