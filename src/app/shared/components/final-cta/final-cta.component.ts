@@ -14,7 +14,7 @@ export class FinalCtaComponent {
     @Input() description: string = 'Investieren Sie 30 Minuten in die Zukunft Ihres Unternehmens: Wir zeigen Ihnen konkrete Erfolgsbeispiele und wie Ihre AI-Transformation reibungslos gelingt.';
 
     @Input() primaryBtnText: string = 'Termin vereinbaren';
-    @Input() primaryBtnLink: string = '/contact';
+    @Input() primaryBtnLink: string = 'https://calendar.app.google/fzUMskhjkfUh2Qd47';
     @Input() primaryBtnIcon: string = 'assets/icons/Frame.svg';
     @Input() mobilePrimaryBtnText: string = '';
 
