@@ -5,8 +5,9 @@
         <div
             class="w-full lg:flex-1 lg:max-w-[445px] flex flex-col items-center lg:items-start gap-[24px] order-1 lg:order-1">
 
-            <div class="flex py-2 xl:py-3 px-4 xl:px-6 justify-center items-center rounded-full border border-cta">
-                <span class="text-cta font-sans text-sm xl:text-md font-medium leading-none">{{
+            <div
+                class="flex py-2 px-4 justify-center items-center rounded-[27.059px] border-[1.353px] border-solid border-[#ED2915]">
+                <span class="text-[#ED2915] font-['Poppins',_sans-serif] text-sm font-medium leading-[100%]">{{
                     badgeLabel | localizedText }}</span>
             </div>
 
@@ -56,15 +57,14 @@
 
         <div class="hidden lg:flex lg:w-[393px] xl:h-[390px] bg-white rounded-[12px] p-8 xl:p-12 flex-col order-2">
 
-            <div class="flex items-center justify-between pb-[16px] border-b border-ai-gray-650">
+            <div class="flex items-center justify-between">
                 <div class="flex items-center gap-[12px]">
                     <img src="assets/icons/checklist.png" alt="" class="w-[24px] h-[24px] object-contain">
 
                     <span
-                        class="text-ai-gray-850 font-['Poppins',_sans-serif] text-[20px] font-medium leading-normal">{{
+                        class="text-ai-gray-1000 font-['Poppins',_sans-serif] text-[20px] lg:text-[24px] font-medium leading-normal">{{
                         actionItemsTitle }}</span>
                 </div>
-                <lucide-icon [img]="ellipsisIcon" [size]="24" class="text-ai-gray-750"></lucide-icon>
             </div>
 
             <div class="flex flex-col gap-[32px] mt-[28px]">
@@ -79,7 +79,7 @@
                         <span
                             class="text-ai-gray-1000 font-['Poppins',_sans-serif] text-[14px] font-normal leading-normal max-w-[229px]">{{
                             item.text | localizedText }}</span>
-                        <div class="flex items-center gap-[4px] mt-[6px]">
+                        <div class="flex items-center gap-[6px] mt-[6px]">
                             <lucide-icon [img]="calendarIcon" [size]="12" class="text-ai-gray-800"></lucide-icon>
                             <span
                                 class="text-text-muted font-['Poppins',_sans-serif] text-[12px] font-normal leading-normal">{{

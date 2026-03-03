@@ -2,7 +2,7 @@
     <div class="mx-auto flex flex-col items-center gap-6 md:gap-0 site-container">
         <div class="max-w-[781px] w-full flex flex-col items-center gap-6 md:mb-20">
             <h2
-                class="text-ai-gray-1000 text-center font-sans text-3xl md:text-4xl lg:text-5xl xl:text-[56px] font-medium leading-tight xl:whitespace-nowrap">
+                class="text-ai-gray-1000 text-center font-['Poppins',_sans-serif] text-2xl md:text-3xl xl:text-4xl font-medium leading-tight xl:whitespace-nowrap">
                 {{ title | localizedText }}
             </h2>
             <p class="text-ai-gray-850 text-center font-sans text-base md:text-xl font-normal leading-[148%]">
@@ -83,16 +83,16 @@
                                     class="w-6 h-6 md:w-9 md:h-9 rounded-full bg-ai-gray-100 flex items-center justify-center font-medium text-[10px] md:text-base flex-shrink-0">
                                     M</div>
                                 <span
-                                    class="text-ai-gray-1000 font-sans text-[12px] md:text-base font-medium leading-normal">{{
-                                    participants[0] || '' }}</span>
+                                    class="text-ai-gray-1000 font-sans text-[12px] md:text-base font-medium leading-normal">
+                                    {{ participants[0] || '' }}</span>
                             </div>
                             <div class="flex items-center gap-2 lg:gap-4">
                                 <div
                                     class="w-6 h-6 md:w-9 md:h-9 rounded-full bg-ai-gray-100 flex items-center justify-center font-medium text-[10px] md:text-base flex-shrink-0">
                                     S</div>
                                 <span
-                                    class="text-ai-gray-1000 font-sans text-[12px] md:text-base font-medium leading-normal">{{
-                                    participants[1] || '' }}</span>
+                                    class="text-ai-gray-1000 font-sans text-[12px] md:text-base font-medium leading-normal">
+                                    {{ participants[1] || '' }}</span>
                             </div>
                             <div class="flex items-center gap-2 lg:gap-4">
                                 <img src="assets/images/Group 2969.png" alt="Lia"
@@ -133,9 +133,8 @@
                         class="w-10 h-[35px] md:w-9 md:h-[30px] lg:w-10 lg:h-[35px] object-contain">
                     <div
                         class="flex items-center justify-center px-3 md:px-3 lg:px-4 h-[30px] md:h-[30px] lg:h-[35px] rounded-full border border-brand-red">
-                        <span
-                            class="text-brand-red font-sans text-base md:text-sm lg:text-lg font-medium leading-none">{{
-                            (cards[2]?.badge | localizedText) || '' }}</span>
+                        <span class="text-brand-red font-sans text-base md:text-sm lg:text-lg font-medium leading-none">
+                            {{ (cards[2]?.badge | localizedText) || '' }}</span>
                     </div>
                 </div>
                 <h5

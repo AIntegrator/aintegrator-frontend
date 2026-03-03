@@ -2,6 +2,7 @@ import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranscriptPanelComponent } from '../../../../shared/components/transcript-panel/transcript-panel.component';
 import { LocalizedTextPipe } from '../../../../shared/pipes/localized-text.pipe';
+import { MEETING_TRANSCRIPT_DATA } from '../shared/meeting-transcript.data';
 
 @Component({
   selector: 'app-meeting-transcription',
@@ -22,4 +23,5 @@ export class MeetingTranscriptionComponent {
 
   readonly monicaImage = 'assets/images/image 19.png';
   readonly stephaneImage = 'assets/images/image 20.png';
+  // readonly transcriptData = MEETING_TRANSCRIPT_DATA;
 }

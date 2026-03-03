@@ -19,7 +19,7 @@ export class FinalCtaComponent {
     private readonly fallbackTexts = {
         de: {
             title: 'Zeit für AI-Integration mit messbarer Wirkung',
-            description: 'Investieren Sie 30 Minuten in die Zukunft Ihres Unternehmens: Wir zeigen Ihnen konkrete Erfolgsbeispiele und wie Ihre AI-Transformation reibungslos gelingt.',
+            description: 'Investieren Sie 30 Minuten in die Zukunft Ihres Unternehmens: We show you concrete success examples and how your AI transformation succeeds smoothly.',
             primaryBtnText: 'Termin vereinbaren'
         },
         en: {
@@ -42,23 +42,23 @@ export class FinalCtaComponent {
     @Input() title: string = '';
     @Input() description: string = '';
 
-    @Input() primaryBtnText: string = '';
-    @Input() primaryBtnLink: string = '/contact';
+    @Input() primaryBtnText: string = 'Termin vereinbaren';
+    @Input() primaryBtnLink: string = 'https://calendar.app.google/fzUMskhjkfUh2Qd47';
     @Input() primaryBtnIcon: string = 'assets/icons/Frame.svg';
     @Input() mobilePrimaryBtnText: string = '';
 
     @Input() secondaryBtnText: string = '';
     @Input() secondaryBtnLink: string = '';
     @Input() secondaryBtnIcon: string = '';
-
-    @Input() showDecoration: boolean = true;
-    @Input() descriptionMaxWidthClass: string = 'max-w-[323px] md:max-w-[520px] xl:max-w-none xl:w-[694px]';
-    @Input() decorationPositionClass: string = 'top-[258px]';
     @Input() buttonContainerClass: string = 'flex-col sm:flex-row';
 
     @Input() showMobileDecoration: boolean = false;
     @Input() mobileDecoration: string = 'assets/images/bird_simulation.png';
     @Input() mobileDecorationClass: string = '';
+
+    // new customisation inputs
+    @Input() descriptionMaxWidthClass: string = '';
+    @Input() decorationPositionClass: string = '';
 
     @Input() titleDescriptionGapClass: string = 'mb-[24px] md:mb-0';
     @Input() descriptionButtonsGapClass: string = 'mb-[33px] md:mb-0';

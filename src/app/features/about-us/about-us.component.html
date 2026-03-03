@@ -50,14 +50,14 @@
         [secondaryBtnLink]="data.finalCtaSecondaryBtnLink || '/careers'" [secondaryBtnIcon]="'assets/icons/Frame.png'"
         [primaryBtnText]="data.finalCtaPrimaryBtnText | localizedText"
         [primaryBtnLink]="data.finalCtaPrimaryBtnLink || '/contact'" [primaryBtnIcon]="'assets/icons/Frame.svg'"
-        [showDecoration]="false" class="block section-spacing">
+        [showMobileDecoration]="false" class="block section-spacing">
     </app-final-cta>
     } @else {
     <app-final-cta [title]="'Let\'s Start a Conversation'"
         [description]="'Invest 30 minutes in your company\'s future. We\'ll show you concrete examples of success and how your AI transformation can proceed smoothly.'"
         [secondaryBtnText]="'Explore Careers'" [secondaryBtnLink]="'/careers'"
         [secondaryBtnIcon]="'assets/icons/Frame.png'" [primaryBtnText]="'Schedule Appointment'"
-        [primaryBtnLink]="'/contact'" [primaryBtnIcon]="'assets/icons/Frame.svg'" [showDecoration]="false"
+        [primaryBtnLink]="'/contact'" [primaryBtnIcon]="'assets/icons/Frame.svg'" [showMobileDecoration]="false"
         class="block section-spacing">
     </app-final-cta>
     }

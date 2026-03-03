@@ -1,11 +1,12 @@
 import { Component, ChangeDetectionStrategy, ChangeDetectorRef, Input, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LocalizedTextPipe } from '../../../../shared/pipes/localized-text.pipe';
+import { ArrowUp, LucideAngularModule, Plus } from 'lucide-angular';
 
 @Component({
     selector: 'app-lia-chat',
     standalone: true,
-    imports: [CommonModule, LocalizedTextPipe],
+    imports: [CommonModule, LucideAngularModule, LocalizedTextPipe],
     templateUrl: './lia-chat.component.html',
     styleUrl: './lia-chat.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -19,6 +20,8 @@ export class LiaChatComponent implements OnInit, OnDestroy {
     @Input() quickActions: string[] = [];
 
     displayedText = '';
+    readonly plusIcon = Plus;
+    readonly sendIcon = ArrowUp;
 
     private readonly examplePrompts = [
         'Fasse dieses Meeting zusammen',

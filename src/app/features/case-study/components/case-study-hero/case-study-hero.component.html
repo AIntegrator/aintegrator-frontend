@@ -23,10 +23,15 @@
         {{ caseStudyData?.excerpt | localizedText }}
     </p>
     } @else {
-    <p class="max-w-[828px] text-left md:text-center font-normal text-[16px] md:text-[24px] leading-normal m-0">
-        <span class="text-[rgba(77,77,77,0.7)]">70% der Arbeit automatisiert – ohne Umstellungszwang. Unsere
-            AI-Agenten fügen sich harmonisch in </span>
-        <span class="text-text-muted">die bestehenden Prozesse einer kantonalen Institution ein.</span>
+    <p class="max-w-[65ch] text-left md:text-center font-normal text-[16px] md:text-xl leading-normal text-ai-gray-800">
+        Für einen Finanzdienstleister haben wir die staatlichen Auskunftsersuchen digitalisiert. Das Ergebnis?
+        Beschleunigte Prüfprozesse, nahtlose Datenbeschaffung und maximale Compliance.
     </p>
+
+    <div class="w-full max-h-[400px] overflow-hidden relative mt-24">
+        <img src="assets/images/lia_compliance_mock.png" alt="LiaCompliance - Behördenanfragen auf Autopilot"
+            class="w-full h-full">
+        <div class="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-white/50 to-transparent"></div>
+    </div>
     }
 </section>

@@ -5,8 +5,6 @@ import { HeroComponent } from '../../shared/components/hero/hero.component';
 import { LogoCarouselComponent } from './components/logo-carousel/logo-carousel.component';
 import { CaseStudyComponent } from './components/case-study/case-study.component';
 import { TestimonialSectionComponent } from '../../shared/components/testimonial-section/testimonial-section.component';
-import { CtaCardComponent } from './components/cta-card/cta-card.component';
-import { SecurityCardComponent } from '../../shared/components/security-card/security-card.component';
 import { FinalCtaComponent } from '../../shared/components/final-cta/final-cta.component';
 import { ProcessStepsComponent } from '../../shared/components/process-steps/process-steps.component';
 import { SanityService } from '../../core/services/sanity.service';
@@ -14,6 +12,9 @@ import { LocaleService } from '../../core/services/locale.service';
 import { HomePage, Testimonial } from '../../shared/models/sanity.models';
 import { SanityQueries } from '../../core/services/sanity.helpers';
 import { LocalizedTextPipe } from '../../shared/pipes/localized-text.pipe';
+import { MeetingParticipantsMockComponent } from '../../shared/components/meeting-participants-mock/meeting-participants-mock.component';
+import { CtaCardComponent } from './components/cta-card/cta-card.component';
+import { SecurityCardComponent } from '../../shared/components/security-card/security-card.component';
 
 @Component({
     selector: 'app-home',
@@ -29,7 +30,8 @@ import { LocalizedTextPipe } from '../../shared/pipes/localized-text.pipe';
         SecurityCardComponent,
         FinalCtaComponent,
         ProcessStepsComponent,
-        LocalizedTextPipe
+        LocalizedTextPipe,
+        MeetingParticipantsMockComponent
     ],
     templateUrl: './home.component.html',
     styleUrl: './home.component.scss',
