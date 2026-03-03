@@ -46,7 +46,7 @@
                         {{ getLocalizedText(settings()?.footerCompanyTitle) || 'Firma' }}
                     </h4>
                     <div class="flex flex-col gap-[24px] lg:block">
-                        @if (settings()?.footerCompanyLinks?.length > 0) {
+                        @if ((settings()?.footerCompanyLinks?.length || 0) > 0) {
                         @for (link of settings()?.footerCompanyLinks || []; track link.url) {
                         <a [routerLink]="link.url"
                             class="font-sans text-[14px] font-medium text-primary cursor-pointer transition-colors duration-200 hover:text-cta lg:mb-[33px] block">
@@ -70,7 +70,7 @@
                         {{ getLocalizedText(settings()?.footerProductsTitle) || 'Leistungen' }}
                     </h4>
                     <div class="flex flex-col gap-[24px] lg:block">
-                        @if (settings()?.footerProductsLinks?.length > 0) {
+                        @if ((settings()?.footerProductsLinks?.length || 0) > 0) {
                         @for (link of settings()?.footerProductsLinks || []; track link.url) {
                         <a [routerLink]="link.url"
                             class="font-sans text-[14px] font-medium text-primary cursor-pointer transition-colors duration-200 hover:text-cta lg:mb-[33px] block">
@@ -91,7 +91,7 @@
                         {{ getLocalizedText(settings()?.footerSocialTitle) || 'Social' }}
                     </h4>
                     <div class="flex flex-col gap-[24px] lg:block">
-                        @if (settings()?.footerSocialLinks?.length > 0) {
+                        @if ((settings()?.footerSocialLinks?.length || 0) > 0) {
                         @for (link of settings()?.footerSocialLinks || []; track link.url) {
                         <a [attr.href]="link.url" target="_blank"
                             class="font-sans text-[14px] font-medium text-primary cursor-pointer transition-colors duration-200 hover:text-cta lg:mb-[33px] block">

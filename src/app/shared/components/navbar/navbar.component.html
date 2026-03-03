@@ -25,18 +25,18 @@
     </nav>
 
     <div class="hidden min-[1100px]:flex items-center gap-4">
-      <a routerLink="/contact"
-        class="inline-flex items-center no-underline whitespace-nowrap cursor-pointer transition-opacity duration-300 hover:opacity-80"
+      <a href="https://calendar.app.google/fzUMskhjkfUh2Qd47" target="_blank" rel="noopener noreferrer"
+        class="inline-flex items-center no-underline whitespace-nowrap cursor-pointer transition-opacity duration-300 hover:opacity-80 arrow-link"
         [attr.aria-label]="navLabels.cta">
         <span class="text-cta font-sans text-[14px] font-medium text-right truncate">{{ navLabels.cta }}</span>
         <img [src]="arrowIconSrc" alt="" aria-hidden="true" />
       </a>
-      <a href="https://calendar.app.google/fzUMskhjkfUh2Qd47" target="_blank" rel="noopener noreferrer"
+      <!-- <a href="https://calendar.app.google/fzUMskhjkfUh2Qd47" target="_blank" rel="noopener noreferrer"
         class="inline-flex items-center no-underline whitespace-nowrap cursor-pointer arrow-link"
         aria-label="Termin vereinbaren">
         <span class="text-cta font-sans text-[14px] font-medium">Termin vereinbaren</span>
         <img [src]="arrowIconSrc" alt="" aria-hidden="true" class="arrow-link-icon" />
-      </a>
+      </a> -->
     </div>
 
     <button
@@ -88,8 +88,8 @@
             </li>
           </ul>
 
-          <a routerLink="/contact" routerLinkActive="font-medium"
-            class="flex items-center gap-[4px] text-cta font-sans text-[24px] font-medium no-underline"
+          <a href="https://calendar.app.google/fzUMskhjkfUh2Qd47" target="_blank" rel="noopener noreferrer"
+            class="flex items-center gap-[4px] text-cta font-sans text-[24px] font-medium no-underline arrow-link"
             (click)="closeMobileMenu()">
             {{ navLabels.cta }}
             <img src="assets/icons/Frame.svg" class="flex-shrink-0" alt="" aria-hidden="true" />
@@ -97,12 +97,12 @@
 
           <div class="w-full h-px bg-ai-gray-600 my-[60px]"></div>
 
-          <a href="https://calendar.app.google/fzUMskhjkfUh2Qd47" target="_blank" rel="noopener noreferrer"
+          <!-- <a href="https://calendar.app.google/fzUMskhjkfUh2Qd47" target="_blank" rel="noopener noreferrer"
             class="flex items-center gap-[4px] text-cta font-sans text-[24px] font-medium no-underline arrow-link"
             (click)="closeMobileMenu()">
             <span>Termin vereinbaren</span>
             <img src="assets/icons/Frame.svg" class="flex-shrink-0 arrow-link-icon" alt="" aria-hidden="true" />
-          </a>
+          </a> -->
         </div>
       </div>
     </div>

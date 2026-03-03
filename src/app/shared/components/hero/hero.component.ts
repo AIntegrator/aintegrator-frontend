@@ -18,4 +18,6 @@ export class HeroComponent {
     @Input() buttonLink: string = '/contact';
     @Input() titleMaxWidthClass: string = 'md:max-w-[635px]';
     @Input() mobileMarginClass: string = 'mt-[77px]';
+    @Input() showButton: boolean = true;
+    @Input() showMobileHeroDots: boolean = false;
 }
