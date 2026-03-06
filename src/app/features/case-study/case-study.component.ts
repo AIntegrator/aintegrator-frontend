@@ -23,17 +23,6 @@ export class CaseStudyComponent implements OnInit {
     caseStudyData = signal<CaseStudy | undefined>(undefined);
     currentLocale = signal<string>('de');
 
-    // Fallback stats data
-    readonly upperStats: CaseStudyStat[] = [
-        { value: "150'000.- CHF", description: 'Jährliche Kostenreduktion' },
-        { value: '6 Monate', description: 'Entwicklungszeit' }
-    ];
-
-    readonly lowerStats: CaseStudyStat[] = [
-        { value: "150'000.- CHF", description: 'Jährliche Kostenreduktion' },
-        { value: '6 Monate', description: 'Entwicklungszeit' },
-    ];
-
     // Computed stats from case study results
     caseStudyUpperStats = computed<CaseStudyStat[]>(() => {
         const data = this.caseStudyData();
@@ -43,7 +32,7 @@ export class CaseStudyComponent implements OnInit {
                 description: getLocalizedValue(r.label as Record<string, string>, this.currentLocale(), 'de') || r.value
             }));
         }
-        return this.upperStats;
+        return [];
     });
 
     caseStudyLowerStats = computed<CaseStudyStat[]>(() => {
@@ -54,7 +43,7 @@ export class CaseStudyComponent implements OnInit {
                 description: getLocalizedValue(r.label as Record<string, string>, this.currentLocale(), 'de') || r.value
             }));
         }
-        return this.lowerStats;
+        return [];
     });
 
     constructor(

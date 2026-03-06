@@ -49,8 +49,11 @@ export interface ProductInfoBanner {
 export interface MeetingAnalysisSection {
   title?: LocalizedShortText;
   subtitle?: LocalizedShortText;
-  participants?: Array<{ name?: string }>;
+  participants?: Array<{ name?: string; avatar?: any }>;
   transcriptEntries?: TranscriptEntry[];
+  liaIcon?: any;
+  hangUpIcon?: any;
+  videoIcon?: any;
 }
 
 export interface MeetingTranscriptionSection {
@@ -183,6 +186,34 @@ export interface CaseStudy {
     _key: string;
     value: string;
     label: LocalizedText;
+  }>;
+  executiveSummaryHeading?: LocalizedText;
+  situationHeading?: LocalizedText;
+  situationDescription?: LocalizedText;
+  situationGoals?: Array<{
+    _key?: string;
+    text?: LocalizedText;
+  }>;
+  actionHeading?: LocalizedText;
+  actionDescription?: LocalizedText;
+  actionItems?: Array<{
+    _key?: string;
+    title?: LocalizedText;
+    description?: LocalizedText;
+  }>;
+  detailTestimonials?: Array<{
+    _key?: string;
+    quote?: LocalizedText;
+    author?: string;
+    role?: LocalizedText;
+    photo?: SanityImage;
+  }>;
+  resultHeading?: LocalizedText;
+  resultDescription?: LocalizedText;
+  resultItems?: Array<{
+    _key?: string;
+    title?: LocalizedText;
+    description?: LocalizedText;
   }>;
   content?: LocalizedRichText;
   publishedAt?: string;

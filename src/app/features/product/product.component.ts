@@ -15,7 +15,7 @@ import { FinalCtaComponent } from '../../shared/components/final-cta/final-cta.c
 import { SanityService } from '../../core/services/sanity.service';
 import { LocaleService } from '../../core/services/locale.service';
 import { ProductPage } from '../../shared/models/sanity.models';
-import { SanityQueries, getLocalizedValue } from '../../core/services/sanity.helpers';
+import { SanityQueries, getLocalizedValue, getImageUrl } from '../../core/services/sanity.helpers';
 import { LocalizedTextPipe } from '../../shared/pipes/localized-text.pipe';
 
 @Component({
@@ -84,6 +84,27 @@ export class ProductComponent implements OnInit {
     getParticipantNames(participants: any[] | undefined): string[] {
         if (!participants || !Array.isArray(participants)) return [];
         return participants.map(p => this.getLocalizedText(p.name) || '');
+    }
+
+    getParticipantAvatars(participants: any[] | undefined): string[] {
+        if (!participants || !Array.isArray(participants)) return [];
+        return participants.map(p => {
+            if (!p.avatar) return '';
+            try {
+                return getImageUrl(this.sanityService.getClient(), p.avatar, 400, 400);
+            } catch {
+                return '';
+            }
+        });
+    }
+
+    getIconUrl(iconImage: any): string {
+        if (!iconImage) return '';
+        try {
+            return getImageUrl(this.sanityService.getClient(), iconImage, 100, 100);
+        } catch {
+            return '';
+        }
     }
 
     getSecurityCards(cards: any[] | undefined): any[] {

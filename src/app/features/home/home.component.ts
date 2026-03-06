@@ -10,7 +10,7 @@ import { ProcessStepsComponent } from '../../shared/components/process-steps/pro
 import { SanityService } from '../../core/services/sanity.service';
 import { LocaleService } from '../../core/services/locale.service';
 import { HomePage, Testimonial } from '../../shared/models/sanity.models';
-import { SanityQueries } from '../../core/services/sanity.helpers';
+import { SanityQueries, getImageUrl } from '../../core/services/sanity.helpers';
 import { LocalizedTextPipe } from '../../shared/pipes/localized-text.pipe';
 import { MeetingParticipantsMockComponent } from '../../shared/components/meeting-participants-mock/meeting-participants-mock.component';
 import { CtaCardComponent } from './components/cta-card/cta-card.component';
@@ -75,6 +75,15 @@ export class HomeComponent implements OnInit {
         } catch (error) {
             console.error('❌ Error loading home page content:', error);
             console.error('Error details:', JSON.stringify(error, null, 2));
+        }
+    }
+
+    getTestimonialPhoto(photo: any): string {
+        if (!photo) return '';
+        try {
+            return getImageUrl(this.sanityService.getClient(), photo, 200, 200);
+        } catch {
+            return '';
         }
     }
 }

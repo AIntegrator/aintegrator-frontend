@@ -18,14 +18,39 @@ export class MeetingAnalysisComponent {
     @Input() subtitle = '';
     @Input() transcriptData: Array<{ initial?: string; name?: string; time?: string; text?: string }> = MEETING_TRANSCRIPT_DATA;
     @Input() participants: string[] = [];
+    @Input() participantAvatars: string[] = [];
+    @Input() liaIcon = '';
+    @Input() hangUpIcon = '';
+    @Input() videoIcon = '';
     @Input() uploadButtonLabel = '';
     @Input() recordButtonLabel = '';
     @Input() summaryTabLabel = '';
     @Input() transcriptTabLabel = '';
 
-    readonly monicaImage = 'assets/images/image 19.png';
-    readonly stephaneImage = 'assets/images/image 20.png';
-    readonly liaIcon = 'assets/images/Group 2969.png';
-    readonly hangUpIcon = 'assets/images/hang_up_control.png';
-    readonly videoIcon = 'assets/images/tabler_video.png';
+    // Fallback images (used only if CMS doesn't provide images)
+    readonly defaultMonica = 'assets/images/image 19.png';
+    readonly defaultStephane = 'assets/images/image 20.png';
+    readonly defaultLiaIcon = 'assets/images/Group 2969.png';
+    readonly defaultHangUpIcon = 'assets/images/hang_up_control.png';
+    readonly defaultVideoIcon = 'assets/images/tabler_video.png';
+
+    get monicaImage(): string {
+        return this.participantAvatars[0] || this.defaultMonica;
+    }
+
+    get stephaneImage(): string {
+        return this.participantAvatars[1] || this.defaultStephane;
+    }
+
+    get liaIconUrl(): string {
+        return this.liaIcon || this.defaultLiaIcon;
+    }
+
+    get hangUpIconUrl(): string {
+        return this.hangUpIcon || this.defaultHangUpIcon;
+    }
+
+    get videoIconUrl(): string {
+        return this.videoIcon || this.defaultVideoIcon;
+    }
 }

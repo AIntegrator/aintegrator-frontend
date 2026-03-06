@@ -28,7 +28,7 @@
                     class="w-[24px] h-[24px] xl:w-[34px] xl:h-[34px] object-contain arrow-link-icon" />
             </a>
 
-            <a *ngIf="getPrimaryBtnText()" [routerLink]="primaryBtnLink"
+            <a *ngIf="getPrimaryBtnText() && !primaryBtnLink.startsWith('http')" [routerLink]="primaryBtnLink"
                 class="flex items-center text-cta font-sans text-base md:text-xl font-medium leading-normal no-underline arrow-link">
                 <span [class.hidden]="mobilePrimaryBtnText" [class.xl:block]="mobilePrimaryBtnText">{{
                     getPrimaryBtnText()

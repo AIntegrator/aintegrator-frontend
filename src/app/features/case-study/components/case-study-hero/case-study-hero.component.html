@@ -1,19 +1,17 @@
 <section class="flex flex-col items-start md:items-center w-full max-w-[1144px] mx-auto gap-[24px]">
     <div class="flex flex-col items-start md:items-center gap-[12px]">
+        @if (caseStudyData?.client) {
         <div
             class="flex items-center gap-[8px] bg-ai-gray-100 w-[167px] h-[36px] px-[12px] md:px-[16px] rounded-[12px]">
             <lucide-icon [img]="landmarkIcon" [size]="14" class="text-text-muted"></lucide-icon>
             <span class="text-text-muted font-medium text-[16px]">{{ caseStudyData?.client }}</span>
         </div>
+        }
+
         @if (caseStudyData?.title) {
         <h1
             class="text-black font-medium text-[32px] md:text-[48px] xl:text-[64px] leading-normal text-left md:text-center m-0">
             {{ caseStudyData?.title | localizedText }}
-        </h1>
-        } @else {
-        <h1
-            class="text-black font-medium text-[32px] md:text-[48px] xl:text-[64px] leading-normal text-left md:text-center m-0">
-            Staatliche Agenten
         </h1>
         }
     </div>
@@ -22,15 +20,12 @@
     <p class="max-w-[828px] text-left md:text-center font-normal text-[16px] md:text-[24px] leading-normal m-0">
         {{ caseStudyData?.excerpt | localizedText }}
     </p>
-    } @else {
-    <p class="max-w-[65ch] text-left md:text-center font-normal text-[16px] md:text-xl leading-normal text-ai-gray-800">
-        Für einen Finanzdienstleister haben wir die staatlichen Auskunftsersuchen digitalisiert. Das Ergebnis?
-        Beschleunigte Prüfprozesse, nahtlose Datenbeschaffung und maximale Compliance.
-    </p>
+    }
 
+    @if (getCoverImageUrl()) {
     <div class="w-full max-h-[400px] overflow-hidden relative mt-24">
-        <img src="assets/images/lia_compliance_mock.png" alt="LiaCompliance - Behördenanfragen auf Autopilot"
-            class="w-full h-full">
+        <img [src]="getCoverImageUrl()" [alt]="(caseStudyData?.title | localizedText) || 'Case study cover'"
+            class="w-full h-full object-cover">
         <div class="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-white/50 to-transparent"></div>
     </div>
     }

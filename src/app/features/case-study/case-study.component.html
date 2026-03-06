@@ -3,11 +3,15 @@
 
                 <app-case-study-hero [caseStudyData]="caseStudyData()"></app-case-study-hero>
 
+                @if (caseStudyUpperStats().length) {
                 <app-case-study-stats [stats]="caseStudyUpperStats()"></app-case-study-stats>
+                }
 
                 <app-case-study-content [caseStudyData]="caseStudyData()"></app-case-study-content>
 
+                @if (caseStudyLowerStats().length) {
                 <app-case-study-stats [stats]="caseStudyLowerStats()" size="small"></app-case-study-stats>
+                }
         </div>
         <div class="section-spacing"></div>
         <app-final-cta [showMobileDecoration]="false" class="block pt-0"></app-final-cta>

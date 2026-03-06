@@ -74,7 +74,31 @@ export const SanityQueries = {
         }
     }`,
     ABOUT_PAGE: `*[_type == "aboutPage"][0]`,
-    PRODUCT_PAGE: `*[_type == "productPage"][0]`,
+    PRODUCT_PAGE: `*[_type == "productPage"][0] {
+        ...,
+        meetingAnalysis {
+            ...,
+            participants[] {
+                name,
+                avatar {
+                    ...,
+                    asset->
+                }
+            },
+            liaIcon {
+                ...,
+                asset->
+            },
+            hangUpIcon {
+                ...,
+                asset->
+            },
+            videoIcon {
+                ...,
+                asset->
+            }
+        }
+    }`,
     CONTACT_PAGE: `*[_type == "contactPage"][0]`,
     CAREERS_PAGE: `*[_type == "careersPage"][0]`,
     SITE_SETTINGS: `*[_type == "siteSettings"][0]`,
@@ -82,10 +106,44 @@ export const SanityQueries = {
     // Collections
     ALL_CASE_STUDIES: `*[_type == "caseStudy"] | order(publishedAt desc)`,
     FEATURED_CASE_STUDIES: `*[_type == "caseStudy" && featured == true] | order(publishedAt desc)`,
-    CASE_STUDY_BY_SLUG: (slug: string) => `*[_type == "caseStudy" && slug.current == "${slug}"][0]`,
+    CASE_STUDY_BY_SLUG: (slug: string) => `*[_type == "caseStudy" && slug.current == "${slug}"][0] {
+        ...,
+        coverImage {
+            ...,
+            asset->
+        },
+        situationGoals[] {
+            ...
+        },
+        actionItems[] {
+            ...
+        },
+        detailTestimonials[] {
+            ...,
+            photo {
+                ...,
+                asset->
+            }
+        },
+        resultItems[] {
+            ...
+        }
+    }`,
 
-    ALL_TESTIMONIALS: `*[_type == "testimonial"] | order(order asc)`,
-    FEATURED_TESTIMONIALS: `*[_type == "testimonial" && featured == true] | order(order asc)`,
+    ALL_TESTIMONIALS: `*[_type == "testimonial"] | order(order asc) {
+        ...,
+        photo {
+            ...,
+            asset->
+        }
+    }`,
+    FEATURED_TESTIMONIALS: `*[_type == "testimonial" && featured == true] | order(order asc) {
+        ...,
+        photo {
+            ...,
+            asset->
+        }
+    }`,
 
     ALL_TEAM_MEMBERS: `*[_type == "teamMember"] | order(order asc)`,
 
