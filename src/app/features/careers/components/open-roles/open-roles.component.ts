@@ -26,6 +26,7 @@ export class OpenRolesComponent {
     @Input() locationFilterLabel: LocalizedText | undefined;
     @Input() applyButtonLabel: LocalizedText | undefined;
     @Input() initiativeText: LocalizedText | string | undefined;
+    @Input() initiativeEmail: string | undefined;
     @Input() noRolesText: LocalizedText | string | undefined;
 
     private localeService = inject(LocaleService);

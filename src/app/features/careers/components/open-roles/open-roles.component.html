@@ -1,18 +1,24 @@
 <section class="site-container section-spacing">
     <div class="max-w-[1144px] mx-auto flex flex-col items-center gap-[40px] md:gap-[60px] xl:gap-[80px]">
+        @if (openRolesTitle) {
         <h2 class="text-[28px] md:text-[40px] xl:text-[56px] font-medium text-center text-ai-gray-1000 m-0">
-            {{ openRolesTitle ? (openRolesTitle | localizedText) : 'Open Roles' }}
+            {{ openRolesTitle | localizedText }}
         </h2>
+        }
 
+        @if (initiativeText) {
         <div class="max-w-[758px] mx-auto text-center">
             <p class="text-base md:text-xl font-medium md:font-normal text-ai-gray-850 leading-[1.5] m-0">
-                {{ (initiativeText | localizedText) || 'We welcome unsolicited applications at' }} <br>
-                <a href="mailto:careers@aintegrator.ch"
+                {{ initiativeText | localizedText }} <br>
+                @if (initiativeEmail) {
+                <a [href]="'mailto:' + initiativeEmail"
                     class="text-[16px] md:text-[20px] font-medium text-ai-gray-900 underline">
-                    careers@aintegrator.ch
+                    {{ initiativeEmail }}
                 </a>
+                }
             </p>
         </div>
+        }
 
         <div class="flex gap-[6px] md:gap-[24px] justify-center items-center w-full">
             <div class="relative">
@@ -69,21 +75,25 @@
                     <span class="text-[16px] md:text-[18px] xl:text-[24px] text-ai-gray-850 font-medium">
                         {{ role.location | localizedText }}
                     </span>
+                    @if (applyButtonLabel) {
                     <a [href]="role.link"
                         class="text-cta md:text-brand-red text-[16px] md:text-[18px] xl:text-[24px] font-medium flex items-center no-underline leading-[26px] arrow-link">
-                        {{ applyButtonLabel ? (applyButtonLabel | localizedText) : 'Jetzt bewerben' }}
+                        {{ applyButtonLabel | localizedText }}
                         <img src="assets/icons/Frame.svg" alt="Apply"
                             class="max-md:w-[28px] max-md:h-[28px] arrow-link-icon">
                     </a>
+                    }
                 </div>
             </div>
             }
         </div>
 
         <ng-template #emptyState>
+            @if (noRolesText) {
             <p class="text-[18px] md:text-[24px] font-medium text-ai-gray-1000 text-center mt-[80px]">
-                {{ (noRolesText | localizedText) || 'No open positions at this time.' }}
+                {{ noRolesText | localizedText }}
             </p>
+            }
         </ng-template>
     </div>
 </section>

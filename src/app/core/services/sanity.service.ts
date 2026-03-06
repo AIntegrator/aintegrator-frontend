@@ -64,4 +64,11 @@ export class SanityService {
         const query = `*[_type == $type && slug.current == $slug][0]`;
         return this.fetch<T>(query, { type, slug });
     }
+
+    /**
+     * Get the Sanity client instance for advanced operations like image URL generation
+     */
+    getClient(): SanityClient {
+        return this.client;
+    }
 }
