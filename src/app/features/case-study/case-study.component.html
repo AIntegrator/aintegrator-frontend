@@ -1,13 +1,20 @@
 <div class="w-full bg-white pt-[96px] md:pt-[148px] xl:pt-[196px] flex flex-col">
-    <div class="site-container flex flex-col gap-[48px] md:gap-[96px] lg:gap-[148px]">
+        <div class="site-container flex flex-col gap-[48px] md:gap-[96px] lg:gap-[148px]">
 
-        <app-case-study-hero></app-case-study-hero>
+                <app-case-study-hero [caseStudyData]="caseStudyData()"></app-case-study-hero>
 
-        <app-case-study-content></app-case-study-content>
+                @if (caseStudyUpperStats().length) {
+                <app-case-study-stats [stats]="caseStudyUpperStats()"></app-case-study-stats>
+                }
 
-    </div>
-    <div class="section-spacing"></div>
-    <app-final-cta class="block pt-0"></app-final-cta>
-    <div class="section-spacing"></div>
+                <app-case-study-content [caseStudyData]="caseStudyData()"></app-case-study-content>
+
+                @if (caseStudyLowerStats().length) {
+                <app-case-study-stats [stats]="caseStudyLowerStats()" size="small"></app-case-study-stats>
+                }
+        </div>
+        <div class="section-spacing"></div>
+        <app-final-cta [showMobileDecoration]="false" class="block pt-0"></app-final-cta>
+        <div class="section-spacing"></div>
 
 </div>

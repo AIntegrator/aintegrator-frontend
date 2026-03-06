@@ -1,10 +1,11 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LocalizedTextPipe } from '../../pipes/localized-text.pipe';
 
 @Component({
     selector: 'app-hero',
     standalone: true,
-    imports: [CommonModule],
+    imports: [CommonModule, LocalizedTextPipe],
     templateUrl: './hero.component.html',
     styleUrl: './hero.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -17,4 +18,6 @@ export class HeroComponent {
     @Input() buttonLink: string = '/contact';
     @Input() titleMaxWidthClass: string = 'md:max-w-[635px]';
     @Input() mobileMarginClass: string = 'mt-[77px]';
+    @Input() showButton: boolean = true;
+    @Input() showMobileHeroDots: boolean = false;
 }

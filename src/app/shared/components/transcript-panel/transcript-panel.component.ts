@@ -12,6 +12,10 @@ import { CloudUpload, LucideAngularModule, Video } from 'lucide-angular';
 })
 export class TranscriptPanelComponent {
     @Input() transcriptData: any[] = [];
+    @Input() uploadButtonLabel = '';
+    @Input() recordButtonLabel = '';
+    @Input() summaryTabLabel = '';
+    @Input() transcriptTabLabel = '';
     readonly cloudUploadIcon = CloudUpload;
     readonly videoIcon = Video;
 }

@@ -1,12 +1,27 @@
 <section class="site-container">
     <div class="max-w-[758px] mx-auto text-center">
-        <p
-            class="text-[16px] md:text-[20px] font-medium md:font-normal text-ai-gray-850 leading-[1.5] m-0">
-            Wir freuen uns über Initiativbewerbungen an <br>
-            <a href="mailto:careers@aintegrator.ch"
-                class="text-[16px] md:text-[20px] font-medium text-ai-gray-900 underline">
-                careers@aintegrator.ch
-            </a>
+        @if (initiativeCTATitle || initiativeCTADescription) {
+        @if (initiativeCTATitle) {
+        <h3 class="text-[24px] md:text-[32px] xl:text-[40px] font-medium text-primary mb-[16px]">
+            {{ initiativeCTATitle | localizedText }}
+        </h3>
+        }
+        @if (initiativeCTADescription) {
+        <p class="text-[16px] md:text-[20px] font-normal text-text-muted leading-[1.5] mb-[24px]">
+            {{ initiativeCTADescription | localizedText }}
         </p>
+        }
+        }
+        @if (initiativeText) {
+        <p class="text-[16px] md:text-[20px] font-medium md:font-normal text-ai-gray-850 leading-[1.5] m-0">
+            {{ initiativeText | localizedText }} <br>
+            @if (initiativeEmail) {
+            <a [href]="'mailto:' + initiativeEmail"
+                class="text-[16px] md:text-[20px] font-medium text-ai-gray-900 underline">
+                {{ initiativeEmail }}
+            </a>
+            }
+        </p>
+        }
     </div>
 </section>
