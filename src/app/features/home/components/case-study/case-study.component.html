@@ -1,7 +1,7 @@
 @if (featuredCaseStudy; as cs) {
 <section class="w-full section-spacing">
     <div class="site-container">
-        <div class="w-full max-w-site mx-auto bg-bg-subtle rounded-xl p-8 md:p-12 xl:p-16">
+        <div class="w-full max-w-site mx-auto">
             <div class="w-full">
                 <div class="flex flex-col items-start text-left gap-[24px] min-w-0 xl:grid xl:grid-cols-[minmax(0,1fr)_540px] xl:gap-x-20">
                     @if (cs.industry || cs.client) {
@@ -18,10 +18,10 @@
                         {{ cs.title | localizedText }}</h2>
 
                     @if (cs.results && cs.results.length > 0) {
-                        <div class="w-full grid grid-cols-1 sm:grid-cols-2 gap-[16px] xl:col-start-2 xl:row-start-1 xl:row-span-5 xl:self-start xl:gap-[24px]">
+                        <div class="w-full grid grid-cols-1 min-[480px]:grid-cols-2 gap-[16px] xl:col-start-2 xl:row-start-1 xl:row-span-5 xl:self-start xl:gap-[24px]">
                             @for (stat of cs.results; track stat.value) {
                                 <div
-                                    class="flex flex-col justify-start gap-[8px] items-start bg-white rounded-[12px] p-[16px] sm:p-[20px] aspect-square xl:aspect-auto xl:h-[286px] xl:p-[36px]">
+                                    class="flex flex-col justify-start gap-[8px] items-start bg-ai-gray-100 rounded-[12px] p-[16px] sm:p-[20px] aspect-square xl:aspect-auto xl:h-[286px] xl:p-[36px]">
                                     <span class="font-medium font-sans text-base md:text-xl leading-normal">{{ stat.value }}</span>
                                     <p class="text-[rgba(77,77,77,0.7)] font-normal font-sans leading-normal m-0 text-base md:text-xl">
                                         {{ getStatDescription(stat) }}
