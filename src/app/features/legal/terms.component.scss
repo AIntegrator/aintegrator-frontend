@@ -1,0 +1,44 @@
+.legal-content {
+    :deep(h2),
+    :deep(h3) {
+        color: #000;
+        font-family: var(--font-sans, sans-serif);
+        font-weight: 500;
+        font-size: 24px;
+        line-height: normal;
+        margin: 2rem 0 1rem;
+    }
+
+    @media (min-width: 768px) {
+        :deep(h2),
+        :deep(h3) {
+            font-size: 28px;
+        }
+    }
+
+    @media (min-width: 1280px) {
+        :deep(h2),
+        :deep(h3) {
+            font-size: 32px;
+        }
+    }
+
+    :deep(p) {
+        margin: 0 0 1rem;
+    }
+
+    :deep(ul),
+    :deep(ol) {
+        margin: 1rem 0;
+        padding-left: 1.5rem;
+    }
+
+    :deep(li) {
+        margin-bottom: 0.5rem;
+    }
+
+    :deep(a) {
+        color: var(--color-cta, #d32f2f);
+        text-decoration: underline;
+    }
+}

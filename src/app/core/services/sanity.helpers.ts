@@ -32,6 +32,20 @@ export function getImageUrl(
 }
 
 /**
+ * Get case study slug for the given locale (localized slug format only)
+ */
+export function getCaseStudySlug(
+    slug: { en?: { current: string }; de?: { current: string }; fr?: { current: string }; it?: { current: string } } | undefined,
+    locale: string,
+    fallbackLocale = 'de'
+): string {
+    if (!slug) return '';
+    const localized = (slug as Record<string, { current?: string } | undefined>)[locale]?.current
+        ?? (slug as Record<string, { current?: string } | undefined>)[fallbackLocale]?.current;
+    return localized ?? '';
+}
+
+/**
  * Get localized text value based on current locale with fallback
  */
 export function getLocalizedValue<T>(
@@ -60,8 +74,17 @@ export const SanityQueries = {
         partners[]-> {
             _id,
             name,
-            logo,
+            logo {
+                ...,
+                asset->
+            },
             website
+        },
+        serviceCards[] {
+            title,
+            description,
+            link,
+            linkText
         },
         featuredCaseStudy-> {
             _id,
@@ -69,12 +92,22 @@ export const SanityQueries = {
             title,
             slug,
             client,
+            industry,
             excerpt,
             results[]
+        },
+        testimonials[]-> {
+            _id,
+            clientName,
+            clientRole,
+            quote,
+            photo {
+                ...,
+                asset->
+            }
         }
     }`,
     ABOUT_PAGE: `*[_type == "aboutPage"][0]`,
-    PRODUCT_PAGE: `*[_type == "productPage"][0]`,
     CONTACT_PAGE: `*[_type == "contactPage"][0]`,
     CAREERS_PAGE: `*[_type == "careersPage"][0]`,
     SITE_SETTINGS: `*[_type == "siteSettings"][0]`,
@@ -82,16 +115,53 @@ export const SanityQueries = {
     // Collections
     ALL_CASE_STUDIES: `*[_type == "caseStudy"] | order(publishedAt desc)`,
     FEATURED_CASE_STUDIES: `*[_type == "caseStudy" && featured == true] | order(publishedAt desc)`,
-    CASE_STUDY_BY_SLUG: (slug: string) => `*[_type == "caseStudy" && slug.current == "${slug}"][0]`,
+    CASE_STUDY_BY_SLUG: (slug: string) => `*[_type == "caseStudy" && (
+        slug.en.current == "${slug}" ||
+        slug.de.current == "${slug}" ||
+        slug.fr.current == "${slug}" ||
+        slug.it.current == "${slug}"
+    )][0] {
+        ...,
+        coverImage {
+            ...,
+            asset->
+        },
+        situationGoals[] {
+            ...
+        },
+        actionItems[] {
+            ...
+        },
+        detailTestimonials[] {
+            ...,
+            photo {
+                ...,
+                asset->
+            }
+        },
+        resultItems[] {
+            ...
+        }
+    }`,
 
-    ALL_TESTIMONIALS: `*[_type == "testimonial"] | order(order asc)`,
-    FEATURED_TESTIMONIALS: `*[_type == "testimonial" && featured == true] | order(order asc)`,
+    ALL_TESTIMONIALS: `*[_type == "testimonial"] | order(order asc) {
+        ...,
+        photo {
+            ...,
+            asset->
+        }
+    }`,
+    FEATURED_TESTIMONIALS: `*[_type == "testimonial" && featured == true] | order(order asc) {
+        ...,
+        photo {
+            ...,
+            asset->
+        }
+    }`,
 
     ALL_TEAM_MEMBERS: `*[_type == "teamMember"] | order(order asc)`,
 
     ACTIVE_CAREERS: `*[_type == "career" && active == true] | order(publishedAt desc)`,
-    CAREER_BY_SLUG: (slug: string) => `*[_type == "career" && slug.current == "${slug}"][0]`,
-
     LEGAL_PAGE: (pageType: 'privacy' | 'terms') => `*[_type == "legalPage" && pageType == "${pageType}"][0]`,
 };
 

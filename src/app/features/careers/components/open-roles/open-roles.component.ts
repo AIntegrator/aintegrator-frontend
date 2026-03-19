@@ -1,4 +1,4 @@
-import { Component, Input, inject } from '@angular/core';
+import {Component, Input, inject} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LocalizedTextPipe } from '../../../../shared/pipes/localized-text.pipe';
 import { LocaleService } from '../../../../core/services/locale.service';
@@ -21,26 +21,38 @@ interface OpenRole {
 })
 export class OpenRolesComponent {
     @Input() roles: any[] = [];
-    @Input() openRolesTitle: LocalizedText | undefined;
     @Input() departmentFilterLabel: LocalizedText | undefined;
     @Input() locationFilterLabel: LocalizedText | undefined;
     @Input() applyButtonLabel: LocalizedText | undefined;
-    @Input() initiativeText: LocalizedText | string | undefined;
     @Input() noRolesText: LocalizedText | string | undefined;
 
     private localeService = inject(LocaleService);
     currentLocale = this.localeService.currentLocale;
 
-    filteredRoles: OpenRole[] = [];
-    readonly departmentOptions: string[] = ['Engineering', 'Design', 'Sales'];
-    readonly locationOptions: string[] = ['Remote', 'Zurich'];
-    selectedDepartment: string = 'Role';
-    selectedLocation: string = 'Location';
+    filteredRoles: OpenRole[] = this.roles;
+    departmentOptions: string[] = [];
+    locationOptions: string[] = [];
+    selectedDepartment = 'Role';
+    selectedLocation = 'Location';
     isDepartmentOpen = false;
     isLocationOpen = false;
 
     ngOnChanges() {
+        this.updateOptionsFromRoles();
         this.filterRoles();
+    }
+
+    private updateOptionsFromRoles() {
+        const departments = new Set<string>();
+        const locations = new Set<string>();
+        for (const role of this.roles) {
+            const dept = this.getLocalizedValue(role.department);
+            const loc = this.getLocalizedValue(role.location);
+            if (dept) departments.add(dept);
+            if (loc) locations.add(loc);
+        }
+        this.departmentOptions = [...departments].sort();
+        this.locationOptions = [...locations].sort();
     }
 
     filterRoles() {
@@ -48,8 +60,8 @@ export class OpenRolesComponent {
             const departmentValue = this.getLocalizedValue(role.department);
             const locationValue = this.getLocalizedValue(role.location);
 
-            return (this.selectedDepartment === 'All' || departmentValue === this.selectedDepartment) &&
-                (this.selectedLocation === 'All' || locationValue === this.selectedLocation);
+            return (this.selectedDepartment === 'Role' || departmentValue === this.selectedDepartment) &&
+                (this.selectedLocation === 'Location' || locationValue === this.selectedLocation);
         });
     }
 
@@ -81,4 +93,3 @@ export class OpenRolesComponent {
         this.filterRoles();
     }
 }
-

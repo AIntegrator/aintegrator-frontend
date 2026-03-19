@@ -12,5 +12,4 @@ import { LocalizedText } from '../../../../shared/models/sanity.models';
 })
 export class CareersHeroComponent {
     @Input() heroTitle: LocalizedText | undefined;
-    @Input() heroDescription: LocalizedText | undefined;
 }

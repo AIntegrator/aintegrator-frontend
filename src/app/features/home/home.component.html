@@ -1,84 +1,78 @@
 <div class="w-full flex flex-col">
 
   @if (homeData(); as data) {
-  <app-hero [title]="data.heroTitle | localizedText" [description]="data.heroDescription | localizedText"
-    [showButton]="data.heroShowButton ?? true" [buttonLabel]="data.heroButtonLabel | localizedText">
-  </app-hero>
-  } @else {
-  <app-hero title="AI-Integration mit messbarer Wirkung"
-    description="Wir unterstützen Unternehmen, Künstliche Intelligenz in ihre Prozesse zu integrieren – von der strategischen Beratung bis zu vollständigen AI-Lösungen."
-    [showMobileHeroDots]="true" mobileMarginClass="mt-[125px] mb-[146px] xl:mt-[224px] xl:mb-0">
-  </app-hero>
+    @if (data.heroTitle || data.heroDescription) {
+      <app-hero
+        [title]="data.heroTitle | localizedText"
+        [description]="data.heroDescription | localizedText"
+        [showButton]="data.heroShowButton !== false"
+        [buttonLabel]="data.heroButtonLabel | localizedText"
+        [buttonLink]="data.heroButtonLink || ''"
+        mobileMarginClass="mt-[125px] mb-[48px] xl:mt-[224px] lg:mb-[64px]">
+      </app-hero>
+    }
+  }
+
+  <app-logo-carousel [logos]="partnerLogos()"></app-logo-carousel>
+
+  @if (homeData()?.serviceCards && homeData()!.serviceCards!.length > 0) {
+    <section class="w-full section-spacing">
+      <div class="site-container">
+        <div class="grid grid-cols-1 min-[480px]:grid-cols-2 gap-[16px] xl:gap-[24px]">
+          @for (card of homeData()!.serviceCards; track $index) {
+            <div class="flex flex-col justify-start gap-[8px] items-start bg-ai-gray-100 rounded-[12px] p-[16px] sm:p-[20px] aspect-square xl:aspect-auto xl:h-[286px] xl:p-[36px]">
+              <h3 class="text-ai-gray-1000 font-sans text-[24px] md:text-[32px] font-medium leading-normal m-0">
+                {{ card.title | localizedText }}
+              </h3>
+              <p class="text-ai-gray-850 font-sans text-base md:text-xl font-normal leading-normal m-0">
+                {{ card.description | localizedText }}
+              </p>
+              @if (card.link && (card.linkText | localizedText)) {
+                @if (card.link.startsWith('http')) {
+                  <a [href]="card.link" target="_blank" rel="noopener noreferrer"
+                    class="mt-auto inline-flex items-center no-underline cursor-pointer arrow-link">
+                    <span class="text-cta font-sans text-base md:text-xl font-medium leading-normal">{{ card.linkText | localizedText }}</span>
+                    <img src="assets/icons/Frame.svg" alt="" class="flex-shrink-0 arrow-link-icon" aria-hidden="true">
+                  </a>
+                } @else {
+                  <a [routerLink]="card.link"
+                    class="mt-auto inline-flex items-center no-underline cursor-pointer arrow-link">
+                    <span class="text-cta font-sans text-base md:text-xl font-medium leading-normal">{{ card.linkText | localizedText }}</span>
+                    <img src="assets/icons/Frame.svg" alt="" class="flex-shrink-0 arrow-link-icon" aria-hidden="true">
+                  </a>
+                }
+              }
+            </div>
+          }
+        </div>
+      </div>
+    </section>
+  }
+
+  <app-case-study [featuredCaseStudy]="homeData()?.featuredCaseStudy ?? null"
+    [caseStudyLinkText]="homeData()?.caseStudyLinkText ?? null"></app-case-study>
+
+  @if (homeData(); as data) {
+    @if (data.testimonials && data.testimonials.length > 0) {
+      <app-testimonial-section alignment="center" variant="compactNarrow"
+        [quote]="(data.testimonials[0].quote | localizedText) || ''"
+        [author]="data.testimonials[0].clientName || ''"
+        [role]="(data.testimonials[0].clientRole | localizedText) || ''"
+        [avatarUrl]="data.testimonials[0].photo ? getTestimonialPhotoUrl(data.testimonials[0].photo) : ''">
+      </app-testimonial-section>
+    }
   }
 
   @if (homeData(); as data) {
-  <app-logo-carousel [partners]="data.partners || []"></app-logo-carousel>
-  } @else {
-  <app-logo-carousel></app-logo-carousel>
-  }
-
-  @if (homeData()?.featuredCaseStudy) {
-  <app-case-study [caseStudy]="homeData()?.featuredCaseStudy!"></app-case-study>
-  } @else {
-  <app-case-study></app-case-study>
-  }
-
-  @if (testimonials().length > 0) {
-  @for (testimonial of testimonials(); track testimonial._id; let first = $first) {
-  @if (first) {
-  <app-testimonial-section alignment="center" [quote]="testimonial.quote | localizedText"
-    [author]="testimonial.clientName" [role]="testimonial.clientRole | localizedText"
-    avatarUrl="assets/images/image 16.png" mobileMaxWidth="max-sm:max-w-[354px]" mobileGap="gap-[32px]"
-    mobileAuthorAlignment="items-start text-left">
-  </app-testimonial-section>
-  }
-  }
-  } @else {
-  <app-testimonial-section alignment="center" [quote]="homeData()?.fallbackTestimonialQuote | localizedText"
-    [author]="homeData()?.fallbackTestimonialAuthor || 'Danièle Bovier'"
-    [role]="homeData()?.fallbackTestimonialRole | localizedText" avatarUrl="assets/images/image 16.png"
-    mobileMaxWidth="max-sm:max-w-[354px]" mobileGap="gap-[32px]" mobileAuthorAlignment="items-start text-left">
-  </app-testimonial-section>
-  }
-
-  @if (homeData(); as data) {
-  <app-cta-card [title]="data.ctaCardTitle || ''" [description]="data.ctaCardDescription || ''"
-    [linkText]="data.ctaCardLinkText || ''" [linkUrl]="data.ctaCardLinkUrl || '/product'"
-    [currentLocale]="currentLocale()">
-  </app-cta-card>
-  } @else {
-  <app-cta-card [currentLocale]="currentLocale()"></app-cta-card>
-  }
-
-  @if (homeData(); as data) {
-  <app-process-steps [title]="data.processStepsTitle || ''" [steps]="data.processSteps || []"
-    [currentLocale]="currentLocale()">
-  </app-process-steps>
-  } @else {
-  <app-process-steps [currentLocale]="currentLocale()"></app-process-steps>
-  }
-
-  @if (homeData(); as data) {
-  <app-security-card [title]="data.securityCardTitle || ''" [description]="data.securityCardDescription || ''"
-    [currentLocale]="currentLocale()">
-  </app-security-card>
-  } @else {
-  <app-security-card [currentLocale]="currentLocale()"></app-security-card>
-  }
-
-  @if (homeData(); as data) {
-  <app-final-cta [title]="data.finalCtaTitle | localizedText" [description]="data.finalCtaDescription | localizedText"
-    [primaryBtnText]="data.finalCtaPrimaryBtnText | localizedText"
-    [primaryBtnLink]="data.finalCtaPrimaryBtnLink || '/contact'"
-    [secondaryBtnText]="data.finalCtaSecondaryBtnText | localizedText"
-    [secondaryBtnLink]="data.finalCtaSecondaryBtnLink || ''" [showMobileDecoration]="true"
-    [mobileDecorationClass]="'w-[195px] h-auto top-[300px] left-[-40px] md:w-[300px] md:top-[300px] md:left-[0px] lg:top-[300px] opacity-100'"
-    class="block section-spacing">
-  </app-final-cta>
-  } @else {
-  <app-final-cta [showMobileDecoration]="true"
-    [mobileDecorationClass]="'w-[195px] h-auto top-[300px] left-[-40px] md:w-[300px] md:top-[300px] md:left-[0px] lg:top-[300px] opacity-100'"
-    class="block section-spacing">
-  </app-final-cta>
+    @if (data.finalCtaTitle || data.finalCtaDescription) {
+      <app-final-cta class="block section-spacing"
+        [title]="data.finalCtaTitle | localizedText"
+        [description]="data.finalCtaDescription | localizedText"
+        [primaryBtnText]="data.finalCtaPrimaryBtnText | localizedText"
+        [primaryBtnLink]="data.finalCtaPrimaryBtnLink || ''"
+        [secondaryBtnText]="data.finalCtaSecondaryBtnText | localizedText"
+        [secondaryBtnLink]="data.finalCtaSecondaryBtnLink || ''">
+      </app-final-cta>
+    }
   }
 </div>

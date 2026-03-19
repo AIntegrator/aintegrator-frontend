@@ -11,7 +11,6 @@ import { LocalizedText } from '../../../../shared/models/sanity.models';
     styleUrl: './initiative-cta.component.scss'
 })
 export class InitiativeCtaComponent {
-    @Input() initiativeCTATitle: LocalizedText | undefined;
     @Input() initiativeCTADescription: LocalizedText | undefined;
     @Input() initiativeEmail: string | undefined;
     @Input() initiativeText: LocalizedText | string | undefined;

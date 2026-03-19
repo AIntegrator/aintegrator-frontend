@@ -13,12 +13,6 @@ export const routes: Routes = [
                 title: 'AIntegrator — Home',
             },
             {
-                path: 'product',
-                loadComponent: () =>
-                    import('./features/product/product.component').then((m) => m.ProductComponent),
-                title: 'AIntegrator — Product',
-            },
-            {
                 path: 'about',
                 loadComponent: () =>
                     import('./features/about-us/about-us.component').then((m) => m.AboutUsComponent),

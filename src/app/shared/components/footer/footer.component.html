@@ -1,106 +1,142 @@
-<footer class="w-full bg-ai-gray-100 mt-16 lg:mt-24 2xl:mt-32">
-    <div
-        class="site-container px-8 lg:px-10 xl:px-12 flex flex-col lg:flex-row justify-between items-start pt-[48px] lg:pt-20">
+<footer class="w-full bg-white mt-16 lg:mt-24 2xl:mt-32">
+    <div class="site-container px-8 lg:px-10 xl:px-12 flex flex-col pt-[48px] lg:pt-20">
+        <!-- Logo on its own row -->
+        <div class="w-full mb-[48px]">
+            <a routerLink="/" class="inline-block" aria-label="AIntegrator Home">
+                <img src="assets/logos/lia_logo.svg" alt="AIntegrator"
+                    class="h-[48px] w-auto object-contain" />
+            </a>
+        </div>
 
+        <!-- Split row: badges / membership (left) · link columns (right) -->
+        <div class="flex flex-col lg:flex-row justify-between items-start w-full gap-10 lg:gap-0">
         <div class="flex flex-col items-start w-full lg:w-auto">
-            <div class="inline-flex gap-[12px] lg:gap-4 mb-[24px] lg:mb-[43px] flex-wrap">
+            <div class="inline-flex gap-[12px] lg:gap-4 mb-[48px] flex-wrap">
                 <a href="https://www.swissmadesoftware.org/home.html" target="_blank" rel="noopener noreferrer"
-                    class="inline-flex flex-col items-center justify-center p-6 lg:p-6 bg-ai-gray-100 border border-ai-gray-650 rounded-[12px] w-[84px] h-[80px] lg:w-[128px] lg:h-[109px] box-border px-0 py-0 lg:p-6 cursor-pointer">
+                    class="inline-flex flex-col items-center justify-center p-6 lg:p-6 bg-ai-gray-100 rounded-[12px] w-[84px] h-[80px] lg:w-[128px] lg:h-[109px] box-border px-0 py-0 lg:p-6 cursor-pointer">
                     <img src="assets/images/image 5.png" alt="Swiss Made"
                         class="w-[60px] h-[45px] lg:w-[80px] lg:h-[61px] object-contain cursor-pointer" />
                 </a>
 
                 <a href="https://www.swissmadesoftware.org/home.html" target="_blank" rel="noopener noreferrer"
-                    class="inline-flex flex-col items-center justify-center p-6 lg:p-6 bg-ai-gray-100 border border-ai-gray-650 rounded-[12px] w-[84px] h-[80px] lg:w-[136px] lg:h-[109px] box-border px-0 py-0 lg:p-6 cursor-pointer">
+                    class="inline-flex flex-col items-center justify-center p-6 lg:p-6 bg-ai-gray-100 rounded-[12px] w-[84px] h-[80px] lg:w-[136px] lg:h-[109px] box-border px-0 py-0 lg:p-6 cursor-pointer">
                     <img src="assets/images/image 6.png" alt="Swiss Digital"
                         class="w-[60px] h-[41px] lg:w-[88px] lg:h-[61px] object-contain cursor-pointer" />
                 </a>
 
                 <a href="https://www.swissmadesoftware.org/home.html" target="_blank" rel="noopener noreferrer"
-                    class="inline-flex flex-col items-center justify-center p-6 lg:p-6 bg-ai-gray-100 border border-ai-gray-650 rounded-[12px] w-[84px] h-[80px] lg:w-[138px] lg:h-[109px] box-border px-0 py-0 lg:p-6 cursor-pointer">
+                    class="inline-flex flex-col items-center justify-center p-6 lg:p-6 bg-ai-gray-100 rounded-[12px] w-[84px] h-[80px] lg:w-[138px] lg:h-[109px] box-border px-0 py-0 lg:p-6 cursor-pointer">
                     <img src="assets/images/image 7.png" alt="Swiss Hosting"
                         class="w-[60px] h-[30px] lg:w-[90px] lg:h-[46px] object-contain cursor-pointer" />
                 </a>
             </div>
 
-            <p class="font-sans text-[14px] font-medium text-ai-gray-850 mb-[20px] lg:mb-6">{{
-                getLocalizedText(settings()?.footerMembershipLabel)
-                }}</p>
+            <p class="font-sans text-[14px] font-medium text-ai-gray-800 mb-[16px] lg:mb-6">Mitglied von</p>
 
             <div class="flex items-center gap-[12px] mb-[60px] lg:mb-[245px]">
-                <img src="assets/images/image 44.png" alt="Swiss AI"
-                    class="w-[90px] h-[20px] lg:w-[120px] lg:h-[26px] object-contain" />
-                <img src="assets/images/image 43.png" alt="A Swiss"
-                    class="w-[70px] h-[15px] lg:w-[96px] lg:h-[20px] object-contain" />
+                <img src="../../../../assets/images/swiss_ai_logo.png" alt="Swiss AI"
+                     class="w-[90px] h-[20px] lg:w-[120px] lg:h-[26px] object-contain" />
+                <img src="../../../../assets/images/ai_swiss_logo.png" alt="A Swiss"
+                     class="w-[70px] h-[15px] lg:w-[96px] lg:h-[20px] object-contain" />
             </div>
         </div>
 
-        <div
-            class="grid grid-cols-3 gap-x-[48px] w-full lg:w-auto mb-[40px] lg:mb-0 lg:flex lg:gap-[80px] xl:gap-[120px]">
+        <div class="w-full lg:w-auto mb-[40px] lg:mb-0">
+            <div
+                class="grid grid-cols-3 gap-x-[48px] w-full lg:w-auto lg:flex lg:gap-[80px] xl:gap-[120px]">
 
             <div class="flex flex-col gap-[24px] lg:gap-0">
-                <h4 class="font-sans text-[14px] font-medium text-ai-gray-850 lg:mb-[32px]">{{
-                    getLocalizedText(settings()?.footerCompanyTitle)
-                    }}</h4>
+                <h4 class="font-sans text-[14px] font-medium text-ai-gray-800 lg:mb-[32px]">{{ companyTitle() }}</h4>
                 <div class="flex flex-col gap-[24px] lg:block">
-                    @for (link of settings()?.footerCompanyLinks || []; track link.url) {
-                    <a [routerLink]="link.url"
-                        class="font-sans text-[14px] font-medium text-primary cursor-pointer transition-colors duration-200 hover:text-cta lg:mb-[33px] block">{{
-                        getLocalizedText(link.label)
-                        }}</a>
+                    @for (link of companyLinks(); track link.url) {
+                        @if (isExternalUrl(link.url)) {
+                            <a [href]="link.url" target="_blank" rel="noopener noreferrer"
+                                class="font-sans text-[14px] font-normal text-ai-gray-1000 lg:mb-[33px] block">{{ link.label }}</a>
+                        } @else {
+                            <a [routerLink]="link.url"
+                                class="font-sans text-[14px] font-normal text-ai-gray-1000 lg:mb-[33px] block">{{ link.label }}</a>
+                        }
                     }
                 </div>
             </div>
 
             <div class="flex flex-col gap-[24px] lg:gap-0">
-                <h4 class="font-sans text-[14px] font-medium text-ai-gray-850 lg:mb-[32px]">{{
-                    getLocalizedText(settings()?.footerProductsTitle)
-                    }}</h4>
+                <h4 class="font-sans text-[14px] font-medium text-ai-gray-800 lg:mb-[32px]">{{ servicesTitle() }}</h4>
                 <div class="flex flex-col gap-[24px] lg:block">
-                    @for (link of settings()?.footerProductsLinks || []; track link.url) {
-                    <a [routerLink]="link.url"
-                        class="font-sans text-[14px] font-medium text-primary cursor-pointer transition-colors duration-200 hover:text-cta lg:mb-[33px] block">{{
-                        getLocalizedText(link.label)
-                        }}</a>
+                    @for (link of servicesLinks(); track link.url) {
+                        @if (isExternalUrl(link.url)) {
+                            <a [href]="link.url" target="_blank" rel="noopener noreferrer"
+                                class="font-sans text-[14px] font-normal text-ai-gray-1000 lg:mb-[33px] block">{{ link.label }}</a>
+                        } @else {
+                            <a [routerLink]="link.url"
+                                class="font-sans text-[14px] font-normal text-ai-gray-1000 lg:mb-[33px] block">{{ link.label }}</a>
+                        }
                     }
                 </div>
             </div>
 
             <div class="flex flex-col gap-[24px] lg:gap-0">
-                <h4 class="font-sans text-[14px] font-medium text-ai-gray-850 lg:mb-[32px]">{{
-                    getLocalizedText(settings()?.footerSocialTitle)
-                    }}</h4>
+                <h4 class="font-sans text-[14px] font-medium text-ai-gray-800 lg:mb-[32px]">{{ socialTitle() }}</h4>
                 <div class="flex flex-col gap-[24px] lg:block">
-                    @for (link of settings()?.footerSocialLinks || []; track link.url) {
-                    <a [attr.href]="link.url" target="_blank"
-                        class="font-sans text-[14px] font-medium text-primary cursor-pointer transition-colors duration-200 hover:text-cta lg:mb-[33px] block">{{
-                        link.label
-                        }}</a>
+                    @for (link of socialLinks(); track link.url) {
+                        <a [href]="link.url" target="_blank" rel="noopener noreferrer"
+                            class="font-sans text-[14px] font-normal text-ai-gray-1000 lg:mb-[33px] block">{{ link.label }}</a>
                     }
                 </div>
             </div>
 
+        </div>
+        </div>
         </div>
 
     </div>
 
-    <div class="site-container px-8 lg:px-10 xl:px-12 flex flex-col items-start gap-6 pb-9">
-        <div class="w-full h-[1px] bg-ai-gray-650 mb-[17px] lg:mb-6"></div>
+    <div class="site-container px-8 lg:px-10 xl:px-12 flex flex-col items-start pb-9">
+        <div class="w-full h-[1px] bg-ai-gray-650 my-9"></div>
 
-        <div class="flex flex-row justify-between items-center w-full gap-0">
-            <span class="font-sans text-[14px] md:text-[16px] font-normal text-ai-gray-850 leading-[26px]">{{
-                getLocalizedText(settings()?.footerCopyright)
-                }}</span>
-
-            <div class="flex gap-[16px] md:gap-9">
-                @for (link of settings()?.footerLegalLinks || []; track link.url) {
-                <a [routerLink]="link.url"
-                    class="font-sans text-[14px] md:text-[16px] font-normal text-text-muted leading-[26px] cursor-pointer transition-colors duration-200 hover:text-cta">{{
-                    getLocalizedText(link.label)
-                    }}</a>
+        <div class="flex flex-row justify-between items-center w-full gap-4">
+            <p class="font-sans text-[14px] md:text-[16px] font-normal text-ai-gray-850 leading-[26px]">
+                {{ copyrightText() }}
+            </p>
+            <div class="flex items-center gap-[16px] md:gap-9">
+                @for (link of legalLinks(); track link.url) {
+                    @if (isExternalUrl(link.url)) {
+                        <a [href]="link.url" target="_blank" rel="noopener noreferrer"
+                            class="font-sans text-[14px] md:text-[16px] font-normal text-ai-gray-850 leading-[26px]">{{ link.label }}</a>
+                    } @else {
+                        <a [routerLink]="link.url"
+                            class="font-sans text-[14px] md:text-[16px] font-normal text-ai-gray-850 leading-[26px]">{{ link.label }}</a>
+                    }
                 }
+                <!-- Language switcher (temporarily disabled - always serving German) -->
+                <!-- <div class="relative">
+                    <button type="button"
+                        (click)="toggleLangDropdown()"
+                        class="inline-flex items-center gap-1 font-sans text-[14px] md:text-[16px] font-normal text-ai-gray-850 leading-[26px] cursor-pointer hover:text-ai-gray-1000 transition-colors"
+                        [attr.aria-expanded]="langDropdownOpen()"
+                        aria-haspopup="listbox"
+                        aria-label="Select language">
+                        <span>{{ currentLocaleLabel() }}</span>
+                        <lucide-icon [img]="chevronDownIcon" [size]="16"
+                            class="transition-transform"
+                            [class.rotate-180]="langDropdownOpen()"></lucide-icon>
+                    </button>
+                    @if (langDropdownOpen()) {
+                        <div class="absolute bottom-full left-0 mb-1 min-w-[120px] rounded-lg border border-ai-gray-650 bg-white py-1 shadow-lg z-10"
+                            role="listbox">
+                            @for (locale of supportedLocales(); track locale) {
+                                <button type="button"
+                                    (click)="selectLocale(locale)"
+                                    class="block w-full px-4 py-2 text-left font-sans text-[14px] text-ai-gray-1000 hover:bg-ai-gray-100 transition-colors"
+                                    [class.font-medium]="locale === localeService.currentLocale()"
+                                    role="option">
+                                    {{ getLocaleLabel(locale) }}
+                                </button>
+                            }
+                        </div>
+                    }
+                </div> -->
             </div>
         </div>
-
     </div>
 </footer>

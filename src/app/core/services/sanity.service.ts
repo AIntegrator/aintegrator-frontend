@@ -27,7 +27,7 @@ export class SanityService {
             ignoreBrowserTokenWarning: true,
         });
 
-        console.log('✅ Sanity Client initialized');
+        console.log('Sanity Client initialized');
     }
 
     async fetch<T>(query: string, params?: QueryParams): Promise<T> {
@@ -63,5 +63,12 @@ export class SanityService {
     async getBySlug<T>(type: string, slug: string): Promise<T> {
         const query = `*[_type == $type && slug.current == $slug][0]`;
         return this.fetch<T>(query, { type, slug });
+    }
+
+    /**
+     * Get the Sanity client instance for advanced operations like image URL generation
+     */
+    getClient(): SanityClient {
+        return this.client;
     }
 }
