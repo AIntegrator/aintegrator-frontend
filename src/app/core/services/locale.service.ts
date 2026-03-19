@@ -39,21 +39,20 @@ export class LocaleService {
     }
 
     private resolveInitialLocale(): SupportedLocale {
-        if (!this.isBrowser) {
-            return environment.defaultLocale as SupportedLocale;
-        }
-
-        const cookieLocale = this.getCookie(LOCALE_COOKIE_KEY);
-        if (cookieLocale && this.isSupported(cookieLocale)) {
-            return cookieLocale;
-        }
-
-        const browserLang = navigator.language?.split('-')[0];
-        if (browserLang && this.isSupported(browserLang)) {
-            return browserLang;
-        }
-
-        return environment.defaultLocale as SupportedLocale;
+        // Temporarily always serve German; language switcher is commented out
+        return 'de' as SupportedLocale;
+        // if (!this.isBrowser) {
+        //     return environment.defaultLocale as SupportedLocale;
+        // }
+        // const cookieLocale = this.getCookie(LOCALE_COOKIE_KEY);
+        // if (cookieLocale && this.isSupported(cookieLocale)) {
+        //     return cookieLocale;
+        // }
+        // const browserLang = navigator.language?.split('-')[0];
+        // if (browserLang && this.isSupported(browserLang)) {
+        //     return browserLang;
+        // }
+        // return environment.defaultLocale as SupportedLocale;
     }
 
     private getCookie(name: string): string | null {
