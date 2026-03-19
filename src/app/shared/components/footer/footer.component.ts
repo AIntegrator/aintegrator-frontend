@@ -1,22 +1,33 @@
-import { Component, ChangeDetectionStrategy, inject, computed } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject, computed, signal, HostListener, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { LucideAngularModule, ChevronDown } from 'lucide-angular';
 import { SiteSettingsService } from '../../../core/services/site-settings.service';
-import { LocaleService } from '../../../core/services/locale.service';
+import { LocaleService, type SupportedLocale } from '../../../core/services/locale.service';
 
 @Component({
     selector: 'app-footer',
     standalone: true,
-    imports: [CommonModule, RouterModule],
+    imports: [CommonModule, RouterModule, LucideAngularModule],
     templateUrl: './footer.component.html',
     styleUrl: './footer.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FooterComponent {
     readonly currentYear = new Date().getFullYear();
+    readonly chevronDownIcon = ChevronDown;
+    readonly langDropdownOpen = signal(false);
 
     private siteSettings = inject(SiteSettingsService);
-    private localeService = inject(LocaleService);
+    readonly localeService = inject(LocaleService);
+    private elementRef = inject(ElementRef);
+
+    @HostListener('document:click', ['$event'])
+    onDocumentClick(event: MouseEvent): void {
+        if (this.langDropdownOpen() && !this.elementRef.nativeElement.contains(event.target)) {
+            this.closeLangDropdown();
+        }
+    }
 
     readonly companyTitle = computed(() =>
         this.siteSettings.getFooterCompanyTitle(this.localeService.currentLocale())
@@ -40,6 +51,32 @@ export class FooterComponent {
     readonly copyrightText = computed(() =>
         this.siteSettings.getFooterCopyright(this.localeService.currentLocale())
     );
+    readonly currentLocaleLabel = computed(() =>
+        this.localeService.localeLabels()[this.localeService.currentLocale()] ?? 'English'
+    );
+    readonly supportedLocales = computed(() =>
+        this.localeService.supportedLocales as readonly string[]
+    );
+
+    toggleLangDropdown(): void {
+        this.langDropdownOpen.update((v) => !v);
+    }
+
+    closeLangDropdown(): void {
+        this.langDropdownOpen.set(false);
+    }
+
+    selectLocale(locale: string): void {
+        if (this.localeService.isSupported(locale)) {
+            this.localeService.setLocale(locale as SupportedLocale);
+            this.closeLangDropdown();
+        }
+    }
+
+    getLocaleLabel(locale: string): string {
+        const labels = this.localeService.localeLabels();
+        return (labels as Record<string, string>)[locale] ?? locale;
+    }
 
     isExternalUrl(url: string): boolean {
         return url.startsWith('http://') || url.startsWith('https://');

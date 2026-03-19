@@ -13,7 +13,7 @@ import { LocaleService } from '../../../core/services/locale.service';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavbarComponent {
-    readonly logoSrc = 'assets/images/logo.png';
+    readonly logoSrc = 'assets/logos/lia_logo.svg';
     readonly arrowIconSrc = 'assets/icons/Frame.svg';
     mobileMenuOpen = false;
 

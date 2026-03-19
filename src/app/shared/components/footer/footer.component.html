@@ -3,8 +3,10 @@
         class="site-container px-8 lg:px-10 xl:px-12 flex flex-col lg:flex-row justify-between items-start pt-[48px] lg:pt-20">
 
         <div class="flex flex-col items-start w-full lg:w-auto">
-            <img src="assets/images/aintegrator_logotype_reduced.svg" alt="AIntegrator"
-                class="h-[48px] w-auto object-contain mb-[48px]" />
+            <a routerLink="/" class="inline-block mb-[48px]" aria-label="AIntegrator Home">
+                <img src="assets/logos/lia_logo.svg" alt="AIntegrator"
+                    class="h-[48px] w-auto object-contain" />
+            </a>
 
             <div class="inline-flex gap-[12px] lg:gap-4 mb-[48px] flex-wrap">
                 <a href="https://www.swissmadesoftware.org/home.html" target="_blank" rel="noopener noreferrer"
@@ -92,7 +94,7 @@
             <p class="font-sans text-[14px] md:text-[16px] font-normal text-ai-gray-850 leading-[26px]">
                 {{ copyrightText() }}
             </p>
-            <div class="flex gap-[16px] md:gap-9">
+            <div class="flex items-center gap-[16px] md:gap-9">
                 @for (link of legalLinks(); track link.url) {
                     @if (isExternalUrl(link.url)) {
                         <a [href]="link.url" target="_blank" rel="noopener noreferrer"
@@ -102,6 +104,33 @@
                             class="font-sans text-[14px] md:text-[16px] font-normal text-ai-gray-850 leading-[26px]">{{ link.label }}</a>
                     }
                 }
+                <div class="relative">
+                    <button type="button"
+                        (click)="toggleLangDropdown()"
+                        class="inline-flex items-center gap-1 font-sans text-[14px] md:text-[16px] font-normal text-ai-gray-850 leading-[26px] cursor-pointer hover:text-ai-gray-1000 transition-colors"
+                        [attr.aria-expanded]="langDropdownOpen()"
+                        aria-haspopup="listbox"
+                        aria-label="Select language">
+                        <span>{{ currentLocaleLabel() }}</span>
+                        <lucide-icon [img]="chevronDownIcon" [size]="16"
+                            class="transition-transform"
+                            [class.rotate-180]="langDropdownOpen()"></lucide-icon>
+                    </button>
+                    @if (langDropdownOpen()) {
+                        <div class="absolute bottom-full left-0 mb-1 min-w-[120px] rounded-lg border border-ai-gray-650 bg-white py-1 shadow-lg z-10"
+                            role="listbox">
+                            @for (locale of supportedLocales(); track locale) {
+                                <button type="button"
+                                    (click)="selectLocale(locale)"
+                                    class="block w-full px-4 py-2 text-left font-sans text-[14px] text-ai-gray-1000 hover:bg-ai-gray-100 transition-colors"
+                                    [class.font-medium]="locale === localeService.currentLocale()"
+                                    role="option">
+                                    {{ getLocaleLabel(locale) }}
+                                </button>
+                            }
+                        </div>
+                    }
+                </div>
             </div>
         </div>
     </div>
