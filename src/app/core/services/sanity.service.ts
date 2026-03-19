@@ -9,12 +9,25 @@ export class SanityService {
     private readonly client: SanityClient;
 
     constructor() {
+        console.log('🔧 Initializing Sanity Client with config:', {
+            projectId: environment.sanity.projectId,
+            dataset: environment.sanity.dataset,
+            apiVersion: environment.sanity.apiVersion,
+            useCdn: environment.sanity.useCdn,
+            perspective: (environment.sanity as any).perspective || 'published',
+        });
+
         this.client = createClient({
             projectId: environment.sanity.projectId,
             dataset: environment.sanity.dataset,
             apiVersion: environment.sanity.apiVersion,
             useCdn: environment.sanity.useCdn,
+            perspective: (environment.sanity as any).perspective || 'published',
+            token: undefined, // Public read access
+            ignoreBrowserTokenWarning: true,
         });
+
+        console.log('Sanity Client initialized');
     }
 
     async fetch<T>(query: string, params?: QueryParams): Promise<T> {
@@ -50,5 +63,12 @@ export class SanityService {
     async getBySlug<T>(type: string, slug: string): Promise<T> {
         const query = `*[_type == $type && slug.current == $slug][0]`;
         return this.fetch<T>(query, { type, slug });
+    }
+
+    /**
+     * Get the Sanity client instance for advanced operations like image URL generation
+     */
+    getClient(): SanityClient {
+        return this.client;
     }
 }

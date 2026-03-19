@@ -1,35 +1,49 @@
 <div class="about-us-page flex flex-col">
 
-    <app-about-hero></app-about-hero>
+    @if (aboutData(); as data) {
+      @if (data.heroTitle && data.heroDescription) {
+        <app-about-hero [title]="data.heroTitle | localizedText" [description]="data.heroDescription"
+                        [currentLocale]="currentLocale()"></app-about-hero>
+      }
+    }
 
-    <app-founders-grid-section [founders]="founders"></app-founders-grid-section>
-
+  @if (founders().length > 0) {
+    <app-founders-grid-section [founders]="founders()"></app-founders-grid-section>
+  }
     <section class="site-container w-full max-w-[1144px] mx-auto mb-16 lg:mb-32 flex flex-col gap-[48px] md:gap-[96px]">
         <section class="flex flex-col gap-[24px] items-start w-full lg:grid lg:grid-cols-[minmax(0,calc(50%-48px))_minmax(0,50%)] lg:gap-x-24 lg:gap-y-[24px]">
             <h3 class="text-black font-medium text-[24px] md:text-[32px] font-sans leading-normal m-0 lg:col-start-1">
-                Mission
+              @if (aboutData(); as data) {
+                {{ data.missionTitle | localizedText }}
+              }
             </h3>
             <p class="text-text-secondary font-normal text-[16px] md:text-xl font-sans leading-normal m-0 lg:col-start-2">
-                Wir unterstützen etablierte Institutionen in den Bereichen Gesundheitswesen, Finanzen und Verwaltung dabei, die Komplexität von AI zu meistern. Unser Fokus liegt auf der pragmatischen Automatisierung von Geschäftsprozessen: Wir analysieren bestehende Abläufe und überführen sie in effiziente, automatisierte Systeme. So erzielen wir nachhaltige Kosteneinsparungen und eine messbare Steigerung der Qualität.
+              @if (aboutData(); as data) {
+                <p>{{ data.missionText | localizedText }}</p>
+              }
             </p>
         </section>
 
-        <section class="flex flex-col gap-[24px] items-start w-full lg:grid lg:grid-cols-[minmax(0,calc(50%-48px))_minmax(0,50%)] lg:gap-x-24 lg:gap-y-[24px]">
-            <h3 class="text-black font-medium text-[24px] md:text-[32px] font-sans leading-normal m-0 lg:col-start-1">
-                Werte
-            </h3>
-            <p class="text-text-secondary font-normal text-[16px] md:text-xl font-sans leading-normal m-0 lg:col-start-2">
-                Wir verstehen Softwareentwicklung als Handwerk, in der Präzision und Detailreichtum die Basis für langlebige Lösungen bilden. Dabei agieren wir pragmatisch: Anstatt abstrakter Konzepte realisieren wir Automatisierungen, die dort ansetzen, wo sie unmittelbar Nutzen stiften. Wir entwickeln Systeme, die einfach funktionieren und von den Menschen, die sie nutzen, geliebt werden.
-            </p>
-        </section>
+        @if (aboutData(); as data) {
+          @if (data.valuesText) {
+            <section class="flex flex-col gap-[24px] items-start w-full lg:grid lg:grid-cols-[minmax(0,calc(50%-48px))_minmax(0,50%)] lg:gap-x-24 lg:gap-y-[24px]">
+                <h3 class="text-black font-medium text-[24px] md:text-[32px] font-sans leading-normal m-0 lg:col-start-1">
+                    {{ (data.valuesTitle | localizedText) || 'Werte' }}
+                </h3>
+                <p class="text-text-secondary font-normal text-[16px] md:text-xl font-sans leading-normal m-0 lg:col-start-2">
+                    {{ data.valuesText | localizedText }}
+                </p>
+            </section>
+          }
+        }
     </section>
 
-    <app-final-cta [title]="'Zeit für AI-Integration mit messbarer Wirkung'"
-        [description]="'Investieren Sie 30 Minuten in die Zukunft Ihres Unternehmens: Wir zeigen Ihnen konkrete Erfolgsbeispiele und wie Ihre AI-Transformation reibungslos gelingt.'"
-        [secondaryBtnText]="'Karriere'" [secondaryBtnLink]="'/careers'"
-        [secondaryBtnIcon]="'assets/icons/Frame.png'" [primaryBtnText]="'Termin vereinbaren'"
-        [primaryBtnLink]="'https://calendar.app.google/fzUMskhjkfUh2Qd47'" [primaryBtnIcon]="'assets/icons/Frame.svg'"
-        class="block section-spacing">
+  @if (aboutData(); as data) {
+    <app-final-cta [title]="data.finalCtaTitle | localizedText" [description]="data.finalCtaDescription | localizedText"
+                   [secondaryBtnText]="data.finalCtaSecondaryBtnText | localizedText"
+                   [secondaryBtnLink]="data.finalCtaSecondaryBtnLink ? data.finalCtaSecondaryBtnLink : '' " [secondaryBtnIcon]="'assets/icons/Frame.png'"
+                   [primaryBtnText]="data.finalCtaPrimaryBtnText | localizedText" [primaryBtnLink]="data.finalCtaPrimaryBtnLink ? data.finalCtaPrimaryBtnLink : '' "
+                   [primaryBtnIcon]="'assets/icons/Frame.svg'">
     </app-final-cta>
-
+  }
 </div>
