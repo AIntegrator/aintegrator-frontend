@@ -1,33 +1,33 @@
-<section class="w-full" [ngClass]="sectionSpacingClass()">
+<section class="w-full" [ngClass]="spacing ? 'section-spacing' : ''">
     <div [ngClass]="[
-            fullWidth() ? 'w-full max-w-[1144px]' : 'site-container',
-            alignment() === 'center' ? 'justify-center' : 'justify-start'
+            fullWidth ? 'w-full max-w-[1144px]' : 'site-container',
+            alignment === 'center' ? 'justify-center' : 'justify-start'
          ]" class="flex relative">
         <div class="flex flex-col md:gap-[40px] lg:gap-[60px]" [ngClass]="[
-                alignment() === 'center' ? 'items-center text-center' : 'items-start text-left', 
-                mobileGap(),
-                mobileMaxWidth()
+                alignment === 'center' ? 'items-center text-center' : 'items-start text-left', 
+                variant === 'default' ? 'gap-[24px]' : 'gap-[32px]',
+                variant === 'compactNarrow' ? 'max-sm:max-w-[354px]' : 'max-w-none'
             ]">
 
             <blockquote
                 class="text-primary font-sans font-normal leading-normal m-0 p-0 text-[20px] md:text-[26px] lg:text-[32px] w-full max-w-[95%] md:max-w-[65ch]">
-                {{ quote() }}
+                {{ quote }}
             </blockquote>
 
             <div *ngIf="hasMeta()" class="flex items-center gap-[8px] md:gap-[12px] lg:gap-[16px]">
-                <div *ngIf="avatarUrl()"
+                <div *ngIf="avatarUrl"
                     class="w-[36px] h-[36px] md:w-[50px] md:h-[50px] lg:w-[70px] lg:h-[70px] rounded-full bg-ai-gray-100 overflow-hidden relative flex-shrink-0 flex items-center justify-center lg:block">
-                    <img [src]="avatarUrl()" [alt]="author() || 'Testimonial avatar'" class="w-full h-full object-cover">
+                    <img [src]="avatarUrl" [alt]="author || 'Testimonial avatar'" class="w-full h-full object-cover">
                 </div>
 
-                <div *ngIf="author() || role()" class="flex flex-col justify-center gap-0 lg:gap-[4px]" [ngClass]="mobileAuthorAlignment()">
-                    <span *ngIf="author()"
+                <div *ngIf="author || role" class="flex flex-col justify-center gap-0 lg:gap-[4px]" [ngClass]="variant === 'default' ? 'items-center text-center' : 'items-start text-left'">
+                    <span *ngIf="author"
                         class="text-primary font-sans text-[16px] md:text-[20px] lg:text-[24px] font-medium leading-tight">
-                        {{ author() }}
+                        {{ author }}
                     </span>
-                    <span *ngIf="role()"
+                    <span *ngIf="role"
                         class="text-text-secondary font-sans text-[14px] md:text-[15px] lg:text-[16px] font-normal leading-normal">
-                        {{ role() }}
+                        {{ role }}
                     </span>
                 </div>
             </div>

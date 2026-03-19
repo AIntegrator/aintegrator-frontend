@@ -1,21 +1,39 @@
+@if (caseStudyData; as data) {
 <section class="flex flex-col items-start md:items-center w-full max-w-[1144px] mx-auto gap-[24px]">
     <div class="flex flex-col items-start md:items-center gap-[12px]">
-        <div class="flex items-center gap-[8px]">
-            <lucide-icon [img]="landmarkIcon" [size]="14" class="text-text-muted"></lucide-icon>
-            <span class="text-text-muted font-medium text-[16px]">Financial Services</span>
-        </div>
-        <h1
-            class="text-black font-medium text-[32px] md:text-[48px] xl:text-[64px] leading-normal text-left md:text-center m-0">
-            Behördenanfragen auf Autopilot
-        </h1>
+        @if (data.industry || data.client) {
+            <div class="flex items-center gap-[8px]">
+                <lucide-icon [img]="landmarkIcon" [size]="14" class="text-text-muted"></lucide-icon>
+                <span class="text-text-muted font-medium text-[16px]">
+                    {{ (data.industry | localizedText) || data.client || '' }}
+                </span>
+            </div>
+        }
+        @if (data.title) {
+            <h1
+                class="text-black font-medium text-[32px] md:text-[48px] xl:text-[64px] leading-normal text-left md:text-center m-0">
+                {{ data.title | localizedText }}
+            </h1>
+        }
     </div>
 
-    <p class="max-w-[65ch] text-left md:text-center font-normal text-[16px] md:text-xl leading-normal text-ai-gray-800">
-        Für einen Finanzdienstleister haben wir die staatlichen Auskunftsersuchen digitalisiert. Das Ergebnis? Beschleunigte Prüfprozesse, nahtlose Datenbeschaffung und maximale Compliance.
-    </p>
+    @if (data.excerpt) {
+        <p class="max-w-[65ch] text-left md:text-center font-normal text-[16px] md:text-xl leading-normal text-ai-gray-800">
+            {{ data.excerpt | localizedText }}
+        </p>
+    }
 
-    <div class="w-full max-h-[400px] overflow-hidden relative mt-24">
-        <img src="assets/images/lia_compliance_mock.png" alt="LiaCompliance - Behördenanfragen auf Autopilot" class="w-full h-full">
-        <div class="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-white/50 to-transparent"></div>
+    <div class="w-full max-h-[400px] min-h-[200px] overflow-hidden relative mt-24 bg-ai-gray-200">
+        @if (coverImageUrl(); as url) {
+            <img [src]="url" [alt]="(data.title | localizedText) || 'Case study cover'"
+                class="w-full h-full object-cover absolute inset-0"
+                [class.opacity-0]="showSkeleton"
+                (load)="onImageLoad()" (error)="onImageError()">
+        }
+        @if (showSkeleton) {
+            <div class="absolute inset-0 animate-pulse bg-ai-gray-200" aria-hidden="true"></div>
+        }
+        <div class="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-white/50 to-transparent pointer-events-none"></div>
     </div>
 </section>
+}

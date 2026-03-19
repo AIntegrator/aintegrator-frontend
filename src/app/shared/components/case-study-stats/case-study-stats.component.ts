@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 export interface CaseStudyStat {
@@ -16,9 +16,7 @@ export interface CaseStudyStat {
     styleUrl: './case-study-stats.component.scss'
 })
 export class CaseStudyStatsComponent {
-    readonly stats = input.required<CaseStudyStat[]>();
-    readonly backgroundClass = input<string>('bg-ai-gray-100');
-    readonly containerClass = input<string>('rounded-[12px] p-[32px] md:p-[80px]');
-    readonly cardContentClass = input<string>('justify-end gap-0');
-    readonly size = input<'default' | 'small'>('default');
+    @Input({ required: true }) stats!: CaseStudyStat[];
+    /** 'grid' = 2-col grid, 'row' = horizontal flex row (case study page) */
+    @Input() layout: 'grid' | 'row' = 'grid';
 }

@@ -1,9 +1,13 @@
 <div class="w-full bg-white pt-[96px] md:pt-[148px] xl:pt-[196px] flex flex-col">
     <div class="site-container flex flex-col gap-[48px] md:gap-[96px] lg:gap-[148px]">
 
-        <app-case-study-hero></app-case-study-hero>
+      <app-case-study-hero [caseStudyData]="caseStudyData()"></app-case-study-hero>
 
-        <app-case-study-content></app-case-study-content>
+      <app-case-study-content [caseStudyData]="caseStudyData()"></app-case-study-content>
+
+      @if (caseStudyStats().length > 0) {
+        <app-case-study-stats [stats]="caseStudyStats()" layout="row"></app-case-study-stats>
+      }
 
     </div>
     <div class="section-spacing"></div>

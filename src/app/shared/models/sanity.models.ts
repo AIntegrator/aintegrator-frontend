@@ -175,7 +175,13 @@ export interface CaseStudy {
   _id: string;
   _type: 'caseStudy';
   title: LocalizedText;
-  slug: { current: string };
+  slug?: {
+    current?: string;
+    en?: { current: string };
+    de?: { current: string };
+    fr?: { current: string };
+    it?: { current: string };
+  };
   excerpt?: LocalizedText;
   coverImage?: SanityImage;
   client?: string;
@@ -188,11 +194,14 @@ export interface CaseStudy {
     label: LocalizedText;
   }>;
   executiveSummaryHeading?: LocalizedText;
+  executiveSummary?: LocalizedText;
   situationHeading?: LocalizedText;
   situationDescription?: LocalizedText;
   situationGoals?: Array<{
     _key?: string;
     text?: LocalizedText;
+    title?: LocalizedText;
+    description?: LocalizedText;
   }>;
   actionHeading?: LocalizedText;
   actionDescription?: LocalizedText;

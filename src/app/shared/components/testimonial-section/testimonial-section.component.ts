@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -9,20 +9,18 @@ import { CommonModule } from '@angular/common';
     styleUrl: './testimonial-section.component.scss'
 })
 export class TestimonialSectionComponent {
-    readonly alignment = input<'left' | 'center'>('center');
-    readonly fullWidth = input<boolean>(false);
-    readonly quote = input.required<string>();
-    readonly author = input<string>('');
-    readonly role = input<string>('');
-    readonly avatarUrl = input<string>('');
+    @Input() alignment: 'left' | 'center' = 'center';
+    @Input() fullWidth = false;
+    @Input({ required: true }) quote!: string;
+    @Input() author = '';
+    @Input() role = '';
+    @Input() avatarUrl = '';
 
-    readonly mobileGap = input<string>('gap-[24px]');
-    readonly mobileMaxWidth = input<string>('max-w-none');
-    readonly mobilePaddingClass = input<string>('px-0');
-    readonly mobileAuthorAlignment = input<string>('items-start text-left');
-    readonly sectionSpacingClass = input<string>('section-spacing');
+    /** 'default' = centered, 'compact' = left-aligned author + tighter gap, 'compactNarrow' = compact + narrow on mobile */
+    @Input() variant: 'default' | 'compact' | 'compactNarrow' = 'default';
+    @Input() spacing = true;
 
     hasMeta(): boolean {
-        return Boolean(this.author() || this.role() || this.avatarUrl());
+        return Boolean(this.author || this.role || this.avatarUrl);
     }
 }

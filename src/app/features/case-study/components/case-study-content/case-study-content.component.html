@@ -1,149 +1,138 @@
 <div class="flex flex-col gap-[48px] md:gap-[96px] lg:gap-[148px] w-full max-w-[1144px] items-start self-stretch mx-auto">
-    <section class="flex flex-col gap-[24px] items-start w-full lg:grid lg:grid-cols-[minmax(0,calc(50%-48px))_minmax(0,50%)] lg:gap-x-24 lg:gap-y-[24px]">
-        <h3 class="text-black font-medium text-[24px] md:text-[32px] font-sans leading-normal m-0 lg:col-start-1">Executive Summary
-        </h3>
-        <p class="text-text-secondary font-normal text-[16px] md:text-xl font-sans leading-normal m-0 lg:col-start-2">Wir haben den Prozess der Behördenanfragen durch Staatsanwaltschaften für einen Schweizer Finanzdienstleister von Grund auf digitalisiert. Durch den Einsatz von AI und intelligenter Prozess-Orchestrierung wurde die zeitintensive manuelle Datenbeschaffung aus heterogenen Systemen eliminiert. Das Ergebnis: Eine drastische Beschleunigung der Antwortzeiten, eine signifikante Entlastung hochqualifizierter Juristen und 150'000.- CHF jährliche Ersparnis – bei lückenloser Einhaltung strengster Compliance-Vorgaben.
-        </p>
-    </section>
+    @if (caseStudyData; as data) {
+        @if (data.executiveSummaryHeading || data.executiveSummary) {
+            <section class="flex flex-col gap-[24px] items-start w-full lg:grid lg:grid-cols-[minmax(0,calc(50%-48px))_minmax(0,50%)] lg:gap-x-24 lg:gap-y-[24px]">
+                @if (data.executiveSummaryHeading) {
+                    <h3 class="text-black font-medium text-[24px] md:text-[32px] font-sans leading-normal m-0 lg:col-start-1">
+                        {{ data.executiveSummaryHeading | localizedText }}
+                    </h3>
+                }
+                @if (data.executiveSummary) {
+                    <p class="text-text-secondary font-normal text-[16px] md:text-xl font-sans leading-normal m-0 lg:col-start-2">
+                        {{ data.executiveSummary | localizedText }}
+                    </p>
+                }
+            </section>
+        }
 
-    <section class="flex flex-col gap-[24px] items-start w-full lg:grid lg:grid-cols-[minmax(0,calc(50%-48px))_minmax(0,50%)] lg:gap-x-24 lg:gap-y-[24px]">
-        <div class="flex flex-col gap-0 items-start lg:col-start-1">
-        
-            <h3 class="text-black font-medium text-[24px] md:text-[32px] font-sans leading-normal m-0">Situation & Task
-            </h3>
-        </div>
-        <p class="text-text-secondary font-normal text-[16px] md:text-xl font-sans leading-normal m-0 lg:col-start-2">
-            Ein Finanzdienstleister bearbeitet regelmässig Anfragen von Staatsanwaltschaften im Namen seiner Kunden, beispielsweise im Rahmen von Geldwäscheermittlungen. Jede Anfrage muss zunächst auf ihre rechtliche Berechtigung hin geprüft werden. Oft fehlt eine klare Grundlage. Bei berechtigten Anfragen müssen Daten aus mehreren heterogenen Systemen und Silos manuell zusammengetragen werden, was jeweils komplexe Autorisierungsabläufe erfordert. Dieser Prozess ist langsam, teuer und erfordert spezialisierte Juristen. Um diese administrativen Engpässe zu überwinden und die wertvolle Zeit der Rechtsexperten effizienter zu nutzen, verfolgt das Unternehmen die folgenden Zielsetzungen:
-        </p>
-        <div class="flex flex-col gap-[24px] w-full max-w-[762px] mt-[8px] lg:col-start-2">
-            <div class="grid grid-cols-[20px_1fr] gap-x-[12px] md:gap-x-[20px] items-start">
-                <lucide-icon [img]="checkIcon" [size]="20"
-                    class="w-[20px] h-[20px] text-black self-start pt-1"></lucide-icon>
-                <span class="text-text-secondary font-normal text-[16px] md:text-xl font-sans leading-normal">Automatisierung der Vorprüfung</span>
-            </div>
-            <div class="grid grid-cols-[20px_1fr] gap-x-[12px] md:gap-x-[20px] items-start">
-                <lucide-icon [img]="checkIcon" [size]="20"
-                    class="w-[20px] h-[20px] text-black self-start pt-1"></lucide-icon>
-                <span class="text-text-secondary font-normal text-[16px] md:text-xl font-sans leading-normal">Zentralisierung des Datenzugriffs</span>
-            </div>
-            <div class="grid grid-cols-[20px_1fr] gap-x-[12px] md:gap-x-[20px] items-start">
-                <lucide-icon [img]="checkIcon" [size]="20"
-                    class="w-[20px] h-[20px] text-black self-start pt-1"></lucide-icon>
-                <span class="text-text-secondary font-normal text-[16px] md:text-xl font-sans leading-normal">Beschleunigung der Antwortzeiten durch standardisierte Abläufe</span>
-            </div>
-            <div class="grid grid-cols-[20px_1fr] gap-x-[12px] md:gap-x-[20px] items-start">
-                <lucide-icon [img]="checkIcon" [size]="20"
-                    class="w-[20px] h-[20px] text-black self-start pt-1"></lucide-icon>
-                <span class="text-text-secondary font-normal text-[16px] md:text-xl font-sans leading-normal">Kostenreduktion durch Verlagerung repetitiver Aufgaben von hochspezialisierten Juristen auf automatisierte Systeme</span>
-            </div>
-        </div>
-    </section>
+        @if (data.situationHeading || data.situationDescription || (data.situationGoals && data.situationGoals.length > 0)) {
+            <section class="flex flex-col gap-[24px] items-start w-full lg:grid lg:grid-cols-[minmax(0,calc(50%-48px))_minmax(0,50%)] lg:gap-x-24 lg:gap-y-[24px]">
+                @if (data.situationHeading) {
+                    <h3 class="text-black font-medium text-[24px] md:text-[32px] font-sans leading-normal m-0 lg:col-start-1">
+                        {{ data.situationHeading | localizedText }}
+                    </h3>
+                }
+                @if (data.situationDescription) {
+                    <p class="text-text-secondary font-normal text-[16px] md:text-xl font-sans leading-normal m-0 lg:col-start-2">
+                        {{ data.situationDescription | localizedText }}
+                    </p>
+                }
+                @if (data.situationGoals && data.situationGoals.length > 0) {
+                    <div class="flex flex-col gap-[24px] w-full mt-[8px] lg:col-start-2">
+                        @for (goal of data.situationGoals; track goal._key || $index) {
+                            <div class="grid grid-cols-[20px_1fr] gap-x-[12px] md:gap-x-[20px] items-start w-full max-w-[1085px]">
+                                <lucide-icon [img]="checkIcon" [size]="20"
+                                    class="w-[20px] h-[20px] text-black self-start pt-1"></lucide-icon>
+                                <div class="flex flex-col items-start gap-[8px]">
+                                    @if (goal.title || goal.text) {
+                                        <span class="text-black font-medium text-[16px] md:text-xl font-sans leading-normal">
+                                            {{ (goal.title || goal.text) | localizedText }}
+                                        </span>
+                                    }
+                                    @if (goal.description) {
+                                        <p class="text-text-secondary font-normal text-[16px] md:text-xl font-sans leading-normal m-0">
+                                            {{ goal.description | localizedText }}
+                                        </p>
+                                    }
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+            </section>
+        }
 
-    <section class="flex flex-col gap-[24px] items-start w-full lg:grid lg:grid-cols-[minmax(0,calc(50%-48px))_minmax(0,50%)] lg:gap-x-24 lg:gap-y-[24px]">
-        <div class="flex flex-col gap-0 items-start lg:col-start-1">
-            <h3 class="text-black font-medium text-[24px] md:text-[32px] font-sans leading-normal m-0">Action</h3>
-        </div>
-        <p class="text-text-secondary font-normal text-[16px] md:text-xl font-sans leading-normal m-0 lg:col-start-2">
-            Um die manuellen Engpässe zu beseitigen, haben wir ein intelligentes System entwickelt, das den gesamten Workflow von der Posteingangsbearbeitung bis zum fertigen Antwortentwurf digitalisiert:
-        </p>
-        <div class="flex flex-col gap-[24px] w-full mt-[8px] lg:col-start-2">
-            <div class="grid grid-cols-[20px_1fr] gap-x-[12px] md:gap-x-[20px] items-start w-full max-w-[1085px]">
-                <lucide-icon [img]="checkIcon" [size]="20"
-                    class="w-[20px] h-[20px] text-black self-start pt-1"></lucide-icon>
-                <div class="flex flex-col items-start gap-[8px]">
-                    <span class="text-black font-medium text-[16px] md:text-xl font-sans leading-normal">Automatisierte Erfassung &amp; Analyse</span>
-                    <p class="text-text-secondary font-normal text-[16px] md:text-xl font-sans leading-normal m-0">
-                        Eingehende postalische Anfragen werden mittels OCR und NLP (Natural Language Processing) sofort digitalisiert, inhaltlich erfasst und kategorisiert.
+        @if (data.actionHeading || data.actionDescription || (data.actionItems && data.actionItems.length > 0)) {
+            <section class="flex flex-col gap-[24px] items-start w-full lg:grid lg:grid-cols-[minmax(0,calc(50%-48px))_minmax(0,50%)] lg:gap-x-24 lg:gap-y-[24px]">
+                @if (data.actionHeading) {
+                    <h3 class="text-black font-medium text-[24px] md:text-[32px] font-sans leading-normal m-0 lg:col-start-1">
+                        {{ data.actionHeading | localizedText }}
+                    </h3>
+                }
+                @if (data.actionDescription) {
+                    <p class="text-text-secondary font-normal text-[16px] md:text-xl font-sans leading-normal m-0 lg:col-start-2">
+                        {{ data.actionDescription | localizedText }}
                     </p>
-                </div>
-            </div>
-            <div class="grid grid-cols-[20px_1fr] gap-x-[12px] md:gap-x-[20px] items-start w-full max-w-[1085px]">
-                <lucide-icon [img]="checkIcon" [size]="20"
-                    class="w-[20px] h-[20px] text-black self-start pt-1"></lucide-icon>
-                <div class="flex flex-col items-start gap-[8px]">
-                    <span class="text-black font-medium text-[16px] md:text-xl font-sans leading-normal">Rechtliche Vorprüfung</span>
-                    <p class="text-text-secondary font-normal text-[16px] md:text-xl font-sans leading-normal m-0">
-                        Das System führt eine automatisierte Prüfung der Rechtsgrundlage durch und identifiziert präzise die internen Zuständigkeiten, um den Prüfprozess für die Juristen vorzubereiten.
-                    </p>
-                </div>
-            </div>
-            <div class="grid grid-cols-[20px_1fr] gap-x-[12px] md:gap-x-[20px] items-start w-full max-w-[1085px]">
-                <lucide-icon [img]="checkIcon" [size]="20"
-                    class="w-[20px] h-[20px] text-black self-start pt-1"></lucide-icon>
-                <div class="flex flex-col items-start gap-[8px]">
-                    <span class="text-black font-medium text-[16px] md:text-xl font-sans leading-normal">Intelligente Prozess-Orchestrierung</span>
-                    <p class="text-text-secondary font-normal text-[16px] md:text-xl font-sans leading-normal m-0">
-                        Die KI startet autonom die ersten Prozessschritte, indem sie Datenabfragen an die relevanten Fachabteilungen steuert und Informationen aus den verschiedenen Silos zusammenführt.
-                    </p>
-                </div>
-            </div>
-            <div class="grid grid-cols-[20px_1fr] gap-x-[12px] md:gap-x-[20px] items-start w-full max-w-[1144px]">
-                <lucide-icon [img]="checkIcon" [size]="20"
-                    class="w-[20px] h-[20px] text-black self-start pt-1"></lucide-icon>
-                <div class="flex flex-col items-start gap-[8px]">
-                    <span class="text-black font-medium text-[16px] md:text-xl font-sans leading-normal">Standardisierte Dokumentenerstellung</span>
-                    <p class="text-text-secondary font-normal text-[16px] md:text-xl font-sans leading-normal m-0">
-                        Abschliessend konsolidiert das System alle Fakten, zieht ein logisches Fazit und generiert eine rechtssichere Antwort an die Staatsanwaltschaft – wobei jeder Schritt für die Revision vollständig nachvollziehbar bleibt.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+                }
+                @if (data.actionItems && data.actionItems.length > 0) {
+                    <div class="flex flex-col gap-[24px] w-full mt-[8px] lg:col-start-2">
+                        @for (item of data.actionItems; track item._key || $index) {
+                            <div class="grid grid-cols-[20px_1fr] gap-x-[12px] md:gap-x-[20px] items-start w-full max-w-[1085px]">
+                                <lucide-icon [img]="checkIcon" [size]="20"
+                                    class="w-[20px] h-[20px] text-black self-start pt-1"></lucide-icon>
+                                <div class="flex flex-col items-start gap-[8px]">
+                                    @if (item.title) {
+                                        <span class="text-black font-medium text-[16px] md:text-xl font-sans leading-normal">
+                                            {{ item.title | localizedText }}
+                                        </span>
+                                    }
+                                    @if (item.description) {
+                                        <p class="text-text-secondary font-normal text-[16px] md:text-xl font-sans leading-normal m-0">
+                                            {{ item.description | localizedText }}
+                                        </p>
+                                    }
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+            </section>
+        }
 
-    <app-testimonial-section alignment="center" class="w-full" [fullWidth]="true" sectionSpacingClass=""
-        quote="“Für uns hat die Risikominimierung oberste Priorität. AIntegrator hat unsere Anforderungen verstanden. Alles on-premises und unter strengsten Compliance-Vorgaben.”"
-        role="Managing Partner einer mittelständischen Compliance-Beratungsgesellschaft"
-        mobileGap="gap-[32px]" mobileAuthorAlignment="items-start text-left">
-    </app-testimonial-section>
+        @if (data.detailTestimonials && data.detailTestimonials.length > 0) {
+            <app-testimonial-section alignment="center" class="w-full" [fullWidth]="true" variant="compact" [spacing]="false"
+                [quote]="data.detailTestimonials[0].quote | localizedText"
+                [author]="data.detailTestimonials[0].author || ''"
+                [role]="data.detailTestimonials[0].role | localizedText"
+                [avatarUrl]="getTestimonialPhotoUrl(data.detailTestimonials[0].photo)">
+            </app-testimonial-section>
+        }
 
-    <section class="flex flex-col gap-[24px] items-start w-full lg:grid lg:grid-cols-[minmax(0,calc(50%-48px))_minmax(0,50%)] lg:gap-x-24 lg:gap-y-[24px]">
-        <div class="flex flex-col gap-0 items-start lg:col-start-1">
-            <h3 class="text-black font-medium text-[24px] md:text-[32px] font-sans leading-normal m-0">Result</h3>
-        </div>
-        <p class="text-text-secondary font-normal text-[16px] md:text-xl font-sans leading-normal m-0 lg:col-start-2">
-            Die Implementierung zeigt, dass sich komplexe juristische Prozesse durch gezielten KI-Einsatz nicht nur beschleunigen, sondern auch wirtschaftlich signifikant optimieren lassen:
-        </p>
-        <div class="flex flex-col gap-[24px] w-full mt-[8px] lg:col-start-2">
-            <div class="grid grid-cols-[20px_1fr] gap-x-[12px] md:gap-x-[20px] items-start w-full max-w-[1144px]">
-                <lucide-icon [img]="checkIcon" [size]="20"
-                    class="w-[20px] h-[20px] text-black self-start pt-1"></lucide-icon>
-                <div class="flex flex-col items-start gap-[8px]">
-                    <span class="text-black font-medium text-[16px] md:text-xl font-sans leading-normal">150'000.- CHF jährliche Einsparung</span>
-                    <p class="text-text-secondary font-normal text-[16px] md:text-xl font-sans leading-normal m-0">
-                        Durch die Automatisierung der Vorprüfung konnten die Prozesskosten massiv gesenkt werden.
+        @if (data.resultHeading || data.resultDescription || (data.resultItems && data.resultItems.length > 0)) {
+            <section class="flex flex-col gap-[24px] items-start w-full lg:grid lg:grid-cols-[minmax(0,calc(50%-48px))_minmax(0,50%)] lg:gap-x-24 lg:gap-y-[24px]">
+                @if (data.resultHeading) {
+                    <h3 class="text-black font-medium text-[24px] md:text-[32px] font-sans leading-normal m-0 lg:col-start-1">
+                        {{ data.resultHeading | localizedText }}
+                    </h3>
+                }
+                @if (data.resultDescription) {
+                    <p class="text-text-secondary font-normal text-[16px] md:text-xl font-sans leading-normal m-0 lg:col-start-2">
+                        {{ data.resultDescription | localizedText }}
                     </p>
-                </div>
-            </div>
-            <div class="grid grid-cols-[20px_1fr] gap-x-[12px] md:gap-x-[20px] items-start w-full max-w-[1144px]">
-                <lucide-icon [img]="checkIcon" [size]="20"
-                    class="w-[20px] h-[20px] text-black self-start pt-1"></lucide-icon>
-                <div class="flex flex-col items-start gap-[8px]">
-                    <span class="text-black font-medium text-[16px] md:text-xl font-sans leading-normal">Kurze Realisierungsphase</span>
-                    <p class="text-text-secondary font-normal text-[16px] md:text-xl font-sans leading-normal m-0">
-                        Das gesamte System wurde in einer Entwicklungszeit von nur 6 Monaten konzipiert, trainiert und produktiv gesetzt.
-                    </p>
-                </div>
-            </div>
-            <div class="grid grid-cols-[20px_1fr] gap-x-[12px] md:gap-x-[20px] items-start w-full max-w-[1144px]">
-                <lucide-icon [img]="checkIcon" [size]="20"
-                    class="w-[20px] h-[20px] text-black self-start pt-1"></lucide-icon>
-                <div class="flex flex-col items-start gap-[8px]">
-                    <span class="text-black font-medium text-[16px] md:text-xl font-sans leading-normal">Effizienz ohne Systembruch</span>
-                    <p class="text-text-secondary font-normal text-[16px] md:text-xl font-sans leading-normal m-0">
-                        Die Lösung wurde nahtlos integriert, sodass kein Umstellungszwang für die bestehende IT-Infrastruktur entstand.
-                    </p>
-                </div>
-            </div>
-            <div class="grid grid-cols-[20px_1fr] gap-x-[12px] md:gap-x-[20px] items-start w-full max-w-[1144px]">
-                <lucide-icon [img]="checkIcon" [size]="20"
-                    class="w-[20px] h-[20px] text-black self-start pt-1"></lucide-icon>
-                <div class="flex flex-col items-start gap-[8px]">
-                    <span class="text-black font-medium text-[16px] md:text-xl font-sans leading-normal">Rechtssicherheit &amp; Speed</span>
-                    <p class="text-text-secondary font-normal text-[16px] md:text-xl font-sans leading-normal m-0">
-                        Neben der Kostenersparnis profitiert das Unternehmen von einer drastisch verkürzten Antwortzeit und einer lückenlosen, revisionssicheren Dokumentation für die Behörden.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+                }
+                @if (data.resultItems && data.resultItems.length > 0) {
+                    <div class="flex flex-col gap-[24px] w-full mt-[8px] lg:col-start-2">
+                        @for (item of data.resultItems; track item._key || $index) {
+                            <div class="grid grid-cols-[20px_1fr] gap-x-[12px] md:gap-x-[20px] items-start w-full max-w-[1144px]">
+                                <lucide-icon [img]="checkIcon" [size]="20"
+                                    class="w-[20px] h-[20px] text-black self-start pt-1"></lucide-icon>
+                                <div class="flex flex-col items-start gap-[8px]">
+                                    @if (item.title) {
+                                        <span class="text-black font-medium text-[16px] md:text-xl font-sans leading-normal">
+                                            {{ item.title | localizedText }}
+                                        </span>
+                                    }
+                                    @if (item.description) {
+                                        <p class="text-text-secondary font-normal text-[16px] md:text-xl font-sans leading-normal m-0">
+                                            {{ item.description | localizedText }}
+                                        </p>
+                                    }
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+            </section>
+        }
+    }
 </div>

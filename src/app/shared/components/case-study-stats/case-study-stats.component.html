@@ -1,8 +1,9 @@
-<div class="w-full" [ngClass]="[backgroundClass(), containerClass()]">
+<div class="w-full bg-ai-gray-100 rounded-[12px] p-[32px] md:p-[80px]">
     <div class="max-w-[1144px] mx-auto">
-        <div class="w-full grid grid-cols-1 sm:grid-cols-2 gap-[16px]">
-            @for (stat of stats(); track stat.description) {
-                <div class="flex flex-col justify-start gap-[8px] items-start bg-white rounded-[12px] p-[16px] sm:p-[20px] aspect-square">
+        <div class="w-full gap-[16px]" [ngClass]="layout === 'row' ? 'flex flex-col md:flex-row md:flex-nowrap' : 'grid grid-cols-1 sm:grid-cols-2'">
+            @for (stat of stats; track stat.description) {
+                <div class="flex flex-col justify-start gap-[8px] items-start bg-white rounded-[12px] p-[16px] sm:p-[20px]"
+                    [ngClass]="layout === 'row' ? 'md:flex-1 md:min-w-0' : 'aspect-square'">
                     <div class="flex items-baseline" [style.color]="stat.color || '#000'">
                         <span class="font-medium font-sans text-[24px] leading-normal">{{
                             stat.value }}<span *ngIf="stat.suffix === '%'">%</span></span>

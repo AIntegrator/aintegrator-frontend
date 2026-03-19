@@ -32,6 +32,20 @@ export function getImageUrl(
 }
 
 /**
+ * Get case study slug for the given locale (localized slug format only)
+ */
+export function getCaseStudySlug(
+    slug: { en?: { current: string }; de?: { current: string }; fr?: { current: string }; it?: { current: string } } | undefined,
+    locale: string,
+    fallbackLocale = 'de'
+): string {
+    if (!slug) return '';
+    const localized = (slug as Record<string, { current?: string } | undefined>)[locale]?.current
+        ?? (slug as Record<string, { current?: string } | undefined>)[fallbackLocale]?.current;
+    return localized ?? '';
+}
+
+/**
  * Get localized text value based on current locale with fallback
  */
 export function getLocalizedValue<T>(
@@ -106,7 +120,12 @@ export const SanityQueries = {
     // Collections
     ALL_CASE_STUDIES: `*[_type == "caseStudy"] | order(publishedAt desc)`,
     FEATURED_CASE_STUDIES: `*[_type == "caseStudy" && featured == true] | order(publishedAt desc)`,
-    CASE_STUDY_BY_SLUG: (slug: string) => `*[_type == "caseStudy" && slug.current == "${slug}"][0] {
+    CASE_STUDY_BY_SLUG: (slug: string) => `*[_type == "caseStudy" && (
+        slug.en.current == "${slug}" ||
+        slug.de.current == "${slug}" ||
+        slug.fr.current == "${slug}" ||
+        slug.it.current == "${slug}"
+    )][0] {
         ...,
         coverImage {
             ...,
