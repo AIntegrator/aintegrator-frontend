@@ -59,7 +59,7 @@ export class CareersComponent implements OnInit {
             title: career.title,
             department: career.department,
             location: career.location,
-            link: `/careers/${career.slug.current}`
+            link: career.applyLink || '/contact'
           })));
         }
       } catch (error) {

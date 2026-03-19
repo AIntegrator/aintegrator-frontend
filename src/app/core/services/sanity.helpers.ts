@@ -148,8 +148,6 @@ export const SanityQueries = {
     ALL_TEAM_MEMBERS: `*[_type == "teamMember"] | order(order asc)`,
 
     ACTIVE_CAREERS: `*[_type == "career" && active == true] | order(publishedAt desc)`,
-    CAREER_BY_SLUG: (slug: string) => `*[_type == "career" && slug.current == "${slug}"][0]`,
-
     LEGAL_PAGE: (pageType: 'privacy' | 'terms') => `*[_type == "legalPage" && pageType == "${pageType}"][0]`,
 };
 

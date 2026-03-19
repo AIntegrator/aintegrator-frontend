@@ -295,19 +295,9 @@ export interface CareersPage {
   _id: string;
   _type: 'careersPage';
   heroTitle?: LocalizedText;
-  heroDescription?: LocalizedText;
-  values?: Array<{
-    title: LocalizedText;
-    description: LocalizedText;
-  }>;
-  openRolesTitle?: LocalizedText;
   departmentFilterLabel?: LocalizedText;
   locationFilterLabel?: LocalizedText;
   applyButtonLabel?: LocalizedText;
-  initiativeCTATitle?: LocalizedText;
-  initiativeCTADescription?: LocalizedText;
-  initiativeEmail?: string;
-  initiativeText?: LocalizedText;
   noRolesText?: LocalizedText;
 }
 
@@ -364,14 +354,9 @@ export interface Career {
   _id: string;
   _type: 'career';
   title: LocalizedText;
-  slug: { current: string };
-  department?: LocalizedText;
-  location?: LocalizedText;
-  type?: string;
-  description?: LocalizedRichText;
-  requirements?: LocalizedText;
-  responsibilities?: LocalizedText;
-  benefits?: LocalizedText;
+  department?: LocalizedText | string;
+  location?: LocalizedText | string;
+  applyLink?: string;
   active?: boolean;
   publishedAt?: string;
 }

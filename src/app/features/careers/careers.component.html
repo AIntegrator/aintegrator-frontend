@@ -1,10 +1,10 @@
 <div class="w-full flex flex-col">
   <app-careers-hero [heroTitle]="careersPageData()?.heroTitle"></app-careers-hero>
 
-    <app-open-roles [roles]="roles()" [openRolesTitle]="careersPageData()?.openRolesTitle"
+    <app-open-roles [roles]="roles()"
         [departmentFilterLabel]="careersPageData()?.departmentFilterLabel"
         [locationFilterLabel]="careersPageData()?.locationFilterLabel"
-        [applyButtonLabel]="careersPageData()?.applyButtonLabel" [initiativeText]="careersPageData()?.initiativeText"
+        [applyButtonLabel]="careersPageData()?.applyButtonLabel"
         [noRolesText]="careersPageData()?.noRolesText">
     </app-open-roles>
 </div>

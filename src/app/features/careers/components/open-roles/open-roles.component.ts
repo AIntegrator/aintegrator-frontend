@@ -21,27 +21,38 @@ interface OpenRole {
 })
 export class OpenRolesComponent {
     @Input() roles: any[] = [];
-    @Input() openRolesTitle: LocalizedText | undefined;
     @Input() departmentFilterLabel: LocalizedText | undefined;
     @Input() locationFilterLabel: LocalizedText | undefined;
     @Input() applyButtonLabel: LocalizedText | undefined;
-    @Input() initiativeText: LocalizedText | string | undefined;
-    @Input() initiativeEmail: string | undefined;
     @Input() noRolesText: LocalizedText | string | undefined;
 
     private localeService = inject(LocaleService);
     currentLocale = this.localeService.currentLocale;
 
     filteredRoles: OpenRole[] = this.roles;
-    readonly departmentOptions: string[] = ['Engineering', 'Design', 'Sales'];
-    readonly locationOptions: string[] = ['Remote', 'Zurich'];
+    departmentOptions: string[] = [];
+    locationOptions: string[] = [];
     selectedDepartment = 'Role';
     selectedLocation = 'Location';
     isDepartmentOpen = false;
     isLocationOpen = false;
 
     ngOnChanges() {
+        this.updateOptionsFromRoles();
         this.filterRoles();
+    }
+
+    private updateOptionsFromRoles() {
+        const departments = new Set<string>();
+        const locations = new Set<string>();
+        for (const role of this.roles) {
+            const dept = this.getLocalizedValue(role.department);
+            const loc = this.getLocalizedValue(role.location);
+            if (dept) departments.add(dept);
+            if (loc) locations.add(loc);
+        }
+        this.departmentOptions = [...departments].sort();
+        this.locationOptions = [...locations].sort();
     }
 
     filterRoles() {

@@ -1,12 +1,5 @@
 <section class="site-container section-spacing">
     <div class="max-w-[1144px] mx-auto flex flex-col items-center gap-[40px] md:gap-[60px] xl:gap-[80px]">
-        <p
-            class="text-base md:text-xl max-w-[65ch] text-center font-normal text-ai-gray-850 leading-[1.5] m-0">
-            {{ initiativeText | localizedText }}
-            <a [href]="'mailto:' + initiativeEmail" class="text-base md:text-xl text-ai-gray-900 underline">
-              {{ initiativeEmail }}
-            </a>
-        </p>
         <div class="flex gap-[6px] md:gap-[24px] justify-center items-center w-full">
             <div class="relative">
                 <button type="button"
@@ -63,6 +56,8 @@
                         {{ role.location | localizedText }}
                     </span>
                     <a [href]="role.link"
+                        [attr.target]="(role.link || '').startsWith('http') ? '_blank' : null"
+                        [attr.rel]="(role.link || '').startsWith('http') ? 'noopener noreferrer' : null"
                         class="text-[#D32F2F] text-base font-medium flex items-center no-underline leading-[26px] arrow-link">
                         {{ applyButtonLabel | localizedText }}
                         <img src="assets/icons/Frame.svg" alt="Apply" class="max-md:w-[28px] max-md:h-[28px] arrow-link-icon">
