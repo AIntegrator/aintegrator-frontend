@@ -2,7 +2,6 @@ import { Component, ChangeDetectionStrategy, OnInit, signal, effect } from '@ang
 import { CommonModule } from '@angular/common';
 import { AboutHeroComponent } from './components/about-hero/about-hero.component';
 import { FoundersGridSectionComponent } from './components/founders-grid-section/founders-grid-section.component';
-import { FinalCtaComponent } from '../../shared/components/final-cta/final-cta.component';
 import { SanityService } from '../../core/services/sanity.service';
 import { LocaleService } from '../../core/services/locale.service';
 import { AboutPage, HomePage, TeamMember } from '../../shared/models/sanity.models';
@@ -16,7 +15,6 @@ import { LocalizedTextPipe } from '../../shared/pipes/localized-text.pipe';
         CommonModule,
         AboutHeroComponent,
         FoundersGridSectionComponent,
-        FinalCtaComponent,
         LocalizedTextPipe
     ],
     templateUrl: './about-us.component.html',

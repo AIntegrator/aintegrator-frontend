@@ -34,131 +34,6 @@ export interface LocalizedShortText {
   it?: string;
 }
 
-export interface TranscriptEntry {
-  initial?: string;
-  name?: LocalizedShortText;
-  time?: string;
-  text?: LocalizedText;
-}
-
-export interface ProductInfoBanner {
-  highlightText?: LocalizedShortText;
-  bodyText?: LocalizedShortText;
-}
-
-export interface MeetingAnalysisSection {
-  title?: LocalizedShortText;
-  subtitle?: LocalizedShortText;
-  participants?: Array<{ name?: string; avatar?: any }>;
-  transcriptEntries?: TranscriptEntry[];
-  liaIcon?: any;
-  hangUpIcon?: any;
-  videoIcon?: any;
-}
-
-export interface MeetingTranscriptionSection {
-  title?: LocalizedShortText;
-  description?: LocalizedText;
-  transcriptEntries?: TranscriptEntry[];
-}
-
-export interface MeetingSummarySection {
-  title?: LocalizedShortText;
-  description?: LocalizedText;
-  descriptionHighlight?: LocalizedText;
-  uploadButtonLabel?: string;
-  recordButtonLabel?: string;
-  summaryTabLabel?: string;
-  transcriptTabLabel?: string;
-  summaryTitle?: string;
-  summaryText?: LocalizedText;
-  discussionTitle?: string;
-  discussionPoints?: Array<{
-    title?: LocalizedShortText;
-    description?: LocalizedText;
-  }>;
-}
-
-export interface IntegrationsSection {
-  title?: LocalizedShortText;
-  description?: LocalizedText;
-  calendarDayLabel?: string;
-  calendarDayNumber?: string;
-  meetingTitle?: string;
-  timeRange?: string;
-  durationLabel?: string;
-  participants?: string[];
-  cards?: Array<{ title?: string; badge?: string }>
-}
-
-export interface AgenticActionsSection {
-  badgeLabel?: string;
-  title?: LocalizedShortText;
-  description?: LocalizedText;
-  mobileCards?: Array<{ title?: string; description?: string }>;
-  actionItemsTitle?: string;
-  actionItems?: Array<{ text?: string; date?: string }>;
-}
-
-export interface LiaChatSection {
-  title?: string;
-  subtitle?: LocalizedShortText;
-  promptMobile?: string;
-  promptDesktop?: string;
-  inputPlaceholder?: string;
-  quickActions?: string[];
-}
-
-export interface BoltsSection {
-  title?: LocalizedShortText;
-  description?: LocalizedText;
-  formTitleDesktop?: string;
-  formTitleMobile?: string;
-  nameLabel?: string;
-  namePlaceholderDesktop?: string;
-  namePlaceholderMobile?: string;
-  promptLabelDesktop?: string;
-  promptLabelMobile?: string;
-  promptPlaceholderDesktop?: string;
-  promptPlaceholderMobile?: string;
-  submitLabel?: string;
-  carouselItems?: string[];
-}
-
-export interface SecurityGridSection {
-  cards?: Array<{
-    title?: string;
-    description?: LocalizedText;
-  }>;
-  footerCardTitle?: string;
-  footerCardDescription?: LocalizedText;
-  badgeLabels?: string[];
-}
-
-export interface PricingGridSection {
-  title?: LocalizedShortText;
-  plans?: Array<{
-    namePrefix?: string;
-    nameSuffix?: string;
-    description?: LocalizedShortText;
-    price?: string;
-    period?: string;
-    ctaLabel?: string;
-    highlightLabel?: string;
-    features?: Array<{ text?: LocalizedShortText }>;
-  }>;
-}
-
-export interface FinalCtaSection {
-  title?: LocalizedShortText;
-  description?: LocalizedText;
-  primaryBtnText?: string;
-  primaryBtnLink?: string;
-  secondaryBtnText?: string;
-  secondaryBtnLink?: string;
-  mobilePrimaryBtnText?: string;
-}
-
 // Partner/Brand
 export interface Partner {
   _id: string;
@@ -303,41 +178,6 @@ export interface CareersPage {
   noRolesText?: LocalizedText;
 }
 
-// Product Page
-export interface ProductPage {
-  _id: string;
-  _type: 'productPage';
-  heroTitle?: LocalizedText;
-  heroDescription?: LocalizedText;
-  heroShowButton?: boolean;
-  heroButtonLabel?: LocalizedText;
-  infoBanner?: ProductInfoBanner;
-  meetingAnalysis?: MeetingAnalysisSection;
-  meetingTranscription?: MeetingTranscriptionSection;
-  meetingSummary?: MeetingSummarySection;
-  integrations?: IntegrationsSection;
-  agenticActions?: AgenticActionsSection;
-  liaChat?: LiaChatSection;
-  bolts?: BoltsSection;
-  securityGrid?: SecurityGridSection;
-  pricingGrid?: PricingGridSection;
-  finalCta?: FinalCtaSection;
-  features?: Array<{
-    title: LocalizedText;
-    description: LocalizedText;
-    icon?: string;
-    image?: SanityImage;
-  }>;
-  pricing?: {
-    title: LocalizedText;
-    description: LocalizedText;
-  };
-  benefits?: Array<{
-    title: LocalizedText;
-    description: LocalizedText;
-  }>;
-}
-
 // Team Member
 export interface TeamMember {
   _id: string;
@@ -381,15 +221,24 @@ export interface ContactPage {
 export interface SiteSettings {
   _id: string;
   _type: 'siteSettings';
+  headerNavLinks?: Array<{ label?: LocalizedShortText; url?: string; external?: boolean }>;
+  headerCtaLabel?: LocalizedShortText;
+  headerCtaLink?: string;
   footerCompanyTitle?: LocalizedShortText;
   footerCompanyLinks?: Array<{ label?: LocalizedShortText; url?: string }>;
-  footerProductsTitle?: LocalizedShortText;
-  footerProductsLinks?: Array<{ label?: LocalizedShortText; url?: string }>;
+  footerServicesTitle?: LocalizedShortText;
+  footerServicesLinks?: Array<{ label?: LocalizedShortText; url?: string }>;
   footerSocialTitle?: LocalizedShortText;
   footerSocialLinks?: Array<{ label?: string; url?: string }>;
   footerMembershipLabel?: LocalizedShortText;
   footerLegalLinks?: Array<{ label?: LocalizedShortText; url?: string }>;
   footerCopyright?: LocalizedShortText;
+  finalCTA?: {
+    title?: LocalizedShortText;
+    description?: LocalizedShortText;
+    primaryBtnText?: LocalizedShortText;
+    primaryBtnLink?: string;
+  };
 }
 
 // Legal Page

@@ -108,31 +108,6 @@ export const SanityQueries = {
         }
     }`,
     ABOUT_PAGE: `*[_type == "aboutPage"][0]`,
-    PRODUCT_PAGE: `*[_type == "productPage"][0] {
-        ...,
-        meetingAnalysis {
-            ...,
-            participants[] {
-                name,
-                avatar {
-                    ...,
-                    asset->
-                }
-            },
-            liaIcon {
-                ...,
-                asset->
-            },
-            hangUpIcon {
-                ...,
-                asset->
-            },
-            videoIcon {
-                ...,
-                asset->
-            }
-        }
-    }`,
     CONTACT_PAGE: `*[_type == "contactPage"][0]`,
     CAREERS_PAGE: `*[_type == "careersPage"][0]`,
     SITE_SETTINGS: `*[_type == "siteSettings"][0]`,

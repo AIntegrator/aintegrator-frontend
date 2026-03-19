@@ -1,139 +1,29 @@
 <div class="site-container pt-[96px] pb-[96px] md:pt-[148px] md:pb-[148px] xl:pt-[196px] xl:pb-[196px]">
     <div class="flex flex-col items-start gap-[48px] md:gap-[96px] w-full self-stretch">
-        <h1
-            class="text-ai-gray-1000 font-['Poppins'] text-[32px] md:text-[48px] xl:text-[64px] font-medium text-center m-0 max-w-[1143px] mx-auto w-full">
-            Allgemeine Geschäftsbedingungen
-        </h1>
+        @if (isLoaded()) {
+            @if (page()) {
+                <h1
+                    class="text-ai-gray-1000 font-['Poppins'] text-[32px] md:text-[48px] xl:text-[64px] font-medium text-center m-0 w-full max-w-[1143px] mx-auto">
+                    {{ title() || 'AGB' }}
+                </h1>
 
-        <div class="flex flex-col items-start gap-[48px] xl:gap-[96px] w-full self-stretch">
-            <section class="flex flex-col items-start gap-[16px] md:gap-[24px] w-full self-stretch">
-                <h3
-                    class="text-black font-sans font-medium text-[24px] md:text-[28px] xl:text-[32px] leading-normal m-0">
-                    Anwendungsbereich
-                </h3>
-                <p
-                    class="text-ai-gray-850 font-sans font-normal text-[16px] md:text-[20px] xl:text-[24px] leading-[1.5] m-0">
-                    Die vorliegenden Allgemeinen Geschäftsbedingungen gelten für alle Dienstleistungen, die von
-                    AIntegrator Sàrl auf die Integration digitaler Tools und künstlicher Intelligenz in KMU
-                    spezialisierten Gesellschaft, angeboten werden, sowie für alle notwendigen Dienstleistungen wie z.
-                    B. Begleitung, Schulung, Wartung. Jede erteilte Bestellung setzt die vorbehaltlose Annahme dieser
-                    Bedingungen durch den Kunden voraus.
-                </p>
-            </section>
+                @if (lastUpdatedFormatted()) {
+                    <p class="text-ai-gray-850 font-sans text-sm md:text-base m-0 w-full text-center">
+                        {{ lastUpdatedFormatted() }}
+                    </p>
+                }
 
-            <section class="flex flex-col items-start gap-[16px] md:gap-[24px] w-full self-stretch">
-                <h3
-                    class="text-black font-sans font-medium text-[24px] md:text-[28px] xl:text-[32px] leading-normal m-0">
-                    Angebot und Bestellung von Leistungen
-                </h3>
-                <p
-                    class="text-ai-gray-850 font-sans font-normal text-[16px] md:text-[20px] xl:text-[24px] leading-[1.5] m-0">
-                    Die Bestellungen erfolgen auf elektronischem Wege oder auf eine andere von beiden Parteien
-                    vereinbarte Weise. Die von AIntegrator erstellten Angebote sind 30 Tage lang gültig und können bei
-                    wesentlichen Änderungen der Bedürfnisse des Kunden geändert werden.
-                </p>
-            </section>
-
-            <section class="flex flex-col items-start gap-[16px] md:gap-[24px] w-full self-stretch">
-                <h3
-                    class="text-black font-sans font-medium text-[24px] md:text-[28px] xl:text-[32px] leading-normal m-0">
-                    Erbringung von Dienstleistungen
-                </h3>
-                <p
-                    class="text-ai-gray-850 font-sans font-normal text-[16px] md:text-[20px] xl:text-[24px] leading-[1.5] m-0">
-                    Die von AIntegrator erbrachten Dienstleistungen umfassen die Bedarfsanalyse, das Design, die
-                    Entwicklung, die Implementierung und die Wartung von Lösungen, die auf digitalen Werkzeugen und
-                    Künstlicher Intelligenz basieren. Die spezifischen Details jeder Leistung werden in der zwischen den
-                    beiden Parteien vereinbarten Leistungsbeschreibung festgelegt.
-                </p>
-            </section>
-
-            <section class="flex flex-col items-start gap-[16px] md:gap-[24px] w-full self-stretch">
-                <h3
-                    class="text-black font-sans font-medium text-[24px] md:text-[28px] xl:text-[32px] leading-normal m-0">
-                    Preise und Zahlungsbedingungen
-                </h3>
-                <p
-                    class="text-ai-gray-850 font-sans font-normal text-[16px] md:text-[20px] xl:text-[24px] leading-[1.5] m-0">
-                    Die Preise für die Dienstleistungen sind in dem von AIntegrator ausgestellten Angebot detailliert
-                    aufgeführt. Die Zahlungen sind gemäss den zwischen den Parteien vereinbarten Bedingungen zu leisten,
-                    und jeder Zahlungsverzug kann zu Zinskosten gemäss der geltenden Gesetzgebung oder zur Aussetzung
-                    einer Dienstleistung durch AIntegrator nach einer einmaligen elektronischen Mahnung an den Kunden
-                    führen.
-                </p>
-            </section>
-
-            <section class="flex flex-col items-start gap-[16px] md:gap-[24px] w-full self-stretch">
-                <h3
-                    class="text-black font-sans font-medium text-[24px] md:text-[28px] xl:text-[32px] leading-normal m-0">
-                    Geistiges Eigentum
-                </h3>
-                <p
-                    class="text-ai-gray-850 font-sans font-normal text-[16px] md:text-[20px] xl:text-[24px] leading-[1.5] m-0">
-                    Die geistigen Eigentumsrechte an den von AIntegrator entwickelten Lösungen für digitale Werkzeuge
-                    und
-                    Künstliche Intelligenz bleiben das ausschliessliche Eigentum von AIntegrator, sofern nicht
-                    ausdrücklich im Vertrag etwas anderes vereinbart wurde.
-                </p>
-            </section>
-
-            <section class="flex flex-col items-start gap-[16px] md:gap-[24px] w-full self-stretch">
-                <h3
-                    class="text-black font-sans font-medium text-[24px] md:text-[28px] xl:text-[32px] leading-normal m-0">
-                    Vertraulichkeit
-                </h3>
-                <p
-                    class="text-ai-gray-850 font-sans font-normal text-[16px] md:text-[20px] xl:text-[24px] leading-[1.5] m-0">
-                    Beide Parteien verpflichten sich, die Vertraulichkeit der im Rahmen der Ausführung der
-                    Dienstleistungen ausgetauschten vertraulichen Informationen zu wahren. Diese Verpflichtung zur
-                    Vertraulichkeit besteht über das Ende der Dienstleistungen hinaus für einen Zeitraum von drei
-                    Monaten ab dem Datum des Vertragsendes.
-                </p>
-            </section>
-
-            <section class="flex flex-col items-start gap-[16px] md:gap-[24px] w-full self-stretch">
-                <h3
-                    class="text-black font-sans font-medium text-[24px] md:text-[28px] xl:text-[32px] leading-normal m-0">
-                    Verantwortlichkeiten und Garantien
-                </h3>
-                <p
-                    class="text-ai-gray-850 font-sans font-normal text-[16px] md:text-[20px] xl:text-[24px] leading-[1.5] m-0">
-                    AIntegrator verpflichtet sich, die Dienstleistungen in Übereinstimmung mit den geltenden
-                    professionellen Standards zu erbringen. AIntegrator kann jedoch nicht für direkte oder indirekte
-                    Folgen haftbar gemacht werden, die sich aus der Nutzung der entwickelten Lösungen und der von
-                    Dritten erbrachten Dienstleistungen ergeben.
-                </p>
-            </section>
-
-            <section class="flex flex-col items-start gap-[16px] md:gap-[24px] w-full self-stretch">
-                <h3
-                    class="text-black font-sans font-medium text-[24px] md:text-[28px] xl:text-[32px] leading-normal m-0">
-                    Kündigung
-                </h3>
-                <p
-                    class="text-ai-gray-850 font-sans font-normal text-[16px] md:text-[20px] xl:text-[24px] leading-[1.5] m-0">
-                    Die Bedingungen für die Kündigung sind im Dienstleistungsvertrag angegeben. Jede Partei kann den
-                    Vertrag kündigen, wenn die andere Partei ihren Verpflichtungen nicht nachkommt, vorbehaltlich einer
-                    schriftlichen Vorankündigung und der geltenden gesetzlichen Bestimmungen.
-                </p>
-            </section>
-
-            <section class="flex flex-col items-start gap-[16px] md:gap-[24px] w-full self-stretch">
-                <h3
-                    class="text-black font-sans font-medium text-[24px] md:text-[28px] xl:text-[32px] leading-normal m-0">
-                    Anwendbares Recht und Streitigkeiten
-                </h3>
-                <p
-                    class="text-ai-gray-850 font-sans font-normal text-[16px] md:text-[20px] xl:text-[24px] leading-[1.5] m-0">
-                    Die vorliegenden Allgemeinen Geschäftsbedingungen unterliegen dem in der Schweiz geltenden Recht. Im
-                    Falle eines Rechtsstreits werden sich die Parteien bemühen, die Streitigkeit gütlich beizulegen.
-                    Kommt keine Einigung zustande, werden die zuständigen Gerichte angerufen.
-                </p>
-                <p
-                    class="text-ai-gray-850 font-sans font-normal text-[16px] md:text-[20px] xl:text-[24px] leading-[1.5] m-0">
-                    Erstellt in Bern am 2. Januar 2024
-                </p>
-            </section>
-        </div>
+                @if (contentHtml(); as html) {
+                    <div
+                        class="legal-content text-ai-gray-850 font-sans font-normal text-[16px] md:text-[20px] xl:text-[24px] leading-[1.5] w-full self-stretch"
+                        [innerHTML]="html">
+                    </div>
+                }
+            } @else {
+                <p class="text-ai-gray-850 font-sans text-base m-0">No terms of service content available.</p>
+            }
+        } @else {
+            <p class="text-ai-gray-850 font-sans text-base m-0">Loading...</p>
+        }
     </div>
 </div>

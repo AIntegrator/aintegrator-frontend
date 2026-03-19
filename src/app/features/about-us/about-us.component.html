@@ -37,13 +37,4 @@
           }
         }
     </section>
-
-  @if (aboutData(); as data) {
-    <app-final-cta [title]="data.finalCtaTitle | localizedText" [description]="data.finalCtaDescription | localizedText"
-                   [secondaryBtnText]="data.finalCtaSecondaryBtnText | localizedText"
-                   [secondaryBtnLink]="data.finalCtaSecondaryBtnLink ? data.finalCtaSecondaryBtnLink : '' " [secondaryBtnIcon]="'assets/icons/Frame.png'"
-                   [primaryBtnText]="data.finalCtaPrimaryBtnText | localizedText" [primaryBtnLink]="data.finalCtaPrimaryBtnLink ? data.finalCtaPrimaryBtnLink : '' "
-                   [primaryBtnIcon]="'assets/icons/Frame.svg'">
-    </app-final-cta>
-  }
 </div>

@@ -5,29 +5,34 @@
       <img [src]="logoSrc" alt="AIntegrator" width="152" height="29" class="h-[29.083px] w-[152px] object-contain" />
     </a>
 
-    <nav class="hidden min-[1100px]:inline-flex items-center" aria-label="Main navigation">
-      <ul class="flex items-center gap-[28px] w-[340px] h-[26px] flex-shrink-0 list-none m-0 p-0">
-        <li><a routerLink="/product" routerLinkActive="font-medium text-text-primary"
-            class="text-text-body font-sans text-[16px] font-normal leading-[26px] no-underline whitespace-nowrap">Produkte</a>
-        </li>
-        <li><a routerLink="/about" routerLinkActive="font-medium text-text-primary"
-            class="text-text-body font-sans text-[16px] font-normal leading-[26px] no-underline whitespace-nowrap">Über
-            uns</a></li>
-        <li><a routerLink="/careers" routerLinkActive="font-medium text-text-primary"
-            class="text-text-body font-sans text-[16px] font-normal leading-[26px] no-underline whitespace-nowrap">Karriere</a>
-        </li>
-        <li><a routerLink="/contact" routerLinkActive="font-medium text-text-primary"
-            class="text-text-body font-sans text-[16px] font-normal leading-[26px] no-underline whitespace-nowrap">Kontakt</a>
-        </li>
+    <nav class="hidden min-[1100px]:inline-flex items-center justify-center absolute left-1/2 -translate-x-1/2" aria-label="Main navigation">
+      <ul class="flex items-center gap-[28px] h-[26px] flex-shrink-0 list-none m-0 p-0">
+        @for (link of navLinks(); track link.url) {
+          <li>
+            @if (link.external) {
+              <a [href]="link.url" target="_blank" rel="noopener noreferrer"
+                class="text-text-body font-sans text-[16px] font-normal leading-[26px] no-underline whitespace-nowrap">
+                {{ link.label }}
+              </a>
+            } @else {
+              <a [routerLink]="link.url" routerLinkActive="font-medium text-text-primary"
+                class="text-text-body font-sans text-[16px] font-normal leading-[26px] no-underline whitespace-nowrap">
+                {{ link.label }}
+              </a>
+            }
+          </li>
+        }
       </ul>
     </nav>
 
-    <a href="https://calendar.app.google/fzUMskhjkfUh2Qd47" target="_blank" rel="noopener noreferrer"
-      class="hidden min-[1100px]:inline-flex items-center no-underline whitespace-nowrap cursor-pointer arrow-link"
-      aria-label="Termin vereinbaren">
-      <span class="text-cta font-sans text-[16px] font-medium">Termin vereinbaren</span>
-      <img [src]="arrowIconSrc" alt="" aria-hidden="true" class="arrow-link-icon" />
-    </a>
+    @if (cta().label; as ctaLabel) {
+      <a [href]="cta().link" target="_blank" rel="noopener noreferrer"
+        class="hidden min-[1100px]:inline-flex items-center no-underline whitespace-nowrap cursor-pointer arrow-link"
+        [attr.aria-label]="ctaLabel">
+        <span class="text-cta font-sans text-[16px] font-medium">{{ ctaLabel }}</span>
+        <img [src]="arrowIconSrc" alt="" aria-hidden="true" class="arrow-link-icon" />
+      </a>
+    }
 
     <button
       class="group flex min-[1100px]:hidden items-center justify-center w-10 h-10 p-0 bg-transparent border-none z-50 relative rounded-full transition-colors duration-200 hover:bg-ai-gray-100"
@@ -51,44 +56,35 @@
       [class.translate-x-full]="!mobileMenuOpen" [class.translate-x-0]="mobileMenuOpen">
       <div class="site-container flex flex-col mt-[44px]">
         <ul class="flex flex-col gap-[40px] text-left list-none m-0 p-0">
-          <li>
-            <a routerLink="/product" routerLinkActive="font-medium"
-              class="text-text-body font-sans text-[24px] font-normal leading-normal no-underline block"
-              (click)="closeMobileMenu()">
-              Produkte
-            </a>
-          </li>
-          <li>
-            <a routerLink="/about" routerLinkActive="font-medium"
-              class="text-text-body font-sans text-[24px] font-normal leading-normal no-underline block"
-              (click)="closeMobileMenu()">
-              Über uns
-            </a>
-          </li>
-          <li>
-            <a routerLink="/careers" routerLinkActive="font-medium"
-              class="text-text-body font-sans text-[24px] font-normal leading-normal no-underline block"
-              (click)="closeMobileMenu()">
-              Karriere
-            </a>
-          </li>
-          <li>
-            <a routerLink="/contact" routerLinkActive="font-medium"
-              class="text-text-body font-sans text-[24px] font-normal leading-normal no-underline block"
-              (click)="closeMobileMenu()">
-              Kontakt
-            </a>
-          </li>
+          @for (link of navLinks(); track link.url) {
+            <li>
+              @if (link.external) {
+                <a [href]="link.url" target="_blank" rel="noopener noreferrer"
+                  class="text-text-body font-sans text-[24px] font-normal leading-normal no-underline block"
+                  (click)="closeMobileMenu()">
+                  {{ link.label }}
+                </a>
+              } @else {
+                <a [routerLink]="link.url" routerLinkActive="font-medium"
+                  class="text-text-body font-sans text-[24px] font-normal leading-normal no-underline block"
+                  (click)="closeMobileMenu()">
+                  {{ link.label }}
+                </a>
+              }
+            </li>
+          }
         </ul>
 
         <div class="w-full h-px bg-ai-gray-600 my-[60px]"></div>
 
-        <a href="https://calendar.app.google/fzUMskhjkfUh2Qd47" target="_blank" rel="noopener noreferrer"
-          class="flex items-center gap-[4px] text-cta font-sans text-[24px] font-medium no-underline arrow-link"
-          (click)="closeMobileMenu()">
-          <span>Termin vereinbaren</span>
-          <img src="assets/icons/Frame.svg" class="flex-shrink-0 arrow-link-icon" alt="" aria-hidden="true" />
-        </a>
+        @if (cta().label; as ctaLabel) {
+          <a [href]="cta().link" target="_blank" rel="noopener noreferrer"
+            class="flex items-center gap-[4px] text-cta font-sans text-[24px] font-medium no-underline arrow-link"
+            (click)="closeMobileMenu()">
+            <span>{{ ctaLabel }}</span>
+            <img src="assets/icons/Frame.svg" class="flex-shrink-0 arrow-link-icon" alt="" aria-hidden="true" />
+          </a>
+        }
       </div>
     </div>
   </div>
