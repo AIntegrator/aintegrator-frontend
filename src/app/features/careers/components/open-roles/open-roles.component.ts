@@ -1,5 +1,9 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import {Component, Input, inject} from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LocalizedTextPipe } from '../../../../shared/pipes/localized-text.pipe';
+import { LocaleService } from '../../../../core/services/locale.service';
+import { getLocalizedValue } from '../../../../core/services/sanity.helpers';
+import { LocalizedText } from '../../../../shared/models/sanity.models';
 
 interface OpenRole {
     title: string;
@@ -11,18 +15,28 @@ interface OpenRole {
 @Component({
     selector: 'app-open-roles',
     standalone: true,
-    imports: [CommonModule],
+    imports: [CommonModule, LocalizedTextPipe],
     templateUrl: './open-roles.component.html',
     styleUrl: './open-roles.component.scss'
 })
-export class OpenRolesComponent implements OnChanges {
-    @Input() roles: OpenRole[] = [];
+export class OpenRolesComponent {
+    @Input() roles: any[] = [];
+    @Input() openRolesTitle: LocalizedText | undefined;
+    @Input() departmentFilterLabel: LocalizedText | undefined;
+    @Input() locationFilterLabel: LocalizedText | undefined;
+    @Input() applyButtonLabel: LocalizedText | undefined;
+    @Input() initiativeText: LocalizedText | string | undefined;
+    @Input() initiativeEmail: string | undefined;
+    @Input() noRolesText: LocalizedText | string | undefined;
 
-    filteredRoles: OpenRole[] = [];
+    private localeService = inject(LocaleService);
+    currentLocale = this.localeService.currentLocale;
+
+    filteredRoles: OpenRole[] = this.roles;
     readonly departmentOptions: string[] = ['Engineering', 'Design', 'Sales'];
     readonly locationOptions: string[] = ['Remote', 'Zurich'];
-    selectedDepartment: string = 'Role';
-    selectedLocation: string = 'Location';
+    selectedDepartment = 'Role';
+    selectedLocation = 'Location';
     isDepartmentOpen = false;
     isLocationOpen = false;
 
@@ -31,10 +45,19 @@ export class OpenRolesComponent implements OnChanges {
     }
 
     filterRoles() {
-        this.filteredRoles = this.roles.filter(role =>
-            (this.selectedDepartment === 'Role' || role.department === this.selectedDepartment) &&
-            (this.selectedLocation === 'Location' || role.location === this.selectedLocation)
-        );
+        this.filteredRoles = this.roles.filter(role => {
+            const departmentValue = this.getLocalizedValue(role.department);
+            const locationValue = this.getLocalizedValue(role.location);
+
+            return (this.selectedDepartment === 'Role' || departmentValue === this.selectedDepartment) &&
+                (this.selectedLocation === 'Location' || locationValue === this.selectedLocation);
+        });
+    }
+
+    getLocalizedValue(value: LocalizedText | string | undefined): string {
+        if (!value) return '';
+        if (typeof value === 'string') return value;
+        return getLocalizedValue(value as Record<string, string>, this.currentLocale(), 'de') || '';
     }
 
     toggleDepartmentDropdown() {

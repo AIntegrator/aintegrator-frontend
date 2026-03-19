@@ -2,10 +2,10 @@
     <div class="max-w-[758px] mx-auto text-center">
         <p
             class="text-[16px] md:text-[20px] font-medium md:font-normal text-ai-gray-850 leading-[1.5] m-0">
-            Wir freuen uns über Initiativbewerbungen an <br>
-            <a href="mailto:careers@aintegrator.ch"
+          {{ initiativeCTADescription | localizedText }}
+          <a [href]="'mailto:' + initiativeEmail"
                 class="text-[16px] md:text-[20px] font-medium text-ai-gray-900 underline">
-                careers@aintegrator.ch
+              {{ initiativeEmail }}
             </a>
         </p>
     </div>
